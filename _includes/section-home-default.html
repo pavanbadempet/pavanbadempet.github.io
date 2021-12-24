@@ -1,0 +1,29 @@
+{% assign content = site.data.home['started'] %}
+
+<!-- Section Started -->
+<div class="section started" id="section-started">
+    <!-- background -->
+    <div class="video-bg">
+        <div class="video-bg-mask"></div>
+        <div class="video-bg-texture" id="grained_container"></div>
+    </div>
+
+    <!-- started content -->
+    <div class="centrize full-width">
+        <div class="vertical-center">
+            <div class="started-content">
+                {% if content.title != '' %}
+                <h1 class="h-title">
+                    {{ content.title }}
+                </h1>
+                {% endif %}
+                <div class="h-subtitle typing-subtitle">
+                    {% for item in content.typed %}
+                    <p>{{ item }}</p>
+                    {% endfor %}
+                </div>
+                <span class="typed-subtitle"></span>
+            </div>
+        </div>
+    </div>
+</div>

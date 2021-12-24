@@ -1,0 +1,55 @@
+# Navigation configuration file
+##
+### to add or remove menu item
+### param "title" - Menu item name
+### param "url" - Menu item url
+### param "button" - if "1" activated button style for menu item
+
+main:
+  # Home
+  - title: "Home"
+    url: "/"
+    parent: 1
+    childs:
+        - title: "Home Personal"
+          url: "/"
+        - title: "Home Default"
+          url: "index-default/"
+        - title: "Home Slider"
+          url: "index-slider/"
+        - title: "Home Image"
+          url: "index-image/"
+        - title: "Home Video"
+          url: "index-video/"
+    
+  # Resume
+  - title: "Resume"
+    url: "resume/"
+    parent: 1
+    childs:
+        - title: "Resume Default"
+          url: "resume/"
+        - title: "Resume Image"
+          url: "resume-image/"
+  
+  # Portfolio
+  - title: "Portfolio"
+    url: "portfolio/"
+    parent: 0
+  
+  # Blog
+  - title: "Blog"
+    url: "blog/"
+    parent: 0
+  
+  # Contacts
+  - title: "Contacts"
+    url: "contacts/"
+    parent: 1
+    childs:
+        - title: "Contacts Default"
+          url: "contacts/"
+        - title: "Contacts Image"
+          url: "contacts-image/"
+        - title: "Contacts Map"
+          url: "contacts-map/"

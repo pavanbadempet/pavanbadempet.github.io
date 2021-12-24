@@ -1,0 +1,22 @@
+{% assign content = site.data.content['text'] %}
+
+<!-- Section Custom Text -->
+<div class="section custom-text" id="section-custom-text">
+    <div class="content">
+        {% if content.title != '' %}
+        <!-- title -->
+        <div class="title">
+            <div class="title_inner">{{ content.title }}</div>
+        </div>
+        {% endif %}
+
+        <!-- clients items -->
+        <div class="content-box">
+            <div class="single-post-text">
+                {{ content.text }}
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>

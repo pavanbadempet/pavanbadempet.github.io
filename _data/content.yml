@@ -1,0 +1,321 @@
+# Sections content configuration file
+## 
+### use navigation.yml file to re-order, delete or add section of each card
+### here you can find all content in all pre-build sections
+
+### About [ about ]
+about:
+  image: "assets/img/man2.jpg"
+  text: "<p>Hello! I’m Daniel Curry. Web designer from USA, California, San Francisco. I have rich experience in web site design and building, also I am good at wordpress. I love to talk with you about our unique.</p>"
+  list:
+    - label: "Age"
+      value: "24"
+
+    - label: "Residence"
+      value: "USA"
+
+    - label: "Freelance"
+      value: "Available"
+
+    - label: "Address"
+      value: "San Francisco"
+
+    - label: "Phone"
+      value: "+1 256 254 84 56"
+
+    - label: "E-mail"
+      value: "alejandroa@gmail.com"
+
+  download:
+    text: "Download CV"
+    link: "https://drive.google.com/"
+
+### Services [ services ]
+services:
+  title: "Services"
+  items:
+    - icon: "fas fa-code"
+      name: "Web Development"
+      text: "Modern and mobile-ready website that will help you reach all of your marketing."
+
+    - icon: "fas fa-music"
+      name: "Music Writing"
+      text: "Music copying, writing, creating, transcription, arranging and services."
+
+    - icon: "fas fa-ad"
+      name: "Advetising"
+      text: "Advertising services include television, radio, print, mail, and web apps."
+
+    - icon: "fas fa-gamepad"
+      name: "Game Development"
+      text: "Developing memorable and unique mobile android, ios and video games."
+
+    - icon: "fas fa-camera"
+      name: "Photography"
+      text: "Our in-house photography services team made up of professional photographers."
+
+    - icon: "fas fa-mobile-alt"
+      name: "Android Application"
+      text: "Games, playing music, handle network transactions, interacting content etc."
+      
+### Pricing [ pricing ]
+pricing:
+  title: "Pricing"
+  items:
+    - icon: "fas fa-star"
+      name: "Basic"
+      price: "39"
+      price_before: "$"
+      price_after: "hour"
+      list:
+        - value: "Web Development"
+          disable: "no"
+        - value: "Advetising"
+          disable: "no"
+        - value: "Game Development"
+          disable: "no"
+        - value: "Music Writing"
+          disable: "yes"
+        - value: "Photography"
+          disable: "yes"
+      button: "Buy Now"
+      link: "contact/"
+          
+    - icon: "fas fa-rocket"
+      name: "Premium"
+      price: "59"
+      price_before: "$"
+      price_after: "hour"
+      list:
+        - value: "Web Development"
+          disable: "no"
+        - value: "Advetising"
+          disable: "no"
+        - value: "Game Development"
+          disable: "no"
+        - value: "Music Writing"
+          disable: "no"
+        - value: "Photography"
+          disable: "no"
+      button: "Buy Now"
+      link: "contact/"
+
+### Resume [ resume ]
+resume:
+  experience:
+    title: "Experience"
+    items:
+      - year: "2013 - Present"
+        name: "Art Director - Facebook Inc"
+        text: "Collaborate with creative and development teams on the execution of ideas."
+
+      - year: "2011 - 2012"
+        name: "Front-end Developer - Google Inc"
+        text: "Monitored technical aspects of the front-end delivery for several projects."
+
+      - year: "2009 - 2010"
+        name: "Senior Developer - Abc Inc"
+        text: "Optimize website performance using latest technology."
+        
+  education:
+    title: "Education"
+    items:
+      - year: "2006 - 2008"
+        name: "Art University of New York"
+        text: "Bachelor's Degree in Computer Science ABC Technical Institute, Jefferson, Missouri"
+
+      - year: "2005 - 2006"
+        name: "Programming Course"
+        text: "Coursework - Git, WordPress, Javascript, iOS, Android."
+
+      - year: "2004 - 2005"
+        name: "Web Design Course"
+        text: "Converted Photoshop layouts to web pages using HTML, CSS, and JavaScript"
+
+### Skills [ skills ]
+skills:
+  columns:
+    - type: "default" #skills progress type - default, dotted, circles, list
+      title: "Design Skills"
+      items:
+        - label: "Web Design"
+          value: "70" #0-100 progress in %
+
+        - label: "Illustrations"
+          value: "90" #0-100 progress in %
+
+        - label: "Photoshop"
+          value: "75" #0-100 progress in %
+
+        - label: "Graphic Design"
+          value: "80" #0-100 progress in %
+
+    - type: "dotted" #skills progress type - default, dotted, circles, list
+      title: "Languages Skills"
+      items:
+        - label: "English"
+          value: "90" #0-100 progress in %
+
+        - label: "German"
+          value: "70" #0-100 progress in %
+
+        - label: "Italian"
+          value: "55" #0-100 progress in %
+
+        - label: "French"
+          value: "85" #0-100 progress in %
+
+    - type: "circles" #skills progress type - default, dotted, circles, list
+      title: "Coding Skills"
+      items:
+        - label: "WordPress"
+          value: "95" #0-100 progress in %
+
+        - label: "PHP / MYSQL"
+          value: "75" #0-100 progress in %
+
+        - label: "Angular / JavaScript"
+          value: "85" #0-100 progress in %
+
+        - label: "HTML / CSS"
+          value: "90" #0-100 progress in %
+
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Knowledge"
+      items:
+        - label: "Website hosting"
+          value: "" #0-100 progress in %
+
+        - label: "iOS and android apps"
+          value: "" #0-100 progress in %
+
+        - label: "Create logo design"
+          value: "" #0-100 progress in %
+
+        - label: "Design for print"
+          value: "" #0-100 progress in %
+
+        - label: "Modern and mobile-ready"
+          value: "" #0-100 progress in %
+
+        - label: "Advertising services include"
+          value: "" #0-100 progress in %
+
+        - label: "Graphics and animations"
+          value: "" #0-100 progress in %
+
+        - label: "Search engine marketing"
+          value: "" #0-100 progress in %
+
+### Facts [ facts ]
+facts:
+  title: "Interests"
+  items:
+    - icon: "fas fa-baseball-ball"
+      name: "Basketball"
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+    - icon: "fas fa-campground"
+      name: "Camping"
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+    - icon: "fas fa-chess-knight"
+      name: "Chess"
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+    - icon: "fas fa-headphones"
+      name: "Music"
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      
+### Team [ team ]
+team:
+  title: "Our Team"
+  items:
+    - image: "assets/img/team/team1.jpg"
+      name: "Alejandro Abeyta"
+      role: "Web Developer"
+      social:
+        - url: "https://www.pinterest.com/"
+          icon: "fab fa-pinterest"
+        - url: "https://www.instagram.com/"
+          icon: "fab fa-instagram"
+        - url: "https://dribbble.com/"
+          icon: "fab fa-dribbble"
+          
+    - image: "assets/img/team/team2.jpg"
+      name: "Peter Green"
+      role: "Back-end Developer"
+      social:
+        - url: "https://www.pinterest.com/"
+          icon: "fab fa-pinterest"
+        - url: "https://www.instagram.com/"
+          icon: "fab fa-instagram"
+        - url: "https://dribbble.com/"
+          icon: "fab fa-dribbble"
+          
+### Testimonials [ testimonials ]
+testimonials:
+  title: "Testimonials"
+  items:
+    - image: "assets/img/testimonials/rev1.jpg"
+      name: "Helen Floyd"
+      role: "Art Director"
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      
+    - image: "assets/img/testimonials/rev1.jpg"
+      name: "Helen Floyd"
+      role: "Art Director"
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+### Clients [ clients ]
+clients:
+  title: "Clients"
+  items:
+    - url: "https://www.google.com"
+      image: "assets/img/clients/client1.png"
+
+    - url: "https://www.google.com"
+      image: "assets/img/clients/client2.png"
+
+    - url: "https://www.google.com"
+      image: "assets/img/clients/client3.png"
+
+    - url: "https://www.google.com"
+      image: "assets/img/clients/client4.png"
+      
+### Custom Text [ text ]
+text:
+  title: "Custom Text"
+  text: "
+        <p>
+            Now there is more fashion. There is no so-called trends. Now chase after anything not necessary — nor for fashionable color nor the shape, nor for style. Think about the content that you want to invest in a created object, and only then will form. The thing is your spirit. A spirit unlike forms hard copy.
+        </p>
+        <p>
+            Here choose yourself like that, without any looking back, do your personal, home, small fashion, and all will be well.
+        </p>
+        "
+
+### Contact Info [ contacts-info ]
+contacts_info:
+  title: "Contacts Info"
+  list:
+    - label: "Phone"
+      icon: "fas fa-phone"
+      value: "+ (231) 456 67 89"
+
+    - label: "Email"
+      icon:  "fas fa-envelope"
+      value: "<a href='mailto:steve-pearson@gmail.com'>steve-pearson@gmail.com</a>"
+
+    - label: "Address"
+      icon: "fas fa-map-marker-alt"
+      value: "2621 W Pico Blvd, Los Angeles"
+    
+    - label: "Freelance Available"
+      icon: "fas fa-user-tie"
+      value: "I am available for Freelance hire"
+
+### Contact Form [ contacts-form ]
+contacts_form:
+  title: "Contact Form"
+

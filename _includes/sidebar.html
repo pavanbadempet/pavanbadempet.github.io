@@ -1,0 +1,79 @@
+{% assign ui_text = site.data.ui-text['ui_text'] %}
+
+<div class="content-sidebar">
+    <aside id="secondary" class="widget-area">
+        <div id="search" class="widget widget_search">
+            <form class="search-form" method="GET" action="{{ '/search.html' | relative_url }}"> 
+                <div class="search-form-label"> 
+                    <input type="search" class="search-field" id="search-input" placeholder="{{ ui_text.search }}" value="" /> 
+                    <input type="submit" class="search-submit" value="{{ ui_text.search }}" />
+                </div> 
+                <ul id="results-container"></ul>
+            </form>
+        </div>
+        
+        {% if site.related_posts.size %}
+        <section class="widget widget_recent_entries">
+            <h2 class="widget-title">{{ ui_text.recent_posts }}</h2>
+            <ul>
+                {% for post in site.related_posts limit: 4 %}
+                <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+        
+        {% if site.posts.size %}
+        <section class="widget widget_recent_entries">
+            <h2 class="widget-title">{{ ui_text.latest_posts }}</h2>
+            <ul>
+                {% for post in site.posts limit: 4 %}
+                <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        {% if site.categories.size %}
+        <section class="widget widget_categories">
+            <h2 class="widget-title">{{ ui_text.categories }}</h2>
+            <ul>
+            {% assign categories_list = site.categories %}
+              {% if categories_list.first[0] == null %}
+                {% for category in categories_list %}
+                  <li><a href="{{ '/categories' | relative_url }}/{{ category | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }}</a> <small>({{ site.tags[category].size }})</small></li>
+                {% endfor %}
+              {% else %}
+                {% for category in categories_list %}
+                  <li><a href="{{ '/categories' | relative_url }}/{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }}</a> <small>({{ category[1].size }})</small></li>
+                {% endfor %}
+              {% endif %}
+            {% assign categories_list = nil %}
+            </ul>
+        </section>
+        {% endif %}
+
+        {% if site.tags.size %}
+        <section class="widget widget_tags">
+            <h2 class="widget-title">{{ ui_text.tags }}</h2>
+            <ul>
+            {% assign tags_list = site.tags %}
+              {% if tags_list.first[0] == null %}
+                {% for category in tags_list %}
+                  <li><a href="{{ '/tags' | relative_url }}/{{ category | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }}</a> <small>({{ site.tags[category].size }})</small></li>
+                {% endfor %}
+              {% else %}
+                {% for category in tags_list %}
+                  <li><a href="{{ '/tags' | relative_url }}/{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }}</a> <small>({{ category[1].size }})</small></li>
+                {% endfor %}
+              {% endif %}
+            {% assign tags_list = nil %}
+            </ul>
+        </section>
+        {% endif %}
+    </aside>
+</div>

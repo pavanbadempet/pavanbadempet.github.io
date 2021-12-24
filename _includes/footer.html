@@ -1,0 +1,21 @@
+{% assign footer = site.data.footer['main'] %}
+{% assign ui_text = site.data.ui-text['ui_text'] %}
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="copy">
+        <p>{{ footer.text1 }}</p>
+        <p>{{ footer.text2 }}</p>
+    </div>
+    <div class="soc-box">
+        <div class="follow-label">{{ ui_text.follow_me }}</div>
+        <div class="soc">
+            {% for link in footer.social %}
+            <a target="_blank" href="{{ link.url }}" title="{{ link.title }}">
+                <span class="icon {{ link.icon }}"></span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="clear"></div>
+</footer>

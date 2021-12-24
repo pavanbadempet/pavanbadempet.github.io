@@ -1,0 +1,51 @@
+{% assign content = site.data.home['started-slider'] %}
+
+<!-- Section Started -->
+<div class="section started" id="section-started">
+
+    <!-- background -->
+    <div class="video-bg">
+        <div class="video-bg-mask"></div>
+        <div class="video-bg-texture" id="grained_container"></div>
+
+        <!-- slider -->
+        <div class="started-carousel">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% for img in content.images %}
+                    <div class="swiper-slide{% if img.index == 1 %} first{% endif %}">
+                        <div class="main-img" style="background-image: url({{ img | relative_url }});"></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- slider navigation -->
+    <div class="swiper-nav">
+        <a class="prev swiper-button-prev fas fa-long-arrow-alt-left"></a>
+        <a class="next swiper-button-next fas fa-long-arrow-alt-right"></a>
+    </div>
+
+    <!-- started content -->
+    <div class="centrize full-width">
+        <div class="vertical-center">
+            <div class="started-content">
+                {% if content.title != '' %}
+                <h1 class="h-title">
+                    {{ content.title }}
+                </h1>
+                {% endif %}
+                <div class="h-subtitle typing-subtitle">
+                    {% for item in content.typed %}
+                    <p>{{ item }}</p>
+                    {% endfor %}
+                </div>
+                <span class="typed-subtitle"></span>
+            </div>
+        </div>
+    </div>
+
+</div>

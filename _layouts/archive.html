@@ -1,0 +1,84 @@
+---
+layout: default
+---
+
+{% assign ui_text = site.data.ui-text['ui_text'] %}
+
+<!-- Section Started -->
+<div class="section started section-title" id="section-started">
+
+    <!-- background -->
+    <div class="video-bg">
+        <div class="video-bg-mask"></div>
+        <div class="video-bg-texture" id="grained_container"></div>
+    </div>
+
+    <!-- started content -->
+    <div class="centrize full-width">
+        <div class="vertical-center">
+            <div class="started-content">
+                <h1 class="h-title">{{ ui_text.archive }}: {{ page.title }}</h1>
+                <div class="h-subtitles">
+                    <div class="h-subtitle typing-bread">
+                        <p class="breadcrumbs">
+                            <a href="{{ site.url }}">{{ ui_text.home }}</a> / {{ page.title }}
+                        </p>
+                    </div>
+                    <span class="typed-bread"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- mosue button -->
+    <a href="#" class="mouse_btn" style="display: none;"><span class="icon fas fa-chevron-down"></span></a>
+
+</div>
+
+<div class="section blog">
+    <div class="content">
+        <div class="title"><div class="title_inner">{{ ui_text.latest_posts }}</div></div>
+        
+        <div class="blog-items">
+            {% for post in page.posts %}
+            <div class="blog-col">
+                <div class="blog-item content-box">
+                    <div class="post">
+                        <div class="image"> 
+                            <a class="post-thumbnail" href="{{ post.url }}"> 
+                                {% if post.image != nil %}
+                                <img src="{{ post.image | relative_url }}" class="wp-post-image" alt="{{ post.title }}" />
+                                {% endif %}
+                                <span class="info"> 
+                                    <span class="centrize full-width"> 
+                                        <span class="vertical-center"> 
+                                            <span class="icon fas fa-plus"></span> 
+                                        </span> 
+                                    </span> 
+                                </span> 
+                            </a>
+                        </div>
+                        <div class="desc">
+                            <div class="date"> 
+                                {{ post.date | date: site.date_format }}
+                            </div> 
+                            <!--<div class="categories">{{ post.categories | join: ", " }}</div>-->
+                            <a href="{{ post.url }}" class="name">{{ post.title }}</a>
+                            <div class="single-post-text">
+                                {{ post.excerpt }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+
+            
+        </div>
+        
+        {%- include sidebar.html -%}
+        
+        <div class="clear"></div>
+    </div>
+</div>

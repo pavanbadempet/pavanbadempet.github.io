@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+{% assign ui_text = site.data.ui-text['ui_text'] %}
+
+<!-- Section Started -->
+<div class="section started section-title" id="section-post">
+
+    <!-- background -->
+    <div class="video-bg">
+        <div class="video-bg-mask"></div>
+        <div class="video-bg-texture" id="grained_container"></div>
+    </div>
+
+    <!-- started content -->
+    <div class="centrize full-width">
+        <div class="vertical-center">
+            <div class="started-content">
+                <h1 class="h-title">{{ page.title }}</h1>
+                <div class="h-subtitles">
+                    <div class="h-subtitle typing-bread">
+                        <p class="breadcrumbs">
+                            {% if page.subtitle == '' or page.subtitle == nil %}
+                            <a href="{{ site.url }}">{{ ui_text.home }}</a> / <a href="{{ page.url }}">{{ page.title }}</a>
+                            {% else %}
+                                {{ page.subtitle }}
+                            {% endif %}
+                        </p>
+                    </div>
+                    <span class="typed-bread"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% if page.content != '' %}
+    <!-- mosue button -->
+    <a href="#" class="mouse_btn" style="display: none;"><span class="icon fas fa-chevron-down"></span></a>
+    {% endif %}
+</div>
+
+{% if page.content != '' %}
+<div class="section blog">
+    <div class="content">
+        <div class="post">
+            <div class="content-box">
+                <div class="single-post-text">
+                    {{ page.content }}
+                </div>
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+{% endif %}

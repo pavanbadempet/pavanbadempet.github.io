@@ -1,0 +1,34 @@
+{% assign content = site.data.content['about'] %}
+
+<!-- Section About -->
+<div class="section about" id="section-about">
+    <div class="content content-box">
+        {% if content.image != '' %}
+        <!-- image -->
+        <div class="image">
+            <img src="{{ content.image | relative_url }}" alt="" />
+        </div>
+        {% endif %}
+
+        <!-- desc -->
+        <div class="desc">
+            {{ content.text }}
+            
+            <div class="info-list">
+                <ul>
+                    {% for item in content.list %}
+					<li><strong>{{ item.label }}:</strong> {{ item.value }}</li>
+					{% endfor %}
+                </ul>
+            </div>
+            <div class="bts">
+                <a href="{{ content.download.link }}" class="btn hover-animated">
+                    <span class="circle"></span>
+                    <span class="lnk">{{ content.download.text }}</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>

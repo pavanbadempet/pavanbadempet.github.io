@@ -1,0 +1,45 @@
+{% assign content = site.data.content['testimonials'] %}
+
+<!-- Section Testimonials -->
+<div class="section testimonials" id="section-testimonials">
+    <div class="content">
+        {% if content.title != '' %}
+        <!-- title -->
+        <div class="title">
+            <div class="title_inner">{{ content.title }}</div>
+        </div>
+        {% endif %}
+
+        <!-- testimonials items -->
+        <div class="reviews-carousel">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% for item in content.items %}
+                    <div class="swiper-slide">
+                        <div class="reviews-item content-box">
+                            <div class="image">
+                                <img src="{{ item.image | relative_url }}" alt="">
+                            </div>
+                            <div class="info">
+                                <div class="name">{{ item.name }}</div>
+                                <div class="company">{{ item.role }}</div>
+                            </div>
+                            <div class="text">
+                                {{ item.text }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- navigation -->
+            <div class="swiper-nav">
+                <a class="prev swiper-button-prev fas fa-long-arrow-alt-left"></a>
+                <a class="next swiper-button-next fas fa-long-arrow-alt-right"></a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
