@@ -1,0 +1,29 @@
+{% assign content = site.data.content['contacts_info'] %}
+
+<!-- Section Contacts Info -->
+<div class="section contacts" id="section-contacts-info">
+    <div class="content">
+        {% if content.title != '' %}
+        <!-- title -->
+        <div class="title">
+            <div class="title_inner">{{ content.title }}</div>
+        </div>
+        {% endif %}
+        
+        
+        <!-- contacts items -->
+        <div class="service-items">
+            {% for item in content.list %}
+            <div class="service-col">
+                <div class="service-item content-box">
+                    <div class="icon"><span class="{{ item.icon }}"></span></div>
+                    <div class="name">{{ item.label }}</div>
+                    <div class="text">{{ item.value }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>

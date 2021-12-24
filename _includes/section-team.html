@@ -1,0 +1,38 @@
+{% assign content = site.data.content['team'] %}
+
+<!-- Section Team -->
+<div class="section team" id="section-team">
+    <div class="content">
+        {% if content.title != '' %}
+        <!-- title -->
+        <div class="title">
+            <div class="title_inner">{{ content.title }}</div>
+        </div>
+        {% endif %}
+        
+        <!-- team items -->
+        <div class="team-items">
+            {% for item in content.items %}
+            <div class="team-col">
+                <div class="team-item content-box">
+                    <div class="image">
+                        <img src="{{ item.image | relative_url }}" alt="" />
+                    </div>
+                    <div class="desc">
+                        <div class="name">{{ item.name }}</div>
+                        <div class="category">{{ item.role }}</div>
+                        <div class="soc">
+                            {% for link in item.social %}
+                            <a target="_blank" href="{{ link.url }}">
+                                <span class="icon {{ link.icon }}"></span>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>

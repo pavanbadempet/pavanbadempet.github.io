@@ -1,0 +1,40 @@
+{% assign content = site.data.content['contacts_form'] %}
+{% assign ui_text = site.data.ui-text['ui_text'] %}
+
+<!-- Section Contacts Form -->
+<div class="section contacts" id="section-contacts">
+    <div class="content">
+        {% if content.title != '' %}
+        <!-- title -->
+        <div class="title">
+            <div class="title_inner">{{ content.title }}</div>
+        </div>
+        {% endif %}
+
+        <!-- form -->
+        <div class="contact_form content-box">
+            <form id="cform" action="https://formsubmit.io/send/{{ site.formsubmit_email }}" method="POST">
+                <div class="group-val">
+                    <input type="text" name="name" placeholder="{{ ui_text.full_name }}" id="name" />
+                </div>
+                <div class="group-val">
+                    <input type="email" name="email" placeholder="{{ ui_text.email_address }}" id="email" />
+                </div>
+                <div class="group-val ct-gr">
+                    <textarea name="message" placeholder="{{ ui_text.your_message }}" id="message"></textarea>
+                </div>
+                <div class="group-bts">
+                    <button type="button" class="btn hover-animated" onclick="$('#cform').submit(); return false;">
+                        <span class="circle"></span>
+                        <span class="lnk">{{ ui_text.send_message }}</span>
+                    </button>
+                </div>
+            </form>
+            <div class="alert-success">
+                <p>Thanks, your message is sent successfully.</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+</div>

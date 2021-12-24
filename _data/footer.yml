@@ -1,0 +1,18 @@
+# Footer configuration file
+##
+### param "social" - Social Links, icon class name you can find here https://ionicons.com/v2/
+### param "copy" - Copyright text
+
+main:
+  social:
+    - title: "Pinterest"
+      icon: "fab fa-pinterest"
+      url: "https://www.pinterest.com/"
+    - title: "Instagram"
+      icon: "fab fa-instagram"
+      url: "https://instagram.com/"
+    - title: "Dribbble"
+      icon: "fab fa-dribbble"
+      url: "https://dribbble.com/"
+  text1: "E: alejandroa@gmail.com"
+  text2: "T: +1 (234) 567 80 98"

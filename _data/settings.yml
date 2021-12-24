@@ -1,0 +1,30 @@
+# Theme Settings Configuration File
+##
+### use settings.yml file for configure colors, ui, rtl, sidebar, animation options
+
+### Main Settings
+settings:
+  logo_text: "Alejandro <strong>Abeyta</strong>"
+  logo_hover_text: "Download <strong>CV</strong>"
+  quick_colors: "" # select quick color schemes: "beige", "blue", "brown", "green_light", "green", "orange", "purple", "red", "yellow_light", "yellow". If empty colors taken from _sass/ryancv/settings.scss
+
+### Portfolio Filters Settings
+portfolio:
+  filters:
+    - name: "Video"
+      slug: "f-video"
+
+    - name: "Music"
+      slug: "f-music"
+
+    - name: "Links"
+      slug: "f-link"
+
+    - name: "Image"
+      slug: "f-image"
+
+    - name: "Gallery"
+      slug: "f-gallery"
+
+    - name: "Content"
+      slug: "f-content"
