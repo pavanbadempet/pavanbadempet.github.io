@@ -9,18 +9,7 @@ main:
   # Home
   - title: "Home"
     url: "/"
-    parent: 1
-    childs:
-        - title: "Home Personal"
-          url: "/"
-        - title: "Home Default"
-          url: "index-default/"
-        - title: "Home Slider"
-          url: "index-slider/"
-        - title: "Home Image"
-          url: "index-image/"
-        - title: "Home Video"
-          url: "index-video/"
+    parent: 0
     
   # Resume
   - title: "Resume"
