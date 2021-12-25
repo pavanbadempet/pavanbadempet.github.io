@@ -35,7 +35,7 @@ about:
 services:
   title: "Services"
   items:
-    - icon: "fas fa-code"
+    - image: "assets/img/man2.jpg"
       name: "Badge of completion for the Engineering: Undergraduate & Masters Asia Virtual Experience Program"
       text: "Microsoft"
 
