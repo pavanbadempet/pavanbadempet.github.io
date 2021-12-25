@@ -33,9 +33,9 @@ about:
 
 ### Services [ services ]
 services:
-  title: "Services"
+  title: "Certifications"
   items:
-    - image: "assets/img/man2.jpg"
+    - icon: "Fab Fa-Microsoft"
       name: "Badge of completion for the Engineering: Undergraduate & Masters Asia Virtual Experience Program"
       text: "Microsoft"
 
