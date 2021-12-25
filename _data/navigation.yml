@@ -10,6 +10,17 @@ main:
   - title: "Home"
     url: "/"
     parent: 0
+    childs:
+        - title: "Home Personal"
+          url: "/"
+        - title: "Home Default"
+          url: "index-default/"
+        - title: "Home Slider"
+          url: "index-slider/"
+        - title: "Home Image"
+          url: "index-image/"
+        - title: "Home Video"
+          url: "index-video/"
     
   # Resume
   - title: "Resume"
@@ -31,3 +42,10 @@ main:
   - title: "Contacts"
     url: "contacts/"
     parent: 0
+    childs:
+        - title: "Contacts Default"
+          url: "contacts/"
+        - title: "Contacts Image"
+          url: "contacts-image/"
+        - title: "Contacts Map"
+          url: "contacts-map/"
