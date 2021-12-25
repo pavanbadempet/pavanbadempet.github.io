@@ -205,12 +205,32 @@ facts:
       text: "Music takes me to Nirvana"
 
 ### Team [ team ]
+### Team [ team ]
 team:
-  title: "Volunteer Experience"
+  title: "Our Team"
   items:
-      name: "Fundraising"
-      role: "I Volunteered with Muskurahat Foundation, an NGO based in Mumbai. Where I was involved in Project KEYtaab an initiative by Muskurahat Foundation, aiming at providing the underprivileged children from Shelter Homes and orphanages with the holistic development that they lack."
-      
+    - image: "assets/img/team/team1.jpg"
+      name: "Alejandro Abeyta"
+      role: "Web Developer"
+      social:
+        - url: "https://www.pinterest.com/"
+          icon: "fab fa-pinterest"
+        - url: "https://www.instagram.com/"
+          icon: "fab fa-instagram"
+        - url: "https://dribbble.com/"
+          icon: "fab fa-dribbble"
+          
+    - image: "assets/img/team/team2.jpg"
+      name: "Peter Green"
+      role: "Back-end Developer"
+      social:
+        - url: "https://www.pinterest.com/"
+          icon: "fab fa-pinterest"
+        - url: "https://www.instagram.com/"
+          icon: "fab fa-instagram"
+        - url: "https://dribbble.com/"
+          icon: "fab fa-dribbble"
+                
 ### Contact Info [ contacts-info ]
 contacts_info:
   title: "Contacts Info"
