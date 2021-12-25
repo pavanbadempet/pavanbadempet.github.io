@@ -220,16 +220,7 @@ team:
         - url: "https://dribbble.com/"
           icon: "fab fa-dribbble"
           
-    - image: "assets/img/team/team2.jpg"
-      name: "Peter Green"
-      role: "Back-end Developer"
-      social:
-        - url: "https://www.pinterest.com/"
-          icon: "fab fa-pinterest"
-        - url: "https://www.instagram.com/"
-          icon: "fab fa-instagram"
-        - url: "https://dribbble.com/"
-          icon: "fab fa-dribbble"
+    - 
                 
 ### Contact Info [ contacts-info ]
 contacts_info:
