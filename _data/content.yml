@@ -35,37 +35,41 @@ about:
 services:
   title: "Certifications"
   items:
-    - icon: "Fab Fa-Microsoft"
+    - 
       name: "Badge of completion for the Engineering: Undergraduate & Masters Asia Virtual Experience Program"
       text: "Microsoft"
 
-    - icon: "fas fa-analytics"
+    - 
       name: "Developing Machine Learning Applications"
       text: "Amazon Web Services"
 
-    - icon: "fas fa-ad"
+    - 
       name: "Elements of AI"
       text: "University of Helsinki"
 
-    - icon: "fas fa-gamepad"
+    - 
       name: "IBM Blockchain Foundation Developer V2"
       text: "IBM"
 
-    - icon: "fas fa-camera"
+    - 
       name: "Python for Everybody Specialization"
       text: "Coursera"
 
-    - icon: "fas fa-mobile-alt"
+    - 
       name: "ICSI | Certified Network Security Specialist (CNSS)"
       text: "International CyberSecurity Institute"
 
-    - icon: "fas fa-ad"
+    - 
       name: "Technology Consulting Virtual Internship"
       text: "Forage"      
 
-    - icon: "fas fa-ad"
+    - 
       name: "Advanced Google Analytics"
       text: "Google"
+
+    - 
+      name: "Financial Markets"
+      text: "Coursera"
 
 ### Resume [ resume ]
 resume:
