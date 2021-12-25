@@ -58,79 +58,34 @@ services:
       name: "Android Application"
       text: "Games, playing music, handle network transactions, interacting content etc."
       
-### Pricing [ pricing ]
-pricing:
-  title: "Pricing"
-  items:
-    - icon: "fas fa-star"
-      name: "Basic"
-      price: "39"
-      price_before: "$"
-      price_after: "hour"
-      list:
-        - value: "Web Development"
-          disable: "no"
-        - value: "Advetising"
-          disable: "no"
-        - value: "Game Development"
-          disable: "no"
-        - value: "Music Writing"
-          disable: "yes"
-        - value: "Photography"
-          disable: "yes"
-      button: "Buy Now"
-      link: "contact/"
-          
-    - icon: "fas fa-rocket"
-      name: "Premium"
-      price: "59"
-      price_before: "$"
-      price_after: "hour"
-      list:
-        - value: "Web Development"
-          disable: "no"
-        - value: "Advetising"
-          disable: "no"
-        - value: "Game Development"
-          disable: "no"
-        - value: "Music Writing"
-          disable: "no"
-        - value: "Photography"
-          disable: "no"
-      button: "Buy Now"
-      link: "contact/"
 
 ### Resume [ resume ]
 resume:
   experience:
     title: "Experience"
     items:
-      - year: "2013 - Present"
-        name: "Art Director - Facebook Inc"
-        text: "Collaborate with creative and development teams on the execution of ideas."
-
       - year: "2011 - 2012"
-        name: "Front-end Developer - Google Inc"
-        text: "Monitored technical aspects of the front-end delivery for several projects."
+        name: "Campus Ambassador - International Model United Nations"
+        text: "Promted and brought awarness about the organization"
 
-      - year: "2009 - 2010"
-        name: "Senior Developer - Abc Inc"
-        text: "Optimize website performance using latest technology."
+      - year: "2014 - 2017"
+        name: "Co-founder - Pixspark"
+        text: "Co-founded Pixspark and helped in the developement of Codegeek, Fordose, X3 and more."
         
   education:
     title: "Education"
     items:
-      - year: "2006 - 2008"
-        name: "Art University of New York"
-        text: "Bachelor's Degree in Computer Science ABC Technical Institute, Jefferson, Missouri"
+      - year: "2019 - 2021"
+        name: "Guru Nanak Institutions Technical Campus"
+        text: "Bachelor of Technology in Computer Science"
 
-      - year: "2005 - 2006"
-        name: "Programming Course"
-        text: "Coursework - Git, WordPress, Javascript, iOS, Android."
+      - year: "2017 - 2019"
+        name: "Sri Gayatri Junior College"
+        text: "Intermediate in Maths, Physics and Chemistry"
 
-      - year: "2004 - 2005"
-        name: "Web Design Course"
-        text: "Converted Photoshop layouts to web pages using HTML, CSS, and JavaScript"
+      - year: "2016 - 2017"
+        name: "HAL Secondary School"
+        text: "Class 10"
 
 ### Skills [ skills ]
 skills:
@@ -138,16 +93,16 @@ skills:
     - type: "default" #skills progress type - default, dotted, circles, list
       title: "Design Skills"
       items:
-        - label: "Web Design"
+        - label: "Data Science"
           value: "70" #0-100 progress in %
 
-        - label: "Illustrations"
+        - label: "Web Development"
           value: "90" #0-100 progress in %
 
-        - label: "Photoshop"
+        - label: "Application Development"
           value: "75" #0-100 progress in %
 
-        - label: "Graphic Design"
+        - label: "Writing"
           value: "80" #0-100 progress in %
 
     - type: "dotted" #skills progress type - default, dotted, circles, list
@@ -156,55 +111,65 @@ skills:
         - label: "English"
           value: "90" #0-100 progress in %
 
+        - label: "Telugu"
+          value: "100" #0-100 progress in %
+
+        - label: "Hindi"
+          value: "75" #0-100 progress in %
+
         - label: "German"
-          value: "70" #0-100 progress in %
-
-        - label: "Italian"
-          value: "55" #0-100 progress in %
-
-        - label: "French"
-          value: "85" #0-100 progress in %
+          value: "25" #0-100 progress in %
 
     - type: "circles" #skills progress type - default, dotted, circles, list
       title: "Coding Skills"
       items:
-        - label: "WordPress"
+        - label: "C"
           value: "95" #0-100 progress in %
 
-        - label: "PHP / MYSQL"
-          value: "75" #0-100 progress in %
+        - label: "Python"
+          value: "90" #0-100 progress in %
 
-        - label: "Angular / JavaScript"
+        - label: "Java"
           value: "85" #0-100 progress in %
+
+        - label: "R"
+          value: "70" #0-100 progress in %
 
         - label: "HTML / CSS"
           value: "90" #0-100 progress in %
+          
+        - label: "JavaScript"
+          value: "60" #0-100 progress in %
+          
+        - label: "PHP"
+          value: "50" #0-100 progress in %
+          
 
     - type: "list" #skills progress type - default, dotted, circles, list
       title: "Knowledge"
       items:
-        - label: "Website hosting"
+        - label: "Data Science"
           value: "" #0-100 progress in %
 
-        - label: "iOS and android apps"
+        - label: "Web Development"
           value: "" #0-100 progress in %
 
-        - label: "Create logo design"
+        - label: "Mobile Application Development"
           value: "" #0-100 progress in %
 
-        - label: "Design for print"
+        - label: "Content Writing"
           value: "" #0-100 progress in %
 
-        - label: "Modern and mobile-ready"
+        - label: "Leadership"
           value: "" #0-100 progress in %
 
-        - label: "Advertising services include"
+        - label: "Graphics & Animation"
           value: "" #0-100 progress in %
 
-        - label: "Graphics and animations"
+        - label: "Tactics"
           value: "" #0-100 progress in %
 
-        - label: "Search engine marketing"
+        - label: "Psychology"
           value: "" #0-100 progress in %
 
 ### Facts [ facts ]
@@ -212,89 +177,21 @@ facts:
   title: "Interests"
   items:
     - icon: "fas fa-baseball-ball"
-      name: "Basketball"
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      name: "Cricket"
+      text: "I love playing and watching cricket"
 
     - icon: "fas fa-campground"
-      name: "Camping"
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      name: "Logic"
+      text: "Undying facination for logic problems"
 
     - icon: "fas fa-chess-knight"
-      name: "Chess"
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      name: "Tactics"
+      text: "A huge fan of Football and try to analyze and emulate tactics"
 
     - icon: "fas fa-headphones"
       name: "Music"
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      text: "Music takes me to Nirvana"
       
-### Team [ team ]
-team:
-  title: "Our Team"
-  items:
-    - image: "assets/img/team/team1.jpg"
-      name: "Alejandro Abeyta"
-      role: "Web Developer"
-      social:
-        - url: "https://www.pinterest.com/"
-          icon: "fab fa-pinterest"
-        - url: "https://www.instagram.com/"
-          icon: "fab fa-instagram"
-        - url: "https://dribbble.com/"
-          icon: "fab fa-dribbble"
-          
-    - image: "assets/img/team/team2.jpg"
-      name: "Peter Green"
-      role: "Back-end Developer"
-      social:
-        - url: "https://www.pinterest.com/"
-          icon: "fab fa-pinterest"
-        - url: "https://www.instagram.com/"
-          icon: "fab fa-instagram"
-        - url: "https://dribbble.com/"
-          icon: "fab fa-dribbble"
-          
-### Testimonials [ testimonials ]
-testimonials:
-  title: "Testimonials"
-  items:
-    - image: "assets/img/testimonials/rev1.jpg"
-      name: "Helen Floyd"
-      role: "Art Director"
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      
-    - image: "assets/img/testimonials/rev1.jpg"
-      name: "Helen Floyd"
-      role: "Art Director"
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-
-### Clients [ clients ]
-clients:
-  title: "Clients"
-  items:
-    - url: "https://www.google.com"
-      image: "assets/img/clients/client1.png"
-
-    - url: "https://www.google.com"
-      image: "assets/img/clients/client2.png"
-
-    - url: "https://www.google.com"
-      image: "assets/img/clients/client3.png"
-
-    - url: "https://www.google.com"
-      image: "assets/img/clients/client4.png"
-      
-### Custom Text [ text ]
-text:
-  title: "Custom Text"
-  text: "
-        <p>
-            Now there is more fashion. There is no so-called trends. Now chase after anything not necessary — nor for fashionable color nor the shape, nor for style. Think about the content that you want to invest in a created object, and only then will form. The thing is your spirit. A spirit unlike forms hard copy.
-        </p>
-        <p>
-            Here choose yourself like that, without any looking back, do your personal, home, small fashion, and all will be well.
-        </p>
-        "
-
 ### Contact Info [ contacts-info ]
 contacts_info:
   title: "Contacts Info"
