@@ -14,5 +14,8 @@ main:
     - title: "Twitter"
       icon: "fab fa-twitter"
       url: "https://twitter.com/pavanbadempet"
+    - title: "Github"
+      icon: "fab fa-github"
+      url: "https://github.com/pavanbadempet"
   text1: "E: pavan9b@gmail.com"
   text2: "P: +917989256101"
