@@ -14,7 +14,7 @@ main:
   # Resume
   - title: "Resume"
     url: "resume/"
-    parent: 1
+    parent: 0
     childs:
         - title: "Resume Default"
           url: "resume/"
@@ -26,19 +26,8 @@ main:
     url: "portfolio/"
     parent: 0
   
-  # Blog
-  - title: "Blog"
-    url: "blog/"
-    parent: 0
   
   # Contacts
   - title: "Contacts"
     url: "contacts/"
-    parent: 1
-    childs:
-        - title: "Contacts Default"
-          url: "contacts/"
-        - title: "Contacts Image"
-          url: "contacts-image/"
-        - title: "Contacts Map"
-          url: "contacts-map/"
+    parent: 0
