@@ -210,15 +210,15 @@ team:
   title: "Our Team"
   items:
     - image: ""
-      name: "Alejandro Abeyta"
-      role: "Web Developer"
+      name: "Fundraiser"
+      role: "I Volunteered with Muskurahat Foundation, an NGO based in Mumbai. Where I was involved in Project KEYtaab an initiative by Muskurahat Foundation, aiming at providing the underprivileged children from Shelter Homes and orphanages with the holistic development that they lack."
       social:
         - url: "https://www.pinterest.com/"
-          icon: "fab fa-pinterest"
+          icon: ""
         - url: "https://www.instagram.com/"
-          icon: "fab fa-instagram"
+          icon: ""
         - url: "https://dribbble.com/"
-          icon: "fab fa-dribbble"
+          icon: ""
           
     - 
                 
