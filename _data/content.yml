@@ -6,29 +6,29 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Hello! I’m Daniel Curry. Web designer from USA, California, San Francisco. I have rich experience in web site design and building, also I am good at wordpress. I love to talk with you about our unique.</p>"
+  text: "<p>Hello! I’m Pavan Badempet. Web designer from USA, California, San Francisco. I have rich experience in web site design and building, also I am good at wordpress. I love to talk with you about our unique.</p>"
   list:
     - label: "Age"
-      value: "24"
+      value: "20"
 
     - label: "Residence"
-      value: "USA"
+      value: "India"
 
     - label: "Freelance"
       value: "Available"
 
     - label: "Address"
-      value: "San Francisco"
+      value: "Qtr.No.A-703 HAL Township"
 
     - label: "Phone"
-      value: "+1 256 254 84 56"
+      value: "+917989256101"
 
     - label: "E-mail"
-      value: "alejandroa@gmail.com"
+      value: "pavan9b@gmail.com"
 
   download:
     text: "Download CV"
-    link: "https://drive.google.com/"
+    link: "https://drive.google.com/file/d/10UaW5P2rjuGmT0tRMQDRTJPSqzmBdHr8/view?usp=sharing"
 
 ### Services [ services ]
 services:
@@ -38,7 +38,7 @@ services:
       name: "Web Development"
       text: "Modern and mobile-ready website that will help you reach all of your marketing."
 
-    - icon: "fas fa-music"
+    - icon: <i class="fas fa-analytics"></i>
       name: "Music Writing"
       text: "Music copying, writing, creating, transcription, arranging and services."
 
