@@ -209,7 +209,7 @@ facts:
 team:
   title: "Our Team"
   items:
-    - image: "assets/img/team/team1.jpg"
+    - image: ""
       name: "Alejandro Abeyta"
       role: "Web Developer"
       social:
