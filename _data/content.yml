@@ -38,7 +38,7 @@ services:
       name: "Web Development"
       text: "Modern and mobile-ready website that will help you reach all of your marketing."
 
-    - icon: <i class="fas fa-analytics"></i>
+    - icon: "fas fas fa-analytics"
       name: "Music Writing"
       text: "Music copying, writing, creating, transcription, arranging and services."
 
