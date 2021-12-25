@@ -35,39 +35,39 @@ about:
 services:
   title: "Certifications"
   items:
-    - 
+    - icon: ""
       name: "Badge of completion for the Engineering: Undergraduate & Masters Asia Virtual Experience Program"
       text: "Microsoft"
 
-    - 
+    - icon: ""
       name: "Developing Machine Learning Applications"
       text: "Amazon Web Services"
 
-    - 
+    - icon: ""
       name: "Elements of AI"
       text: "University of Helsinki"
 
-    - 
+    - icon: ""
       name: "IBM Blockchain Foundation Developer V2"
       text: "IBM"
 
-    - 
+    - icon: ""
       name: "Python for Everybody Specialization"
       text: "Coursera"
 
-    - 
+    - icon: ""
       name: "ICSI | Certified Network Security Specialist (CNSS)"
       text: "International CyberSecurity Institute"
 
-    - 
+    - icon: ""
       name: "Technology Consulting Virtual Internship"
       text: "Forage"      
 
-    - 
+    - icon: ""
       name: "Advanced Google Analytics"
       text: "Google"
 
-    - 
+    - icon: ""
       name: "Financial Markets"
       text: "Coursera"
 
@@ -203,6 +203,13 @@ facts:
     - icon: "fas fa-headphones"
       name: "Music"
       text: "Music takes me to Nirvana"
+
+### Team [ team ]
+team:
+  title: "Volunteer Experience"
+  items:
+      name: "Fundraising"
+      role: "I Volunteered with Muskurahat Foundation, an NGO based in Mumbai. Where I was involved in Project KEYtaab an initiative by Muskurahat Foundation, aiming at providing the underprivileged children from Shelter Homes and orphanages with the holistic development that they lack."
       
 ### Contact Info [ contacts-info ]
 contacts_info:
@@ -223,6 +230,7 @@ contacts_info:
     - label: "Freelance Available"
       icon: "fas fa-user-tie"
       value: "I am available for Freelance hire"
+
 
 ### Contact Form [ contacts-form ]
 contacts_form:
