@@ -6,7 +6,8 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Hello! I’m Pavan Badempet just trying to establish new techniques in deep learning. I prefer coding in python and frequently use C/C++ when I need raw performance. I can code in Ruby, Java, PHP, JS. etc.</p>"
+  text: "<p>Hello! I’m Pavan Badempet just Trying to establish new techniques in deep learning. I prefer coding in python and frequently use C/C++ when I need raw performance. I can code in Java, R, PHP, JS. etc."
+
   list:
     - label: "Age"
       value: "20"
@@ -35,29 +36,36 @@ services:
   title: "Services"
   items:
     - icon: "fas fa-code"
-      name: "Web Development"
-      text: "Modern and mobile-ready website that will help you reach all of your marketing."
+      name: "Badge of completion for the Engineering: Undergraduate & Masters Asia Virtual Experience Program"
+      text: "Microsoft"
 
     - icon: "fas fa-analytics"
-      name: "Music Writing"
-      text: "Music copying, writing, creating, transcription, arranging and services."
+      name: "Developing Machine Learning Applications"
+      text: "Amazon Web Services"
 
     - icon: "fas fa-ad"
-      name: "Advetising"
-      text: "Advertising services include television, radio, print, mail, and web apps."
+      name: "Elements of AI"
+      text: "University of Helsinki"
 
     - icon: "fas fa-gamepad"
-      name: "Game Development"
-      text: "Developing memorable and unique mobile android, ios and video games."
+      name: "IBM Blockchain Foundation Developer V2"
+      text: "IBM"
 
     - icon: "fas fa-camera"
-      name: "Photography"
-      text: "Our in-house photography services team made up of professional photographers."
+      name: "Python for Everybody Specialization"
+      text: "Coursera"
 
     - icon: "fas fa-mobile-alt"
-      name: "Android Application"
-      text: "Games, playing music, handle network transactions, interacting content etc."
-      
+      name: "ICSI | Certified Network Security Specialist (CNSS)"
+      text: "International CyberSecurity Institute"
+
+    - icon: "fas fa-ad"
+      name: "Technology Consulting Virtual Internship"
+      text: "Forage"      
+
+    - icon: "fas fa-ad"
+      name: "Advanced Google Analytics"
+      text: "Google"
 
 ### Resume [ resume ]
 resume:
@@ -91,7 +99,7 @@ resume:
 skills:
   columns:
     - type: "default" #skills progress type - default, dotted, circles, list
-      title: "Design Skills"
+      title: "Skills"
       items:
         - label: "Data Science"
           value: "70" #0-100 progress in %
@@ -192,3 +200,27 @@ facts:
       name: "Music"
       text: "Music takes me to Nirvana"
       
+### Contact Info [ contacts-info ]
+contacts_info:
+  title: "Contacts Info"
+  list:
+    - label: "Phone"
+      icon: "fas fa-phone"
+      value: "+917989256101"
+
+    - label: "Email"
+      icon:  "fas fa-envelope"
+      value: "<a href='mailto:pavan9b@gmail.com'>pavan9b@gmail.com</a>"
+
+    - label: "Address"
+      icon: "fas fa-map-marker-alt"
+      value: "Qtr.No.A-703 HAL Township"
+    
+    - label: "Freelance Available"
+      icon: "fas fa-user-tie"
+      value: "I am available for Freelance hire"
+
+### Contact Form [ contacts-form ]
+contacts_form:
+  title: "Contact Form"
+
