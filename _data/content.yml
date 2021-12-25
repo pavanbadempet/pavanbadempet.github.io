@@ -6,7 +6,7 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Hello! I’m Pavan Badempet. Web designer from USA, California, San Francisco. I have rich experience in web site design and building, also I am good at wordpress. I love to talk with you about our unique.</p>"
+  text: "<p>Hello! I’m Pavan Badempet just trying to establish new techniques in deep learning. I prefer coding in python and frequently use C/C++ when I need raw performance. I can code in Ruby, Java, PHP, JS. etc.</p>"
   list:
     - label: "Age"
       value: "20"
@@ -192,27 +192,3 @@ facts:
       name: "Music"
       text: "Music takes me to Nirvana"
       
-### Contact Info [ contacts-info ]
-contacts_info:
-  title: "Contacts Info"
-  list:
-    - label: "Phone"
-      icon: "fas fa-phone"
-      value: "+ (231) 456 67 89"
-
-    - label: "Email"
-      icon:  "fas fa-envelope"
-      value: "<a href='mailto:steve-pearson@gmail.com'>steve-pearson@gmail.com</a>"
-
-    - label: "Address"
-      icon: "fas fa-map-marker-alt"
-      value: "2621 W Pico Blvd, Los Angeles"
-    
-    - label: "Freelance Available"
-      icon: "fas fa-user-tie"
-      value: "I am available for Freelance hire"
-
-### Contact Form [ contacts-form ]
-contacts_form:
-  title: "Contact Form"
-
