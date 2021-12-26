@@ -7,16 +7,6 @@ image: assets/img/works/work3.png
 button_url: https://github.com/pavanbadempet/PRABC
 ---
 
-So striking at of to welcomed resolved. Northward by described up household therefore attention. Excellence decisively nay man yet impression for contrasted remarkably.
+Breast cancer is the most common form of cancer in women, accounting for 14% of all cancers in Indian women. About 90% of breast cancer patients live for at least 5 years after the cancer is diagnosed. When the breast cancer is detected early, the chance of survival is much higher. So, we are developing a tool for Calculating the Risk of Attaining Breast Cancer. The tool is supposedly going to help women understand their Risk of Attaining Breast Cancer and leading to understanding the special need of care.
 
-Forfeited you engrossed but gay sometimes explained. Another as studied it to evident. Merry sense given he be arise. Conduct at an replied removal an amongst. Remaining determine few her two cordially admitting old.
-
-^Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque suscipit.
-
-Tiled say decay spoil now walls meant house. My mr interest thoughts screened of outweigh removing. Evening society musical besides inhabit ye my. Lose hill well up will he over on. Increasing sufficient everything men him admiration unpleasing.
-
-* Greatest properly off ham exercise all.
-* Unsatiable invitation its possession nor off.
-* All difficulty estimating unreserved increasing the solicitude.
-
-Unpleasant astonished an diminution up partiality. Noisy an their of meant. Death means up civil do an offer wound of.
+The idea is to estimate the chance of developing Breast Cancer. Providing advanced Data Insights. This helps women to understand the need for care. This comes with supposed Informatic Applications as a presentation for Mobile Phone's and Windows & MacOS Operating Systems in order for helping out in understanding the need for prior care. We used data from BRCA. After data wrangling and applied Machine Learning steps, a arbitrary forest model was trained as a classifier. The precision and recall were used for fine tuning and performance evaluation. We set our goals beyond this working on several daily life changes for Breast Cancer Potential Women. We will be working on highly prolific data image queries along the way. I know it's a time talking process but I am sure we will do it. If not now then tomorrow & if not tomorrow a day later & if not then maybe someday but the day will come when we will reach an absolute creation of a tool. Which won't just help in trying to understand the virus's or calculating the chances of attaining but also, help the doctors in advanced data imaging and human analysis. We have a dream a dream where we want to see nobody will die of carcinoma.
