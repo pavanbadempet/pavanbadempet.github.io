@@ -236,7 +236,7 @@ contacts_info:
 
     - label: "Address"
       icon: "fas fa-map-marker-alt"
-      value: "Qtr.No.A-703 HAL Township"
+      value: "HAL Township, Balanagar, Hyderabad 500042"
     
     - label: "Freelance Available"
       icon: "fas fa-user-tie"
