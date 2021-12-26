@@ -1,5 +1,5 @@
 ---
-title: Minimal Poster Frame
+title: Martin Ford
 category: Image
 category_slug: f-image
 type: image
