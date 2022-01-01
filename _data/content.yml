@@ -76,7 +76,11 @@ resume:
   experience:
     title: "Experience"
     items:
-      - year: "2011 - 2012"
+      - year: "2021 - 2021"
+        name: "Virtual Internship - FutureSkills Prime"
+        text: "Worked on Azure eventually building a project on Azure via azurewebsites"
+
+      - year: "2021 - 2021"
         name: "Campus Ambassador - International Model United Nations"
         text: "Promted and brought awarness about the organization"
 
