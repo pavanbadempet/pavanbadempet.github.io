@@ -193,12 +193,12 @@ facts:
   title: "Interests"
   items:
     - icon: "fas fa-baseball-ball"
-      name: "Cricket"
-      text: "I love playing and watching cricket"
+      name: "Sports"
+      text: "Playing outdoor games are my style of recreation"
 
     - icon: "fas fa-campground"
       name: "Logic"
-      text: "Undying facination for logic problems"
+      text: "Undying facination for logical problem solving"
 
     - icon: "fas fa-chess-knight"
       name: "Tactics"
