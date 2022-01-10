@@ -6,35 +6,43 @@
 started:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Designer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I clean <strong>data</strong>"
-    - "I analyze <strong>data</strong>"
-    - "I visualize <strong>data</strong>"
+    - "I obtain <strong>data</strong>"
+    - "I scrub <strong>data</strong>"
+    - "I explore <strong>data</strong>"
+    - "I model <strong>data</strong>"
+    - "I interpret <strong>data</strong>"
 
 ### Started Personal
 started-personal:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Designer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I clean <strong>data</strong>"
-    - "I analyze <strong>data</strong>"
-    - "I visualize <strong>data</strong>"
+    - "I obtain <strong>data</strong>"
+    - "I scrub <strong>data</strong>"
+    - "I explore <strong>data</strong>"
+    - "I model <strong>data</strong>"
+    - "I interpret <strong>data</strong>"
   image: "assets/img/man.jpg"
   
 ### Started Image
 started-image:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Designer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I clean <strong>data</strong>"
-    - "I analyze <strong>data</strong>"
-    - "I visualize <strong>data</strong>"
+    - "I obtain <strong>data</strong>"
+    - "I scrub <strong>data</strong>"
+    - "I explore <strong>data</strong>"
+    - "I model <strong>data</strong>"
+    - "I interpret <strong>data</strong>"
   image: "assets/img/started_image_p.jpg"
   
 ### Started Video
 started-video:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Designer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I clean <strong>data</strong>"
-    - "I analyze <strong>data</strong>"
-    - "I visualize <strong>data</strong>"
+    - "I obtain <strong>data</strong>"
+    - "I scrub <strong>data</strong>"
+    - "I explore <strong>data</strong>"
+    - "I model <strong>data</strong>"
+    - "I interpret <strong>data</strong>"
   video: "https://youtu.be/S4L8T2kFFck"
   image: "assets/img/started_image_p.jpg"
   
@@ -42,9 +50,11 @@ started-video:
 started-slider:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Designer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I clean <strong>data</strong>"
-    - "I analyze <strong>data</strong>"
-    - "I visualize <strong>data</strong>"
+    - "I obtain <strong>data</strong>"
+    - "I scrub <strong>data</strong>"
+    - "I explore <strong>data</strong>"
+    - "I model <strong>data</strong>"
+    - "I interpret <strong>data</strong>"
   images:
     - "assets/img/started_image.jpg"
     - "assets/img/started_image2.jpg"
