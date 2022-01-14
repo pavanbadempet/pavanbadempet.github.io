@@ -3,7 +3,7 @@ title: PRABC
 category: Content
 category_slug: f-content
 type: content
-image: assets/img/works/work3.png
+image: assets/img/works/prabc.png
 button_url: https://github.com/pavanbadempet/PRABC
 ---
 
