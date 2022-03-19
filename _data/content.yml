@@ -245,9 +245,3 @@ contacts_info:
     - label: "Freelance Available"
       icon: "fas fa-user-tie"
       value: "I am available for Freelance hire"
-
-
-### Contact Form [ contacts-form ]
-contacts_form:
-  title: "Contact Form"
-
