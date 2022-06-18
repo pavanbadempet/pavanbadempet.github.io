@@ -6,7 +6,7 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Hello! I’m Pavan Badempet just Trying to establish new techniques in deep learning. I prefer coding in python and frequently use C/C++ when I need raw performance. I can code in Java, R, PHP, JS. etc."
+  text: "<p>Hello! I’m Pavan Badempet just Trying to establish new techniques in deep learning. I prefer coding in python and frequently use C/C++ when I need raw performance. I can code in JS, R. etc."
 
   list:
     - label: "Age"
@@ -137,29 +137,25 @@ skills:
           value: "25" #0-100 progress in %
 
     - type: "circles" #skills progress type - default, dotted, circles, list
-      title: "Coding Skills"
+      title: "Programming Skills"
       items:
         - label: "C/C++"
-          value: "95" #0-100 progress in %
+          value: "80" #0-100 progress in %
 
         - label: "Python"
-          value: "90" #0-100 progress in %
-
-        - label: "Java"
-          value: "85" #0-100 progress in %
-
-        - label: "R"
-          value: "70" #0-100 progress in %
+          value: "80" #0-100 progress in %
 
         - label: "HTML / CSS"
-          value: "90" #0-100 progress in %
+          value: "70" #0-100 progress in %
           
         - label: "JavaScript"
           value: "60" #0-100 progress in %
           
-        - label: "PHP"
+        - label: "SQL"
           value: "50" #0-100 progress in %
-          
+
+        - label: "R"
+          value: "40" #0-100 progress in %
 
     - type: "list" #skills progress type - default, dotted, circles, list
       title: "Knowledge"
