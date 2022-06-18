@@ -1981,50 +1981,6 @@
 	}
 }
 
-/* - Clients */
-
-.clients-items {
-	margin: -35px -35px 0 -35px;
-	font-size: 0;
-	.clients-col {
-		padding: 35px 35px 0 35px;
-		display: inline-block;
-		vertical-align: top;
-		width: 25%;
-	}
-}
-
-.clients-item {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	width: 100%;
-	height: 100px;
-	opacity: 0.4;
-	@include transition(opacity 1s cubic-bezier(0.165, 0.85, 0.45, 1) 0s);
-	a {
-		text-decoration: none;
-	}
-	img {
-		max-width: 100%;
-		max-height: 100px;
-	}
-	&:hover {
-		opacity: 1;
-	}
-}
-
-/* section clients mobile */
-@media (max-width: 720px) {
-	.clients-items {
-		margin: -20px -20px 0 -20px;
-		.clients-col {
-			padding: 20px 20px 0 20px;
-			width: 50%;
-		}
-	}
-}
 
 /* - Service */
 .service-items {
