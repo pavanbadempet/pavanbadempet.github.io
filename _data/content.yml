@@ -209,15 +209,6 @@ team:
     - image: ""
       name: "Fundraising"
       role: "I Volunteered with Muskurahat Foundation, an NGO based in Mumbai. Where I was involved in Project KEYtaab an initiative by Muskurahat Foundation, aiming at providing the underprivileged children from Shelter Homes and orphanages with the holistic development that they lack."
-      social:
-        - url: "https://www.pinterest.com/"
-          icon: ""
-        - url: "https://www.instagram.com/"
-          icon: ""
-        - url: "https://dribbble.com/"
-          icon: ""
-          
-    - 
                 
 ### Contact Info [ contacts-info ]
 contacts_info:
