@@ -91,7 +91,7 @@ resume:
   education:
     title: "Education"
     items:
-      - year: "2019 - 2021"
+      - year: "2019 - 2023"
         name: "Guru Nanak Institutions Technical Campus"
         text: "Bachelor of Technology in Computer Science"
 
@@ -139,7 +139,7 @@ skills:
     - type: "circles" #skills progress type - default, dotted, circles, list
       title: "Coding Skills"
       items:
-        - label: "C"
+        - label: "C/C++"
           value: "95" #0-100 progress in %
 
         - label: "Python"
@@ -192,17 +192,10 @@ skills:
 facts:
   title: "Interests"
   items:
-    - icon: "fas fa-baseball-ball"
-      name: "Sports"
-      text: "Playing outdoor games are my style of recreation"
 
     - icon: "fas fa-campground"
       name: "Logic"
       text: "Undying facination for logical problem solving"
-
-    - icon: "fas fa-chess-knight"
-      name: "Tactics"
-      text: "A huge fan of Football and try to analyze and emulate tactics"
 
     - icon: "fas fa-headphones"
       name: "Music"
