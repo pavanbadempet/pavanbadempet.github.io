@@ -10,7 +10,7 @@ about:
 
   list:
     - label: "Age"
-      value: "20"
+      value: "21"
 
     - label: "Residence"
       value: "India"
@@ -29,7 +29,7 @@ about:
 
   download:
     text: "Download Resume"
-    link: "https://drive.google.com/file/d/10UaW5P2rjuGmT0tRMQDRTJPSqzmBdHr8/view?usp=sharing"
+    link: "https://docs.google.com/document/d/1eUL68XpeE1LLd-kmqbjY8hDv4p9ROc-4/edit?usp=share_link&ouid=100640984741521821495&rtpof=true&sd=true"
 
 ### Services [ services ]
 services:
@@ -76,6 +76,10 @@ resume:
   experience:
     title: "Experience"
     items:
+      - year: "2022 - Present"
+        name: "Microsoft Learn Student Ambassador"
+        text: "Promoting ways for learning thereby enabling growth in everyone"
+
       - year: "2021 - 2021"
         name: "Virtual Internship - FutureSkills Prime"
         text: "Worked on Azure eventually building a project on Azure via azurewebsites"
@@ -84,9 +88,7 @@ resume:
         name: "Campus Ambassador - International Model United Nations"
         text: "Promted and brought awarness about the organization"
 
-      - year: "2014 - 2017"
-        name: "Co-founder - Pixspark"
-        text: "Co-founded Pixspark and helped in the developement of Codegeek, Fordose, X3 and more."
+
         
   education:
     title: "Education"
@@ -109,7 +111,7 @@ skills:
     - type: "default" #skills progress type - default, dotted, circles, list
       title: "Skills"
       items:
-        - label: "Data Science"
+        - label: "Machine Learning"
           value: "70" #0-100 progress in %
 
         - label: "Web Development"
@@ -154,7 +156,7 @@ skills:
         - label: "SQL"
           value: "50" #0-100 progress in %
 
-        - label: "R"
+        - label: "Java"
           value: "40" #0-100 progress in %
 
     - type: "list" #skills progress type - default, dotted, circles, list
@@ -172,16 +174,10 @@ skills:
         - label: "Content Writing"
           value: "" #0-100 progress in %
 
-        - label: "Leadership"
+        - label: "Cloud Computing"
           value: "" #0-100 progress in %
 
         - label: "Graphics & Animation"
-          value: "" #0-100 progress in %
-
-        - label: "Tactics"
-          value: "" #0-100 progress in %
-
-        - label: "Psychology"
           value: "" #0-100 progress in %
 
 ### Facts [ facts ]
