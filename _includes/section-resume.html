@@ -1,0 +1,49 @@
+{% assign content = site.data.content['resume'] %}
+
+<!-- Section Resume -->
+<div class="section resume" id="section-history">
+    <div class="content">
+        <div class="cols">
+
+            <div class="col col-md">
+
+                <!-- title -->
+                <div class="title">
+                    <div class="title_inner">{{ content.experience.title }}</div>
+                </div>
+
+                <!-- resume items -->
+                <div class="resume-items">
+                    {% for item in content.experience.items %}
+                    <div class="resume-item content-box{% if item.index == 1 %} active{% endif %}">
+                        <div class="date">{{ item.year }}</div>
+                        <div class="name">{{ item.name }}</div>
+                        <div class="text">{{ item.text }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+            <div class="col col-md">
+
+                <!-- title -->
+                <div class="title">
+                    <div class="title_inner">{{ content.education.title }}</div>
+                </div>
+
+                <!-- resume items -->
+                <div class="resume-items">
+                    {% for item in content.education.items %}
+                    <div class="resume-item content-box">
+                        <div class="date">{{ item.year }}</div>
+                        <div class="name">{{ item.name }}</div>
+                        <div class="text">{{ item.text }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

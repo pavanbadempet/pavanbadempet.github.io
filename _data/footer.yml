@@ -1,0 +1,21 @@
+# Footer configuration file
+##
+### param "social" - Social Links, icon class name you can find here https://ionicons.com/v2/
+### param "copy" - Copyright text
+
+main:
+  social:
+    - title: "Instagram"
+      icon: "fab fa-instagram"
+      url: "https://www.instagram.com/pavan_badempet/"
+    - title: "Facebook"
+      icon: "fab fa-facebook"
+      url: "https://www.facebook.com/badempetpavan"
+    - title: "LinkedIn"
+      icon: "ion-social-linkedin"
+      url: "https://www.linkedin.com/in/pavanbadempet/"
+    - title: "Github"
+      icon: "fab fa-github"
+      url: "https://github.com/pavanbadempet"
+  text1: "E: pavan9b@gmail.com"
+  text2: "P: +917989256101"
