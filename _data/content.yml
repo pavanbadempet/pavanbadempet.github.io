@@ -76,20 +76,10 @@ resume:
   experience:
     title: "Experience"
     items:
-      - year: "2022 - Present"
-        name: "Microsoft Learn Student Ambassador"
-        text: "Promoting ways for learning thereby enabling growth in everyone"
-
       - year: "2021 - 2021"
         name: "Virtual Internship - FutureSkills Prime"
         text: "Worked on Azure eventually building a project on Azure via azurewebsites"
 
-      - year: "2021 - 2021"
-        name: "Campus Ambassador - International Model United Nations"
-        text: "Promted and brought awarness about the organization"
-
-
-        
   education:
     title: "Education"
     items:
