@@ -6,7 +6,7 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Hello! I’m Pavan Badempet just Trying to establish new techniques in deep learning. I prefer coding in python and frequently use C/C++ when I need raw performance. I can code in JS, R. etc."
+  text: "<p>B.Tech CSE Student | Proficient in Python, Java & Data Structures | Skilled in SQL, Azure & Hadoop | Strong in Problem-Solving & Research | Seeking Opportunities"
 
   list:
     - label: "Age"
@@ -19,7 +19,7 @@ about:
       value: "Available"
 
     - label: "Address"
-      value: "HAL Township, Hyderabad 500042"
+      value: "HAL Township, Hyderabad"
 
     - label: "Phone"
       value: "+917989256101"
