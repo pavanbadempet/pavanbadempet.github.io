@@ -6,11 +6,11 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>B.Tech CSE Student | Proficient in Python, Java & Data Structures | Skilled in SQL, Azure & Hadoop | Strong in Problem-Solving & Research | Seeking Opportunities"
+  text: "<p>B.Tech CSE Graduate | Proficient in Python, Java & Data Structures | Skilled in SQL, Azure & Hadoop | Strong in Problem-Solving & Research | Seeking Opportunities"
 
   list:
     - label: "Age"
-      value: "21"
+      value: "22"
 
     - label: "Residence"
       value: "India"
