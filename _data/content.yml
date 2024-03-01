@@ -91,73 +91,55 @@ resume:
 ### Skills [ skills ]
 skills:
   columns:
-    - type: "" #skills progress type - default, dotted, circles, list
-      title: "Skills"
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Programming Languages"
       items:
-        - label: "Machine Learning"
+        - label: "Python"
 
-        - label: "Web Development"
+        - label: "Java"
 
-        - label: "Operating Systems"
+        - label: "C"
 
-        - label: "Writing"
-
-    - type: "dotted" #skills progress type - default, dotted, circles, list
-      title: "Languages Skills"
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Machine Learning Libraries"
       items:
-        - label: "English"
-          value: "90" #0-100 progress in %
+        - label: "Tensorflow/Keras"
 
-        - label: "Telugu"
-          value: "100" #0-100 progress in %
+        - label: " scikit‑learn"
 
         - label: "Hindi"
-          value: "75" #0-100 progress in %
 
         - label: "German"
-          value: "25" #0-100 progress in %
 
     - type: "list" #skills progress type - default, dotted, circles, list
       title: "Programming Skills"
       items:
         - label: "C"
-          value: "80" #0-100 progress in %
 
         - label: "Python"
-          value: "80" #0-100 progress in %
 
         - label: "HTML / CSS"
-          value: "70" #0-100 progress in %
           
         - label: "JavaScript"
-          value: "60" #0-100 progress in %
           
         - label: "SQL"
-          value: "50" #0-100 progress in %
 
         - label: "Java"
-          value: "40" #0-100 progress in %
 
     - type: "list" #skills progress type - default, dotted, circles, list
       title: "Knowledge"
       items:
         - label: "Data Science"
-          value: "" #0-100 progress in %
 
         - label: "Web Development"
-          value: "" #0-100 progress in %
 
         - label: "Mobile Application Development"
-          value: "" #0-100 progress in %
 
         - label: "Content Writing"
-          value: "" #0-100 progress in %
 
         - label: "Cloud Computing"
-          value: "" #0-100 progress in %
 
         - label: "Graphics & Animation"
-          value: "" #0-100 progress in %
 
 ### Team [ team ]
 ### Team [ team ]
