@@ -95,16 +95,12 @@ skills:
       title: "Skills"
       items:
         - label: "Machine Learning"
-          value: "70" #0-100 progress in %
 
         - label: "Web Development"
-          value: "90" #0-100 progress in %
 
         - label: "Operating Systems"
-          value: "75" #0-100 progress in %
 
         - label: "Writing"
-          value: "80" #0-100 progress in %
 
     - type: "dotted" #skills progress type - default, dotted, circles, list
       title: "Languages Skills"
