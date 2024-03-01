@@ -91,7 +91,7 @@ resume:
 ### Skills [ skills ]
 skills:
   columns:
-    - type: "dotted" #skills progress type - default, dotted, circles, list
+    - type: "" #skills progress type - default, dotted, circles, list
       title: "Skills"
       items:
         - label: "Machine Learning"
@@ -158,19 +158,6 @@ skills:
 
         - label: "Graphics & Animation"
           value: "" #0-100 progress in %
-
-### Facts [ facts ]
-facts:
-  title: "Interests"
-  items:
-
-    - icon: "fas fa-campground"
-      name: "Logic"
-      text: "Undying facination for logical problem solving"
-
-    - icon: "fas fa-headphones"
-      name: "Music"
-      text: "Music takes me to Nirvana"
 
 ### Team [ team ]
 ### Team [ team ]
