@@ -6,11 +6,12 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>B.Tech CSE Graduate | Proficient in Python, Java & Data Structures | Skilled in SQL, Azure & Hadoop | Strong in Problem-Solving & Research | Seeking Opportunities"
+  text: "<p>Systems Engineer at TCS | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Fullstack Developer | 100K Instagram | 5K X
+"
 
   list:
-    - label: "Age"
-      value: "22"
+    - label: "DOB"
+      value: "14/10/2001"
 
     - label: "Residence"
       value: "India"
@@ -29,27 +30,15 @@ about:
 
   download:
     text: "Download Resume"
-    link: "https://docs.google.com/document/d/1eUL68XpeE1LLd-kmqbjY8hDv4p9ROc-4/edit?usp=share_link&ouid=100640984741521821495&rtpof=true&sd=true"
+    link: "https://drive.google.com/file/d/1mhugVGoEQMlBTJc5mg4TdxmHVXzvlGfY/view?usp=sharing"
 
 ### Services [ services ]
 services:
   title: "Certifications"
   items:
     - icon: ""
-      name: "Badge of completion for the Engineering: Undergraduate & Masters Asia Virtual Experience Program"
-      text: "Microsoft"
-
-    - icon: ""
-      name: "Developing Machine Learning Applications"
-      text: "Amazon Web Services"
-
-    - icon: ""
       name: "Elements of AI"
       text: "University of Helsinki"
-
-    - icon: ""
-      name: "IBM Blockchain Foundation Developer V2"
-      text: "IBM"
 
     - icon: ""
       name: "Python for Everybody Specialization"
@@ -57,11 +46,7 @@ services:
 
     - icon: ""
       name: "ICSI | Certified Network Security Specialist (CNSS)"
-      text: "International CyberSecurity Institute"
-
-    - icon: ""
-      name: "Technology Consulting Virtual Internship"
-      text: "Forage"      
+      text: "International CyberSecurity Institute"  
 
     - icon: ""
       name: "Advanced Google Analytics"
@@ -76,8 +61,18 @@ resume:
   experience:
     title: "Experience"
     items:
+      - year: "Nov 2023 - Present"
+        name: "Systems Engineer - Tata Consultancy Services"
+        text: "Drove end‑to‑end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, Amazon EC2, Docker, Git, and Snowflake."
+        text: "Utilized AWS CloudFormation for robust infrastructure as code, Git for version control, ensuring seamless collaboration and resource management."
+        text: "Implemented rigorous testing with moto, apptest, pytest for optimal data platform reliability."
+
       - year: "2021 - 2021"
-        name: "Virtual Internship - FutureSkills Prime"
+        name: "Intern - FutureSkills Prime"
+        text: "Worked on Azure eventually building a project on Azure via azurewebsites"
+
+      - year: "2021 - 2021"
+        name: "Intern - FutureSkills Prime"
         text: "Worked on Azure eventually building a project on Azure via azurewebsites"
 
   education:
