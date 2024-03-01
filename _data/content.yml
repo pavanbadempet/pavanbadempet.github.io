@@ -91,7 +91,7 @@ resume:
 ### Skills [ skills ]
 skills:
   columns:
-    - type: "default" #skills progress type - default, dotted, circles, list
+    - type: "dotted" #skills progress type - default, dotted, circles, list
       title: "Skills"
       items:
         - label: "Machine Learning"
