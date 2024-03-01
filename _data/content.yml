@@ -64,27 +64,25 @@ resume:
       - year: "Nov 2023 - Present"
         name: "Systems Engineer - Tata Consultancy Services"
         text: "Drove end‑to‑end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, Amazon EC2, Docker, Git, and Snowflake."
-        text: "Utilized AWS CloudFormation for robust infrastructure as code, Git for version control, ensuring seamless collaboration and resource management."
-        text: "Implemented rigorous testing with moto, apptest, pytest for optimal data platform reliability."
 
-      - year: "2021 - 2021"
-        name: "Intern - FutureSkills Prime"
-        text: "Worked on Azure eventually building a project on Azure via azurewebsites"
+      - year: "Mar 2021 - Apr 2021"
+        name: "Intern - TCS iON"
+        text: "Conducted a comprehensive employee performance and attrition study, leveraging data analysis skills to identify key analytics-driven factors impacting the organization."
 
-      - year: "2021 - 2021"
+      - year: "Sep 2021 - Dec 2021"
         name: "Intern - FutureSkills Prime"
-        text: "Worked on Azure eventually building a project on Azure via azurewebsites"
+        text: "Successfully developed and implemented a network app hosted on Azure using the Azure Web Apps service."
 
   education:
     title: "Education"
     items:
-      - year: "2019 - 2023"
+      - year: "Aug 2019 - Sep 2023"
         name: "Guru Nanak Institutions Technical Campus"
-        text: "Bachelor of Technology in Computer Science"
+        text: "Bachelor of Technology with Major in Computer Science & Minor in Artificial Intelligence"
 
       - year: "2017 - 2019"
         name: "Sri Gayatri Junior College"
-        text: "Intermediate in Maths, Physics and Chemistry"
+        text: "Intermediate (Class XII) in Maths, Physics and Chemistry"
 
       - year: "2016 - 2017"
         name: "HAL Secondary School"
@@ -102,7 +100,7 @@ skills:
         - label: "Web Development"
           value: "90" #0-100 progress in %
 
-        - label: "Application Development"
+        - label: "Operating Systems"
           value: "75" #0-100 progress in %
 
         - label: "Writing"
@@ -123,10 +121,10 @@ skills:
         - label: "German"
           value: "25" #0-100 progress in %
 
-    - type: "circles" #skills progress type - default, dotted, circles, list
+    - type: "list" #skills progress type - default, dotted, circles, list
       title: "Programming Skills"
       items:
-        - label: "C/C++"
+        - label: "C"
           value: "80" #0-100 progress in %
 
         - label: "Python"
