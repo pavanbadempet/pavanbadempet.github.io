@@ -105,31 +105,23 @@ skills:
       items:
         - label: "Tensorflow/Keras"
 
-        - label: " scikit‑learn"
+        - label: "scikit‑learn"
 
-        - label: "Hindi"
-
-        - label: "German"
+        - label: "NLTK"
 
     - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Programming Skills"
+      title: "Web Development"
       items:
-        - label: "C"
-
-        - label: "Python"
-
-        - label: "HTML / CSS"
+        - label: "HTML"
+          
+        - label: "CSS"
           
         - label: "JavaScript"
-          
-        - label: "SQL"
-
-        - label: "Java"
 
     - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Knowledge"
+      title: "Cloud & DevOps"
       items:
-        - label: "Data Science"
+        - label: "AWS"
 
         - label: "Web Development"
 
