@@ -123,15 +123,31 @@ skills:
       items:
         - label: "AWS"
 
-        - label: "Web Development"
+        - label: "Azure PaaS"
 
-        - label: "Mobile Application Development"
+        - label: "GCP PaaS"
 
-        - label: "Content Writing"
+        - label: "Docker"
 
-        - label: "Cloud Computing"
+        - label: "Git"
 
-        - label: "Graphics & Animation"
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "DBMS & Data Plaform"
+      items:
+        - label: "SQL"
+
+        - label: "MySQL"
+
+        - label: "Snowflake"
+
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Operating Systems"
+      items:
+        - label: "SQL"
+
+        - label: "MySQL"
+
+        - label: "Snowflake"
 
 ### Team [ team ]
 ### Team [ team ]
