@@ -91,86 +91,80 @@ resume:
 ### Skills [ skills ]
 skills:
   columns:
-    - type: "dotted" #skills progress type - default, dotted, circles, list
-      title: "Skills"
-      items:
-        - label: "Machine Learning"
-
-        - label: "Web Development"
-
-        - label: "Operating Systems"
-
-        - label: "Writing"
-
-    - type: "dotted" #skills progress type - default, dotted, circles, list
-      title: "Languages Skills"
-      items:
-        - label: "English"
-          value: "90" #0-100 progress in %
-
-        - label: "Telugu"
-          value: "100" #0-100 progress in %
-
-        - label: "Hindi"
-          value: "75" #0-100 progress in %
-
-        - label: "German"
-          value: "25" #0-100 progress in %
-
     - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Programming Skills"
+      title: "Programming Languages"
       items:
-        - label: "C"
-          value: "80" #0-100 progress in %
-
         - label: "Python"
-          value: "80" #0-100 progress in %
-
-        - label: "HTML / CSS"
-          value: "70" #0-100 progress in %
-          
-        - label: "JavaScript"
-          value: "60" #0-100 progress in %
-          
-        - label: "SQL"
-          value: "50" #0-100 progress in %
 
         - label: "Java"
-          value: "40" #0-100 progress in %
+
+        - label: "C"
 
     - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Knowledge"
+      title: "Machine Learning Libraries"
       items:
-        - label: "Data Science"
-          value: "" #0-100 progress in %
+        - label: "Tensorflow/Keras"
 
-        - label: "Web Development"
-          value: "" #0-100 progress in %
+        - label: "scikit‑learn"
 
-        - label: "Mobile Application Development"
-          value: "" #0-100 progress in %
+        - label: "NLTK"
 
-        - label: "Content Writing"
-          value: "" #0-100 progress in %
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Web Development"
+      items:
+        - label: "HTML"
+          
+        - label: "CSS"
+          
+        - label: "JavaScript"
 
-        - label: "Cloud Computing"
-          value: "" #0-100 progress in %
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Cloud & DevOps"
+      items:
+        - label: "AWS"
 
-        - label: "Graphics & Animation"
-          value: "" #0-100 progress in %
+        - label: "Azure PaaS"
 
-### Facts [ facts ]
-facts:
-  title: "Interests"
-  items:
+        - label: "GCP PaaS"
 
-    - icon: "fas fa-campground"
-      name: "Logic"
-      text: "Undying facination for logical problem solving"
+        - label: "Docker"
 
-    - icon: "fas fa-headphones"
-      name: "Music"
-      text: "Music takes me to Nirvana"
+        - label: "Git"
+
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "DBMS & Data Plaform"
+      items:
+        - label: "SQL"
+
+        - label: "MySQL"
+
+        - label: "Snowflake"
+
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Operating Systems"
+      items:
+        - label: "Windows"
+
+        - label: "Unix/Linux"
+
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Soft Skills"
+      items:
+        - label: "Problem‑solving"
+
+        - label: "Teamwork"
+
+        - label: "Leadership"
+
+        - label: "Communication"
+
+        - label: "Critical Thinking"
+
+        - label: "Adaptability"
+
+        - label: "Time Management"
+
+        - label: "Attention to Detail"
 
 ### Team [ team ]
 ### Team [ team ]
@@ -199,4 +193,4 @@ contacts_info:
     
     - label: "Freelance Available"
       icon: "fas fa-user-tie"
-      value: "I am available for Freelance hire"
+      value: "I am open to opportunities for Full-time positions, Contract work, and Freelance engagements."
