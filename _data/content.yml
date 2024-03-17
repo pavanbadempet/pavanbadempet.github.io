@@ -143,11 +143,28 @@ skills:
     - type: "list" #skills progress type - default, dotted, circles, list
       title: "Operating Systems"
       items:
-        - label: "SQL"
+        - label: "Windows"
 
-        - label: "MySQL"
+        - label: "Unix/Linux"
 
-        - label: "Snowflake"
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Soft Skills"
+      items:
+        - label: "Problem‑solving"
+
+        - label: "Teamwork"
+
+        - label: "Leadership"
+
+        - label: "Communication"
+
+        - label: "Critical Thinking"
+
+        - label: "Adaptability"
+
+        - label: "Time Management"
+
+        - label: "Attention to Detail"
 
 ### Team [ team ]
 ### Team [ team ]
