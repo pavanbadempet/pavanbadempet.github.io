@@ -78,7 +78,7 @@ resume:
     items:
       - year: "Aug 2019 - Sep 2023"
         name: "Guru Nanak Institutions Technical Campus"
-        text: "Bachelor of Technology with Major in Computer Science & Minor in Artificial Intelligence"
+        text: "Bachelor of Technology with Major in Computer Science & Engineeing and Minor in Artificial Intelligence"
 
       - year: "2017 - 2019"
         name: "Sri Gayatri Junior College"
@@ -86,7 +86,7 @@ resume:
 
       - year: "2016 - 2017"
         name: "HAL Secondary School"
-        text: "Class 10"
+        text: "Class X"
 
 ### Skills [ skills ]
 skills:
