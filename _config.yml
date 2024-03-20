@@ -17,7 +17,7 @@ disqus_comments: "no" # yes - show disqus comments, no - hide disqus comments
 disqus_shortname: "pavanbadempet" # read more here https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
 
 # formsubmit.io
-formsubmit_email: "pavan9b@gmail.com	" # sign up on https://formsubmit.io/ and confirm your email
+formsubmit_email: "pavan9b@gmail.com" # sign up on https://formsubmit.io/ and confirm your email
 
 # collections
 collections:
