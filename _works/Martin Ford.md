@@ -7,6 +7,7 @@ image: assets/img/works/martinford.png
 ---
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 Novel
 =======
@@ -15,3 +16,5 @@ Book
 =======
 Book
 >>>>>>> parent of c75a943 (Update Martin Ford.md)
+=======
+>>>>>>> parent of 4e99658 (Update Martin Ford.md)
