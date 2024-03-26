@@ -6,8 +6,4 @@ type: image
 image: assets/img/works/martinford.png
 ---
 
-<<<<<<< HEAD
-Novel WIP
-=======
-Book
->>>>>>> parent of 6a92f84 (Update Martin Ford.md)
+Novel
