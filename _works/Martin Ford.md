@@ -6,4 +6,4 @@ type: image
 image: assets/img/works/martinford.png
 ---
 
-Book WIP
+WIP
