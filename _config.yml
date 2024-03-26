@@ -1,8 +1,8 @@
 # basic settings
 title: "Pavan Badempet"
 email: "pavan9b@gmail.com"
-description: "Developer & Entrepreneur "
-author: "Admin"
+description: "Developer & Entrepreneur"
+author: "Pavan Badepet"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 date_format: "%d %B %Y"
@@ -16,7 +16,7 @@ disqus_comments: "no" # yes - show disqus comments, no - hide disqus comments
 disqus_shortname: "pavanbadempet" # read more here https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
 
 # formsubmit.io
-formsubmit_email: "pavan9b@gmail.com	" # sign up on https://formsubmit.io/ and confirm your email
+formsubmit_email: "pavan9b@gmail.com" # sign up on https://formsubmit.io/ and confirm your email
 
 # collections
 collections:
@@ -61,4 +61,4 @@ exclude:
 sass:
   style: compressed
 
-markdown:  kramdown
+markdown: kramdown

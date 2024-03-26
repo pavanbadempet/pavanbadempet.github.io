@@ -6,11 +6,12 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Hello! I’m Pavan Badempet just Trying to establish new techniques in deep learning. I prefer coding in python and frequently use C/C++ when I need raw performance. I can code in JS, R. etc."
+  text: "<p>Systems Engineer at TCS | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Fullstack Developer | 100K Instagram | 5K X
+"
 
   list:
-    - label: "Age"
-      value: "21"
+    - label: "DOB"
+      value: "14/10/2001"
 
     - label: "Residence"
       value: "India"
@@ -19,7 +20,7 @@ about:
       value: "Available"
 
     - label: "Address"
-      value: "HAL Township, Hyderabad 500042"
+      value: "HAL Township, Hyderabad"
 
     - label: "Phone"
       value: "+917989256101"
@@ -29,27 +30,15 @@ about:
 
   download:
     text: "Download Resume"
-    link: "https://docs.google.com/document/d/1eUL68XpeE1LLd-kmqbjY8hDv4p9ROc-4/edit?usp=share_link&ouid=100640984741521821495&rtpof=true&sd=true"
+    link: "https://drive.google.com/file/d/1mhugVGoEQMlBTJc5mg4TdxmHVXzvlGfY/view?usp=sharing"
 
 ### Services [ services ]
 services:
   title: "Certifications"
   items:
     - icon: ""
-      name: "Badge of completion for the Engineering: Undergraduate & Masters Asia Virtual Experience Program"
-      text: "Microsoft"
-
-    - icon: ""
-      name: "Developing Machine Learning Applications"
-      text: "Amazon Web Services"
-
-    - icon: ""
       name: "Elements of AI"
       text: "University of Helsinki"
-
-    - icon: ""
-      name: "IBM Blockchain Foundation Developer V2"
-      text: "IBM"
 
     - icon: ""
       name: "Python for Everybody Specialization"
@@ -57,11 +46,7 @@ services:
 
     - icon: ""
       name: "ICSI | Certified Network Security Specialist (CNSS)"
-      text: "International CyberSecurity Institute"
-
-    - icon: ""
-      name: "Technology Consulting Virtual Internship"
-      text: "Forage"      
+      text: "International CyberSecurity Institute"  
 
     - icon: ""
       name: "Advanced Google Analytics"
@@ -76,122 +61,110 @@ resume:
   experience:
     title: "Experience"
     items:
-      - year: "2022 - Present"
-        name: "Microsoft Learn Student Ambassador"
-        text: "Promoting ways for learning thereby enabling growth in everyone"
+      - year: "Nov 2023 - Present"
+        name: "Systems Engineer - Tata Consultancy Services"
+        text: "Drove end‑to‑end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, Amazon EC2, Docker, Git, and Snowflake."
 
-      - year: "2021 - 2021"
-        name: "Virtual Internship - FutureSkills Prime"
-        text: "Worked on Azure eventually building a project on Azure via azurewebsites"
+      - year: "Mar 2021 - Apr 2021"
+        name: "Intern - TCS iON"
+        text: "Conducted a comprehensive employee performance and attrition study, leveraging data analysis skills to identify key analytics-driven factors impacting the organization."
 
-      - year: "2021 - 2021"
-        name: "Campus Ambassador - International Model United Nations"
-        text: "Promted and brought awarness about the organization"
+      - year: "Sep 2021 - Dec 2021"
+        name: "Intern - FutureSkills Prime"
+        text: "Successfully developed and implemented a network app hosted on Azure using the Azure Web Apps service."
 
-
-        
   education:
     title: "Education"
     items:
-      - year: "2019 - 2023"
+      - year: "Aug 2019 - Sep 2023"
         name: "Guru Nanak Institutions Technical Campus"
-        text: "Bachelor of Technology in Computer Science"
+        text: "Bachelor of Technology with Major in Computer Science & Engineeing and Minor in Artificial Intelligence"
 
       - year: "2017 - 2019"
         name: "Sri Gayatri Junior College"
-        text: "Intermediate in Maths, Physics and Chemistry"
+        text: "Intermediate (Class XII) in Maths, Physics and Chemistry"
 
       - year: "2016 - 2017"
         name: "HAL Secondary School"
-        text: "Class 10"
+        text: "Class X"
 
 ### Skills [ skills ]
 skills:
   columns:
-    - type: "default" #skills progress type - default, dotted, circles, list
-      title: "Skills"
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Programming Languages"
       items:
-        - label: "Machine Learning"
-          value: "70" #0-100 progress in %
-
-        - label: "Web Development"
-          value: "90" #0-100 progress in %
-
-        - label: "Application Development"
-          value: "75" #0-100 progress in %
-
-        - label: "Writing"
-          value: "80" #0-100 progress in %
-
-    - type: "dotted" #skills progress type - default, dotted, circles, list
-      title: "Languages Skills"
-      items:
-        - label: "English"
-          value: "90" #0-100 progress in %
-
-        - label: "Telugu"
-          value: "100" #0-100 progress in %
-
-        - label: "Hindi"
-          value: "75" #0-100 progress in %
-
-        - label: "German"
-          value: "25" #0-100 progress in %
-
-    - type: "circles" #skills progress type - default, dotted, circles, list
-      title: "Programming Skills"
-      items:
-        - label: "C/C++"
-          value: "80" #0-100 progress in %
-
         - label: "Python"
-          value: "80" #0-100 progress in %
-
-        - label: "HTML / CSS"
-          value: "70" #0-100 progress in %
-          
-        - label: "JavaScript"
-          value: "60" #0-100 progress in %
-          
-        - label: "SQL"
-          value: "50" #0-100 progress in %
 
         - label: "Java"
-          value: "40" #0-100 progress in %
+
+        - label: "C"
 
     - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Knowledge"
+      title: "Machine Learning Libraries"
       items:
-        - label: "Data Science"
-          value: "" #0-100 progress in %
+        - label: "Tensorflow/Keras"
 
-        - label: "Web Development"
-          value: "" #0-100 progress in %
+        - label: "scikit‑learn"
 
-        - label: "Mobile Application Development"
-          value: "" #0-100 progress in %
+        - label: "NLTK"
 
-        - label: "Content Writing"
-          value: "" #0-100 progress in %
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Web Development"
+      items:
+        - label: "HTML"
+          
+        - label: "CSS"
+          
+        - label: "JavaScript"
 
-        - label: "Cloud Computing"
-          value: "" #0-100 progress in %
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Cloud & DevOps"
+      items:
+        - label: "AWS"
 
-        - label: "Graphics & Animation"
-          value: "" #0-100 progress in %
+        - label: "Azure PaaS"
 
-### Facts [ facts ]
-facts:
-  title: "Interests"
-  items:
+        - label: "GCP PaaS"
 
-    - icon: "fas fa-campground"
-      name: "Logic"
-      text: "Undying facination for logical problem solving"
+        - label: "Docker"
 
-    - icon: "fas fa-headphones"
-      name: "Music"
-      text: "Music takes me to Nirvana"
+        - label: "Git"
+
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "DBMS & Data Plaform"
+      items:
+        - label: "SQL"
+
+        - label: "MySQL"
+
+        - label: "Snowflake"
+
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Operating Systems"
+      items:
+        - label: "Windows"
+
+        - label: "Unix/Linux"
+
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Soft Skills"
+      items:
+        - label: "Problem‑solving"
+
+        - label: "Teamwork"
+
+        - label: "Leadership"
+
+        - label: "Communication"
+
+        - label: "Critical Thinking"
+
+        - label: "Adaptability"
+
+        - label: "Time Management"
+
+        - label: "Attention to Detail"
 
 ### Team [ team ]
 ### Team [ team ]
@@ -220,4 +193,4 @@ contacts_info:
     
     - label: "Freelance Available"
       icon: "fas fa-user-tie"
-      value: "I am available for Freelance hire"
+      value: "I am open to opportunities for Full-time positions, Contract work, and Freelance engagements."
