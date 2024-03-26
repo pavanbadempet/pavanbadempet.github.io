@@ -5,9 +5,13 @@ category_slug: f-image
 type: image
 image: assets/img/works/martinford.png
 ---
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 WIP
 =======
 Book
 >>>>>>> parent of 6a92f84 (Update Martin Ford.md)
+=======
+Book
+>>>>>>> parent of c75a943 (Update Martin Ford.md)
