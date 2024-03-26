@@ -62,4 +62,4 @@ exclude:
 sass:
   style: compressed
 
-markdown:  kramdown
+markdown: kramdown
