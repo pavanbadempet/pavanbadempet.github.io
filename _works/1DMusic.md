@@ -1,5 +1,5 @@
 ---
-title: 1d Music
+title: 1D Music
 category: Content
 category_slug: f-content
 type: content
