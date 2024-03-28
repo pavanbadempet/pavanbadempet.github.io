@@ -153,7 +153,7 @@ skills:
         - label: "Attention to Detail"
 
 ### Team [ team ]
-team:
+Volunteering:
   title: "Volunteer Experience"
   items:
     - image: ""
@@ -171,7 +171,7 @@ team:
       role: "As a Campus Ambassador for the International Model United Nations (MUN), I served as a dynamic and proactive liaison between our institution and the esteemed platform of the International MUN. My role involved promoting MUN opportunities, recruiting and guiding students in participating, and organizing informative sessions. By effectively conveying the benefits and significance of MUN participation, I facilitated the engagement of students in diplomatic simulations and global issues, ultimately enriching their academic and personal growth."
 
 ### Team [ team ]
-team:
+Honors:
   title: "Honors & awards"
   items:
     - image: ""
@@ -182,16 +182,6 @@ team:
       name: "Prime Minister's Scholarship Scheme"
       role: "Awarded for academic excellence duringstudies as part of the Prime Minister's Scholarship Scheme for the dependent wards of Ex-Servicemen."
   
-skills:
-  columns:
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Languages"
-      items:
-        - label: "English"
-
-        - label: "Telugu"
-
-        - label: "Hindi"
 
 ### Contact Info [ contacts-info ]
 contacts_info:
