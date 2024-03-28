@@ -35,6 +35,10 @@ services:
       text: "Coursera"
 
     - icon: ""
+      name: "Developing AI Applications on Azure"
+      text: "Coursera"
+
+    - icon: ""
       name: "ICSI | Certified Network Security Specialist (CNSS)"
       text: "International CyberSecurity Institute"  
 
