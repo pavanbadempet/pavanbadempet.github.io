@@ -6,21 +6,14 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Systems Engineer at TCS | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Fullstack Developer | 100K Instagram | 5K X
-"
+  text: "<p>Software Engineer at Tata Consultancy Services | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Fullstack Developer | 100K Instagram | 5K X"
 
   list:
     - label: "DOB"
       value: "14/10/2001"
 
-    - label: "Residence"
-      value: "India"
-
-    - label: "Freelance"
-      value: "Available"
-
     - label: "Address"
-      value: "HAL Township, Hyderabad"
+      value: "HAL Township, Hyderabad, TS 500042 India"
 
     - label: "Phone"
       value: "+917989256101"
@@ -32,61 +25,29 @@ about:
     text: "Download Resume"
     link: "https://drive.google.com/file/d/1mhugVGoEQMlBTJc5mg4TdxmHVXzvlGfY/view?usp=sharing"
 
-### Services [ services ]
-services:
-  title: "Certifications"
-  items:
-    - icon: ""
-      name: "Elements of AI"
-      text: "University of Helsinki"
-
-    - icon: ""
-      name: "Python for Everybody Specialization"
-      text: "Coursera"
-
-    - icon: ""
-      name: "ICSI | Certified Network Security Specialist (CNSS)"
-      text: "International CyberSecurity Institute"  
-
-    - icon: ""
-      name: "Advanced Google Analytics"
-      text: "Google"
-
-    - icon: ""
-      name: "Financial Markets"
-      text: "Coursera"
-
 ### Resume [ resume ]
 resume:
   experience:
     title: "Experience"
     items:
-      - year: "Nov 2023 - Present"
-        name: "Systems Engineer - Tata Consultancy Services"
-        text: "Drove end‑to‑end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, Amazon EC2, Docker, Git, and Snowflake."
+      - year: "11/2023 - Present"
+        name: "Software Engineer - Tata Consultancy Services"
+        text: "Drove end‑to‑end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, AWS SNS, Amazon EC2, Docker, Git, and Snowflake."
 
-      - year: "Mar 2021 - Apr 2021"
-        name: "Intern - TCS iON"
+      - year: "03/2021 - 04/2021"
+        name: "Data Analytics Intern - TCS iON"
         text: "Conducted a comprehensive employee performance and attrition study, leveraging data analysis skills to identify key analytics-driven factors impacting the organization."
 
-      - year: "Sep 2021 - Dec 2021"
-        name: "Intern - FutureSkills Prime"
-        text: "Successfully developed and implemented a network app hosted on Azure using the Azure Web Apps service."
+      - year: "09/2021 - 12/2021"
+        name: "AI Intern - FutureSkills Prime"
+        text: "Successfully developed and implemented an AI app hosted on Azure using the Azure Web Apps service."
 
   education:
     title: "Education"
     items:
-      - year: "Aug 2019 - Sep 2023"
+      - year: "08/2019 - 09/2023"
         name: "Guru Nanak Institutions Technical Campus"
-        text: "Bachelor of Technology with Major in Computer Science & Engineeing and Minor in Artificial Intelligence"
-
-      - year: "2017 - 2019"
-        name: "Sri Gayatri Junior College"
-        text: "Intermediate (Class XII) in Maths, Physics and Chemistry"
-
-      - year: "2016 - 2017"
-        name: "HAL Secondary School"
-        text: "Class X"
+        text: "Bachelor of Technology with Major in Computer Science & Engineeing and Minor in Artificial Intelligence/ Machine Learning"
 
 ### Skills [ skills ]
 skills:
@@ -166,15 +127,56 @@ skills:
 
         - label: "Attention to Detail"
 
-### Team [ team ]
-### Team [ team ]
+### Certification [ services ]
+services:
+  title: "Certifications"
+  items:
+    - icon: ""
+      name: "Python for Everybody Specialization"
+      text: "Coursera"
+
+    - icon: ""
+      name: "Developing AI Applications on Azure"
+      text: "Coursera"
+
+    - icon: ""
+      name: "ICSI | Certified Network Security Specialist (CNSS)"
+      text: "International CyberSecurity Institute"  
+
+    - icon: ""
+      name: "Advanced Google Analytics"
+      text: "Google"
+
+    - icon: ""
+      name: "Financial Markets"
+      text: "Coursera"
+
+### Volunteer Experience [ team ]
 team:
   title: "Volunteer Experience"
   items:
-    - image: ""
-      name: "Fundraising"
+    - name: "Fundraising Volunteer"
       role: "I Volunteered with Muskurahat Foundation, an NGO based in Mumbai. Where I was involved in Project KEYtaab an initiative by Muskurahat Foundation, aiming at providing the underprivileged children from Shelter Homes and orphanages with the holistic development that they lack."
-                
+
+    - name: "Microsoft Learn Student Ambassador"
+      role: "Spearheaded numerous initiatives to foster a culture of technological empowerment and collaboration among students through workshops and training sessions on Microsoft technologies. Organized and led various events that facilitated a deeper understanding of technology and encouraged students to connect, collaborate, and leverage their collective knowledge. Provided mentorship and guidance to fellow students who aspired to pursue careers in the ever-evolving field of technology, witnessing their growth and progress."
+
+    - name: "Campus Ambassador"
+      role: "As a Campus Ambassador for the International Model United Nations (MUN), I served as a dynamic and proactive liaison between our institution and the esteemed platform of the International MUN. My role involved promoting MUN opportunities, recruiting and guiding students in participating, and organizing informative sessions. By effectively conveying the benefits and significance of MUN participation, I facilitated the engagement of students in diplomatic simulations and global issues, ultimately enriching their academic and personal growth."
+
+### Honors & awards [ clients ]
+clients:
+  title: "Honors & awards"
+  items:
+    - image: ""
+      name: "Machine Logic International Master"
+      role: "Achieved first place in the prestigious Machine Logic International Master competition, showcasing expertise in Machine Learning."
+  items:
+    - image: ""
+      name: "Prime Minister's Scholarship Scheme"
+      role: "Awarded for academic excellence duringstudies as part of the Prime Minister's Scholarship Scheme for the dependent wards of Ex-Servicemen."
+  
+
 ### Contact Info [ contacts-info ]
 contacts_info:
   title: "Contacts Info"
@@ -193,4 +195,4 @@ contacts_info:
     
     - label: "Freelance Available"
       icon: "fas fa-user-tie"
-      value: "I am open to opportunities for Full-time positions, Contract work, and Freelance engagements."
+      value: "I am open to opportunities for Full-time positions, Contract Work, and Freelance Engagements."
