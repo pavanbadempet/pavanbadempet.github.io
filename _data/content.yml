@@ -6,18 +6,12 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Systems Engineer at TCS | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Fullstack Developer | 100K Instagram | 5K X
+  text: "<p>Systems Engineer at Tata Consultancy Services | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Fullstack Developer | 100K Instagram | 5K X
 "
 
   list:
     - label: "DOB"
       value: "14/10/2001"
-
-    - label: "Residence"
-      value: "India"
-
-    - label: "Freelance"
-      value: "Available"
 
     - label: "Address"
       value: "HAL Township, Hyderabad"
