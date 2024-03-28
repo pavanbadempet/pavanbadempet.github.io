@@ -31,10 +31,6 @@ services:
   title: "Certifications"
   items:
     - icon: ""
-      name: "Elements of AI"
-      text: "University of Helsinki"
-
-    - icon: ""
       name: "Python for Everybody Specialization"
       text: "Coursera"
 
