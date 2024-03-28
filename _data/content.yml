@@ -72,16 +72,7 @@ resume:
     items:
       - year: "Aug 2019 - Sep 2023"
         name: "Guru Nanak Institutions Technical Campus"
-        name: "Jawaharlal Nehru Technological Univeristy Hyderabad"
         text: "Bachelor of Technology with Major in Computer Science & Engineeing and Minor in Artificial Intelligence"
-
-      - year: "2017 - 2019"
-        name: "Sri Gayatri Junior College"
-        text: "Intermediate (Class XII) in Maths, Physics and Chemistry"
-
-      - year: "2016 - 2017"
-        name: "HAL Secondary School"
-        text: "Class X"
 
 ### Skills [ skills ]
 skills:
