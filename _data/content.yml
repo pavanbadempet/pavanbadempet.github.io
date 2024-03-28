@@ -153,14 +153,46 @@ skills:
         - label: "Attention to Detail"
 
 ### Team [ team ]
-### Team [ team ]
 team:
   title: "Volunteer Experience"
   items:
     - image: ""
       name: "Fundraising Volunteer"
       role: "I Volunteered with Muskurahat Foundation, an NGO based in Mumbai. Where I was involved in Project KEYtaab an initiative by Muskurahat Foundation, aiming at providing the underprivileged children from Shelter Homes and orphanages with the holistic development that they lack."
-                
+
+  items:
+    - image: ""
+      name: "Microsoft Learn Student Ambassador"
+      role: "Spearheaded numerous initiatives to foster a culture of technological empowerment and collaboration among students through workshops and training sessions on Microsoft technologies. Organized and led various events that facilitated a deeper understanding of technology and encouraged students to connect, collaborate, and leverage their collective knowledge. Provided mentorship and guidance to fellow students who aspired to pursue careers in the ever-evolving field of technology, witnessing their growth and progress."
+
+  items:
+    - image: ""
+      name: "Campus Ambassador"
+      role: "As a Campus Ambassador for the International Model United Nations (MUN), I served as a dynamic and proactive liaison between our institution and the esteemed platform of the International MUN. My role involved promoting MUN opportunities, recruiting and guiding students in participating, and organizing informative sessions. By effectively conveying the benefits and significance of MUN participation, I facilitated the engagement of students in diplomatic simulations and global issues, ultimately enriching their academic and personal growth."
+
+### Team [ team ]
+team:
+  title: "Honors & awards"
+  items:
+    - image: ""
+      name: "Machine Logic International Master"
+      role: "Achieved first place in the prestigious Machine Logic International Master competition, showcasing expertise in Machine Learning."
+  items:
+    - image: ""
+      name: "Prime Minister's Scholarship Scheme"
+      role: "Awarded for academic excellence duringstudies as part of the Prime Minister's Scholarship Scheme for the dependent wards of Ex-Servicemen."
+  
+skills:
+  columns:
+    - type: "list" #skills progress type - default, dotted, circles, list
+      title: "Languages"
+      items:
+        - label: "English"
+
+        - label: "Telugu"
+
+        - label: "Hindi"
+
 ### Contact Info [ contacts-info ]
 contacts_info:
   title: "Contacts Info"
