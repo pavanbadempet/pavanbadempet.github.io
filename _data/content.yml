@@ -6,8 +6,7 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Systems Engineer at Tata Consultancy Services | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Fullstack Developer | 100K Instagram | 5K X
-"
+  text: "<p>Systems Engineer at Tata Consultancy Services | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Fullstack Developer | 100K Instagram | 5K X"
 
   list:
     - label: "DOB"
@@ -55,24 +54,24 @@ resume:
   experience:
     title: "Experience"
     items:
-      - year: "Nov 2023 - Present"
+      - year: "11/2023 - Present"
         name: "Systems Engineer - Tata Consultancy Services"
         text: "Drove end‑to‑end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, Amazon EC2, Docker, Git, and Snowflake."
 
-      - year: "Mar 2021 - Apr 2021"
+      - year: "03/2021 - 04/2021"
         name: "Intern - TCS iON"
         text: "Conducted a comprehensive employee performance and attrition study, leveraging data analysis skills to identify key analytics-driven factors impacting the organization."
 
-      - year: "Sep 2021 - Dec 2021"
+      - year: "09/2021 - 12/2021"
         name: "Intern - FutureSkills Prime"
         text: "Successfully developed and implemented a network app hosted on Azure using the Azure Web Apps service."
 
   education:
     title: "Education"
     items:
-      - year: "Aug 2019 - Sep 2023"
+      - year: "08/2019 - 09/2023"
         name: "Guru Nanak Institutions Technical Campus"
-        text: "Bachelor of Technology with Major in Computer Science & Engineeing and Minor in Artificial Intelligence"
+        text: "Bachelor of Technology with Major in Computer Science & Engineeing and Minor in Artificial Intelligence/ Machine Learning"
 
 ### Skills [ skills ]
 skills:
