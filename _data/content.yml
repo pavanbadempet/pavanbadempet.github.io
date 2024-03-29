@@ -6,7 +6,7 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Systems Engineer at Tata Consultancy Services | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Fullstack Developer | 100K Instagram | 5K X"
+  text: "<p>Software Engineer at Tata Consultancy Services | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Fullstack Developer | 100K Instagram | 5K X"
 
   list:
     - label: "DOB"
@@ -55,16 +55,16 @@ resume:
     title: "Experience"
     items:
       - year: "11/2023 - Present"
-        name: "Systems Engineer - Tata Consultancy Services"
+        name: "Software Engineer - Tata Consultancy Services"
         text: "Drove end‑to‑end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, Amazon EC2, Docker, Git, and Snowflake."
 
       - year: "03/2021 - 04/2021"
-        name: "Intern - TCS iON"
+        name: "Data Analytics Intern - TCS iON"
         text: "Conducted a comprehensive employee performance and attrition study, leveraging data analysis skills to identify key analytics-driven factors impacting the organization."
 
       - year: "09/2021 - 12/2021"
-        name: "Intern - FutureSkills Prime"
-        text: "Successfully developed and implemented a network app hosted on Azure using the Azure Web Apps service."
+        name: "AI Intern - FutureSkills Prime"
+        text: "Successfully developed and implemented an AI app hosted on Azure using the Azure Web Apps service."
 
   education:
     title: "Education"
