@@ -25,30 +25,6 @@ about:
     text: "Download Resume"
     link: "https://drive.google.com/file/d/1mhugVGoEQMlBTJc5mg4TdxmHVXzvlGfY/view?usp=sharing"
 
-### Certification [ services ]
-services:
-  title: "Certifications"
-  items:
-    - icon: ""
-      name: "Python for Everybody Specialization"
-      text: "Coursera"
-
-    - icon: ""
-      name: "Developing AI Applications on Azure"
-      text: "Coursera"
-
-    - icon: ""
-      name: "ICSI | Certified Network Security Specialist (CNSS)"
-      text: "International CyberSecurity Institute"  
-
-    - icon: ""
-      name: "Advanced Google Analytics"
-      text: "Google"
-
-    - icon: ""
-      name: "Financial Markets"
-      text: "Coursera"
-
 ### Resume [ resume ]
 resume:
   experience:
@@ -150,6 +126,30 @@ skills:
         - label: "Time Management"
 
         - label: "Attention to Detail"
+
+### Certification [ services ]
+services:
+  title: "Certifications"
+  items:
+    - icon: ""
+      name: "Python for Everybody Specialization"
+      text: "Coursera"
+
+    - icon: ""
+      name: "Developing AI Applications on Azure"
+      text: "Coursera"
+
+    - icon: ""
+      name: "ICSI | Certified Network Security Specialist (CNSS)"
+      text: "International CyberSecurity Institute"  
+
+    - icon: ""
+      name: "Advanced Google Analytics"
+      text: "Google"
+
+    - icon: ""
+      name: "Financial Markets"
+      text: "Coursera"
 
 ### Volunteer Experience [ team ]
 team:
