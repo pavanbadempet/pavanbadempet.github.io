@@ -105,7 +105,7 @@ skills:
       items:
         - label: "Windows"
 
-        - label: "Unix/Linux"
+        - label: "Unix/ Linux"
 
     - type: "list" #skills progress type - default, dotted, circles, list
       title: "Soft Skills"
