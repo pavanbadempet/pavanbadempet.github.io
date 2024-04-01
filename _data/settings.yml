@@ -23,8 +23,5 @@ portfolio:
     - name: "Image"
       slug: "f-image"
 
-    - name: "Gallery"
-      slug: "f-gallery"
-
     - name: "Content"
       slug: "f-content"
