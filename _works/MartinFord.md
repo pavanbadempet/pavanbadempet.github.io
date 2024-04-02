@@ -1,7 +1,7 @@
 ---
 title: Martin Ford
-category: Image
-category_slug: f-image
+category: Books
+category_slug: f-book
 type: image
 image: assets/img/works/martinford.png
 ---

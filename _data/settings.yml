@@ -11,17 +11,14 @@ settings:
 ### Portfolio Filters Settings
 portfolio:
   filters:
-    - name: "Video"
-      slug: "f-video"
-
     - name: "Music"
       slug: "f-music"
 
     - name: "Links"
       slug: "f-link"
 
-    - name: "Image"
-      slug: "f-image"
+    - name: "Books"
+      slug: "f-book"
 
-    - name: "Content"
+    - name: "Projects"
       slug: "f-content"
