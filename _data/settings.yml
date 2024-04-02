@@ -11,6 +11,9 @@ settings:
 ### Portfolio Filters Settings
 portfolio:
   filters:
+    - name: "Video"
+      slug: "f-video"
+
     - name: "Music"
       slug: "f-music"
 
