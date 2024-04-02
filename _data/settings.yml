@@ -20,11 +20,8 @@ portfolio:
     - name: "Links"
       slug: "f-link"
 
-    - name: "Image"
-      slug: "f-image"
+    - name: "Books"
+      slug: "f-books"
 
-    - name: "Gallery"
-      slug: "f-gallery"
-
-    - name: "Content"
+    - name: "Projects"
       slug: "f-content"
