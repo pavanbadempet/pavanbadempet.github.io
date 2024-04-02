@@ -21,7 +21,7 @@ portfolio:
       slug: "f-link"
 
     - name: "Books"
-      slug: "f-book"
+      slug: "f-books"
 
     - name: "Projects"
       slug: "f-content"
