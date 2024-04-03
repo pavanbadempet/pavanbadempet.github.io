@@ -39,7 +39,7 @@ resume:
 
       - year: "09/2021 - 12/2021"
         name: "AI Intern - FutureSkills Prime"
-        text: "Successfully developed and implemented an AI app hosted on Azure using the Azure Web Apps service."
+        text: "Successfully developed and implemented an AI app hosted on Azure using the Azure Web Apps service.(Azure PaaS)"
 
   education:
     title: "Education"
