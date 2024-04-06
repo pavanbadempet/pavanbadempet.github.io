@@ -12,11 +12,7 @@ This project focuses on disease prediction, including liver disease, diabetes, a
 Key Features:
 
 * Disease Prediction: Utilizes XGBoost and Python ML libraries to predict prevalent diseases, addressing health challenges in the Indian population.
-
 * Healthcare Chatbot: Integrates NLP and OpenAI API techniques for interactive and personalized health recommendations.
-
 * Dockerized: The system is containerized for easy deployment and management.
-
 * Cloud Deployment: Utilizes Google Cloud Run for scalable and available healthcare services.
-
 * Local Deployment: Users can run the system locally for testing and development purposes.
