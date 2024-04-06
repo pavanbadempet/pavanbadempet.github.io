@@ -14,4 +14,4 @@ Key Features:
 * Identification of relevant factors contributing to employee attrition is a key step in understanding retention issues.
 * Data visualization aids in better understanding trends and patterns related to employee attrition.
 * Dynamic dashboard design provides real-time insights into factors driving employee attrition.
-Actionable insights from data analytics help organizations implement targeted strategies to optimize employee productivity and retention.
+* Actionable insights from data analytics help organizations implement targeted strategies to optimize employee productivity and retention.
