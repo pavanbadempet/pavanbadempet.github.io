@@ -10,6 +10,7 @@ button_url: https://github.com/pavanbadempet/Employee-Attrition-and-Performance-
 In today's fast-paced business environment, organizations face a significant challenge of retaining their employees. Employee Attrition, which refers to the loss of employees over time, is a critical issue that can have a significant impact on an organization's productivity, profitability, and overall success. To ensure optimal employee productivity and quality of delivery, it is essential to have an effective employee performance management system in place. With the advent of Data Science and analytics, organizations can now leverage their vast amounts of data to gain insights into employee attrition and take corrective action. In this context, this background highlights the importance of employee performance management and the role of Data Science and analytics in analyzing relevant datasets to gain insights into employee attrition.
 
 Key Features:
+
 * The workflow for analyzing datasets involves identifying driving factors, visualizing data using tools like Power BI, and designing dynamic dashboards.
 * Identification of relevant factors contributing to employee attrition is a key step in understanding retention issues.
 * Data visualization aids in better understanding trends and patterns related to employee attrition.
