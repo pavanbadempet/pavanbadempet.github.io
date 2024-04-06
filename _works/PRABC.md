@@ -13,8 +13,8 @@ The idea is to estimate the chance of developing Breast Cancer. Providing advanc
 
 Key Features:
 
-The tool utilizes advanced data insights derived from BRCA data and machine learning techniques, employing a random forest model as a classifier.
-Performance evaluation involves fine-tuning precision and recall metrics.
-Informatic applications will be available for mobile phones, Windows, and MacOS systems, facilitating accessibility to risk assessment.
-Ongoing efforts extend beyond risk assessment to include daily lifestyle changes for breast cancer prevention.
-Long-term aspirations include leveraging data imaging for enhanced diagnostics and analysis, with the ultimate goal of eradicating breast cancer fatalities.
+* The tool utilizes advanced data insights derived from BRCA data and machine learning techniques, employing a random forest model as a classifier.
+* Performance evaluation involves fine-tuning precision and recall metrics.
+* Informatic applications will be available for mobile phones, Windows, and MacOS systems, facilitating accessibility to risk assessment.
+* Ongoing efforts extend beyond risk assessment to include daily lifestyle changes for breast cancer prevention.
+* Long-term aspirations include leveraging data imaging for enhanced diagnostics and analysis, with the ultimate goal of eradicating breast cancer fatalities.
