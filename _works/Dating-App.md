@@ -7,23 +7,26 @@ image: assets/img/works/datingapp.png
 button_url: https://github.com/pavanbadempet/Dating-App
 ---
 
-Dating App ( Angular 9 / .Net WebAPI Core (v 3.0) / Entity Framework core ( v 3.0) / SQL Server)
-* Identity and Role Management
-* Persist data using Entity Framework Core.
-* Used Repository Pattern, created generic Repository for adding another layer of abstraction over Entity Franework.
-* Common error handling in Angular and .net core to show webapi errors on client app. Used Http Interceptors.
-* Used AutoMapper in webapi core.
-* Integrated 3rd party components like Alertify.js as service wrapper into the Angular application
-* Authentication using JWT Authentication tokens for securing Webapi's.
-* Implemented lazy loading to load related navigation properties in entity so Entity Framework core loads navigation properties when it needs them.
-* Filtering, sorting and paging of data
-* Drag and drop photo upload integration into a cloud platform (cloudinary)
-* Private messaging Chat system
-* User can like profiles of other users( of opposite sex ) and can recieve likes from other users as well. Implemented Many-To-Many relationships.
-* Global error Handling in the API and the SPA.
-* ngx-loader to show loader on each http request and hide loader on http response.
-* Implemeted Routing. Secured routes with CanActivate and CanDeActivate guards.
-* Resolvers to pass data in route.
-* Used Angular Reactive forms.
-* Deployed to Azure
-* HTTPS certificate applied
+Dating App
+Cutting-edge dating platform designed to revolutionize your online dating experience. This app incorporates the latest technologies and best practices to ensure seamless interactions, enhanced security, and personalized connections.
+
+Features:
+* Identity and Role Management implemented.
+* Data persistence with Entity Framework Core.
+* Repository Pattern for abstraction over Entity Framework.
+* Common error handling in Angular and .NET Core using Http Interceptors.
+* AutoMapper integration in .NET Core WebAPI.
+* Integration of third-party components like Alertify.js in Angular.
+* Authentication secured with JWT tokens for WebAPIs.
+* Lazy loading for efficient loading of related navigation properties.
+* Filtering, sorting, and paging of data.
+* Integration of drag-and-drop photo upload with Cloudinary.
+* Implementation of a private messaging chat system.
+* User profile liking functionality with Many-To-Many relationships.
+* Global error handling in both API and SPA.
+* Usage of ngx-loader for displaying loaders during HTTP requests.
+* Routing secured with CanActivate and CanDeactivate guards.
+* Resolvers used for passing data in routes.
+* Utilization of Angular Reactive forms for form handling.
+* Deployment to Azure platform.
+* HTTPS certificate applied for secure communication.
