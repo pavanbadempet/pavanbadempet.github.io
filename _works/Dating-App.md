@@ -11,6 +11,7 @@ Dating App
 Cutting-edge dating platform designed to revolutionize your online dating experience. This app incorporates the latest technologies and best practices to ensure seamless interactions, enhanced security, and personalized connections.
 
 Key Features:
+
 * Identity and Role Management implemented.
 * Data persistence with Entity Framework Core.
 * Repository Pattern for abstraction over Entity Framework.
