@@ -7,7 +7,6 @@ image: assets/img/works/datingapp.png
 button_url: https://github.com/pavanbadempet/Dating-App
 ---
 
-Dating App
 Cutting-edge dating platform designed to revolutionize your online dating experience. This app incorporates the latest technologies and best practices to ensure seamless interactions, enhanced security, and personalized connections.
 
 Key Features:
