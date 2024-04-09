@@ -6,7 +6,6 @@ type: content
 image: assets/img/works/1dmusic.png
 button_url: https://github.com/pavanbadempet/1dmusic
 ---
-
 Introducing the 1D Music App - a sleek and intuitive music player designed with Material Design principles. Embracing simplicity and elegance, this app redefines your music listening experience with its seamless interface and robust functionality.
 
 Key Features:
