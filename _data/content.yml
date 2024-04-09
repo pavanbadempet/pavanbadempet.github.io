@@ -12,10 +12,10 @@ about:
       value: "14/10/2001"
 
     - label: "Address"
-      value: "HAL Township, Hyderabad, TS 500042 India"
+      value: "HAL Township, Balanagar, Hyderabad, TS 500042 India"
 
     - label: "Phone"
-      value: "+917989256101"
+      value: "+91 7989256101"
 
     - label: "E-mail"
       value: "pavan9b@gmail.com"
@@ -140,11 +140,7 @@ services:
 
     - icon: ""
       name: "ICSI | Certified Network Security Specialist (CNSS)"
-      text: "International CyberSecurity Institute"  
-
-    - icon: ""
-      name: "Advanced Google Analytics"
-      text: "Google"
+      text: "International CyberSecurity Institute UK"  
 
     - icon: ""
       name: "Financial Markets"
