@@ -143,10 +143,6 @@ services:
       text: "International CyberSecurity Institute UK"  
 
     - icon: ""
-      name: "Advanced Google Analytics"
-      text: "Google"
-
-    - icon: ""
       name: "Financial Markets"
       text: "Coursera"
 
