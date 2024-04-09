@@ -6,6 +6,7 @@ type: content
 image: assets/img/works/hs.png
 button_url: https://github.com/pavanbadempet/A-Healthcare-System-using-Machine-Learning-Techniques-for-Disease-Prediction-with-Chatbot-Assistance
 ---
+
 This project focuses on disease prediction, including liver disease, diabetes, and heart disease, through machine learning models implemented with XGBoost. Additionally, a healthcare chatbot is integrated to provide personalized health recommendations. The entire system is containerized using Docker and deployed on Google Cloud Run for seamless scalability. Users also have the option to run the system locally.
 
 Key Features:
