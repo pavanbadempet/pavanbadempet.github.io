@@ -5,7 +5,7 @@ category_slug: f-book
 type: image
 image: assets/img/works/martinford.png
 ---
-
-* Martin Ford: The Beginning of the End Rise of Novas (WIP)
+Books:
+* Martin Ford: The Beginning of the End Rise of Novas
 * Martin Ford: 2
 * Martin Ford: 3
