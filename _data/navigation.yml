@@ -26,3 +26,8 @@ main:
   - title: "Contacts"
     url: "contacts/"
     parent: 0
+
+  # Contacts
+  - title: "Blog"
+    url: "blog/"
+    parent: 0
