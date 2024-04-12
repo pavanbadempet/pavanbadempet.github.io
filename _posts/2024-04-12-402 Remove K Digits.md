@@ -57,7 +57,7 @@ Space complexity:
 0(n), the space complexity is dominated by the stack list. In the worst case, the stack can contain all elements of the num string.
 
 Code:
-```ruby
+```python
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
         #Example test case num = "1432219", k = 3
