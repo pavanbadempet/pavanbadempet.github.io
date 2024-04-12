@@ -5,9 +5,9 @@ layout: default
 {% assign ui_text = site.data.ui-text['ui_text'] %}
 
 {% if page.author == nil %}
-    {% assign author = site.author %}
+	{% assign author = site.author %}
 {% else %}
-    {% assign author = page.author %}
+	{% assign author = page.author %}
 {% endif %}
 
 {% assign blog_url = 'blog/' %}
@@ -99,48 +99,48 @@ layout: default
         </div>
         
         {% if page.previous.url or page.next.url %}
-        <nav class="navigation post-navigation">
-            <div class="nav-links">
-                {% if page.previous.url %}
-                <div class="nav-previous">
-                    <a href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title }}"><span class="post-nav-next post-nav-text">{{ ui_text.prev }}</span></a>
-                </div>
-                {% endif %}
-                {% if page.next.url %}
-                <div class="nav-next">
-                    <a href="{{ page.next.url | relative_url }}" title="{{ page.next.title }}"><span class="post-nav-prev post-nav-text">{{ ui_text.next }}</span></a>
-                </div>
-                {% endif %}
-            </div>
-        </nav>
-        {% endif %}
+		<nav class="navigation post-navigation">
+			<div class="nav-links">
+				{% if page.previous.url %}
+				<div class="nav-previous">
+					<a href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title }}"><span class="post-nav-next post-nav-text">{{ ui_text.prev }}</span></a>
+				</div>
+				{% endif %}
+				{% if page.next.url %}
+				<div class="nav-next">
+					<a href="{{ page.next.url | relative_url }}" title="{{ page.next.title }}"><span class="post-nav-prev post-nav-text">{{ ui_text.next }}</span></a>
+				</div>
+				{% endif %}
+			</div>
+		</nav>
+		{% endif %}
         
         {% if site.disqus_comments == 'yes' %}
-        <div class="post-comments">
-            <div class="title">
-                <div class="title_inner">{{ ui_text.comments }}</div>
-            </div>
-            <div class="comments">
-                <div id="disqus_thread"></div>
-                            
-                {% if site.disqus_shortname %}
-                  <script>
-                    var disqus_config = function () {
-                      this.page.url = "{{ page.url | absolute_url }}";  /* Replace PAGE_URL with your page's canonical URL variable */
-                      this.page.identifier = "{{ page.id }}"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
-                    };
-                    (function() { /* DON'T EDIT BELOW THIS LINE */
-                      var d = document, s = d.createElement('script');
-                      s.src = 'https://{{ site.disqus_shortname }}.disqus.com/embed.js';
-                      s.setAttribute('data-timestamp', +new Date());
-                      (d.head || d.body).appendChild(s);
-                    })();
-                  </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                {% endif %}
-            </div>
-        </div>
-        {% endif %}
+		<div class="post-comments">
+			<div class="title">
+				<div class="title_inner">{{ ui_text.comments }}</div>
+			</div>
+			<div class="comments">
+				<div id="disqus_thread"></div>
+							
+				{% if site.disqus_shortname %}
+				  <script>
+				    var disqus_config = function () {
+				      this.page.url = "{{ page.url | absolute_url }}";  /* Replace PAGE_URL with your page's canonical URL variable */
+				      this.page.identifier = "{{ page.id }}"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+				    };
+				    (function() { /* DON'T EDIT BELOW THIS LINE */
+				      var d = document, s = d.createElement('script');
+				      s.src = 'https://{{ site.disqus_shortname }}.disqus.com/embed.js';
+				      s.setAttribute('data-timestamp', +new Date());
+				      (d.head || d.body).appendChild(s);
+				    })();
+				  </script>
+				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+				{% endif %}
+			</div>
+		</div>
+		{% endif %}
 
         <div class="clear"></div>
     </div>
