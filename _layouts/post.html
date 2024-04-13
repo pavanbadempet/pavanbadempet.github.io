@@ -11,6 +11,13 @@ layout: default
 {% endif %}
 
 {% assign blog_url = 'blog/' %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.1.3/marked.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var markdownContent = document.getElementById('markdown-content');
+        markdownContent.innerHTML = marked(markdownContent.innerHTML);
+    });
+</script>
 
 <!-- Section Started -->
 <div class="section started section-title" id="section-post">
@@ -48,9 +55,9 @@ layout: default
 
         <div class="post">
             <div class="content-box">
-                <div class="single-post-text">
-                    {{ page.content | markdown }}
-                </div>
+                <div class="single-post-text" id="markdown-content">
+                    {{ page.content }}
+                </div>                
                 
                 <div class="post-text-bottom">
                     <div class="social-share" data-title="{{ page.title }}" data-url="{{ page.url | absolute_url }}">
