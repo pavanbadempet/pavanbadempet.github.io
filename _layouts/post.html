@@ -49,8 +49,24 @@ layout: default
         <div class="post">
             <div class="content-box">
                 <div class="single-post-text">
-                    {{ page.content | markdown }}
+                    {% assign lines = page.content | newline_to_br | split: '<br />' %}
+                    {% assign in_code_block = false %}
+                    {% for line in lines %}
+                        {% if line contains "```" %}
+                            {% if in_code_block %}
+                                {% assign in_code_block = false %}
+                            {% else %}
+                                {% assign in_code_block = true %}
+                            {% endif %}
+                        {% endif %}
+                        {% if in_code_block %}
+                            {{ line }}
+                        {% else %}
+                            <p>{{ line | strip_html }}</p>
+                        {% endif %}
+                    {% endfor %}
                 </div>
+                
                 
                 <div class="post-text-bottom">
                     <div class="social-share" data-title="{{ page.title }}" data-url="{{ page.url | absolute_url }}">
