@@ -49,8 +49,12 @@ layout: default
         <div class="post">
             <div class="content-box">
                 <div class="single-post-text">
-                    {{ page.content | markdownify }}
+                    {% assign lines = page.content | newline_to_br | split: '<br />' %}
+                    {% for line in lines %}
+                        <p>{{ line | strip_html }}</p>
+                    {% endfor %}
                 </div>
+                
                 
                 <div class="post-text-bottom">
                     <div class="social-share" data-title="{{ page.title }}" data-url="{{ page.url | absolute_url }}">
