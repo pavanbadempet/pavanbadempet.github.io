@@ -5,18 +5,18 @@ layout: default
 {% assign ui_text = site.data.ui-text['ui_text'] %}
 
 {% if page.author == nil %}
-	{% assign author = site.author %}
+    {% assign author = site.author %}
 {% else %}
-	{% assign author = page.author %}
+    {% assign author = page.author %}
 {% endif %}
 
 {% assign blog_url = 'blog/' %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.1.3/marked.min.js"></script>
+
 <!-- Section Started -->
 <div class="section started section-title" id="section-post">
 
     <!-- background -->
-    <div class="video-bg"{% if page.image != '' %} style="background-image: url({{ page.image | relative_url }});"{% endif %}>
+    <div class="video-bg"{% if page.image != '' %} style="background-image: url();"{% endif %}>
         <div class="video-bg-mask"></div>
         <div class="video-bg-texture" id="grained_container"></div>
     </div>
@@ -25,12 +25,12 @@ layout: default
     <div class="centrize full-width">
         <div class="vertical-center">
             <div class="started-content">
-                <div class="date">{{ page.date | date: site.date_format }}</div>
+                <div class="date">{{ page.date | date_to_string }}</div>
                 <h1 class="h-title">{{ page.title }}</h1>
                 <div class="h-subtitles">
                     <div class="h-subtitle typing-bread">
                         <p class="breadcrumbs">
-                            <a href="{{ site.url }}">{{ ui_text.home }}</a> / <a href="{{ blog_url | relative_url }}">{{ ui_text.blog }}</a>
+                            <a href="{{ site.baseurl }}/">{{ ui_text.home }}</a> / <a href="{{ site.baseurl }}/{{ blog_url }}">{{ ui_text.blog }}</a>
                         </p>
                     </div>
                     <span class="typed-bread"></span>
@@ -39,7 +39,7 @@ layout: default
         </div>
     </div>
     
-    <!-- mosue button -->
+    <!-- mouse button -->
     <a href="#" class="mouse_btn" style="display: none;"><span class="icon fas fa-chevron-down"></span></a>
 </div>
 
@@ -49,64 +49,46 @@ layout: default
         <div class="post">
             <div class="content-box">
                 <div class="single-post-text">
-                    {% assign lines = page.content | newline_to_br | split: '<br />' %}
-                    {% assign in_python_code_block = false %}
-                    {% for line in lines %}
-                        {% if line contains "```python" %}
-                            {% assign in_python_code_block = true %}
-                            <pre><code class="language-python">{{ line | remove: '```python' }}</code></pre>
-                        {% elsif line contains "```" %}
-                            {% assign in_python_code_block = false %}
-                            <pre><code>{{ line | remove: '```' }}</code></pre>
-                        {% elsif in_python_code_block %}
-                            <code class="language-python">{{ line }}</code>
-                        {% else %}
-                            <p>{{ line | strip_html }}</p>
-                        {% endif %}
-                    {% endfor %}
+                    {{ content }}
                 </div>
                 
-                
-                
                 <div class="post-text-bottom">
-                    <div class="social-share" data-title="{{ page.title }}" data-url="{{ page.url | absolute_url }}">
-                        <span>{{ ui_text.share }}:</span>
-                        <a class="share-btn share-btn-facebook share-btn-1" title="{{ ui_text.share_on }} Facebook">
+                    <div class="social-share" data-title="{{ page.title }}" data-url="{{ site.url }}{{ page.url }}">
+                        <span>:</span>
+                        <a class="share-btn share-btn-facebook share-btn-1" title=" Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a class="share-btn share-btn-twitter share-btn-2" title="{{ ui_text.share_on }} Twitter">
+                        <a class="share-btn share-btn-twitter share-btn-2" title=" Twitter">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a class="share-btn share-btn-linkedin share-btn-3" title="{{ ui_text.share_on }} Linkedin">
+                        <a class="share-btn share-btn-linkedin share-btn-3" title=" Linkedin">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a class="share-btn share-btn-reddit share-btn-4" title="{{ ui_text.share_on }} Reddit">
+                        <a class="share-btn share-btn-reddit share-btn-4" title=" Reddit">
                             <i class="fab fa-reddit"></i>
                         </a>
-                        <a class="share-btn share-btn-pinterest share-btn-5" title="{{ ui_text.share_on }} Pinterest">
+                        <a class="share-btn share-btn-pinterest share-btn-5" title=" Pinterest">
                             <i class="fab fa-pinterest"></i>
                         </a>
                     </div>
-                    {% assign cat_size = page.category | size %}
-                    {% if cat_size != 0 %}
+                    {% if page.category %}
                     <div class="cat-links">
-                        <span>Posted in</span> 
+                        <span>{{ ui_text.posted_in }}</span> 
                         {% for category in page.category %}
-                        <a href="{{ '/categories' | relative_url }}/{{ category | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category }}</a>{% if page.category.last != category and page.category.last != nil %},{% endif %}
+                        <a href="{{ site.baseurl }}/{{ blog_url }}">{{ category }}</a>{% if forloop.last != true %},{% endif %}
                         {% endfor %}
                     </div>
                     {% endif %}
 
                     <div class="byline">
-                        {{ ui_text.by }} <span class="author">{{ author }}</span>
+                         <span class="author">{{ author }}</span>
                     </div>
 
-                    {% assign tags_size = page.tags | size %}
-                    {% if tags_size != 0 %}
+                    {% if page.tags %}
                     <div class="tags-links">
-                        <span>{{ ui_text.tags }}:</span> 
+                        <span>{{ ui_text.tags }}</span> 
                         {% for tag in page.tags %}
-                        <a href="{{ '/tags' | relative_url }}/{{ tag | downcase | url_escape | strip | replace: ' ', '-' }}" rel="tag">{{- tag -}}</a>
+                        <a href="{{ site.baseurl }}/{{ blog_url }}tag/{{ tag }}">{{ tag }}</a>{% if forloop.last != true %},{% endif %}
                         {% endfor %}
                     </div>
                     {% endif %}
@@ -115,48 +97,48 @@ layout: default
         </div>
         
         {% if page.previous.url or page.next.url %}
-		<nav class="navigation post-navigation">
-			<div class="nav-links">
-				{% if page.previous.url %}
-				<div class="nav-previous">
-					<a href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title }}"><span class="post-nav-next post-nav-text">{{ ui_text.prev }}</span></a>
-				</div>
-				{% endif %}
-				{% if page.next.url %}
-				<div class="nav-next">
-					<a href="{{ page.next.url | relative_url }}" title="{{ page.next.title }}"><span class="post-nav-prev post-nav-text">{{ ui_text.next }}</span></a>
-				</div>
-				{% endif %}
-			</div>
-		</nav>
-		{% endif %}
+        <nav class="navigation post-navigation">
+            <div class="nav-links">
+                {% if page.previous.url %}
+                <div class="nav-previous">
+                    <a href="{{ page.previous.url }}" title="{{ page.previous.title }}"><span class="post-nav-next post-nav-text">{{ page.previous.title }}</span></a>
+                </div>
+                {% endif %}
+                {% if page.next.url %}
+                <div class="nav-next">
+                    <a href="{{ page.next.url }}" title="{{ page.next.title }}"><span class="post-nav-prev post-nav-text">{{ page.next.title }}</span></a>
+                </div>
+                {% endif %}
+            </div>
+        </nav>
+        {% endif %}
         
         {% if site.disqus_comments == 'yes' %}
-		<div class="post-comments">
-			<div class="title">
-				<div class="title_inner">{{ ui_text.comments }}</div>
-			</div>
-			<div class="comments">
-				<div id="disqus_thread"></div>
-							
-				{% if site.disqus_shortname %}
-				  <script>
-				    var disqus_config = function () {
-				      this.page.url = "{{ page.url | absolute_url }}";  /* Replace PAGE_URL with your page's canonical URL variable */
-				      this.page.identifier = "{{ page.id }}"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
-				    };
-				    (function() { /* DON'T EDIT BELOW THIS LINE */
-				      var d = document, s = d.createElement('script');
-				      s.src = 'https://{{ site.disqus_shortname }}.disqus.com/embed.js';
-				      s.setAttribute('data-timestamp', +new Date());
-				      (d.head || d.body).appendChild(s);
-				    })();
-				  </script>
-				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-				{% endif %}
-			</div>
-		</div>
-		{% endif %}
+        <div class="post-comments">
+            <div class="title">
+                <div class="title_inner">{{ ui_text.comments }}</div>
+            </div>
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                            
+                {% if site.disqus_shortname %}
+                  <script>
+                    var disqus_config = function () {
+                      this.page.url = "{{ site.url }}{{ page.url }}";  /* Replace PAGE_URL with your page's canonical URL variable */
+                      this.page.identifier = "{{ page.url }}"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+                    };
+                    (function() { /* DON'T EDIT BELOW THIS LINE */
+                      var d = document, s = d.createElement('script');
+                      s.src = 'https://{{ site.disqus_shortname }}.disqus.com/embed.js';
+                      s.setAttribute('data-timestamp', +new Date());
+                      (d.head || d.body).appendChild(s);
+                    })();
+                  </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
 
         <div class="clear"></div>
     </div>
