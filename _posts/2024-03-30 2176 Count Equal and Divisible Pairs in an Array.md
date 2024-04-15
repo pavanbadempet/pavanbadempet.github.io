@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2176. Count Equal and Divisible Pairs in an Array"
-date: 30-03-2024
+date: 2024-03-30
 category:
   - DSA
 image: assets/img/blog/LeetCode.jpg
