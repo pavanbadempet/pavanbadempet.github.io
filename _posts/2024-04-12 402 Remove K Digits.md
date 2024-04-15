@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "402. Remove K Digits"
-date: 12-04-2024
+date: 2024-04-12
 category:
   - DSA
 image: assets/img/blog/LeetCode.jpg
