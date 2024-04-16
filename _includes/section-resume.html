@@ -19,8 +19,9 @@
                         <div class="name">{{ item.name }}</div>
                         <div class="text">
                             <ul>
-                                {% for line in item.text %}
-                                <li>{{ line }}</li>
+                                {% assign lines = item.text | newline_to_br | split: '<br />' %}
+                                {% for line in lines %}
+                                <li>{{ line | strip_html }}</li>
                                 {% endfor %}
                             </ul>
                         </div>
