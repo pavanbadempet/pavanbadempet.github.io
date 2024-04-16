@@ -62,7 +62,13 @@ to excellence."
       - year: "08/2019 - 09/2023"
         college: "Guru Nanak Institutions Technical Campus"
         university: "Jawaharlal Nehru Technological University Hyderabad"
-        text: "Bachelor of Technology with Major in Computer Science & Engineeing and Minor in Artificial Intelligence/ Machine Learning"
+        degree: "Bachelor of Technology - BTech"
+        major: "<b>Major:</b> Computer Science & Engineering"
+        macgpa: "<b>Grade:</b> 8.2 (First Class with Distinction)"
+        macoursework: "<b>Relevant Coursework:</b> Data Structures & Algorithms, Operating Systems, Computer Networks, Web Technologies, Object Oriented Programming, Database Management System, Software Engineering"
+        minor: "<b>Minor:</b> Artificial Intelligence/ Machine Learning"
+        micgpa: "<b>Grade:</b> 8.58 (First Class with Distinction)"
+        micoursework: "<b>Relevant Coursework:</b> Deep Learning, Natural Language Processing, Foundations of Artificial Intelligence, Artificial Intelligence Applications"
 
 ### Skills [ skills ]
 skills:
