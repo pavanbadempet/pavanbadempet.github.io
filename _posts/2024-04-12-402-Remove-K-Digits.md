@@ -9,7 +9,7 @@ author: Pavan Badempet
 tags: LeetCode
 ---
 
-Problem Link: [402. Remove K Digits](https://leetcode.com/problems/remove-k-digits/description/?envType=daily-question&envId=2024-04-11)
+Problem Link: [402. Remove K Digits](https://leetcode.com/problems/remove-k-digits/description/)
 
 ## Intuition
 Using a stack-based approach allows us to efficiently remove digits while maintaining the order and forming the smallest possible number. By greedily selecting digits and removing them as needed, we can achieve the desired result in linear time complexity.

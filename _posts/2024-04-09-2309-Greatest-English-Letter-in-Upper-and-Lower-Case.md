@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "402. Remove K Digits"
-date: 2024-04-12
+title: "2309. Greatest English Letter in Upper and Lower Case"
+date: 2024-04-09
 category:
   - DSA
 image: assets/img/blog/LeetCode.jpg
@@ -9,7 +9,7 @@ author: Pavan Badempet
 tags: LeetCode
 ---
 
-Problem Link: [402. Remove K Digits](https://leetcode.com/problems/remove-k-digits/description/?envType=daily-question&envId=2024-04-11)
+Problem Link: [2309. Greatest English Letter in Upper and Lower Case](https://leetcode.com/problems/greatest-english-letter-in-upper-and-lower-case/description/)
 
 ## Intuition
 Using a stack-based approach allows us to efficiently remove digits while maintaining the order and forming the smallest possible number. By greedily selecting digits and removing them as needed, we can achieve the desired result in linear time complexity.
