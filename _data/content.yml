@@ -31,15 +31,21 @@ resume:
     items:
       - year: "11/2023 - Present"
         name: "Software Engineer - Tata Consultancy Services"
-        services:
-          - type: "list" #skills progress type - default, dotted, circles, list
-            title: "Programming Languages"
+        resume:
+          experience:
+            title: ""
             items:
-              - label: "Python"
+          - type: "list" #skills progress type - default, dotted, circles, list
+            title: ""
+            items:
+              - label: "Enhanced data processing efficiency by 20% through the development of critical components using Python, Streamlit, AWS Lambda, S3, EC2,
+Docker, Git, and Snowflake in Agile framework, integrating CI/CD for Data Platform."
 
-              - label: "Java"
+              - label: "Reduced time‐to‐market for new features by 15% by collaborating on cross‐functional agile teams with Confluence and implementing efficient
+design patterns for next‐generation enterprise applications."
 
-              - label: "C"
+              - label: "Achieved 100% Coverage & 25% decrease in bug occurrence through rigorous testing methodologies with moto, apptest, pytest, enhancing
+data platform reliability and adaptability."
         text: "Drove end‑to‑end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, AWS SNS, Amazon EC2, Docker, Git, and Snowflake."
 
       - year: "03/2021 - 04/2021"
