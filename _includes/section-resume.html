@@ -19,9 +19,8 @@
                         <div class="name">{{ item.name }}</div>
                         <div class="text">
                             <ul>
-                                {% assign lines = item.text | newline_to_br | split: '<br />' %}
-                                {% for line in lines %}
-                                <li>{{ line | strip_html }}</li>
+                                {% for point in item.text %}
+                                <li>{{ point }}</li>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -44,7 +43,13 @@
                     <div class="resume-item content-box">
                         <div class="date">{{ item.year }}</div>
                         <div class="name">{{ item.name }}</div>
-                        <div class="text">{{ item.text }}</div>
+                        <div class="text">
+                            <ul>
+                                {% for point in item.text %}
+                                <li>{{ point }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                     {% endfor %}
                 </div>
