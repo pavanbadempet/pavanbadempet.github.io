@@ -24,7 +24,6 @@ about:
     text: "Download Resume"
     link: "https://drive.google.com/file/d/1tfsB2oPlqMAYve3vMUUK_KMotjvFpwjS/view?usp=sharing"
 
-### Resume [ resume ]
 resume:
   experience:
     - year: "11/2023 - Present"
@@ -33,17 +32,18 @@ resume:
         - "Drove end to end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, AWS SNS, Amazon EC2, Docker, Git, and Snowflake."
         - "Collaborated with cross-functional teams to deliver high-quality software solutions."
         - "Participated in code reviews and provided constructive feedback to team members."
+        - "Conducted performance optimizations to enhance application efficiency."
       
       - year: "03/2021 - 04/2021"
         name: "Data Analytics Intern - TCS iON"
-        text: |
+        text:
           - Conducted a comprehensive employee performance and attrition study, leveraging data analysis skills to identify key analytics-driven factors impacting the organization.
           - Presented findings to senior management and recommended actionable insights.
           - Developed data visualizations to communicate complex insights effectively.
 
       - year: "09/2021 - 12/2021"
         name: "AI Intern - FutureSkills Prime"
-        text: |
+        text:
           - Successfully developed and implemented an AI app hosted on Azure using the Azure Web Apps service (Azure PaaS).
           - Collaborated with a team of data scientists and engineers to deploy machine learning models in a production environment.
           - Conducted experiments and iteratively improved the app's performance based on user feedback.
