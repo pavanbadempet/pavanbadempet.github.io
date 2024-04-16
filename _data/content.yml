@@ -25,6 +25,7 @@ about:
     link: "https://drive.google.com/file/d/1tfsB2oPlqMAYve3vMUUK_KMotjvFpwjS/view?usp=sharing"
 
 ### Resume [ resume ]
+### Resume [ resume ]
 resume:
   experience:
     title: "Experience"
@@ -50,6 +51,12 @@ resume:
           - Successfully developed and implemented an AI app hosted on Azure using the Azure Web Apps service (Azure PaaS).
           - Collaborated with a team of data scientists and engineers to deploy machine learning models in a production environment.
           - Conducted experiments and iteratively improved the app's performance based on user feedback.
+  education:
+    title: "Education"
+    items:
+      - year: "08/2019 - 09/2023"
+        name: "Guru Nanak Institutions Technical Campus"
+        text: "Bachelor of Technology with Major in Computer Science & Engineeing and Minor in Artificial Intelligence/ Machine Learning"
 
 ### Skills [ skills ]
 skills:
