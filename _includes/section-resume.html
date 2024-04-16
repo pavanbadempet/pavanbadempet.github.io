@@ -1,5 +1,4 @@
 {% assign content = site.data.content['resume'] %}
-
 <!-- Section Resume -->
 <div class="section resume" id="section-history">
     <div class="content">
@@ -9,19 +8,18 @@
 
                 <!-- title -->
                 <div class="title">
-                    <div class="title_inner">{{ content.experience.title }}</div>
+                    <div class="title_inner">{{ site.data.resume.experience.title }}</div>
                 </div>
 
                 <!-- resume items -->
                 <div class="resume-items">
-                    {% for item in content.experience.items %}
-                    <div class="resume-item content-box{% if item.index == 1 %} active{% endif %}">
+                    {% for item in site.data.resume.experience %}
+                    <div class="resume-item content-box">
                         <div class="date">{{ item.year }}</div>
                         <div class="name">{{ item.name }}</div>
                         <div class="text">
                             <ul>
-                                {% assign text_lines = item.text | split: '\n' %}
-                                {% for line in text_lines %}
+                                {% for line in item.text %}
                                 <li>{{ line }}</li>
                                 {% endfor %}
                             </ul>
@@ -36,12 +34,12 @@
 
                 <!-- title -->
                 <div class="title">
-                    <div class="title_inner">{{ content.education.title }}</div>
+                    <div class="title_inner">{{ site.data.resume.education.title }}</div>
                 </div>
 
                 <!-- resume items -->
                 <div class="resume-items">
-                    {% for item in content.education.items %}
+                    {% for item in site.data.resume.education %}
                     <div class="resume-item content-box">
                         <div class="date">{{ item.year }}</div>
                         <div class="name">{{ item.name }}</div>
