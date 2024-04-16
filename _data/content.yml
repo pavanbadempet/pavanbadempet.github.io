@@ -25,14 +25,13 @@ about:
     link: "https://drive.google.com/file/d/1tfsB2oPlqMAYve3vMUUK_KMotjvFpwjS/view?usp=sharing"
 
 ### Resume [ resume ]
-### Resume [ resume ]
 resume:
   experience:
     title: "Experience"
     items:
       - year: "11/2023 - Present"
         name: "Software Engineer - Tata Consultancy Services"
-        text: |
+        text:
           - Drove end to end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, AWS SNS, Amazon EC2, Docker, Git, and Snowflake.
           - Collaborated with cross-functional teams to deliver high-quality software solutions.
           - Participated in code reviews and provided constructive feedback to team members.
