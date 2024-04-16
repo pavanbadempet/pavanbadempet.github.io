@@ -12,41 +12,40 @@ tags: LeetCode
 Problem Link: [2309. Greatest English Letter in Upper and Lower Case](https://leetcode.com/problems/greatest-english-letter-in-upper-and-lower-case/description/)
 
 ## Intuition
-Using a stack-based approach allows us to efficiently remove digits while maintaining the order and forming the smallest possible number. By greedily selecting digits and removing them as needed, we can achieve the desired result in linear time complexity.
+Using a dictionary to keep track of whether an uppercase and lowercase version of a character has been encountered or not. The maximum uppercase character that satisfies this condition is returned.
 
 ## Approach
-1. Intialize an empty stack.
-2. Iterate through every number in the num.
-    - Loop until stack is not empty and k>0 and stack[-1]>i ie.top of the stack is greater than current number i, pop from the stack all those elements which are larger than the current number at the same time decrementing k.
-    - Append the number i into the stack.
-3. After iterating through all the numbers in num in some cases we might have k still left (this in cases of continues values or series of increasing values lets say like num = [1,3,5] k=2 in such cases the condiation of stack[-1]>i never holds true so k will remain so. So we need to handle this.) so we remove those numbers from the end of the stack by slicing those last nummber (Why the last numbers? Because the k>0 is posssible because of increasing series of numbers num = [1,3,5] k =2 then slice it until :-k.
-4. We need to handle those cases where there might be a leading zero as well. So we can just convert the stack into a string ans and strip all the leading zeros.
-5. if our ans is not an empty string at the end we can return the ans otherwise return '0'.
+1. Initialize an empty dictionary dic to keep track of whether an uppercase and lowercase version of a character has been encountered or not.
+2. Initialize maxi to an empty string to keep track of the maximum uppercase character encountered so far.
+3. Iterate through each character i in the string s.
+    - For each i, update the dictionary entry for its uppercase version in such a way that it tracks if both uppercase and lowercase counterparts have been seen.
+    - If both uppercase and lowercase counterparts of i have been seen and its uppercase version is greater than maxi, update maxi to be the uppercase version of i.
+4. Return maxi.
 
 ## Complexity
 - Time complexity:
-0(n), where n is the length of the input string num. This complexity arises from iterating through each character in num, performing stack operations, and joining the elements of the stack. Other operations within the function also contribute linearly to the overall time complexity.
+O(n), where n is the length of the s. This is because we iterate through each element in the s once. Within the loop, the code performs dictionary operations like get() and assignments. Dictionary operations generally have an average time complexity of O(1). The overall time complexity of the loop is O(n) because the dominant factor is the loop iterating through each character in the s.
 
 - Space complexity:
-0(n), the space complexity is dominated by the stack list. In the worst case, the stack can contain all elements of the num string.
+O(n), where n is the number of unique characters encountered in the string s. This is because we use a dictionary dic to keep track of whether both uppercase and lowercase counterparts of each character have been seen.
 
 ## Code
-```python
-class Solution:
-    def removeKdigits(self, num: str, k: int) -> str:
-        # Example test case num = "1432219", k = 3
-        stack = []
-        for i in num:
-            while stack and k > 0 and stack[-1] > i:
-                stack.pop()
-                k -= 1
-            stack.append(i)
-        # Example Test Case 2: num = "10", k = 2
-        if k > 0:
-            stack = stack[:-k] 
-        # Example Test Case 3: num = "10200", k = 1
-        ans = ''.join(stack).lstrip('0')
-        if ans:
-            return ans
-        return '0'
 ```
+class Solution:
+    def greatestLetter(self, s: str) -> str:
+        dic = {}
+        maxi = ""
+        for i in s:
+            dic[i.upper()] = dic.get(i.upper(),{'Upper':False,'Lower':False})
+            if i == i.upper():
+                dic[i.upper()]['Upper'] = True
+            else:
+                dic[i.upper()]['Lower'] = True
+            if dic[i.upper()]['Upper'] == True and dic[i.upper()]['Lower'] == True and i.upper()>maxi:
+                maxi = i.upper()
+        return maxi
+
+```
+
+## Similar Problem:
+[2441. Largest Positive Integer That Exists With Its Negative](https://leetcode.com/problems/largest-positive-integer-that-exists-with-its-negative/description/)
