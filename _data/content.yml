@@ -31,7 +31,7 @@ resume:
     items:
       - year: "11/2023 - Present"
         name: "Software Engineer - Tata Consultancy Services"
-        text1: "Enhanced data processing efficiency by 20% through the development of critical components using Python, Streamlit, AWS Lambda, S3, EC2,
+        text1: **Enhanced** data processing efficiency by 20% through the development of critical components using Python, Streamlit, AWS Lambda, S3, EC2,
 Docker, Git, and Snowflake in Agile framework, integrating CI/CD for Data Platform."
         text2: "Reduced time‐to‐market for new features by 15% by collaborating on cross‐functional agile teams with Confluence and implementing efficient
 design patterns for next‐generation enterprise applications."
