@@ -31,6 +31,14 @@ resume:
     items:
       - year: "11/2023 - Present"
         name: "Software Engineer - Tata Consultancy Services"
+        - type: "list" #skills progress type - default, dotted, circles, list
+          title: "Programming Languages"
+          items:
+            - label: "Python"
+
+            - label: "Java"
+
+            - label: "C"
         text: "Drove end‑to‑end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, AWS SNS, Amazon EC2, Docker, Git, and Snowflake."
 
       - year: "03/2021 - 04/2021"
