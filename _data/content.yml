@@ -168,8 +168,8 @@ services:
       name: "Financial Markets"
       text: "Coursera"
 
-### Volunteer Experience [ volunteering ]
-volunteering:
+### Volunteer Experience [ team ]
+team:
   title: "Volunteer Experience"
   items:
     - name: "Microsoft Learn"
