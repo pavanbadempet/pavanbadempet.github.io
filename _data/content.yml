@@ -85,6 +85,10 @@ skills:
     - type: "list" #skills progress type - default, dotted, circles, list
       title: "Machine Learning Libraries"
       items:
+        - label: "NumPy"
+
+        - label: "Pandas"
+
         - label: "Tensorflow/ Keras"
 
         - label: "scikit‑learn"
