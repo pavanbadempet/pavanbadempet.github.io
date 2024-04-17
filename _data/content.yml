@@ -115,6 +115,9 @@ skills:
 
         - label: "Git"
 
+        - label: "Jira"
+
+
     - type: "list" #skills progress type - default, dotted, circles, list
       title: "DBMS & Data Platform"
       items:
