@@ -117,6 +117,7 @@ skills:
 
         - label: "Jira"
 
+        - label: "Confluence"
 
     - type: "list" #skills progress type - default, dotted, circles, list
       title: "DBMS & Data Platform"
