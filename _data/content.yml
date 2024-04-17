@@ -168,20 +168,29 @@ services:
       name: "Financial Markets"
       text: "Coursera"
 
-### Volunteer Experience [ team ]
-team:
+### Volunteer Experience [ volunteering ]
+volunteering:
   title: "Volunteer Experience"
   items:
-    - name: "Fundraising Volunteer"
-      role: "I Volunteered with Muskurahat Foundation, an NGO based in Mumbai. Where I was involved in Project KEYtaab an initiative by Muskurahat Foundation, aiming at providing the underprivileged children from Shelter Homes and orphanages with the holistic development that they lack."
+    - name: "Microsoft Learn"
+      role: "Microsoft Learn Student Ambassador"
+      text1: "Spearheaded numerous initiatives to foster a culture of technological empowerment and collaboration among students through workshops and training sessions on Microsoft technologies."
+      text2: "Organized and led various events that facilitated a deeper understanding of technology and encouraged students to connect, collaborate, and leverage their collective knowledge."
+      text3: "Provided mentorship and guidance to fellow students who aspired to pursue careers in the ever-evolving field of technology, witnessing their growth and progress."
 
-    - name: "Microsoft Learn Student Ambassador"
-      role: "Spearheaded numerous initiatives to foster a culture of technological empowerment and collaboration among students through workshops and training sessions on Microsoft technologies. Organized and led various events that facilitated a deeper understanding of technology and encouraged students to connect, collaborate, and leverage their collective knowledge. Provided mentorship and guidance to fellow students who aspired to pursue careers in the ever-evolving field of technology, witnessing their growth and progress."
+    - name: "Muskurahat Foundation"
+      role: "Volunteer"
+      text1: "Engaged in Project KEYtaab, enhancing the lives of over 30 underprivileged children through education and life skills programs."
+      text2: "Elevated fundraising efforts, achieving a 20% increase in donations via online and offline platforms."
+      text3: "Amplified awareness for Muskurahat Foundation's initiatives, reaching 5000+ individuals through strategic outreach and events."
 
-    - name: "Campus Ambassador"
-      role: "As a Campus Ambassador for the International Model United Nations (MUN), I served as a dynamic and proactive liaison between our institution and the esteemed platform of the International MUN. My role involved promoting MUN opportunities, recruiting and guiding students in participating, and organizing informative sessions. By effectively conveying the benefits and significance of MUN participation, I facilitated the engagement of students in diplomatic simulations and global issues, ultimately enriching their academic and personal growth."
+    - name: "International Model United Nations (MUN)"
+      role: "Campus Ambassador"
+      text1: "Spearheaded campus-wide recruitment efforts, resulting in a 30% increase in student participation in International Model United Nations (MUN) conferences."
+      text2: "Conducted 5+ informative sessions, reaching over 200 students, to educate them about the value of MUN participation, leading to a 25% rise in student engagement with global issues and diplomatic simulations."
+      text3: "Acted as a key liaison between our institution and the International MUN platform, fostering a strong partnership that facilitated ongoing student involvement and contributed to the recognition of our institution within the MUN community."
 
-### Honors & Wwards [ clients ]
+### Honors & Awards [ clients ]
 clients:
   title: "Honors & Awards"
   items:
