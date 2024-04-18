@@ -91,6 +91,8 @@ skills:
 
         - label: "Matplotlib"
 
+        - label: "Seaborn"
+
         - label: "Tensorflow/ Keras"
 
         - label: "scikit‑learn"
