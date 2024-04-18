@@ -89,6 +89,8 @@ skills:
 
         - label: "Pandas"
 
+        - label: "Matplotlib"
+
         - label: "Tensorflow/ Keras"
 
         - label: "scikit‑learn"
