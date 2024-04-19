@@ -82,6 +82,8 @@ skills:
 
         - label: "C"
 
+        - label: "Scala"
+
     - type: "list" #skills progress type - default, dotted, circles, list
       title: "Machine Learning Libraries"
       items:
