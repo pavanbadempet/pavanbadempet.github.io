@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2176. Count Equal and Divisible Pairs in an Array"
-date: 2024-03-30
+title: "819. Most Common Word"
+date: 2024-04-10
 category:
   - DSA
 image: assets/img/blog/LeetCode.jpg
@@ -9,7 +9,7 @@ author: Pavan Badempet
 tags: LeetCode
 ---
 
-Problem Link: [2176. Count Equal and Divisible Pairs in an Array](https://leetcode.com/problems/most-common-word/)
+Problem Link: [819. Most Common Word](https://leetcode.com/problems/most-common-word/description/)
 
 ## Intuition
 Count the occurrences of each word into a dictionary, disregard banned words, keep track of most common word.
@@ -35,21 +35,17 @@ O(k), the space complexity mainly depends on the size of the counts dictionary a
 ## Code
 ```python
 class Solution:
-    def countPairs(self, nums: List[int], k: int) -> int:
-        length = len(nums)
-        count = 0
-        # If all elements are unique, no pairs can be formed
-        if len(set(nums)) == length:
-            return count
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
         counts = {}
-        for i in range(length):
-            counts[nums[i]] = counts.get(nums[i],[]) + [i]
-        for values in counts.values():
-            length = len(values)
-            if length>1:
-                for i in range(length-1):
-                    for j in range(i+1,length):
-                        if (values[i] * values[j]) % k == 0:
-                            count+=1
-        return count
+        banned = set(banned)
+        maxi = ["",0]
+        for i in "!?',;.":
+            paragraph = paragraph.replace(i," ")
+        paragraph = paragraph.lower().split()
+        for k in paragraph:
+            if k not in banned:
+                counts[k] = 1 + counts.get(k,0)
+                if counts[k]>maxi[1]:
+                    maxi = [k,counts[k]]
+        return maxi[0]
 ```
