@@ -11,10 +11,10 @@ tags: LeetCode
 
 Problem Link: [2309. Greatest English Letter in Upper and Lower Case](https://leetcode.com/problems/greatest-english-letter-in-upper-and-lower-case/description/)
 
-## Intuition
+### Intuition
 Using a dictionary to keep track of whether an uppercase and lowercase version of a character has been encountered or not. The maximum uppercase character that satisfies this condition is returned.
 
-## Approach
+### Approach
 1. Initialize an empty dictionary dic to keep track of whether an uppercase and lowercase version of a character has been encountered or not.
 2. Initialize maxi to an empty string to keep track of the maximum uppercase character encountered so far.
 3. Iterate through each character i in the string s.
@@ -22,14 +22,14 @@ Using a dictionary to keep track of whether an uppercase and lowercase version o
     - If both uppercase and lowercase counterparts of i have been seen and its uppercase version is greater than maxi, update maxi to be the uppercase version of i.
 4. Return maxi.
 
-## Complexity
+### Complexity
 - Time complexity:
 O(n), where n is the length of the s. This is because we iterate through each element in the s once. Within the loop, the code performs dictionary operations like get() and assignments. Dictionary operations generally have an average time complexity of O(1). The overall time complexity of the loop is O(n) because the dominant factor is the loop iterating through each character in the s.
 
 - Space complexity:
 O(n), where n is the number of unique characters encountered in the string s. This is because we use a dictionary dic to keep track of whether both uppercase and lowercase counterparts of each character have been seen.
 
-## Code
+### Code
 ```
 class Solution:
     def greatestLetter(self, s: str) -> str:
