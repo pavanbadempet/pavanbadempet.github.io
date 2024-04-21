@@ -11,10 +11,10 @@ tags: LeetCode
 
 Problem Link: [2176. Count Equal and Divisible Pairs in an Array](https://leetcode.com/problems/count-equal-and-divisible-pairs-in-an-array/description/)
 
-## Intuition
+### Intuition
 Using a stack-based approach allows us to efficiently remove digits while maintaining the order and forming the smallest possible number. By greedily selecting digits and removing them as needed, we can achieve the desired result in linear time complexity.
 
-## Approach
+### Approach
 1. Initialize a variable count to keep track of the count of such pairs.
 2. Create a dictionary counts to store the indices of each number in the input array.
 3. Iterate through the input array and populate the counts dictionary.
@@ -23,14 +23,14 @@ Using a stack-based approach allows us to efficiently remove digits while mainta
     - If the product is divisible by k, increment the count variable.
 5. Finally, return the count.
 
-## Complexity
+### Complexity
 - Time complexity:
 Let n be the length of the input array. Constructing the counts dictionary takes O(n) time. Then, iterating through the values of the counts dictionary and finding pairs of indices takes O(n^2) time in the worst case. Therefore, the overall time complexity is O(n^2).
 
 - Space complexity:
 The space complexity is O(n) due to the counts dictionary.
 
-## Code
+### Code
 ```python
 class Solution:
     def countPairs(self, nums: List[int], k: int) -> int:
