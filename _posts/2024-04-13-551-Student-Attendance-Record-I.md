@@ -1,3 +1,9 @@
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
 ---
 layout: post
 title: "551. Student Attendance Record I"
@@ -30,7 +36,7 @@ O(1), as the function uses only a constant amount of extra space.
 
 **Code**
 <pre>
-<code>
+<code class="python">
 class Solution:
     def checkRecord(self, s: str) -> bool:
         Absent, Late = 0, 0
