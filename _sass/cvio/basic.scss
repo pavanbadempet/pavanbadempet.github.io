@@ -746,26 +746,24 @@ ul ul, ol ol, ul ol, ol ul {
 
 /* - Code */
 code {
-	font-family: $default_font;
-	padding: 0 4px;
-	font-style: italic;
-	color: #999;
-	text-decoration: none;
-	display: inline-block;
-	vertical-align: middle;
-	overflow: auto;
-	max-width: 100%;
-	white-space: nowrap;
+    font-family: $default_font;
+    padding: 0 4px;
+    font-style: italic;
+    color: #999;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: auto;
+    max-width: 100%;
 }
 
 pre {
-	background: #f6f6f6;
-	font-family: $default_font;
-	margin: 30px 0;
-	padding: 30px;
-	max-width: 100%;
-	overflow: auto;
-	white-space: pre;
+    background: #f6f6f6;
+    font-family: $default_font;
+    margin: 30px 0;
+    padding: 30px;
+    max-width: 100%;
+    overflow: auto;
 }
 
 mark, ins {

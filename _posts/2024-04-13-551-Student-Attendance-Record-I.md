@@ -8,12 +8,6 @@ image: assets/img/blog/LeetCode.jpg
 author: Pavan Badempet
 tags: LeetCode
 ---
-<head>
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-</head>
 
 Problem Link: [551. Student Attendance Record I](https://leetcode.com/problems/student-attendance-record-i/description/)
 
@@ -35,8 +29,7 @@ O(n), where n is the length of the string s. The function iterates through each 
 O(1), as the function uses only a constant amount of extra space.
 
 **Code**
-<pre>
-<code class="python">
+```python
 class Solution:
     def checkRecord(self, s: str) -> bool:
         Absent, Late = 0, 0
@@ -52,5 +45,4 @@ class Solution:
                 if Late>=3:
                     return False
         return True
-</code>
-</pre>
+```
