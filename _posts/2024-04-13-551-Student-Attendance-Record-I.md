@@ -15,6 +15,7 @@ Problem Link: [551. Student Attendance Record I](https://leetcode.com/problems/s
 Iterate through the attendance record string, tallying counts for absences and consecutive late days. Track the maximum consecutive late days encountered. At each step, check for conditions violating the attendance criteria, like multiple absences or more than two consecutive late days.
 
 **Approach**
+---
 1. Initialize two variables Absent and Late to keep track of the number of absent days and consecutive late days, respectively.
 2. Iterate through each character i in the string s.
     - If i is not 'L', reset the Late counter to 0. If i is 'A', increment the Absent counter and check if Absent is greater than or equal to 2. If so, return False.
