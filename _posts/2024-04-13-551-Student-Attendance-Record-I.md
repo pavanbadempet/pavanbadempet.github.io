@@ -11,6 +11,7 @@ tags: LeetCode
 
 Problem Link: [551. Student Attendance Record I](https://leetcode.com/problems/student-attendance-record-i/description/)
 
+```diff
 ### Intuition
 Iterate through the attendance record string, tallying counts for absences and consecutive late days. Track the maximum consecutive late days encountered. At each step, check for conditions violating the attendance criteria, like multiple absences or more than two consecutive late days.
 
@@ -45,4 +46,5 @@ class Solution:
                 if Late>=3:
                     return False
         return True
+```
 ```
