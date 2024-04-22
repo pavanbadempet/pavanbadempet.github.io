@@ -29,7 +29,8 @@ O(n), where n is the length of the string s. The function iterates through each 
 O(1), as the function uses only a constant amount of extra space.
 
 **Code**
-```python
+<pre>
+<code>
 class Solution:
     def checkRecord(self, s: str) -> bool:
         Absent, Late = 0, 0
@@ -45,4 +46,5 @@ class Solution:
                 if Late>=3:
                     return False
         return True
-```
+</code>
+</pre>
