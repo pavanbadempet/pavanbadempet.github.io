@@ -866,21 +866,22 @@ dd {
 	margin-right: auto !important;
 	display: block !important;
 }
-
 .full-width {
 	max-width: 100% !important;
 	width: 100% !important;
+	height: auto !important; /* Add this line to make the height auto */
 }
 
 .full-max-width {
 	max-width: 100% !important;
 	width: auto !important;
+	height: auto !important; /* Add this line to make the height auto */
 }
 
 .centrize {
 	display: table !important;
 	table-layout: fixed !important;
-	height: 100% !important;
+	height: auto !important; /* Change this line to make the height auto */
 	position: relative !important;
 	top: 0;
 	left: 0;
@@ -890,7 +891,9 @@ dd {
 .vertical-center {
 	display: table-cell !important;
 	vertical-align: middle !important;
+	height: auto !important; /* Add this line to make the height auto */
 }
+
 
 /* - Text Formating */
 .text-uppercase {
