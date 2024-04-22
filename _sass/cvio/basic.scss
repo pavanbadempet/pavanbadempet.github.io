@@ -868,25 +868,24 @@ dd {
 }
 
 .full-width {
-    max-width: 600px !important; /* Adjust the value as needed */
-    width: 100% !important;
+	max-width: 100% !important;
+	width: 100% !important;
 }
 
 .full-max-width {
-    max-width: 600px !important; /* Adjust the value as needed */
-    width: auto !important;
+	max-width: 100% !important;
+	width: auto !important;
 }
 
 .centrize {
-    display: table !important;
-    table-layout: fixed !important;
-    height: 100% !important;
-    position: relative !important;
-    top: 0;
-    left: 0;
-    z-index: 2;
+	display: table !important;
+	table-layout: fixed !important;
+	height: 100% !important;
+	position: relative !important;
+	top: 0;
+	left: 0;
+	z-index: 2;
 }
-
 
 .vertical-center {
 	display: table-cell !important;
