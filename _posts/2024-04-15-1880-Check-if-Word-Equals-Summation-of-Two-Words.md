@@ -11,10 +11,10 @@ tags: LeetCode
 
 Problem Link: [1880. Check if Word Equals Summation of Two Words](https://leetcode.com/problems/check-if-word-equals-summation-of-two-words/description/)
 
-# Intuition
+### Intuition
 Calculate the numerical values of three given words by converting each character to its ASCII value and summing them up. Then, check if the sum of the first two words equals the numerical value of the third word.
 
-# Approach
+### Approach
 1. Initialize variables fw, sw, and tw to represent the numerical values of firstWord, secondWord, and targetWord, respectively.
 2. Iterate through the maximum length of the three words using a loop index i.
     - If i is within the length of firstWord, convert the character at index i to its numerical value using ASCII conversion and update fw.
@@ -23,14 +23,14 @@ Calculate the numerical values of three given words by converting each character
 3. Check if the sum of fw and sw is equal to tw.
 4. Return True if the sum is equal, otherwise return False.
 
-# Complexity
+### Complexity
 - Time complexity:
 O(n), where n is the maximum length among the lengths of firstWord, secondWord, and targetWord. The function iterates through each character of the longest word once.
 
 - Space complexity:
 O(1), as the function uses only a constant amount of extra space.
 
-# Code
+### Code
 ```python
 class Solution:
     def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:

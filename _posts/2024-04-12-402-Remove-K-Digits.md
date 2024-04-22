@@ -11,10 +11,10 @@ tags: LeetCode
 
 Problem Link: [402. Remove K Digits](https://leetcode.com/problems/remove-k-digits/description/)
 
-# Intuition
+### Intuition
 Using a stack-based approach allows us to efficiently remove digits while maintaining the order and forming the smallest possible number. By greedily selecting digits and removing them as needed, we can achieve the desired result in linear time complexity.
 
-# Approach
+### Approach
 1. Intialize an empty stack.
 2. Iterate through every number in the num.
     - Loop until stack is not empty and k>0 and stack[-1]>i ie.top of the stack is greater than current number i, pop from the stack all those elements which are larger than the current number at the same time decrementing k.
@@ -23,14 +23,14 @@ Using a stack-based approach allows us to efficiently remove digits while mainta
 4. We need to handle those cases where there might be a leading zero as well. So we can just convert the stack into a string ans and strip all the leading zeros.
 5. if our ans is not an empty string at the end we can return the ans otherwise return '0'.
 
-# Complexity
+### Complexity
 - Time complexity:
 0(n), where n is the length of the input string num. This complexity arises from iterating through each character in num, performing stack operations, and joining the elements of the stack. Other operations within the function also contribute linearly to the overall time complexity.
 
 - Space complexity:
 0(n), the space complexity is dominated by the stack list. In the worst case, the stack can contain all elements of the num string.
 
-# Code
+### Code
 ```python
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
