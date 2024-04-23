@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2176. Count Equal and Divisible Pairs in an Array"
-date: 2024-03-30
+title: "2570. Merge Two 2D Arrays by Summing Values"
+date: 2024-04-17
 category:
   - DSA
 image: assets/img/blog/LeetCode.jpg
@@ -9,45 +9,34 @@ author: Pavan Badempet
 tags: LeetCode
 ---
 
-Problem Link: [2176. Count Equal and Divisible Pairs in an Array](https://leetcode.com/problems/count-equal-and-divisible-pairs-in-an-array/description/)
+Problem Link: [2570. Merge Two 2D Arrays by Summing Values](https://leetcode.com/problems/merge-two-2d-arrays-by-summing-values/description/)
 
 # Intuition
-Using a stack-based approach allows us to efficiently remove digits while maintaining the order and forming the smallest possible number. By greedily selecting digits and removing them as needed, we can achieve the desired result in linear time complexity.
+Merging two lists of lists into a single list of lists while summing up the values of lists with the same ID. This is achieved by iterating through each pair of ID and value in the combined list, updating a dictionary with the sums of values corresponding to each ID. Finally, the dictionary items are sorted based on the ID to obtain the merged arrays.
 
 # Approach
-1. Initialize a variable count to keep track of the count of such pairs.
-2. Create a dictionary counts to store the indices of each number in the input array.
-3. Iterate through the input array and populate the counts dictionary.
-4. Iterate through the values of the counts dictionary.
-    - For each value (list of indices), iterate through pairs of indices (i, j) and check if the product of the elements at those indices is divisible by k.
-    - If the product is divisible by k, increment the count variable.
-5. Finally, return the count.
+1. Combine the two input lists nums1 and nums2 into a single list nums.
+2. Create an empty dictionary dic to store the sums of values corresponding to each ID.
+3. Iterate through each pair (id, val) in the nums list.
+    - For each pair, update the dictionary entry for the ID by adding the value to the existing sum (or 0 if the ID is encountered for the first time).
+4. Sort the dictionary items based on the ID.
+5. Return the sorted list of tuples representing the merged arrays.
 
 # Complexity
 - Time complexity:
-Let n be the length of the input array. Constructing the counts dictionary takes O(n) time. Then, iterating through the values of the counts dictionary and finding pairs of indices takes O(n^2) time in the worst case. Therefore, the overall time complexity is O(n^2).
+O(n * log(n)), where n is the total number of elements in both nums1 and nums2. This is because sorting the dictionary items takes O(n * log(n)) time.
 
 - Space complexity:
-The space complexity is O(n) due to the counts dictionary.
+O(n), where n is the total number of unique IDs in nums1 and nums2. This is because the dictionary dic could potentially contain an entry for each unique ID.
 
 # Code
 ```python
 class Solution:
-    def countPairs(self, nums: List[int], k: int) -> int:
-        length = len(nums)
-        count = 0
-        # If all elements are unique, no pairs can be formed
-        if len(set(nums)) == length:
-            return count
-        counts = {}
-        for i in range(length):
-            counts[nums[i]] = counts.get(nums[i],[]) + [i]
-        for values in counts.values():
-            length = len(values)
-            if length>1:
-                for i in range(length-1):
-                    for j in range(i+1,length):
-                        if (values[i] * values[j]) % k == 0:
-                            count+=1
-        return count
+    def mergeArrays(self, nums1: List[List[int]], nums2: List[List[int]]) -> List[List[int]]:
+        nums = nums1 + nums2
+        dic = {}
+        for id, val in nums:
+            dic[id] = val + dic.get(id, 0)
+        result = sorted(dic.items())
+        return result
 ```
