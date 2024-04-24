@@ -31,7 +31,7 @@ O(n), where n is the number of words in the sentence s. The function iterates th
 O(n), where n is the number of words in the sentence s. This is because we create a list ans to store the sorted words.
 
 # Code
-```
+```python
 class Solution:
     def sortSentence(self, s: str) -> str:
         words = s.split(" ")
