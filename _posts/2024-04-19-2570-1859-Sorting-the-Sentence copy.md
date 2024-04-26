@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "1859. Sorting the Sentence"
+title: "748. Shortest Completing Word"
 date: 2024-04-19
 category:
   - DSA
@@ -9,7 +9,7 @@ author: Pavan Badempet
 tags: LeetCode
 ---
 
-Problem Link: [1859. Sorting the Sentence](https://leetcode.com/problems/sorting-the-sentence/description/)
+Problem Link: [748. Shortest Completing Word](https://leetcode.com/problems/shortest-completing-word/description/)
 
 # Intuition
 Splitting the input sentence into individual words and initializing an empty list with the same length as the number of words. Iterating through each word, the last character, representing its position in the sorted sentence, is extracted. By converting this character to an integer and adjusting for zero-based indexing, each word is placed in its corresponding position in the output list. Finally, the words in the output list are joined with spaces to form the sorted sentence, which is then returned.
