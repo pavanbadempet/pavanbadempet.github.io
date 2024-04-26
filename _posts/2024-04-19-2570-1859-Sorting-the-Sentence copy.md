@@ -31,7 +31,7 @@ O(m * (k + n)), constructing the valid counter from the licensePlate incurs a li
 O(n + k), valid counter requires O(n) space, where n denotes the count of unique characters in the licensePlate string. Additionally, the space consumption includes the ans string, necessitating O(k) space, corresponding to the length of the shortest completing word. Moreover, the creation of a new counter j for each word within the iteration further contributes O(k) space per word, where k signifies the length of the respective word.
 
 # Code
-```
+```python
 from collections import Counter
 class Solution:
     def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
