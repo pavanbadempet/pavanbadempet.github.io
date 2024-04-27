@@ -32,7 +32,7 @@ O(n), where n is the length of the input word. The function iterates through eac
 O(n), where n is the number of unique characters in the word. This is because we use a dictionary dic to store the occurrences of each character.
 
 # Code
-```
+```python
 class Solution:
     def numberOfSpecialChars(self, word: str) -> int:
         dic = {}
