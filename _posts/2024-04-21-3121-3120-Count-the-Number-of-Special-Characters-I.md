@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "3121. Count the Number of Special Characters II"
+title: "3120. Count the Number of Special Characters I"
 date: 2024-04-21
 category:
   - DSA
@@ -9,7 +9,7 @@ author: Pavan Badempet
 tags: LeetCode
 ---
 
-Problem Link: [3121. Count the Number of Special Characters II](https://leetcode.com/problems/count-the-number-of-special-characters-ii/description/)
+Problem Link: [3120. Count the Number of Special Characters I](https://leetcode.com/problems/count-the-number-of-special-characters-i/description/)
 
 # Intuition
 To count the number of special characters in the given word, we first convert the word into a set to obtain unique characters. Then, we initialize an empty set to keep track of the lowercase versions of characters encountered. We iterate through each unique character in the set, converting it to lowercase. If the lowercase character is not present in the tracking set, we add it. If it's already present, indicating that both lowercase and uppercase versions exist, we remove it from the tracking set and increment the count of special characters. Finally, we return the count of special characters. This approach ensures that each special character is counted only once, regardless of its case.
