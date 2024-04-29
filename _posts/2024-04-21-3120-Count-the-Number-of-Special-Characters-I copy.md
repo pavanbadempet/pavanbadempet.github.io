@@ -31,7 +31,7 @@ O(n * m), where n is the number of words in the text and m is the length of the 
 O(1), as the function uses only a constant amount of extra space.
 
 # Code
-```
+```python
 class Solution:
     def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
         count = 0
