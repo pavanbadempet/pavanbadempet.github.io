@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "1935. Maximum Number of Words You Can Type"
-date: 2024-04-22
+title: "707. Design Linked List"
+date: 2024-04-27
 category:
   - DSA
 image: assets/img/blog/LeetCode.jpg
@@ -9,7 +9,7 @@ author: Pavan Badempet
 tags: LeetCode
 ---
 
-Problem Link: [1935. Maximum Number of Words You Can Type](https://leetcode.com/problems/maximum-number-of-words-you-can-type/description/)
+Problem Link: [707. Design Linked List](https://leetcode.com/problems/design-linked-list/description/)
 
 # 1. Singly Linked List
 ## Intuition
