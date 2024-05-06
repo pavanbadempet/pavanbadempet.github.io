@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "3131. Find the Integer Added to Array I"
+title: "3132. Find the Integer Added to Array II"
 date: 2024-04-28
 category:
   - DSA
