@@ -6,43 +6,43 @@
 started:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Software Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I obtain <strong>data</strong>"
-    - "I scrub <strong>data</strong>"
-    - "I explore <strong>data</strong>"
-    - "I model <strong>data</strong>"
-    - "I interpret <strong>data</strong>"
+    - "I build <strong>web applications</strong>"
+    - "I process <strong>data</strong>"
+    - "I deploy <strong>scalable solutions</strong>"
+    - "I implement <strong>machine learning</strong>"
+    - "I develop <strong>APIs</strong>"
 
 ### Started Personal
 started-personal:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I obtain <strong>data</strong>"
-    - "I scrub <strong>data</strong>"
-    - "I explore <strong>data</strong>"
-    - "I model <strong>data</strong>"
-    - "I interpret <strong>data</strong>"
+    - "I build <strong>web applications</strong>"
+    - "I process <strong>data</strong>"
+    - "I deploy <strong>scalable solutions</strong>"
+    - "I implement <strong>machine learning</strong>"
+    - "I develop <strong>APIs</strong>"
   image: "assets/img/pavan.jpg"
   
 ### Started Image
 started-image:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I obtain <strong>data</strong>"
-    - "I scrub <strong>data</strong>"
-    - "I explore <strong>data</strong>"
-    - "I model <strong>data</strong>"
-    - "I interpret <strong>data</strong>"
+    - "I build <strong>web applications</strong>"
+    - "I process <strong>data</strong>"
+    - "I deploy <strong>scalable solutions</strong>"
+    - "I implement <strong>machine learning</strong>"
+    - "I develop <strong>APIs</strong>"
   image: "assets/img/started_image_p.jpg"
   
 ### Started Video
 started-video:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I obtain <strong>data</strong>"
-    - "I scrub <strong>data</strong>"
-    - "I explore <strong>data</strong>"
-    - "I model <strong>data</strong>"
-    - "I interpret <strong>data</strong>"
+    - "I build <strong>web applications</strong>"
+    - "I process <strong>data</strong>"
+    - "I deploy <strong>scalable solutions</strong>"
+    - "I implement <strong>machine learning</strong>"
+    - "I develop <strong>APIs</strong>"
   video: "https://youtu.be/S4L8T2kFFck"
   image: "assets/img/started_image_p.jpg"
   
@@ -50,11 +50,11 @@ started-video:
 started-slider:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I obtain <strong>data</strong>"
-    - "I scrub <strong>data</strong>"
-    - "I explore <strong>data</strong>"
-    - "I model <strong>data</strong>"
-    - "I interpret <strong>data</strong>"
+    - "I build <strong>web applications</strong>"
+    - "I process <strong>data</strong>"
+    - "I deploy <strong>scalable solutions</strong>"
+    - "I implement <strong>machine learning</strong>"
+    - "I develop <strong>APIs</strong>"
   images:
     - "assets/img/started_image.jpg"
     - "assets/img/started_image2.jpg"
