@@ -9,7 +9,7 @@ started:
     - "I build <strong>web applications</strong>"
     - "I process <strong>data</strong>"
     - "I deploy <strong>scalable solutions</strong>"
-    - "I implement <strong>machine learning</strong>"
+    - "I implement <strong>ml models</strong>"
     - "I develop <strong>APIs</strong>"
 
 ### Started Personal
@@ -19,7 +19,7 @@ started-personal:
     - "I build <strong>web applications</strong>"
     - "I process <strong>data</strong>"
     - "I deploy <strong>scalable solutions</strong>"
-    - "I implement <strong>machine learning</strong>"
+    - "I implement <strong>ml models</strong>"
     - "I develop <strong>APIs</strong>"
   image: "assets/img/pavan.jpg"
   
@@ -30,7 +30,7 @@ started-image:
     - "I build <strong>web applications</strong>"
     - "I process <strong>data</strong>"
     - "I deploy <strong>scalable solutions</strong>"
-    - "I implement <strong>machine learning</strong>"
+    - "I implement <strong>ml models</strong>"
     - "I develop <strong>APIs</strong>"
   image: "assets/img/started_image_p.jpg"
   
@@ -41,7 +41,7 @@ started-video:
     - "I build <strong>web applications</strong>"
     - "I process <strong>data</strong>"
     - "I deploy <strong>scalable solutions</strong>"
-    - "I implement <strong>machine learning</strong>"
+    - "I implement <strong>ml models</strong>"
     - "I develop <strong>APIs</strong>"
   video: "https://youtu.be/S4L8T2kFFck"
   image: "assets/img/started_image_p.jpg"
@@ -53,7 +53,7 @@ started-slider:
     - "I build <strong>web applications</strong>"
     - "I process <strong>data</strong>"
     - "I deploy <strong>scalable solutions</strong>"
-    - "I implement <strong>machine learning</strong>"
+    - "I implement <strong>ml models</strong>"
     - "I develop <strong>APIs</strong>"
   images:
     - "assets/img/started_image.jpg"
