@@ -4,22 +4,22 @@
 
 ### Started Default
 started:
-  title: "Hello, I’m <strong>Pavan Badempet</strong>, an Software Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
+  title: "Hello, I’m <strong>Pavan Badempet</strong>, a Software Engineer <br />crafting data-driven & cloud-native solutions from Hyderabad."
   typed:
-    - "I build <strong>web applications</strong>"
-    - "I process <strong>data</strong>"
-    - "I deploy <strong>scalable solutions</strong>"
-    - "I implement <strong>ml models</strong>"
+    - "I build <strong>backend systems</strong>"
+    - "I design <strong>data pipelines</strong>"
+    - "I deploy <strong>cloud architectures</strong>"
+    - "I automate <strong>workflows</strong>"
     - "I develop <strong>APIs</strong>"
 
 ### Started Personal
 started-personal:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I build <strong>web applications</strong>"
-    - "I process <strong>data</strong>"
-    - "I deploy <strong>scalable solutions</strong>"
-    - "I implement <strong>ml models</strong>"
+    - "I build <strong>backend systems</strong>"
+    - "I design <strong>data pipelines</strong>"
+    - "I deploy <strong>cloud architectures</strong>"
+    - "I automate <strong>workflows</strong>"
     - "I develop <strong>APIs</strong>"
   image: "assets/img/pavan.jpg"
   
@@ -27,10 +27,10 @@ started-personal:
 started-image:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I build <strong>web applications</strong>"
-    - "I process <strong>data</strong>"
-    - "I deploy <strong>scalable solutions</strong>"
-    - "I implement <strong>ml models</strong>"
+    - "I build <strong>backend systems</strong>"
+    - "I design <strong>data pipelines</strong>"
+    - "I deploy <strong>cloud architectures</strong>"
+    - "I automate <strong>workflows</strong>"
     - "I develop <strong>APIs</strong>"
   image: "assets/img/started_image_p.jpg"
   
@@ -38,10 +38,10 @@ started-image:
 started-video:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I build <strong>web applications</strong>"
-    - "I process <strong>data</strong>"
-    - "I deploy <strong>scalable solutions</strong>"
-    - "I implement <strong>ml models</strong>"
+    - "I build <strong>backend systems</strong>"
+    - "I design <strong>data pipelines</strong>"
+    - "I deploy <strong>cloud architectures</strong>"
+    - "I automate <strong>workflows</strong>"
     - "I develop <strong>APIs</strong>"
   video: "https://youtu.be/S4L8T2kFFck"
   image: "assets/img/started_image_p.jpg"
@@ -50,10 +50,10 @@ started-video:
 started-slider:
   title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I build <strong>web applications</strong>"
-    - "I process <strong>data</strong>"
-    - "I deploy <strong>scalable solutions</strong>"
-    - "I implement <strong>ml models</strong>"
+    - "I build <strong>backend systems</strong>"
+    - "I design <strong>data pipelines</strong>"
+    - "I deploy <strong>cloud architectures</strong>"
+    - "I automate <strong>workflows</strong>"
     - "I develop <strong>APIs</strong>"
   images:
     - "assets/img/started_image.jpg"
