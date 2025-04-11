@@ -22,7 +22,7 @@ about:
 
   download:
     text: "Download Resume"
-    link: "https://drive.google.com/file/d/1tfsB2oPlqMAYve3vMUUK_KMotjvFpwjS/view?usp=sharing"
+    link: "https://drive.google.com/file/d/1gppjKAn5s9W06uH4ajoj7Ha2H13zEPkq/view?usp=sharing"
 
 ### Resume [ resume ]
 resume:
@@ -31,30 +31,26 @@ resume:
     items:
       - year: "11/2023 - Present"
         name: "Software Engineer - Tata Consultancy Services"
-        text1: "Enhanced data processing efficiency by 20% through the development of critical components using Python, Streamlit, AWS Lambda, S3, EC2,
-Docker, Git, and Snowflake in Agile framework, integrating CI/CD for Data Platform."
-        text2: "Reduced time‐to‐market for new features by 15% by collaborating on cross‐functional agile teams with Confluence and implementing efficient
-design patterns for next‐generation enterprise applications."
-        text3: "Achieved 100% Coverage & 25% decrease in bug occurrence through rigorous testing methodologies with moto, apptest, pytest, enhancing
-data platform reliability and adaptability."
+        text1: "Nissan Data Platform: Built AWS Lambda APIs and Streamlit frontends with Python, Boto3, API Gateway,
+ S3, Snowflake, and Secrets Manager, enabling secure, event-driven data ingestion and validation workflows that
+ reduced manual processing by 75%."
+        text2: "Achieved 100% unit test coverage using Pytest, Moto, and AppTest, significantly enhancing platform reliability."
+        text3: "Nomura Capital: Designed and optimized ETL pipelines using Apache Spark and SQL, improving data
+ processing by 30%. Automated batch jobs with AutoSys and built Spark JARs via Jenkins for UAT/QA
+ environments."
 
       - year: "03/2021 - 04/2021"
         name: "Data Analytics Intern - TCS iON"
         text1: "Developed a machine learning model with an accuracy rate of 85% for predicting employee attrition, providing actionable insights for strategic
 workforce planning."
-        text2: "Utilized Power BI to generate insightful graphs and charts, increasing data comprehension and facilitating evidence‐based decision‐making,
-resulting in a 25% improvement in operational efficiency."
-        text3: "Developed a dynamic dashboard, providing real‐time insights into employee attrition and performance."
+        text2: "Implemented Ensemble tree-based methods for predicting Employee Attrition, achieving 86% accuracy for
+ significantly enhancing strategic workforce planning."
 
       - year: "09/2021 - 12/2021"
         name: "AI Intern - FutureSkills Prime"
-        text1: "Completed comprehensive training in Microsoft Azure technology, acquiring in‐depth knowledge and a diverse skill set for building and man‐
-aging applications on the platform."
-        text2: "Deployed a AI Application on Azure, achieving an accuracy rate of 85% utilizing Azure Web Apps service to host resulting in a 90% uptime.
-This hands‐on project provided valuable experience, allowing me to apply theoretical knowledge in a practical setting and further enhance my
-technical capabilities."
-        text3: "Recognized as one of the top performers in the Internship Program, receiving a commendation for outstanding contributions and dedication
-to excellence."
+        text1: "Gained deep expertise in cloud technologies through 8 specialized courses, specializing in application development
+ on cloud."
+        text2: "Architected and deployed a machine learning application on Azure, achieving 85% prediction accuracy."
 
   education:
     title: "Education"
@@ -74,97 +70,50 @@ to excellence."
 skills:
   columns:
     - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Programming Languages"
+      title: "Languages"
       items:
         - label: "Python"
 
-        - label: "Java"
-
-        - label: "C"
-
         - label: "Scala"
 
+        - label: "Java"
+
+        - label: "SQL"
+
+        - label: "HTML"
+
+        - label: "CSS"
+
     - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Machine Learning & Data Engineering"
+      title: "Frameworks"
       items:
-        - label: "NumPy"
-
-        - label: "Pandas"
-
-        - label: "Matplotlib"
-
-        - label: "Tensorflow/ Keras"
-
-        - label: "scikit‑learn"
-
-        - label: "NLTK"
-
-        - label: "Hadoop"
-
         - label: "Apache Spark"
 
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Web Development"
-      items:
-        - label: "HTML"
-          
-        - label: "CSS"
-          
-        - label: "JavaScript"
+        - label: "Django"
 
         - label: "Streamlit"
 
     - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Cloud & DevOps"
+      title: "Developer Tools"
       items:
         - label: "AWS"
-
-        - label: "Azure PaaS"
-
-        - label: "GCP PaaS"
-
+          
+        - label: "AutoSys"
+          
         - label: "Docker"
 
         - label: "GitHub"
 
-        - label: "Jira"
-
-        - label: "Confluence"
-
     - type: "list" #skills progress type - default, dotted, circles, list
-      title: "DBMS & Data Platform"
+      title: "Cloud & DevOps"
       items:
-        - label: "SQL"
+        - label: "pandas"
 
-        - label: "MySQL"
+        - label: "NumPy"
 
-        - label: "Snowflake"
+        - label: "NLTK"
 
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Operating Systems"
-      items:
-        - label: "Windows"
-
-        - label: "Unix/ Linux"
-
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Soft Skills"
-      items:
-        - label: "Problem‑solving"
-
-        - label: "Teamwork"
-
-        - label: "Leadership"
-
-        - label: "Communication"
-
-        - label: "Critical Thinking"
-
-        - label: "Adaptability"
-
-        - label: "Time Management"
-
-        - label: "Attention to Detail"
+        - label: "Boto3"
 
 ### Certification [ services ]
 services:
@@ -172,18 +121,6 @@ services:
   items:
     - icon: ""
       name: "Python for Everybody Specialization"
-      text: "Coursera"
-
-    - icon: ""
-      name: "Developing AI Applications on Azure"
-      text: "Coursera"
-
-    - icon: ""
-      name: "ICSI | Certified Network Security Specialist (CNSS)"
-      text: "International CyberSecurity Institute UK"  
-
-    - icon: ""
-      name: "Financial Markets"
       text: "Coursera"
 
 ### Volunteer Experience [ team ]
@@ -202,19 +139,9 @@ team:
       text2: "Elevated fundraising efforts, achieving a 20% increase in donations via online and offline platforms."
       text3: "Amplified awareness for Muskurahat Foundation's initiatives, reaching 5000+ individuals through strategic outreach and events."
 
-    - name: "International Model United Nations (MUN)"
-      role: "Campus Ambassador"
-      text1: "Spearheaded campus-wide recruitment efforts, resulting in a 30% increase in student participation in International Model United Nations (MUN) conferences."
-      text2: "Conducted 5+ informative sessions, reaching over 200 students, to educate them about the value of MUN participation, leading to a 25% rise in student engagement with global issues and diplomatic simulations."
-      text3: "Acted as a key liaison between our institution and the International MUN platform, fostering a strong partnership that facilitated ongoing student involvement and contributed to the recognition of our institution within the MUN community."
-
 ### Honors & Awards [ clients ]
 clients:
   title: "Honors & Awards"
-  items:
-    - image: ""
-      name: "Machine Logic International Master"
-      role: "Achieved first place in the prestigious Machine Logic International Master competition, showcasing expertise in Machine Learning."
   items:
     - image: ""
       name: "Prime Minister's Scholarship Scheme"
@@ -237,6 +164,6 @@ contacts_info:
       icon: "fas fa-map-marker-alt"
       value: "HAL Township, Balanagar, Hyderabad 500042"
     
-    - label: "Freelance Available"
+    - label: "Open to"
       icon: "fas fa-user-tie"
       value: "I am open to opportunities for Full-time positions, Contract Work, and Freelance Engagements."
