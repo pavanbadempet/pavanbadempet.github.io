@@ -31,26 +31,20 @@ resume:
     items:
       - year: "11/2023 - Present"
         name: "Software Engineer - Tata Consultancy Services"
-        text1: "Nissan Data Platform: Built AWS Lambda APIs and Streamlit frontends with Python, Boto3, API Gateway,
- S3, Snowflake, and Secrets Manager, enabling secure, event-driven data ingestion and validation workflows that
- reduced manual processing by 75%."
-        text2: "Achieved 100% unit test coverage using Pytest, Moto, and AppTest, significantly enhancing platform reliability."
-        text3: "Nomura Capital: Designed and optimized ETL pipelines using Apache Spark and SQL, improving data
- processing by 30%. Automated batch jobs with AutoSys and built Spark JARs via Jenkins for UAT/QA
- environments."
+        text1: "Nissan Data Platform: Developed AWS Lambda APIs and Streamlit front-end using Python, Boto3, S3, Snowflake, and API Gateway. Enabled secure, event-driven data ingestion workflows, reducing processing time by 35%."
+        text2: "Achieved 100% test coverage using Pytest, Moto, and AppTest, improving platform reliability."
+        text3: "Nomura Capital: Developed scalable ETL pipelines using Apache Spark and SQL, enabling efficient processing of large-scale financial data and improving throughput by 30%."
+        text4: "Migrated data pipeline from MapR to MinIO, introducing Parquet-based intermediate storage accessible via Dremio for easier debugging and validation of intermediate results. Improved pipeline execution time by 30% and reduced the load on SQL Server."
 
       - year: "03/2021 - 04/2021"
         name: "Data Analytics Intern - TCS iON"
-        text1: "Developed a machine learning model with an accuracy rate of 85% for predicting employee attrition, providing actionable insights for strategic
-workforce planning."
-        text2: "Implemented Ensemble tree-based methods for predicting Employee Attrition, achieving 86% accuracy for
- significantly enhancing strategic workforce planning."
+        text1: "Applied ensemble learning techniques to predict employee attrition with 86% accuracy."
+        text2: "Built a FastAPI backend to serve the attrition prediction model as a REST API."
 
       - year: "09/2021 - 12/2021"
         name: "AI Intern - FutureSkills Prime"
-        text1: "Gained deep expertise in cloud technologies through 8 specialized courses, specializing in application development
- on cloud."
-        text2: "Architected and deployed a machine learning application on Azure, achieving 85% prediction accuracy."
+        text1: "Developed and evaluated a cancer prediction model with 85% prediction accuracy."
+        text2: "Deployed the model as a web application with Azure App Service."
 
   education:
     title: "Education"
@@ -89,7 +83,7 @@ skills:
       items:
         - label: "Apache Spark"
 
-        - label: "Django"
+        - label: "FastAPI"
 
         - label: "Streamlit"
 
@@ -115,29 +109,21 @@ skills:
 
         - label: "Boto3"
 
-### Certification [ services ]
-services:
-  title: "Certifications"
-  items:
-    - icon: ""
-      name: "Python for Everybody Specialization"
-      text: "Coursera"
-
-### Volunteer Experience [ team ]
+### Projects [ team ]
 team:
-  title: "Volunteer Experience"
+  title: "Projects"
   items:
-    - name: "Microsoft Learn"
-      role: "Microsoft Learn Student Ambassador"
-      text1: "Spearheaded numerous initiatives to foster a culture of technological empowerment and collaboration among students through workshops and training sessions on Microsoft technologies reaching over 200 students."
-      text2: "Organized and facilitated 3+ events focused on technology education and collaboration, fostering a community of over 200 students actively engaged in leveraging technology for social impact."
-      text3: "Mentored and supported aspiring technologists, guiding 15 students in their career paths, with 80% successfully securing internships or positions in the technology sector."
+    - name: An AIO Healthcare System
+      role: "Python, Streamlit, Machine Learning, GCP, Docker"
+      text1: "Built an ML-powered healthcare platform for disease prediction, achieving over 87% accuracy on liver disease, diabetes, and heart disease."
+      text2: "Designed an OpenAI-powered chatbot to provide personalized health recommendations to users."
+      text3: "Developed a Streamlit application integrating disease prediction models and a chatbot; containerized the platform using Docker and deployed it on GCP."
 
-    - name: "Muskurahat Foundation"
-      role: "Volunteer"
-      text1: "Contributed to Project KEYtaab's success by actively participating in educational and life skills programs, directly impacting over 30 underprivileged children through education and life skills programs."
-      text2: "Elevated fundraising efforts, achieving a 20% increase in donations via online and offline platforms."
-      text3: "Amplified awareness for Muskurahat Foundation's initiatives, reaching 5000+ individuals through strategic outreach and events."
+    - name: "Movie Recommendation System"
+      role: "Python, Streamlit, Machine Learning, Azure, Docker"
+      text1: "Developed a Movie Recommendation System using NLTK and cosine similarity, achieving 85.3% accuracy in suggesting relevant movies based on content analysis."
+      text2: "Built a Streamlit web application with seamless API integration to TMDB, optimizing data processing to fetch movie entries in under 2 seconds for real-time queries."
+      text3: "Containerized the application with Docker and deployed it on Azure as a microservice, improving scalability and maintainability."
 
 ### Honors & Awards [ clients ]
 clients:
