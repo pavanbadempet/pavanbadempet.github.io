@@ -19,9 +19,9 @@
                         <div class="date">{{ item.year }}</div>
                         <div class="name">{{ item.name }}</div>
                         <ul>
-                            {% for key,value in item.texts() %}
-                                {% if key.startswith('text')%}
-                                    <li>{{value}}</li>
+                            {% for key in item %}
+                                {% if key[0] contains 'text' %}
+                                    <li>{{ key[1] }}</li>
                                 {% endif %}
                             {% endfor %}
                         </ul>
