@@ -5,23 +5,17 @@
 ### Main Settings
 settings:
   logo_text: "Pavan <strong>Badempet</strong>"
-  logo_hover_text: "Download <strong>Resume</strong>"
+  logo_hover_text: "<strong>Resume</strong>"
   quick_colors: "" # select quick color schemes: "beige", "blue", "brown", "green_light", "green", "orange", "purple", "red", "yellow_light", "yellow". If empty colors taken from _sass/ryancv/settings.scss
 
 ### Portfolio Filters Settings
 portfolio:
   filters:
-    - name: "Video"
-      slug: "f-video"
-
-    - name: "Music"
-      slug: "f-music"
-
-    - name: "Links"
-      slug: "f-link"
+    - name: "Projects"
+      slug: "f-content"
 
     - name: "Books"
       slug: "f-books"
 
-    - name: "Projects"
-      slug: "f-content"
+    - name: "Social"
+      slug: "f-social"

@@ -5,20 +5,20 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Software Engineer at Tata Consultancy Services | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Full-stack Developer | 100K Instagram | 5K X"
+  text: "<p>Data Engineer | Python, Spark, SQL, AWS | Building Scalable Data & Backend Systems | GenAI, ML & Cloud</p>"
 
   list:
     - label: "DOB"
       value: "14/10/2001"
 
     - label: "Address"
-      value: "HAL Township, Balanagar, Hyderabad, TS 500042 India"
+      value: "Qtr.No. A-703 HAL Township, Balanagar, Hyderabad 500042"
 
     - label: "Phone"
-      value: "+91 7989256101"
+      value: "<a href='tel:+917989256101'>+91 7989256101</a>"
 
     - label: "E-mail"
-      value: "pavan9b@gmail.com"
+      value: "<a href='mailto:pavan9b@gmail.com'>pavan9b@gmail.com</a>"
 
   download:
     text: "Download Resume"
@@ -139,7 +139,7 @@ contacts_info:
   list:
     - label: "Phone"
       icon: "fas fa-phone"
-      value: "+917989256101"
+      value: "<a href='tel:+917989256101'>+917989256101</a>"
 
     - label: "Email"
       icon:  "fas fa-envelope"
@@ -147,7 +147,7 @@ contacts_info:
 
     - label: "Address"
       icon: "fas fa-map-marker-alt"
-      value: "HAL Township, Balanagar, Hyderabad 500042"
+      value: "Qtr.No. A-703 HAL Township, Balanagar, Hyderabad 500042"
     
     - label: "Open to"
       icon: "fas fa-user-tie"
