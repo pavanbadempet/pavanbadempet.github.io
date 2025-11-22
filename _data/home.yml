@@ -14,7 +14,7 @@ started:
 
 ### Started Personal
 started-personal:
-  title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
+  title: "<strong>Data Engineer</strong> building scalable cloud data platforms using Python, Spark, SQL, and AWS, <br />integrating GenAI and ML into real-world systems."
   typed:
     - "I build <strong>backend systems</strong>"
     - "I design <strong>data pipelines</strong>"
@@ -25,7 +25,7 @@ started-personal:
   
 ### Started Image
 started-image:
-  title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
+  title: "<strong>Data Engineer</strong> building scalable cloud data platforms using Python, Spark, SQL, and AWS, <br />integrating GenAI and ML into real-world systems."
   typed:
     - "I build <strong>backend systems</strong>"
     - "I design <strong>data pipelines</strong>"
@@ -36,7 +36,7 @@ started-image:
   
 ### Started Video
 started-video:
-  title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
+  title: "<strong>Data Engineer</strong> building scalable cloud data platforms using Python, Spark, SQL, and AWS, <br />integrating GenAI and ML into real-world systems."
   typed:
     - "I build <strong>backend systems</strong>"
     - "I design <strong>data pipelines</strong>"
@@ -48,7 +48,7 @@ started-video:
   
 ### Started Slider
 started-slider:
-  title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
+  title: "<strong>Data Engineer</strong> building scalable cloud data platforms using Python, Spark, SQL, and AWS, <br />integrating GenAI and ML into real-world systems."
   typed:
     - "I build <strong>backend systems</strong>"
     - "I design <strong>data pipelines</strong>"

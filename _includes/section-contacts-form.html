@@ -13,18 +13,23 @@
 
         <!-- form -->
         <div class="contact_form content-box">
-            <form id="cform" action="https://formsubmit.io/send/{{ site.formsubmit_email }}" method="POST">
+            <form id="cform" action="https://formsubmit.co/7b6a9fa9-d450-4d35-964a-cba462533bfd" method="POST">
+                <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="box">
+                <input type="hidden" name="_next" value="{{ site.url }}/contacts/?success=true">
+                <input type="hidden" name="_autoresponse" value="Thank you for contacting me! I'll get back to you soon.">
                 <div class="group-val">
                     <input type="text" name="name" placeholder="{{ ui_text.full_name }}" id="name" />
                 </div>
                 <div class="group-val">
-                    <input type="email" name="email" placeholder="{{ ui_text.email_address }}" id="email" />
+                    <input type="email" name="email" placeholder="{{ ui_text.email_address }}" id="email" required />
                 </div>
                 <div class="group-val ct-gr">
-                    <textarea name="message" placeholder="{{ ui_text.your_message }}" id="message"></textarea>
+                    <textarea name="message" placeholder="{{ ui_text.your_message }}" id="message" required></textarea>
                 </div>
                 <div class="group-bts">
-                    <button type="button" class="btn hover-animated" onclick="$('#cform').submit(); return false;">
+                    <button type="submit" class="btn hover-animated">
                         <span class="circle"></span>
                         <span class="lnk">{{ ui_text.send_message }}</span>
                     </button>

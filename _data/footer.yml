@@ -17,5 +17,5 @@ main:
     - title: "Github"
       icon: "fab fa-github"
       url: "https://github.com/pavanbadempet"
-  text1: "E: pavan9b@gmail.com"
-  text2: "P: +917989256101"
+  text1: "E: <a href='mailto:pavan9b@gmail.com'>pavan9b@gmail.com</a>"
+  text2: "P: <a href='tel:+917989256101'>+917989256101</a>"

@@ -27,7 +27,7 @@ main:
     url: "contacts/"
     parent: 0
 
-  # Contacts
-  - title: "Blog"
-    url: "blog/"
-    parent: 0
+  # Blog (hidden for now)
+  # - title: "Blog"
+  #   url: "blog/"
+  #   parent: 0

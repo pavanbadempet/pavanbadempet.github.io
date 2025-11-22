@@ -1,8 +1,5 @@
 /**
-*	Cvio - Resume/CV Template (HTML)
-*	Author: beshleyua
-*	Author URL: http://themeforest.net/user/beshleyua
-*	Copyright © Cvio by beshleyua. All Rights Reserved.
+*	Main JavaScript
 **/
 
 ( function( $ ) {
@@ -598,11 +595,14 @@
 			}
 		},
 		success: 'valid',
-		submitHandler: function() {
-			return true;
-            $("#cform").find('input[type="text"], input[type="email"], input[type="tel"], textarea').val('');
-            $('#cform').fadeOut();
-            $('.alert-success').delay(1000).fadeIn();
+		submitHandler: function(form) {
+			// Allow form to submit to FormSubmit.co
+			form.submit();
+			// Clear form and show success message after submission
+			setTimeout(function() {
+				$("#cform").find('input[type="text"], input[type="email"], input[type="tel"], textarea').val('');
+				$('.alert-success').fadeIn();
+			}, 500);
 		}
 	});
 

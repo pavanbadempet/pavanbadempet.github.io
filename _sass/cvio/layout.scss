@@ -1,9 +1,5 @@
 ﻿/**
-*	Cvio - Resume/CV Template (HTML)
-*	Version: 1.1
-*	Author: beshleyua
-*	Author URL: http://themeforest.net/user/beshleyua
-*	Copyright © Cvio by beshleyua. All Rights Reserved.
+*	Layout Styles
 **/
 
 /* TABLE OF CONTENTS
@@ -613,6 +609,8 @@
 		}
 	}
 	&.section-title {
+		height: 40vh;
+		min-height: 300px;
 		.started-content {
             padding-left: 0;
             padding-right: 0;
@@ -859,6 +857,10 @@
 	.section.started {
 		padding: 0 30px;
 	}
+	.section.started.section-title {
+		height: 35vh;
+		min-height: 250px;
+	}
 	.section.started.layout-creative, 
 	.section.started.layout-post-creative {
 		padding-top: 50vw;
@@ -1096,6 +1098,18 @@
 			color: $light_color;
 			font-weight: 500;
 		}
+		ul {
+			margin: 10px 0 10px 0;
+			padding-left: 18px;
+			li {
+				margin: 8px 0;
+				padding: 0;
+				line-height: 1.6;
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
 		&.active {
 			.date {
 				color: $active_color;
@@ -1192,21 +1206,16 @@
 					padding-left: 35px;
 					position: relative;
 					&:before {
-						content: "\f00c";
+						content: "";
 						position: absolute;
 						left: 0;
-						top: 3px;
+						top: 50%;
+						transform: translateY(-50%);
+						width: 8px;
+						height: 8px;
+						background: $active_color;
+						border-radius: 50%;
 						display: inline-block;
-						color: $active_color;
-						font-family: 'Font Awesome 5 Free';
-						font-weight: 900;
-						-moz-osx-font-smoothing: grayscale;
-						-webkit-font-smoothing: antialiased;
-						display: inline-block;
-						font-style: normal;
-						font-variant: normal;
-						text-rendering: auto;
-						line-height: 1;
 					}
 				}
 				.progress {
