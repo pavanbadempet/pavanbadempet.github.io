@@ -3770,3 +3770,31 @@ iframe, object {
 		left: -5px;
 	}
 }
+
+/* - Team / Projects */
+.team-items {
+	.team-item {
+		.desc {
+			ul {
+				margin: 10px 0 10px 0;
+				padding-left: 0;
+				list-style: none;
+				li {
+					margin: 5px 0;
+					padding: 0 0 0 15px;
+					line-height: 1.6;
+					position: relative;
+					&:last-child {
+						margin-bottom: 0;
+					}
+					&:before {
+						content: "•";
+						position: absolute;
+						left: 0;
+						top: 0;
+					}
+				}
+			}
+		}
+	}
+}
