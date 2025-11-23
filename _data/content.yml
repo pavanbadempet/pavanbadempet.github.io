@@ -8,8 +8,6 @@ about:
   text: "<p>Data Engineer | Python, Spark, SQL, AWS | Building Scalable Data & Backend Systems | GenAI, ML & Cloud</p>"
 
   list:
-    - label: "DOB"
-      value: "14/10/2001"
 
     - label: "Address"
       value: "Qtr.No. A-703 HAL Township, Balanagar, Hyderabad 500042"
