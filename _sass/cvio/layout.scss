@@ -4146,3 +4146,18 @@ object {
 		}
 	}
 }
+
+/* - Footer Links */
+.footer {
+	.copy {
+		a {
+			text-decoration: none !important;
+			color: inherit !important;
+			transition: all 0.3s ease;
+			&:hover {
+				color: #fff !important;
+				text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+			}
+		}
+	}
+}
