@@ -72,14 +72,19 @@ def setup_environment(config, data):
     env.add_filter('xml_escape', xml_escape)
     
     # Mock seo tag (basic implementation)
-    def seo_tag(context):
-        # Minimal SEO tag replacement
-        site = context.resolve('site')
-        page = context.resolve('page')
-        title = page.get('title', site.get('title', ''))
-        desc = page.get('description', site.get('description', ''))
-        return f'<title>{title}</title><meta name="description" content="{desc}">'
-    env.add_tag('seo', seo_tag)
+    # python-liquid requires a Tag class
+    from liquid.tag import Tag
+    
+    class SeoTag(Tag):
+        name = "seo"
+        def render(self, context):
+            site = context.resolve('site')
+            page = context.resolve('page')
+            title = page.get('title', site.get('title', ''))
+            desc = page.get('description', site.get('description', ''))
+            return f'<title>{title}</title><meta name="description" content="{desc}">'
+            
+    env.add_tag(SeoTag)
 
     return env
 
@@ -333,7 +338,64 @@ def build_site():
     # 7. Generate Feed
     generate_feed(posts, config, site_context, env)
 
+    # 8. Process Images (Compress)
+    process_images()
+
+    # 9. Minify HTML
+    minify_html_files()
+
     print("Build complete.")
+
+def process_images():
+    print("Processing Images...")
+    from PIL import Image
+    
+    # Walk through _site/assets/images (since we already copied them)
+    # Or better, process from source to dest to avoid re-compressing if we run build multiple times?
+    # For simplicity, let's process in _site
+    
+    image_extensions = {'.jpg', '.jpeg', '.png'}
+    
+    for root, dirs, files in os.walk(os.path.join(OUTPUT_DIR, 'assets')):
+        for file in files:
+            ext = os.path.splitext(file)[1].lower()
+            if ext in image_extensions:
+                file_path = os.path.join(root, file)
+                try:
+                    with Image.open(file_path) as img:
+                        # Resize if too big
+                        if img.width > 1920:
+                            ratio = 1920 / img.width
+                            new_height = int(img.height * ratio)
+                            img = img.resize((1920, new_height), Image.Resampling.LANCZOS)
+                        
+                        # Compress
+                        if ext in {'.jpg', '.jpeg'}:
+                            img.save(file_path, quality=85, optimize=True)
+                        elif ext == '.png':
+                            img.save(file_path, optimize=True)
+                            
+                except Exception as e:
+                    print(f"Error processing image {file}: {e}")
+
+def minify_html_files():
+    print("Minifying HTML...")
+    for root, dirs, files in os.walk(OUTPUT_DIR):
+        for file in files:
+            if file.endswith('.html'):
+                file_path = os.path.join(root, file)
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Simple regex minification
+                # Remove comments
+                content = re.sub(r'<!--(?!<!)[^\[>].*?-->', '', content, flags=re.DOTALL)
+                # Remove extra whitespace
+                content = re.sub(r'\s+', ' ', content)
+                content = re.sub(r'>\s+<', '><', content)
+                
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
 
 if __name__ == '__main__':
     build_site()

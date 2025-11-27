@@ -5,3 +5,4 @@ libsass
 markdown
 click
 watchdog
+Pillow
