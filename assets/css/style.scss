@@ -1,8 +1,13 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
+--- # Only the main Sass file needs front matter (the dashes are enough) --- @import "cvio/setting",
+"cvio/basic",
+"cvio/layout";
 
-@import
-  "cvio/setting",
-  "cvio/basic",
-  "cvio/layout"
+/* Swup Animation */
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
