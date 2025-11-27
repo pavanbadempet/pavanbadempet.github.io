@@ -88,39 +88,6 @@ def render_markdown(content):
     return markdown.markdown(content, extensions=['extra', 'codehilite', 'toc'])
 
 def process_scss(config):
-    print("Processing SCSS...")
-    scss_entry = os.path.join(ASSETS_DIR, 'css', 'style.scss')
-    if not os.path.exists(scss_entry):
-        print(f"Warning: {scss_entry} not found.")
-        return
-
-    with open(scss_entry, 'r', encoding='utf-8') as f:
-        content = f.read()
-    
-    if content.startswith('---'):
-        parts = content.split('---', 2)
-        if len(parts) >= 3:
-            content = parts[2]
-    
-    try:
-        css_output = sass.compile(
-            string=content,
-            include_paths=[SASS_DIR, os.path.join(ASSETS_DIR, 'css')],
-            output_style='compressed' if config.get('sass', {}).get('style') == 'compressed' else 'nested'
-        )
-        
-        out_path = os.path.join(OUTPUT_DIR, 'assets', 'css', 'style.css')
-        os.makedirs(os.path.dirname(out_path), exist_ok=True)
-        with open(out_path, 'w', encoding='utf-8') as f:
-            f.write(css_output)
-        print(f"Compiled {scss_entry} to {out_path}")
-    except Exception as e:
-        print(f"SCSS Compilation Error: {e}")
-
-def render_layout(content, layout_name, context, env):
-    if not layout_name:
-        return content
-    
     try:
         template = env.get_template(f"{layout_name}.html")
         layout_path = os.path.join(LAYOUTS_DIR, f"{layout_name}.html")
