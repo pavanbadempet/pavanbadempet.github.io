@@ -1,0 +1,7 @@
+python-liquid
+python-frontmatter
+pyyaml
+libsass
+markdown
+click
+watchdog
