@@ -77,6 +77,8 @@ def setup_environment(config, data):
     
     class SeoTag(Tag):
         name = "seo"
+        def parse(self, stream):
+            pass
         def render(self, context):
             site = context.resolve('site')
             page = context.resolve('page')
@@ -93,6 +95,62 @@ def render_markdown(content):
     return markdown.markdown(content, extensions=['extra', 'codehilite', 'toc'])
 
 def process_scss(config):
+    print("Processing SCSS...")
+    scss_entry = os.path.join(ASSETS_DIR, 'css', 'style.scss')
+    if not os.path.exists(scss_entry):
+        print(f"Warning: {scss_entry} not found.")
+        return
+
+    with open(scss_entry, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    if content.startswith('---'):
+        parts = content.split('---', 2)
+        if len(parts) >= 3:
+            content = parts[2]
+    
+    try:
+        compiled_css = sass.compile(
+            string=content,
+            include_paths=[SASS_DIR, os.path.join(ASSETS_DIR, 'css')],
+            output_style='compressed' if config.get('sass', {}).get('style') == 'compressed' else 'nested'
+        )
+    except Exception as e:
+        print(f"SCSS Compilation Error: {e}")
+        compiled_css = ""
+
+    # Bundle CSS
+    # Order from head.html: style.css (compiled), animate, magnific-popup, jarallax, swiper, fontawesome, syntax
+    css_files = [
+        'animate.css',
+        'magnific-popup.css',
+        'jarallax.css',
+        'swiper.css',
+        'fontawesome.css',
+        'syntax.css'
+    ]
+    
+    bundle_content = compiled_css + "\n"
+    
+    for css_file in css_files:
+        path = os.path.join(ASSETS_DIR, 'css', css_file)
+        if os.path.exists(path):
+            with open(path, 'r', encoding='utf-8') as f:
+                bundle_content += f.read() + "\n"
+        else:
+            print(f"Warning: {css_file} not found for bundling.")
+
+    # Write Bundle
+    out_path = os.path.join(OUTPUT_DIR, 'assets', 'css', 'bundle.css')
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    with open(out_path, 'w', encoding='utf-8') as f:
+        f.write(bundle_content)
+    print(f"Bundled CSS to {out_path}")
+
+def render_layout(content, layout_name, context, env):
+    if not layout_name:
+        return content
+    
     try:
         template = env.get_template(f"{layout_name}.html")
         layout_path = os.path.join(LAYOUTS_DIR, f"{layout_name}.html")
