@@ -10,14 +10,13 @@
 		containers: ['#swup'],
 		plugins: []
 	});
-
 	// Re-init plugins on content replace
 	swup.on('contentReplaced', function () {
 		init();
 	});
 
 	// Initial load
-	$(window).on("load", function () {
+	$(document).ready(function () {
 		init();
 	});
 
@@ -36,7 +35,7 @@
 		$('.lines').addClass('finish');
 		setTimeout(function () {
 			$('.lines').addClass('ready');
-		}, 2000);
+		}, 100);
 
 		/*
 			Typed Subtitle
@@ -61,7 +60,7 @@
 					showCursor: false
 				});
 			}
-		}, 1000);
+		}, 100);
 
 		/*
 			One Page Nav
@@ -440,7 +439,7 @@
 				skills_dotted.find('.percentage .da').css({ 'width': skills_dotted_w });
 			}
 		}
-		setTimeout(skills, 1000);
+		setTimeout(skills, 100);
 
 		/*
 			Circle Skills Line
