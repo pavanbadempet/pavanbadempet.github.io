@@ -22,36 +22,22 @@ layout: default
                     <div class="h-subtitle typing-bread">
                         <p class="breadcrumbs">
                             {% if page.subtitle == '' or page.subtitle == nil %}
-                            <a href="{{ site.url }}">{{ ui_text.home }}</a> / <a href="{{ page.url }}">{{ page.title }}</a>
+                            <a href="{{ site.url }}">{{ ui_text.home }}</a> / <a href="{{ page.url }}">{{ page.title
+                                }}</a>
                             {% else %}
-                                {{ page.subtitle }}
+                            {{ page.subtitle }}
                             {% endif %}
                         </p>
                     </div>
-                    <span class="typed-bread"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    {% if page.content != '' %}
-    <!-- mosue button -->
-    <a href="#" class="mouse_btn" style="display: none;"><span class="icon fas fa-chevron-down"></span></a>
-    {% endif %}
-</div>
+                    <div class="post">
+                        <div class="content-box">
+                            <div class="single-post-text">
+                                {{ page.content }}
+                            </div>
+                        </div>
+                    </div>
 
-{% if page.content != '' %}
-<div class="section blog">
-    <div class="content">
-        <div class="post">
-            <div class="content-box">
-                <div class="single-post-text">
-                    {{ page.content }}
+                    <div class="clear"></div>
                 </div>
             </div>
-        </div>
-        
-        <div class="clear"></div>
-    </div>
-</div>
-{% endif %}
+            {% endif %}

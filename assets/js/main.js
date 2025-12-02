@@ -553,28 +553,6 @@
 
 	/*
 		Download CV on Mobile
-	*/
-	$('.section.about').on('click touchstart', '.btn', function () {
-		location.href = $(this).attr('href');
-	});
-
-	/*
-		Mouse Button Scroll
-	*/
-	$('.section').on('click', '.mouse_btn', function () {
-		$('body, html').animate({
-			scrollTop: $(window).height() - 150
-		}, 800);
-	});
-	if ($('.section').length > 1) {
-		$('.mouse_btn').show();
-	}
-
-	/*
-		Sidebar Show/Hide
-	*/
-	$('header').on('click', '.sidebar_btn', function () {
-		$('.s_overlay').fadeIn();
 		$('.content-sidebar').addClass('active');
 		$('body').addClass('scroll_hidden');
 
