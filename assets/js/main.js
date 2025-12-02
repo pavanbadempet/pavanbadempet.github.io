@@ -8,7 +8,8 @@
 	// Initialize Swup
 	const swup = new Swup({
 		containers: ['#swup'],
-		plugins: []
+		plugins: [],
+		animationSelector: '[class*="transition-fade"]'
 	});
 
 	// Re-init plugins on content replace
