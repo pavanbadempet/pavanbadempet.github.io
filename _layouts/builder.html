@@ -28,5 +28,15 @@ layout: default
                             <a href="{{ site.url }}">{{ ui_text.home }}</a> / {{ page.title }}
                         </p>
                     </div>
-                    {% include section-{{ section }}.html %}
-                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% assign sections = page.sections | split: "," %}
+
+{% for section in sections %}
+{% include section-{{ section }}.html %}
+{% endfor %}
