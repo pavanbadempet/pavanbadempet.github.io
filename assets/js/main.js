@@ -461,13 +461,6 @@
 		});
 
 		/*
-			Google Maps
-		*/
-		/*if ($('#map').length) {
-			initMap();
-		}*/
-
-		/*
 			Social Share
 		*/
 		$('.social-share').rrssb({
@@ -484,15 +477,6 @@
 			}
 			$(this).wrapInner('<span class="widget-title-span"></span>');
 		});
-
-		/*
-			Search
-		*/
-		/*var sjs = SimpleJekyllSearch({
-			searchInput: document.getElementById('search-input'),
-			resultsContainer: document.getElementById('results-container'),
-			json: '/search.json'
-		});*/
 
 	}
 
