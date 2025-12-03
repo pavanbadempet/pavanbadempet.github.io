@@ -24,7 +24,6 @@ collections:
   - works
 
 # archives
-# archives config removed to hide jekyll traces
 
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
