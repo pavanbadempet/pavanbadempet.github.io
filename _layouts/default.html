@@ -8,14 +8,29 @@
   {%- include preloader.html -%}
 
   <!-- Container -->
-  <div class="content">
-    <div class="line-col"></div>
-    <div class="line-col"></div>
-    <div class="line-col"></div>
-    <div class="line-col"></div>
-    <div class="line-col"></div>
-  </div>
-  </div>
+  <div class="container">
+    <!-- Cursor -->
+    <div class="cursor-follower"></div>
+
+    <!-- Header -->
+    {% include header.html %}
+
+    <!-- Wrapper -->
+    <div class="wrapper" id="swup">
+      {{ content }}
+    </div>
+
+    <!-- Footer -->
+    {% include footer.html %}
+
+    <!-- Lines -->
+    <div class="lines">
+      <div class="line-col"></div>
+      <div class="line-col"></div>
+      <div class="line-col"></div>
+      <div class="line-col"></div>
+      <div class="line-col"></div>
+    </div>
   </div>
 
   <script src="{{ 'assets/js/swup.min.js' | relative_url }}"></script>

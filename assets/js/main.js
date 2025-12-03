@@ -520,12 +520,10 @@
 		if (($(this).scrollTop() >= 100) && ($('.section').length > 1)) {
 			$('.header').addClass('fixed');
 			$('.footer').addClass('fixed');
-			$('.mouse_btn').fadeOut();
 		}
 		if (($(this).scrollTop() <= 100) && ($('.section').length > 1)) {
 			$('.header').removeClass('fixed');
 			$('.footer').removeClass('fixed');
-			$('.mouse_btn').fadeIn();
 		}
 
 	});
@@ -563,6 +561,7 @@
 		$('.content-sidebar').removeClass('active');
 		$('body').removeClass('scroll_hidden');
 	});
+	*/
 
 	/*
 		Resize
