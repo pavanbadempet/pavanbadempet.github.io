@@ -5,6 +5,7 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
+  image_alt: "Pavan Badempet - Software Engineer and Architect"
   text: "<p>Data Engineer | Python, Spark, SQL, AWS | Building Scalable Data & Backend Systems | GenAI, ML & Cloud</p>"
 
   list:
