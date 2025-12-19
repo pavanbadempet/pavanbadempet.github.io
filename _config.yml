@@ -1,10 +1,22 @@
 # basic settings
 title: "Pavan Badempet"
+title_separator: "|"
 email: "pavan9b@gmail.com"
 description: "Developer & Entrepreneur"
-author: "Pavan Badepet"
+author: "Pavan Badempet"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://pavanbadempet.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+image: "assets/img/man2.jpg"
+twitter:
+  username: "pavanbadempet"
+github:
+  username: "pavanbadempet"
+social:
+  name: "Pavan Badempet"
+  links:
+    - "https://twitter.com/pavanbadempet"
+    - "https://github.com/pavanbadempet"
+    - "https://linkedin.com/in/pavanbadempet"
 date_format: "%d %B %Y"
 
 # paginations & permalinks
@@ -41,6 +53,7 @@ plugins:
   - jekyll-paginate
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.
