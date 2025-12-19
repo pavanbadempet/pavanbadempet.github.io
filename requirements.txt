@@ -1,0 +1,4 @@
+Jinja2
+PyYAML
+Markdown
+python-frontmatter

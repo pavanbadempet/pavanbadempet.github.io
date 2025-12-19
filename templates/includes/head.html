@@ -1,0 +1,49 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="HhmK4jV3AhDa3JLZHRTNIkCdyr0bAj0qd7UDBJzHnSg" />
+
+    <!-- Manual SEO (Replaces jekyll-seo-tag) -->
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ page.description | default(site.description) }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    {% if site.image %}
+    <meta property="og:image" content="{{ site.url }}/{{ site.image }}">{% endif %}
+
+    {% include 'includes/json-ld.html' ignore missing %}
+
+    <!-- Load Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic"
+        rel="stylesheet" />
+
+    <!-- Load CSS -->
+    <link rel="stylesheet" href="{{ 'assets/css/style.css' }}">
+    <link rel="stylesheet" href="{{ 'assets/css/animate.css' }}" />
+    <link rel="stylesheet" href="{{ 'assets/css/magnific-popup.css' }}" />
+    <link rel="stylesheet" href="{{ 'assets/css/jarallax.css' }}" />
+    <link rel="stylesheet" href="{{ 'assets/css/swiper.css' }}" />
+    <link rel="stylesheet" href="{{ 'assets/css/fontawesome.css' }}" />
+    <link rel="stylesheet" href="{{ 'assets/css/syntax.css' }}">
+
+    {% set settings = site.data.settings.settings %}
+
+    <!-- Color Theme -->
+    {% if settings.quick_colors != '' %}
+    <link rel="stylesheet" href="{{ 'assets/css/template-colors/' ~ settings.quick_colors ~ '.css' }}" />
+    {% endif %}
+
+    <!--[if lt IE 9]>
+  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{{ 'assets/images/favicons/favicon.ico' }}">
+
+    {% include 'includes/google-analytics.html' ignore missing %}
+    {% include 'includes/custom-head.html' ignore missing %}
+
+</head>

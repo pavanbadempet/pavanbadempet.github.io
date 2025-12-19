@@ -1,0 +1,109 @@
+{% extends 'layouts/default.html' %}
+
+{% block content %}
+{% set ui_text = site.data['ui-text'].ui_text %}
+
+<!-- Section Started -->
+<div class="section started section-title" id="section-started">
+
+    <!-- background -->
+    <div class="video-bg">
+        <div class="video-bg-mask"></div>
+        <div class="video-bg-texture" id="grained_container"></div>
+    </div>
+
+    <!-- started content -->
+    <div class="centrize full-width">
+        <div class="vertical-center">
+            <div class="started-content">
+                <h1 class="h-title">{{ page.title }}</h1>
+                <div class="h-subtitles">
+                    <div class="h-subtitle typing-bread">
+                        <p class="breadcrumbs">
+                            <a href="{{ site.url }}">{{ ui_text.home }}</a> / {{ page.title }}
+                        </p>
+                    </div>
+                    <span class="typed-bread"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- mosue button -->
+    <a href="#" class="mouse_btn" style="display: none;"><span class="icon fas fa-chevron-down"></span></a>
+
+</div>
+
+<div class="section blog">
+    <div class="content">
+        <div class="title">
+            <div class="title_inner">{{ ui_text.latest_posts }}</div>
+        </div>
+
+        <div class="blog-items">
+            {% for post in paginator.posts %}
+            <div class="blog-col">
+                <div class="blog-item content-box">
+                    <div class="post">
+                        <div class="image">
+                            <a class="post-thumbnail" href="{{ post.url }}">
+                                {% if post.image %}
+                                <img src="{{ post.image }}" class="wp-post-image" alt="{{ post.title }}" />
+                                {% endif %}
+                                <span class="info">
+                                    <span class="centrize full-width">
+                                        <span class="vertical-center">
+                                            <span class="icon fas fa-plus"></span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="desc">
+                            <div class="date">
+                                {{ post.date | date(site.date_format) }}
+                            </div>
+                            <a href="{{ post.url }}" class="name">{{ post.title }}</a>
+                            <div class="single-post-text">
+                                {{ post.excerpt }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% if paginator.total_pages > 1 %}
+            <div class="pager">
+                {% if paginator.previous_page %}
+                <a href="{{ paginator.previous_page_path }}" class="page-numbers prev">{{ ui_text.prev }}</a>
+                {% else %}
+                <span class="page-numbers prev">{{ ui_text.prev }}</span>
+                {% endif %}
+
+                {% for page_num in range(1, paginator.total_pages + 1) %}
+                {% if page_num == paginator.page %}
+                <span class="page-numbers current">{{ page_num }}</span>
+                {% elif page_num == 1 %}
+                <a href="{{ '/' }}" class="page-numbers">{{ page_num }}</a>
+                {% else %}
+                <a href="{{ site.paginate_path | replace(':num', page_num) }}" class="page-numbers">{{ page_num }}</a>
+                {% endif %}
+                {% endfor %}
+
+                {% if paginator.next_page %}
+                <a href="{{ paginator.next_page_path }}" class="page-numbers next">{{ ui_text.next }}</a>
+                {% else %}
+                <span class="page-numbers next">{{ ui_text.next }}</span>
+                {% endif %}
+            </div>
+            {% endif %}
+
+        </div>
+
+        {% include 'includes/sidebar.html' ignore missing %}
+
+        <div class="clear"></div>
+    </div>
+</div>
+{% endblock %}
