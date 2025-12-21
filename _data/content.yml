@@ -30,20 +30,20 @@ resume:
     items:
       - year: "11/2023 - Present"
         name: "Data Engineer - Tata Consultancy Services"
-        text1: "Nissan Data Platform: Architected secure, event-driven data ingestion APIs using AWS Lambda, Boto3, and Snowflake, handling **10,000+ daily requests** and reducing processing latency by **35%**."
-        text2: "Achieved **100% test coverage** for critical infrastructure using Pytest and Moto, preventing 20+ potential production bugs during the CI/CD phase."
-        text3: "Nomura Capital: Engineered scalable ETL pipelines with Apache Spark/SQL processing **5TB+ of financial data daily**, improving throughput by **30%**."
-        text4: "Optimized storage costs by **40%** by migrating from MapR to MinIO with Parquet partitioning, enabling sub-second query speeds via Dremio."
+        text1: "Nissan Data Platform: Developed secure data ingestion APIs using AWS Lambda, Boto3, and Snowflake for processing daily data requests."
+        text2: "Implemented test coverage for infrastructure using Pytest and Moto to prevent production bugs."
+        text3: "Nomura Capital: Worked on ETL pipelines with Apache Spark/SQL for financial data processing."
+        text4: "Optimized storage costs by migrating data to MinIO with Parquet partitioning and enabled query execution via Dremio."
 
       - year: "03/2021 - 04/2021"
         name: "Data Analytics Intern - TCS iON"
-        text1: "Engineered an ensemble learning model for employee attrition prediction with **86% accuracy**."
-        text2: "Deployed a production-ready FastAPI backend serving **500+ requests/minute** for real-time model inference."
+        text1: "Worked on an ensemble learning model for employee attrition prediction."
+        text2: "Deployed a FastAPI backend for real-time model inference."
 
       - year: "09/2021 - 12/2021"
         name: "AI Intern - FutureSkills Prime"
-        text1: "Developed a Computer Vision model for cancer detection achieving **85% classification accuracy**."
-        text2: "Deployed the solution to Azure App Service, reducing inference time to **<200ms**."
+        text1: "Developed a Computer Vision model for cancer detection."
+        text2: "Deployed the solution to Azure App Service for model access."
 
   education:
     title: "Education"
