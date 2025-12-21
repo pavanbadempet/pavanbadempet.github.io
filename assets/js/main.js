@@ -161,19 +161,31 @@
 	}
 
 	/*
-		Grained
+		Particles (Data Graph)
 	*/
-	if (!$('.grained-off').length) {
-		var grained_options = {
-			'animate': false,
-			'patternWidth': 400,
-			'patternHeight': 400,
-			'grainOpacity': 0.15,
-			'grainDensity': 3,
-			'grainWidth': 1,
-			'grainHeight': 1
-		}
-		grained('#grained_container', grained_options);
+	if ($('#grained_container').length) {
+		/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+		setTimeout(function () {
+			if (window.particlesJS) {
+				particlesJS('grained_container', {
+					"particles": {
+						"number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+						"color": { "value": "#ffffff" },
+						"shape": { "type": "circle" },
+						"opacity": { "value": 0.3, "random": false },
+						"size": { "value": 3, "random": true },
+						"line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+						"move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+					},
+					"interactivity": {
+						"detect_on": "canvas",
+						"events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+						"modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } } }
+					},
+					"retina_detect": true
+				});
+			}
+		}, 1000);
 	}
 
 	/*
