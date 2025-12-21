@@ -19,7 +19,7 @@
                         {% if item.image != '' %}
                         <div class="image">
                             <a target="_blank" href="{{ item.link }}">
-                                <img src="{{ item.image | relative_url }}" alt="{{ item.name }}" />
+                                <img src="{{ item.image | relative_url }}" alt="{{ item.name }}" loading="lazy" />
                             </a>
                         </div>
                         {% endif %}

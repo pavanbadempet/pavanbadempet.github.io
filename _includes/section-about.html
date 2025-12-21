@@ -6,7 +6,7 @@
         {% if content.image != '' %}
         <!-- image -->
         <div class="image">
-            <img src="{{ content.image | relative_url }}" alt="{{ content.image_alt }}" />
+            <img src="{{ content.image | relative_url }}" alt="{{ content.image_alt }}" loading="lazy" />
         </div>
         {% endif %}
 
