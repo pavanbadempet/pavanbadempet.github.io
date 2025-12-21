@@ -1,0 +1,85 @@
+<!-- System Status Dashboard -->
+<div class="system-status-bar">
+    <div class="status-item">
+        <span class="status-indicator online"></span>
+        <span class="status-text">SYSTEM: <strong>OPERATIONAL</strong></span>
+    </div>
+    <div class="status-item">
+        <span class="status-icon"><i class="fas fa-server"></i></span>
+        <span class="status-text">REGION: <strong>AP-SOUTH-1 (HYD)</strong></span>
+    </div>
+    <div class="status-item">
+        <span class="status-icon"><i class="fas fa-clock"></i></span>
+        <span class="status-text">UPTIME: <strong>99.99%</strong></span>
+    </div>
+    <div class="status-item">
+        <span class="status-icon"><i class="fas fa-briefcase"></i></span>
+        <span class="status-text">AVAILABILITY: <strong>OPEN</strong></span>
+    </div>
+</div>
+
+<style>
+    .system-status-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30px;
+        background: #1a1a1a;
+        border-top: 1px solid #333;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        z-index: 9999;
+        font-family: 'Roboto Mono', monospace;
+        /* Engineering Vibe */
+        font-size: 11px;
+        color: #888;
+        padding: 0 20px;
+    }
+
+    .status-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .status-item strong {
+        color: #eee;
+        font-weight: 500;
+    }
+
+    .status-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .status-indicator.online {
+        background-color: #0f0;
+        box-shadow: 0 0 5px #0f0;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .system-status-bar {
+            display: none;
+            /* Hide on mobile to save space */
+        }
+    }
+</style>

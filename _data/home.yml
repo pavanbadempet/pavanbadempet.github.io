@@ -4,13 +4,13 @@
 
 ### Started Default
 started:
-  title: "Hello, I’m <strong>Pavan Badempet</strong>, a Software Engineer <br />crafting data-driven & cloud-native solutions from Hyderabad."
+  title: "Hello, I’m <strong>Pavan Badempet</strong>, a Data Engineer <br />building scalable data lakes & cloud pipelines from Hyderabad."
   typed:
-    - "I build <strong>Scalable Infrastructure</strong>"
-    - "I optimize for <strong>0ms Latency</strong>"
-    - "I architect <strong>Data Pipelines</strong>"
-    - "I automate <strong>Cloud Workflows</strong>"
-    - "I develop <strong>High-Performance APIs</strong>"
+    - "I architect <strong>Data Lakes</strong>"
+    - "I optimize <strong>Spark Jobs</strong>"
+    - "I build <strong>Scalable Pipelines</strong>"
+    - "I deploy <strong>Cloud Data Platforms</strong>"
+    - "I automate <strong>ETL Workflows</strong>"
 
 ### Started Personal
 started-personal:

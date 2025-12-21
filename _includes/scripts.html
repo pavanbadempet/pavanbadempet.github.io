@@ -39,8 +39,7 @@
                 loadScript("{{ 'assets/js/typed.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/rrssb.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/grained.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/simple-jekyll-search.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/easter-egg.js' | relative_url }}") // Recruiter Delight: Konami Code
+                loadScript("{{ 'assets/js/simple-jekyll-search.js' | relative_url }}")
             ]);
         })
         .then(function () {
@@ -50,7 +49,7 @@
             console.error('Script loading failed:', error);
         });
 
-    // Dynamic "Miss You" Title
+    // Dynamic "Miss You" Title (Recruiter Delight)
     (function () {
         var originalTitle = document.title;
         var hiddenTitle = "Hire Me? 👀";
