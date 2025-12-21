@@ -20,9 +20,9 @@
                         <div class="name">{{ item.name }}</div>
                         <ul>
                             {% for key in item %}
-                                {% if key[0] contains 'text' %}
-                                    <li>{{key[1]}}</li>
-                                {% endif %}
+                            {% if key[0] contains 'text' %}
+                            <li>{{key[1] | markdownify}}</li>
+                            {% endif %}
                             {% endfor %}
                         </ul>
                     </div>

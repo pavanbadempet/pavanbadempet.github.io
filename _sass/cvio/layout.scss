@@ -1161,10 +1161,12 @@
 				font-weight: 400;
 				color: $active_color;
 			}
+
 			a {
 				text-decoration: none !important;
 				color: inherit !important;
 				transition: all 0.3s ease;
+
 				&:hover {
 					color: #fff !important;
 					text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
@@ -1273,6 +1275,11 @@
 					position: absolute;
 					left: 0;
 					top: 0;
+				}
+
+				strong {
+					color: $active_color;
+					font-weight: 600;
 				}
 			}
 		}
@@ -4154,6 +4161,7 @@ object {
 			text-decoration: none !important;
 			color: inherit !important;
 			transition: all 0.3s ease;
+
 			&:hover {
 				color: #fff !important;
 				text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
