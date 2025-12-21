@@ -165,7 +165,7 @@
 	*/
 	if (!$('.grained-off').length) {
 		var grained_options = {
-			'animate': false,
+			'animate': true,
 			'patternWidth': 400,
 			'patternHeight': 400,
 			'grainOpacity': 0.15,
