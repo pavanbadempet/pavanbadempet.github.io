@@ -1,0 +1,64 @@
+{% set content = site.data.content.resume %}
+
+<!-- Section Resume -->
+<div class="section resume" id="section-history">
+    <div class="content">
+        <div class="cols">
+
+            <div class="col col-md">
+
+                <!-- title -->
+                <div class="title">
+                    <div class="title_inner">{{ content.experience.title }}</div>
+                </div>
+
+                <!-- resume items -->
+                <div class="resume-items">
+                    {% for item in content.experience.items %}
+                    <div class="resume-item content-box{% if loop.index == 1 %} active{% endif %}">
+                        <div class="date">{{ item.year }}</div>
+                        <div class="name">{{ item.name }}</div>
+                        <ul>
+                            {% for key, value in item.items() %}
+                            {% if 'text' in key %}
+                            <li>{{ value }}</li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+            <div class="col col-md">
+
+                <!-- title -->
+                <div class="title">
+                    <div class="title_inner">{{ content.education.title }}</div>
+                </div>
+
+                <!-- resume items -->
+                <div class="resume-items">
+                    {% for item in content.education.items %}
+                    <div class="resume-item content-box">
+                        <div class="date">{{ item.year }}</div>
+                        <div class="college">{{ item.college }}</div>
+                        <div class="university">{{ item.university }}</div>
+                        <br>
+                        <div class="degree">{{ item.degree }}</div>
+                        <div class="major">{{ item.major }}</div>
+                        <div class="macgpa">{{ item.macgpa }}</div>
+                        <div class="macoursework">{{ item.macoursework }}</div>
+                        <br>
+                        <div class="minor">{{ item.minor }}</div>
+                        <div class="micgpa">{{ item.micgpa }}</div>
+                        <div class="micoursework">{{ item.micoursework }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
