@@ -16,8 +16,12 @@
 
 {% if site.google_maps_api_key != '' %}
 <!-- Google map api -->
-<script src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_api_key }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_api_key }}" async defer></script>
 {% endif %}
+
+<!-- Instant Page -->
+<script src="//instant.page/5.2.0.js" type="module"
+    integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84GO0uHFLgwvcD76uUhRheOs1zIuqOnap"></script>
 
 <!-- Main -->
 <script src="{{ 'assets/js/main.js' | relative_url }}"></script>
