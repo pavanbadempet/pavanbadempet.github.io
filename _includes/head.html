@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="theme-color" content="#ffffff">
   <meta name="google-site-verification" content="HhmK4jV3AhDa3JLZHRTNIkCdyr0bAj0qd7UDBJzHnSg" />
+  <meta name="keywords" content="{{ site.keywords }}">
   {%- seo -%}
   {%- include json-ld.html -%}
 
@@ -62,5 +63,32 @@
   {%- endif -%}
 
   {%- include custom-head.html -%}
+
+  <!-- Custom Styles for Download CV Button -->
+  <style>
+    .download-cv-btn {
+      float: left;
+      margin-left: 20px;
+      margin-top: 30px;
+      font-size: 18px;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 100;
+      position: relative;
+    }
+
+    .download-cv-btn:hover {
+      color: #78cc6d;
+      /* Green accent color */
+    }
+
+    @media (max-width: 720px) {
+      .download-cv-btn {
+        margin-top: 25px;
+        margin-left: 15px;
+      }
+    }
+  </style>
 
 </head>

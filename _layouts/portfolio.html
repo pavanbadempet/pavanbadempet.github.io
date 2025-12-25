@@ -65,7 +65,8 @@ layout: default
             <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="{{ work.image | relative_url }}" class="has-popup-image hover-animated">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
+                            loading="lazy" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
@@ -86,7 +87,8 @@ layout: default
             <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="#gallery-{{ work.id | replace: '/', '-' }}" class="has-popup-gallery hover-animated">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
+                            loading="lazy" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
@@ -113,7 +115,8 @@ layout: default
             <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="{{ work.video }}" class="has-popup-video hover-animated">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
+                            loading="lazy" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
@@ -134,7 +137,8 @@ layout: default
             <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="{{ work.link }}" class="has-popup-link hover-animated" target="_blank">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
+                            loading="lazy" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
@@ -155,7 +159,8 @@ layout: default
             <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="{{ work.music }}" class="has-popup-music hover-animated">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
+                            loading="lazy" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
@@ -176,7 +181,8 @@ layout: default
             <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="#popup-{{ work.id | replace: '/', '-' }}" class="has-popup-media hover-animated">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
+                            loading="lazy" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
