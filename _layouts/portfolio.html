@@ -49,7 +49,8 @@ layout: default
                 </div>
                 {% for category in categories.filters %}
                 <div class="btn-group">
-                    <label data-text="Video"><input type="radio" name="fl_radio" value=".{{ category.slug }}" />{{
+                    <label data-text="{{ category.name }}"><input type="radio" name="fl_radio"
+                            value=".{{ category.slug }}" />{{
                         category.name }}</label>
                 </div>
                 {% endfor %}
