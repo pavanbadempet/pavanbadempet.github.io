@@ -2,12 +2,14 @@
 title: "Pavan Badempet"
 title_separator: "|"
 email: "pavan9b@gmail.com"
-description: "Senior Data Engineer specializing in Python, Spark, AWS, and AI/ML. Building scalable data platforms and production-grade applications."
+description: "Data Engineer specializing in Python, Spark, AWS, and AI/ML. Building scalable data platforms and production-grade applications."
+keywords: "Data Engineer, Python, Apache Spark, AWS, ETL, Machine Learning, Resume, Portfolio, TCS, Big Data"
 author: "Pavan Badempet"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://pavanbadempet.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 image: "assets/img/man2.jpg"
 twitter:
+  card: summary_large_image
   username: "pavanbadempet"
 github:
   username: "pavanbadempet"

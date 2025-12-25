@@ -9,6 +9,12 @@
 		<span class="sidebar_btn"><span></span></span>
 		{% endif %}
 
+		<!-- download cv button -->
+		<a href="https://drive.google.com/file/d/1gppjKAn5s9W06uH4ajoj7Ha2H13zEPkq/view?usp=sharing" target="_blank"
+			class="download-cv-btn" title="Download Resume">
+			<span class="icon fas fa-download"></span>
+		</a>
+
 		<!-- menu button -->
 		<a href="#" class="menu-btn"><span></span></a>
 
@@ -19,24 +25,26 @@
 				<span class="mask-lnk mask-lnk-hover">{{ settings.logo_hover_text }}</span>
 			</a>
 		</div>
-		
-		<!-- top menu -->						
+
+		<!-- top menu -->
 		<div class="top-menu hover-masks">
-			<div class="top-menu-nav">	
+			<div class="top-menu-nav">
 				<div class="menu-topmenu-container">
 					<ul class="menu">
 						{% for nav in navigation %}
 						{% assign nav_url = nav.url | absolute_url %}
-						<li class="menu-item {% if page_url == nav_url %} current-menu-item{% endif %}{% if nav.parent == 1 %} menu-item-has-children{% endif %}">
+						<li
+							class="menu-item {% if page_url == nav_url %} current-menu-item{% endif %}{% if nav.parent == 1 %} menu-item-has-children{% endif %}">
 							<a href="{{ nav.url | relative_url }}">{{ nav.title }}</a>
-                            {% if nav.parent == 1 %}
-                            <ul class="sub-menu">
-                                {% for subnav in nav.childs %}
-                                {% assign subnav_url = subnav.url | absolute_url %}
-                                <li class="menu-item{% if page_url == subnav_url %} current-menu-item{% endif %}"><a href="{{ subnav.url | relative_url }}">{{ subnav.title }}</a></li>
-                                {% endfor %}
-                            </ul>
-                            {% endif %}
+							{% if nav.parent == 1 %}
+							<ul class="sub-menu">
+								{% for subnav in nav.childs %}
+								{% assign subnav_url = subnav.url | absolute_url %}
+								<li class="menu-item{% if page_url == subnav_url %} current-menu-item{% endif %}"><a
+										href="{{ subnav.url | relative_url }}">{{ subnav.title }}</a></li>
+								{% endfor %}
+							</ul>
+							{% endif %}
 						</li>
 						{% endfor %}
 					</ul>
