@@ -5,19 +5,25 @@
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  image_alt: "Pavan Badempet - Software Engineer and Architect"
-  text: "<p>Data Engineer | Python, Spark, SQL, AWS | Building Scalable Data & Backend Systems | GenAI, ML & Cloud</p>"
+  image_alt: "Pavan Badempet - Senior Data Engineer"
+  text: "<p><b>Data Engineer</b> with 2+ years of experience building and optimizing scalable ETL/ELT pipelines across AWS and on-premises environments. Strong expertise in Python, SQL, Scala, and Apache Spark for large-scale data ingestion, transformation, and validation. Experienced in designing serverless, batch, and event-driven data workflows, delivering production-grade data platforms for FinTech and Automotive domains.</p>"
 
   list:
 
     - label: "Address"
-      value: "Qtr.No. A-703 HAL Township, Balanagar, Hyderabad 500042"
+      value: "Hyderabad, TS"
 
     - label: "Phone"
       value: "<a href='tel:+917989256101'>+91 7989256101</a>"
 
     - label: "E-mail"
       value: "<a href='mailto:pavan9b@gmail.com'>pavan9b@gmail.com</a>"
+    
+    - label: "LinkedIn"
+      value: "<a href='https://linkedin.com/in/pavanbadempet/'>pavanbadempet</a>"
+
+    - label: "GitHub"
+      value: "<a href='https://github.com/pavanbadempet'>pavanbadempet</a>"
 
   download:
     text: "Download Resume"
@@ -28,100 +34,82 @@ resume:
   experience:
     title: "Experience"
     items:
-      - year: "11/2023 - Present"
+      - year: "Nov 2023 – Present"
         name: "Data Engineer - Tata Consultancy Services"
-        text1: "Nissan Data Platform: Developed secure data ingestion APIs using AWS Lambda, Boto3, and Snowflake for processing daily data requests."
-        text2: "Implemented test coverage for infrastructure using Pytest and Moto to prevent production bugs."
-        text3: "Nomura Capital: Worked on ETL pipelines with Apache Spark/SQL for financial data processing."
-        text4: "Optimized storage costs by migrating data to MinIO with Parquet partitioning and enabled query execution via Dremio."
+        text1: "<b>Nissan Data Platform:</b> Designed and implemented a serverless data ingestion and validation pipeline using AWS Lambda, API Gateway, and Streamlit."
+        text2: "Automated schema validation, preprocessing, and data quality checks, reducing manual data onboarding effort by 60%."
+        text3: "Implemented robust error-handling logic and comprehensive unit tests using Pytest and Moto, achieving 95% coverage of core ingestion workflows and AWS integrations."
+        text4: "<b>Nomura Capital:</b> Engineered large-scale Apache Spark ETL pipelines for batch processing of multi-entity financial datasets."
+        text5: "Computed complex risk and valuation metrics, improving batch throughput by 30% through partition pruning, broadcast joins, and shuffle optimization."
+        text6: "Executed and stabilized Spark workloads on a Kubernetes + MinIO platform during migration from MapR/YARN."
+        text7: "Integrated Dremio for data virtualization and used AutoSys for orchestration, collaborating with platform and business teams to improve batch reliability by 20%."
 
-      - year: "03/2021 - 04/2021"
+      - year: "Mar 2023 – Apr 2023"
         name: "Data Analytics Intern - TCS iON"
-        text1: "Worked on an ensemble learning model for employee attrition prediction."
-        text2: "Deployed a FastAPI backend for real-time model inference."
-
-      - year: "09/2021 - 12/2021"
-        name: "AI Intern - FutureSkills Prime"
-        text1: "Developed a Computer Vision model for cancer detection."
-        text2: "Deployed the solution to Azure App Service for model access."
+        text1: "Built an ensemble ML-based employee attrition prediction system achieving 86% accuracy."
+        text2: "Developed and deployed a FastAPI backend for real-time model inference and API-based consumption."
 
   education:
     title: "Education"
     items:
-      - year: "08/2019 - 09/2023"
+      - year: "Aug 2019 – Sep 2023"
         college: "<b>College:</b> Guru Nanak Institutions Technical Campus"
-        degree: "<b>Degree:</b> Bachelor of Technology - BTech"
-        major: "<b>Major:</b> Computer Science & Engineering"
-        macgpa: "<b>Grade:</b> 8.2 (First Class with Distinction)"
-        macoursework: "<b>Relevant Coursework:</b> Data Structures & Algorithms, Operating Systems, Computer Networks, Web Technologies, Object Oriented Programming, Database Management System, Software Engineering"
-        minor: "<b>Minor:</b> Artificial Intelligence/ Machine Learning"
-        micgpa: "<b>Grade:</b> 8.58 (First Class with Distinction)"
-        micoursework: "<b>Relevant Coursework:</b> Deep Learning, Natural Language Processing, Foundations of Artificial Intelligence, Artificial Intelligence Applications"
+        degree: "<b>Degree:</b> Bachelor of Technology in Computer Science & Engineering"
+        major: "<b>Minor:</b> AI/ML"
+        macgpa: "<b>Grade:</b> 8.2 CGPA (First Class with Distinction)"
+        macoursework: "<b>Scholarships:</b> Prime Minister’s Scholarship 2019-2023"
 
 ### Skills [ skills ]
 skills:
   columns:
-    - type: "list" #skills progress type - default, dotted, circles, list
+    - type: "list"
       title: "Languages"
       items:
         - label: "Python"
-
-        - label: "Scala"
-
-        - label: "Java"
-
         - label: "SQL"
+        - label: "Scala"
+        - label: "Java"
+        - label: "HTML/CSS"
 
-        - label: "HTML"
-
-        - label: "CSS"
-
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Frameworks"
+    - type: "list"
+      title: "Big Data & Frameworks"
       items:
         - label: "Apache Spark"
-
+        - label: "Pandas"
+        - label: "NumPy"
         - label: "FastAPI"
-
         - label: "Streamlit"
 
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Developer Tools"
+    - type: "list"
+      title: "Data Platforms & Storage"
       items:
         - label: "AWS"
-          
-        - label: "AutoSys"
-          
-        - label: "Docker"
+        - label: "Snowflake"
+        - label: "MinIO"
+        - label: "Dremio"
 
-        - label: "GitHub"
-
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Cloud & DevOps"
+    - type: "list"
+      title: "Orchestration & Tools"
       items:
-        - label: "pandas"
-
-        - label: "NumPy"
-
-        - label: "NLTK"
-
-        - label: "Boto3"
+        - label: "Docker"
+        - label: "AutoSys"
+        - label: "Git"
 
 ### Projects [ team ]
 team:
   title: "Projects"
   items:
     - name: An AIO Healthcare System
-      role: "Python, Streamlit, Machine Learning, GCP, Docker"
-      text1: "Architected a multi-model healthcare platform achieving **87%+ accuracy** across liver, diabetes, and heart disease prediction models."
-      text2: "Engineered a Generative AI chatbot using OpenAI API to deliver personalized health insights to **1,000+ simulated users**."
-      text3: "Deployed a containerized (Docker) microservice architecture on GCP, ensuring **99.9% uptime** and scalability."
+      role: "Python, Streamlit, OpenAI API, GCP, Docker"
+      text1: "Built an end-to-end healthcare diagnostic platform integrating Generative AI for personalized recommendations and ML classification models (89% accuracy)."
+      text2: "Containerized the application using Docker and deployed on GCP, implementing a unified Streamlit interface to handle real-time user inputs and model inference."
+      text3: ""
 
     - name: "Movie Recommendation System"
-      role: "Python, Streamlit, Machine Learning, Azure, Docker"
-      text1: "Built a content-based filtering engine using NLTK and Cosine Similarity, delivering recommendations with **85.3% relevance accuracy**."
-      text2: "Optimized API integration with TMDB to fetch metadata in **<2 seconds** for real-time user queries."
-      text3: "Deployed as a serverless microservice on Azure, handling auto-scaling for high traffic loads."
+      role: "Python, NLTK, TMDB API, Azure"
+      text1: "Developed a content-based movie recommendation engine using NLTK and Cosine Similarity, integrating the TMDB API and deploying the application on Azure."
+      text2: ""
+      text3: ""
 
 ### Honors & Awards [ clients ]
 clients:
@@ -129,7 +117,7 @@ clients:
   items:
     - image: ""
       name: "Prime Minister's Scholarship Scheme"
-      role: "Awarded for academic excellence duringstudies as part of the Prime Minister's Scholarship Scheme for the dependent wards of Ex-Servicemen."
+      role: "Awarded for academic excellence during studies as part of the Prime Minister's Scholarship Scheme."
   
 
 ### Contact Info [ contacts-info ]
@@ -146,7 +134,7 @@ contacts_info:
 
     - label: "Address"
       icon: "fas fa-map-marker-alt"
-      value: "Qtr.No. A-703 HAL Township, Balanagar, Hyderabad 500042"
+      value: "Hyderabad, TS"
     
     - label: "Open to"
       icon: "fas fa-user-tie"
