@@ -9,8 +9,8 @@
             <div class="title_inner">{{ content.title }}</div>
         </div>
         {% endif %}
-        
-        
+
+
         <!-- contacts items -->
         <div class="service-items">
             {% for item in content.list %}
@@ -18,11 +18,36 @@
                 <div class="service-item content-box">
                     <div class="icon"><span class="{{ item.icon }}"></span></div>
                     <div class="name">{{ item.label }}</div>
-                    <div class="text">{{ item.value }}</div>
+                    <div class="text">
+                        {% if item.label == 'Email' or item.label == 'Phone' %}
+                        <span class="quick-copy" data-value="{{ item.value | strip_html }}" title="Click to Copy">
+                            {{ item.value }}
+                            <i class="fas fa-copy" style="font-size: 0.8em; margin-left: 5px; opacity: 0.6;"></i>
+                        </span>
+                        {% else %}
+                        {{ item.value }}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             {% endfor %}
         </div>
+
+        <script>
+            document.querySelectorAll('.quick-copy').forEach(item => {
+                item.addEventListener('click', event => {
+                    const text = item.getAttribute('data-value');
+                    navigator.clipboard.writeText(text).then(() => {
+                        const original = item.innerHTML;
+                        item.innerHTML = 'Copied! <i class="fas fa-check"></i>';
+                        setTimeout(() => {
+                            item.innerHTML = original;
+                        }, 2000);
+                    });
+                });
+                item.style.cursor = 'pointer';
+            });
+        </script>
 
         <div class="clear"></div>
     </div>

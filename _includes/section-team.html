@@ -9,7 +9,7 @@
             <div class="title_inner">{{ content.title }}</div>
         </div>
         {% endif %}
-        
+
         <!-- team items -->
         <div class="team-items">
             {% for item in content.items %}
@@ -19,9 +19,15 @@
                         <div class="name">{{ item.name }}</div>
                         <div class="category">{{ item.role }}</div>
                         <ul>
-                            <div align="left"><li>{{item.text1}}</li></div>
-                            <div align="left"><li>{{item.text2}}</li></div>
-                            <div align="left"><li>{{item.text3}}</li></div>
+                            {% if item.text1 != '' %}<div align="left">
+                                <li>{{item.text1}}</li>
+                            </div>{% endif %}
+                            {% if item.text2 != '' %}<div align="left">
+                                <li>{{item.text2}}</li>
+                            </div>{% endif %}
+                            {% if item.text3 != '' %}<div align="left">
+                                <li>{{item.text3}}</li>
+                            </div>{% endif %}
                         </ul>
                     </div>
                 </div>

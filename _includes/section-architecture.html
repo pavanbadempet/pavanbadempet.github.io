@@ -1,0 +1,46 @@
+{% assign content = site.data.content['resume'] %}
+
+<!-- Section Architecture -->
+<div class="section architecture" id="section-architecture">
+    <div class="content content-box">
+        <div class="title">
+            <div class="title_inner">System Architecture</div>
+        </div>
+
+        <div class="desc">
+            <p><strong>Nissan Data Platform (Event-Driven Ingestion)</strong></p>
+            <p>Designed to handle high velocity IoT data streams.</p>
+            <div class="mermaid">
+                graph LR
+                A[IoT Sensors] -->|JSON Stream| B(AWS API Gateway)
+                B -->|Trigger| C{AWS Lambda}
+                C -->|Raw Data| D[(S3 Data Lake)]
+                C -->|Transform| E[Snowflake DW]
+                E -->|BI Dashboards| F[Streamlit App]
+
+                style A fill:#333,stroke:#fff,stroke-width:2px
+                style C fill:#f90,stroke:#333,stroke-width:2px,color:black
+                style E fill:#0cc,stroke:#333,stroke-width:2px,color:black
+            </div>
+
+            <br><br>
+
+            <p><strong>Medical Diagnostic System (Microservices)</strong></p>
+            <p>Containerized ML inference engine with high availability.</p>
+            <div class="mermaid">
+                graph TD
+                User[Patient/Doctor] -->|Request| LB[Load Balancer]
+                LB -->|Route| App[Streamlit Frontend]
+                App -->|API Call| API[FastAPI Gateway]
+                API -->|Inference| Model1[Liver Model]
+                API -->|Inference| Model2[Diabetes Model]
+                API -->|Chat| GPT[OpenAI Wrapper]
+
+                style User fill:#333,stroke:#fff,stroke-width:2px
+                style LB fill:#0f0,stroke:#333,stroke-width:2px,color:black
+                style API fill:#0cf,stroke:#333,stroke-width:2px,color:black
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

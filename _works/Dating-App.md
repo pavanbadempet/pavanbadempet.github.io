@@ -7,26 +7,19 @@ image: assets/img/works/datingapp.png
 button_url: https://github.com/pavanbadempet/Dating-App
 ---
 
-Cutting-edge dating platform designed to revolutionize your online dating experience. This app incorporates the latest technologies and best practices to ensure seamless interactions, enhanced security, and personalized connections.
+**Full-Stack Dating Application**
 
-Key Features:
+A feature-rich dating platform architected for seamless user interaction and high security. It features real-time messaging, a matching algorithm, and identity management, built on a robust .NET Core and Angular stack.
 
-* Identity and Role Management implemented.
-* Data persistence with Entity Framework Core.
-* Repository Pattern for abstraction over Entity Framework.
-* Common error handling in Angular and .NET Core using Http Interceptors.
-* AutoMapper integration in .NET Core WebAPI.
-* Integration of third-party components like Alertify.js in Angular.
-* Authentication secured with JWT tokens for WebAPIs.
-* Lazy loading for efficient loading of related navigation properties.
-* Filtering, sorting, and paging of data.
-* Integration of drag-and-drop photo upload with Cloudinary.
-* Implementation of a private messaging chat system.
-* User profile liking functionality with Many-To-Many relationships.
-* Global error handling in both API and SPA.
-* Usage of ngx-loader for displaying loaders during HTTP requests.
-* Routing secured with CanActivate and CanDeactivate guards.
-* Resolvers used for passing data in routes.
-* Utilization of Angular Reactive forms for form handling.
-* Deployment to Azure platform.
-* HTTPS certificate applied for secure communication.
+### Tech Stack
+*   **Frontend:** Angular 9
+*   **Backend:** .NET Core WebAPI (v3.0)
+*   **Database:** SQL Server, Entity Framework Core
+*   **Cloud:** Azure, Cloudinary (for media)
+
+### Key Features
+*   **Real-Time Chat:** Private messaging system for connected users.
+*   **Matching System:** Like/Dislike functionality with "match" notifications.
+*   **Secure Auth:** JWT Authentication and Identity/Role management.
+*   **Optimized Performance:** Implemented lazy loading, paging, sorting, and filtering.
+*   **Media Handling:** Drag-and-drop photo uploads integrated with Cloudinary.

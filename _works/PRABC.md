@@ -7,12 +7,18 @@ image: assets/img/works/prabc.png
 button_url: https://github.com/pavanbadempet/PRABC
 ---
 
-Breast cancer is the most common form of cancer in women, accounting for 14% of all cancers in Indian women. About 90% of breast cancer patients live for at least 5 years after the cancer is diagnosed. When the breast cancer is detected early, the chance of survival is much higher. So, we are developing a tool for Calculating the Risk of Attaining Breast Cancer. The tool is supposedly going to help women understand their Risk of Attaining Breast Cancer and leading to understanding the special need of care.
+**Predicting the Risk of Attaining Breast Cancer**
 
-Key Features:
+This project focuses on estimating the probability of developing breast cancer using advanced data insights and machine learning. By analyzing clinical data, the tool helps women understand their risk levels and the need for preventive care. It features a cross-platform informatic application (Mobile, Windows, MacOS) to make these insights accessible.
 
-* The tool utilizes advanced data insights derived from BRCA data and machine learning techniques, employing a random forest model as a classifier.
-* Performance evaluation involves fine-tuning precision and recall metrics.
-* Informatic applications will be available for mobile phones, Windows, and MacOS systems, facilitating accessibility to risk assessment.
-* Ongoing efforts extend beyond risk assessment to include daily lifestyle changes for breast cancer prevention.
-* Long-term aspirations include leveraging data imaging for enhanced diagnostics and analysis, with the ultimate goal of eradicating breast cancer fatalities.
+### Tech Stack
+*   **Languages:** Python, Java, Kotlin
+*   **Web Framework:** Flask
+*   **Frontend:** HTML, CSS, D3.js
+*   **Tools:** Excel for data handling
+
+### Key Features
+*   **Risk Prediction:** Uses a Random Forest Classifier trained on BRCA data to estimate cancer risk.
+*   **Cross-Platform Access:** Informatic applications available for Mobile and Desktop OS.
+*   **Data Insights:** Provides visual data representation using D3.js.
+*   **Performance:** Model fine-tuned using precision and recall metrics for high reliability.
