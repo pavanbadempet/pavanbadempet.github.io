@@ -139,3 +139,23 @@ contacts_info:
     - label: "Open to"
       icon: "fas fa-user-tie"
       value: "I am open to opportunities for Full-time positions, Contract Work, and Freelance Engagements."
+
+### Services [ services ]
+services:
+  title: "What I Do"
+  items:
+    - name: "Data Pipeline Architecture"
+      text: "Designing and implementing scalable ETL/ELT workflows using Apache Spark, AWS Glue, and Lambda to process terabytes of data efficiently."
+      icon: "fas fa-network-wired"
+
+    - name: "Cloud Data Platforms"
+      text: "Architecting secure, serverless data lakes and warehouses on AWS (S3, Redshift, Athena) and Azure, ensuring high availability and cost optimization."
+      icon: "fas fa-cloud"
+
+    - name: "Big Data Processing"
+      text: "Optimizing complex SQL queries and Spark jobs for finding patterns in massive datasets, reducing processing time and improving data quality."
+      icon: "fas fa-database"
+
+    - name: "MLOps & AI Integration"
+      text: "Deploying machine learning models and GenAI agents into production environments using Docker, FastAPI, and CI/CD pipelines."
+      icon: "fas fa-robot"
