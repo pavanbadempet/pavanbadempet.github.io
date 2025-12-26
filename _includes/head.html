@@ -157,6 +157,76 @@
     .section.started.layout-creative+.section {
       margin-top: 30px !important;
     }
+
+    /* 10. MENU HOVER EFFECT: DATA TECH GLITCH */
+    /* Disable existing sliding mask animation */
+    .hover-masks .mask-lnk {
+      transform: none !important;
+      transition: all 0.2s ease !important;
+    }
+
+    /* Hide the secondary "slide-in" text */
+    .hover-masks .mask-lnk.mask-lnk-hover {
+      display: none !important;
+    }
+
+    /* Define Rapid Font Switch Animation (Expanded to 10 Fonts) */
+    @keyframes font-rapid-switch {
+      0% {
+        font-family: 'Courier New', monospace;
+      }
+
+      10% {
+        font-family: 'Times New Roman', serif;
+      }
+
+      20% {
+        font-family: 'Arial Black', sans-serif;
+      }
+
+      30% {
+        font-family: 'Brush Script MT', cursive;
+      }
+
+      40% {
+        font-family: 'Impact', charcoal, sans-serif;
+      }
+
+      50% {
+        font-family: 'Lucida Console', Monaco, monospace;
+      }
+
+      60% {
+        font-family: 'Georgia', serif;
+      }
+
+      70% {
+        font-family: 'Verdana', Geneva, sans-serif;
+      }
+
+      80% {
+        font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+      }
+
+      90% {
+        font-family: 'Tahoma', Geneva, sans-serif;
+      }
+
+      100% {
+        font-family: 'Courier New', monospace;
+      }
+    }
+
+    /* Apply Animation on Hover */
+    .hover-masks a:hover .mask-lnk {
+      color: #4bffa5 !important;
+      /* Theme Green */
+      text-shadow: 0 0 8px rgba(75, 255, 165, 0.8);
+      /* Stronger Glow */
+      opacity: 1 !important;
+      animation: font-rapid-switch 0.8s infinite linear;
+      /* Fast but distinct */
+    }
   </style>
 
 </head>
