@@ -492,7 +492,8 @@
     .hover-masks,
     .hover-masks a,
     .hover-masks-logo,
-    .hover-masks-logo a {
+    .hover-masks-logo a,
+    .background-enabled .header .top-menu ul li a {
       overflow: visible !important;
     }
 
@@ -503,15 +504,19 @@
     }
 
     /* On Hover: Make original text transparent (holds width) */
-    /* High specificity to override .background-enabled .current-menu-item, body.home settings */
+    /* Ultra-High specificity targeting every possible active/home combination */
     .hover-masks a:hover .mask-lnk,
     .hover-masks-logo a:hover .mask-lnk,
     body.home .header .top-menu ul li a:hover .mask-lnk,
     body.home .header .top-menu ul li.current-menu-item>a:hover .mask-lnk,
+    .background-enabled .header .top-menu ul li.current-menu-item>a:hover .mask-lnk,
+    .background-enabled .header .top-menu ul li a:hover .mask-lnk,
     .header .top-menu ul li.current-menu-item>a:hover .mask-lnk {
       color: transparent !important;
       opacity: 0 !important;
       /* Fully Hide Original */
+      visibility: hidden !important;
+      /* Double tap */
       transition: none !important;
       /* Instant hide */
     }
@@ -519,7 +524,10 @@
     /* Pseudo-Element: The Actor */
     .hover-masks a:hover::before,
     .hover-masks-logo a:hover::before,
-    body.home .header .top-menu ul li a:hover::before {
+    body.home .header .top-menu ul li a:hover::before,
+    body.home .header .top-menu ul li.current-menu-item>a:hover::before,
+    .background-enabled .header .top-menu ul li.current-menu-item>a:hover::before,
+    .background-enabled .header .top-menu ul li a:hover::before {
       content: attr(data-text);
       position: absolute;
       left: 50%;
@@ -528,17 +536,21 @@
       /* perfectly centered */
       white-space: nowrap;
 
-      color: #4bffa5;
-      text-shadow: 0 0 8px rgba(75, 255, 165, 0.8);
+      color: #4bffa5 !important;
+      text-shadow: 0 0 8px rgba(75, 255, 165, 0.8) !important;
 
       /* QUANTUM FLUX LOOP (4s) */
       animation: font-rapid-switch 4s infinite linear;
       pointer-events: none;
 
       /* Ensure it sits on top of everything */
-      z-index: 9999;
+      z-index: 99999;
       opacity: 1 !important;
       visibility: visible !important;
+      display: block !important;
+    }
+
+    visibility: visible !important;
     }
   </style>
 
