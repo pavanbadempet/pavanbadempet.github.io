@@ -169,102 +169,63 @@
       display: none !important;
     }
 
-    /* 12-Step High-Contrast Font Animation */
+    /* 5-Step SUPER DISTINCT & STABILIZED Animation */
     @keyframes font-slow-morph {
+
+      /* Frame 1: CODE (Wide/Thin) - Tamed width */
       0% {
         font-family: 'Courier New', monospace;
-        font-weight: normal;
-        letter-spacing: -1px;
-      }
-
-      8% {
-        font-family: 'Impact', sans-serif;
-        font-weight: normal;
-        letter-spacing: 1px;
-        font-size: 0.85em;
-      }
-
-      16% {
-        font-family: 'Garamond', serif;
-        font-weight: bold;
-        font-size: 1.1em;
-      }
-
-      25% {
-        font-family: 'Comic Sans MS', cursive;
         font-weight: bold;
         font-size: 0.9em;
+        letter-spacing: -1.5px;
       }
 
-      33% {
-        font-family: 'Arial Black', sans-serif;
+      /* Frame 2: HEAVY BLOCK (Narrow/Dark) - Expanded width */
+      25% {
+        font-family: 'Impact', sans-serif;
         font-weight: normal;
-        font-size: 0.8em;
+        font-size: 0.9em;
+        letter-spacing: 1.5px;
       }
 
-      41% {
+      /* Frame 3: CURSIVE (Flowing/Italic) - Normalized */
+      50% {
         font-family: 'Brush Script MT', cursive;
         font-weight: normal;
-        font-size: 1.2em;
-        letter-spacing: 0px;
-      }
-
-      50% {
-        font-family: 'Copperplate', serif;
-        font-weight: bold;
-        font-size: 0.85em;
-      }
-
-      58% {
-        font-family: 'Verdana', sans-serif;
-        font-weight: bold;
-        font-size: 0.8em;
+        font-size: 1.3em;
         letter-spacing: -0.5px;
       }
 
-      66% {
-        font-family: 'Georgia', serif;
-        font-weight: normal;
-        font-size: 0.95em;
-      }
-
+      /* Frame 4: OLD SERIF (Classic/Sharp) - Standard */
       75% {
-        font-family: 'Lucida Console', monospace;
+        font-family: 'Garamond', serif;
         font-weight: bold;
-        font-size: 0.8em;
-        letter-spacing: -1px;
+        font-size: 1.1em;
+        letter-spacing: 0px;
       }
 
-      83% {
-        font-family: 'Trebuchet MS', sans-serif;
-        font-weight: bold;
-        font-size: 0.9em;
-      }
-
-      91% {
-        font-family: 'Palatino Linotype', serif;
-        font-weight: bold;
-        font-size: 0.95em;
-      }
-
+      /* Loop back */
       100% {
         font-family: 'Courier New', monospace;
-        font-weight: normal;
-        letter-spacing: -1px;
+        font-weight: bold;
+        font-size: 0.9em;
+        letter-spacing: -1.5px;
       }
     }
 
-    /* Apply Slow Morph on Hover */
+    /* Apply Hover Effect */
     .hover-masks a:hover .mask-lnk {
       color: #4bffa5 !important;
-      text-shadow: 0 0 5px rgba(75, 255, 165, 0.6);
+      text-shadow: 0 0 8px rgba(75, 255, 165, 0.7);
       opacity: 1 !important;
-      /* 3s duration = Gentle Morph */
-      animation: font-slow-morph 3s infinite linear;
 
-      /* Base constraint to prevent huge layout shifts */
+      /* 2.5s loop: Slow enough to see, fast enough to flow */
+      animation: font-slow-morph 2.5s infinite linear;
+
+      /* Critical: Prevent vertical jitter */
       display: inline-block;
-      white-space: nowrap;
+      line-height: 1;
+      vertical-align: middle;
     }
   </style>
 
