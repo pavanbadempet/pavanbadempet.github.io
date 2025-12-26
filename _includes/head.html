@@ -158,74 +158,108 @@
       margin-top: 30px !important;
     }
 
-    /* 10. MENU HOVER EFFECT: DATA TECH GLITCH */
-    /* Disable existing sliding mask animation */
+    /* 10. MENU HOVER EFFECT: DATA MORPH (SLOW & DIVERSE) */
+    /* Disable existing sliding mask */
     .hover-masks .mask-lnk {
       transform: none !important;
       transition: all 0.2s ease !important;
     }
 
-    /* Hide the secondary "slide-in" text */
     .hover-masks .mask-lnk.mask-lnk-hover {
       display: none !important;
     }
 
-    /* Define Rapid Font Switch Animation (Expanded to 10 Fonts) */
-    @keyframes font-rapid-switch {
+    /* 15-Step Slow Font Animation */
+    @keyframes font-slow-morph {
       0% {
         font-family: 'Courier New', monospace;
+        letter-spacing: -1px;
       }
 
-      10% {
+      6% {
         font-family: 'Times New Roman', serif;
+        letter-spacing: 0px;
       }
 
-      20% {
+      13% {
         font-family: 'Arial Black', sans-serif;
+        font-size: 0.8em;
       }
 
-      30% {
+      /* Fix width */
+      20% {
         font-family: 'Brush Script MT', cursive;
+        font-size: 1.1em;
+      }
+
+      /* Fix legibility */
+      26% {
+        font-family: 'Impact', sans-serif;
+        letter-spacing: 1px;
+        font-size: 0.85em;
+      }
+
+      33% {
+        font-family: 'Lucida Console', monospace;
+        letter-spacing: -1px;
       }
 
       40% {
-        font-family: 'Impact', charcoal, sans-serif;
-      }
-
-      50% {
-        font-family: 'Lucida Console', Monaco, monospace;
-      }
-
-      60% {
         font-family: 'Georgia', serif;
       }
 
-      70% {
-        font-family: 'Verdana', Geneva, sans-serif;
+      46% {
+        font-family: 'Verdana', sans-serif;
+        font-size: 0.85em;
+      }
+
+      53% {
+        font-family: 'Copperplate', serif;
+      }
+
+      60% {
+        font-family: 'Comic Sans MS', cursive;
+        font-size: 0.9em;
+      }
+
+      66% {
+        font-family: 'Trebuchet MS', sans-serif;
+      }
+
+      73% {
+        font-family: 'Arial Narrow', sans-serif;
       }
 
       80% {
-        font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+        font-family: 'Garamond', serif;
+        font-weight: bold;
       }
 
-      90% {
-        font-family: 'Tahoma', Geneva, sans-serif;
+      86% {
+        font-family: 'Palatino Linotype', serif;
+      }
+
+      93% {
+        font-family: 'Tahoma', sans-serif;
       }
 
       100% {
         font-family: 'Courier New', monospace;
+        letter-spacing: -1px;
       }
     }
 
-    /* Apply Animation on Hover */
+    /* Apply Slow Morph on Hover */
     .hover-masks a:hover .mask-lnk {
       color: #4bffa5 !important;
-      /* Theme Green */
-      text-shadow: 0 0 8px rgba(75, 255, 165, 0.8);
-      /* Stronger Glow */
+      text-shadow: 0 0 5px rgba(75, 255, 165, 0.6);
       opacity: 1 !important;
-      animation: font-rapid-switch 0.8s infinite linear;
-      /* Fast but distinct */
+      /* 3s duration = Gentle Morph, not Strobe */
+      animation: font-slow-morph 3s infinite linear;
+
+      /* Base constraint to prevent huge layout shifts */
+      display: inline-block;
+      white-space: nowrap;
     }
   </style>
 
