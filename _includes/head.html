@@ -78,14 +78,14 @@
       margin-bottom: 5px;
     }
 
-    /* Ensure the list itself is tight */
     .resume-items .resume-item ul {
       margin-bottom: 0;
     }
 
     /* Reduce Section Title Spacing */
     .section .title {
-      margin-bottom: 15px !important;
+      margin-bottom: 10px !important;
+      /* Aggressive reduction */
       padding-bottom: 0 !important;
     }
 
@@ -97,6 +97,23 @@
     .resume-items {
       margin-top: 0 !important;
       padding-top: 0 !important;
+    }
+
+    /* Critical: Reduce inner padding of the resume box itself */
+    .resume-items .resume-item.content-box {
+      padding-top: 15px !important;
+      /* Reduced from 35px */
+    }
+
+    /* Critical: Force first item to have NO top margin */
+    .resume-items .resume-item:first-child,
+    .resume-items .resume-item.content-box:first-child {
+      margin-top: 0 !important;
+    }
+
+    /* Ensure subsequent items still have separation */
+    .resume-items .resume-item.content-box:not(:first-child) {
+      margin-top: 30px !important;
     }
   </style>
 
