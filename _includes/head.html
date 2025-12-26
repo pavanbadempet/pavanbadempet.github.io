@@ -69,23 +69,35 @@
 
   <!-- Custom Styles for Resume Spacing -->
   <style>
-    /* Compact Resume List Spacing */
+    /* =========================================
+       CRITICAL SPACING OVERRIDES
+       ========================================= */
+
+    /* 1. COMPACT RESUME LISTS (BULLET POINTS) */
+    /* Markdownify creates <p> tags inside <li>. We must KILL their margins. */
     .resume-items .resume-item ul li p {
-      margin-bottom: 5px;
+      margin-bottom: 0 !important;
+      margin-top: 0 !important;
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
     }
 
+    /* Control spacing strictly via the <li> itself */
     .resume-items .resume-item ul li {
-      margin-bottom: 5px;
+      margin-bottom: 8px !important;
+      /* Small gap between bullets */
+      margin-top: 0 !important;
+      line-height: 1.5 !important;
+      /* Tighter line height */
     }
 
     .resume-items .resume-item ul {
-      margin-bottom: 0;
+      margin-bottom: 0 !important;
     }
 
-    /* Reduce Section Title Spacing */
+    /* 2. SECTION TITLE SPACING */
     .section .title {
-      margin-bottom: 10px !important;
-      /* Aggressive reduction */
+      margin-bottom: 15px !important;
       padding-bottom: 0 !important;
     }
 
@@ -94,26 +106,30 @@
       padding-bottom: 0 !important;
     }
 
+    /* 3. RESUME CONTAINER SPACING */
     .resume-items {
       margin-top: 0 !important;
       padding-top: 0 !important;
     }
 
-    /* Critical: Reduce inner padding of the resume box itself */
-    .resume-items .resume-item.content-box {
-      padding-top: 15px !important;
-      /* Reduced from 35px */
-    }
-
-    /* Critical: Force first item to have NO top margin */
+    /* 4. FIRST RESUME ITEM SPACING */
     .resume-items .resume-item:first-child,
     .resume-items .resume-item.content-box:first-child {
       margin-top: 0 !important;
+      padding-top: 0 !important;
+      /* Even tighter to title */
     }
 
-    /* Ensure subsequent items still have separation */
-    .resume-items .resume-item.content-box:not(:first-child) {
+    /* 5. SUBSEQUENT RESUME ITEMS */
+    .resume-items .resume-item:not(:first-child) {
       margin-top: 30px !important;
+      padding-top: 35px !important;
+    }
+
+    /* 6. INTERNAL BOX SPACING */
+    /* Ensure the name of the role (e.g. Data Engineer) is close to the bullets */
+    .resume-items .resume-item .name {
+      margin-bottom: 10px !important;
     }
   </style>
 
