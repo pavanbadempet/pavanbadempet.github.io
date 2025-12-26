@@ -218,10 +218,16 @@
 	/*
 		Hover Masks
 	*/
-	$('.hover-masks a').each(function () {
+	$('.hover-masks a, .hover-masks-logo a').each(function () {
 		var mask_val = $(this).html();
 		$(this).wrapInner('<span class="mask-lnk"></span>');
 		$(this).append('<span class="mask-lnk mask-lnk-hover">' + mask_val + '</span>');
+	});
+
+	$('.hover-masks a, .hover-masks-logo a').on('mouseenter', function () {
+		$(this).addClass('flux-on');
+	}).on('mouseleave', function () {
+		$(this).removeClass('flux-on');
 	});
 
 	/*
