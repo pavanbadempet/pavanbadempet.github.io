@@ -30,13 +30,14 @@
 						{% assign nav_url = nav.url | absolute_url %}
 						<li
 							class="menu-item {% if page_url == nav_url %} current-menu-item{% endif %}{% if nav.parent == 1 %} menu-item-has-children{% endif %}">
-							<a href="{{ nav.url | relative_url }}">{{ nav.title }}</a>
+							<a href="{{ nav.url | relative_url }}" data-text="{{ nav.title }}">{{ nav.title }}</a>
 							{% if nav.parent == 1 %}
 							<ul class="sub-menu">
 								{% for subnav in nav.childs %}
 								{% assign subnav_url = subnav.url | absolute_url %}
 								<li class="menu-item{% if page_url == subnav_url %} current-menu-item{% endif %}"><a
-										href="{{ subnav.url | relative_url }}">{{ subnav.title }}</a></li>
+										href="{{ subnav.url | relative_url }}" data-text="{{ subnav.title }}">{{
+										subnav.title }}</a></li>
 								{% endfor %}
 							</ul>
 							{% endif %}

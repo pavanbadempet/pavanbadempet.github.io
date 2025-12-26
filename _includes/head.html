@@ -169,63 +169,69 @@
       display: none !important;
     }
 
-    /* 5-Step SUPER DISTINCT & STABILIZED Animation */
-    @keyframes font-slow-morph {
-
-      /* Frame 1: CODE (Wide/Thin) - Tamed width */
+    /* 5-Step SUPER DISTINCT & LOCKED Animation */
+    @keyframes font-wild-morph {
       0% {
         font-family: 'Courier New', monospace;
         font-weight: bold;
-        font-size: 0.9em;
-        letter-spacing: -1.5px;
+        letter-spacing: -1px;
       }
 
-      /* Frame 2: HEAVY BLOCK (Narrow/Dark) - Expanded width */
       25% {
         font-family: 'Impact', sans-serif;
         font-weight: normal;
-        font-size: 0.9em;
-        letter-spacing: 1.5px;
+        letter-spacing: 1px;
       }
 
-      /* Frame 3: CURSIVE (Flowing/Italic) - Normalized */
       50% {
         font-family: 'Brush Script MT', cursive;
         font-weight: normal;
-        font-size: 1.3em;
-        letter-spacing: -0.5px;
+        font-size: 1.2em;
       }
 
-      /* Frame 4: OLD SERIF (Classic/Sharp) - Standard */
       75% {
         font-family: 'Garamond', serif;
         font-weight: bold;
-        font-size: 1.1em;
-        letter-spacing: 0px;
       }
 
-      /* Loop back */
       100% {
         font-family: 'Courier New', monospace;
         font-weight: bold;
-        font-size: 0.9em;
-        letter-spacing: -1.5px;
+        letter-spacing: -1px;
       }
     }
 
-    /* Apply Hover Effect */
-    .hover-masks a:hover .mask-lnk {
-      color: #4bffa5 !important;
-      text-shadow: 0 0 8px rgba(75, 255, 165, 0.7);
-      opacity: 1 !important;
-
-      /* 2.5s loop: Slow enough to see, fast enough to flow */
-      animation: font-slow-morph 2.5s infinite linear;
-
-      /* Critical: Prevent vertical jitter */
+    /* Base Link Style */
+    .hover-masks a {
+      position: relative;
       display: inline-block;
-      line-height: 1;
-      vertical-align: middle;
+      /* Ensure distinct sizing doesn't clip */
+      overflow: visible;
+    }
+
+    /* On Hover: Make original text transparent (holds width) */
+    .hover-masks a:hover .mask-lnk {
+      color: transparent !important;
+      opacity: 0;
+      /* Fully Hide Original */
+    }
+
+    /* Pseudo-Element: The Actor */
+    .hover-masks a:hover::before {
+      content: attr(data-text);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      /* perfectly centered */
+      white-space: nowrap;
+
+      color: #4bffa5;
+      text-shadow: 0 0 8px rgba(75, 255, 165, 0.8);
+
+      /* The Wild Animation */
+      animation: font-wild-morph 2s infinite linear;
+      pointer-events: none;
     }
   </style>
 
