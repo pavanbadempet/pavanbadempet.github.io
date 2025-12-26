@@ -64,30 +64,467 @@
 
   {%- include custom-head.html -%}
 
-  <!-- Custom Styles for Download CV Button -->
+
+
+
+  <!-- Custom Styles for Resume Spacing -->
   <style>
-    .download-cv-btn {
-      float: left;
-      margin-left: 20px;
-      margin-top: 30px;
-      font-size: 18px;
-      color: #333;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 100;
-      position: relative;
+    /* =========================================
+       CRITICAL SPACING OVERRIDES
+       ========================================= */
+
+    /* 1. COMPACT RESUME LISTS (BULLET POINTS) */
+    /* Markdownify creates <p> tags inside <li>. We must KILL their margins. */
+    .resume-items .resume-item ul li p {
+      margin-bottom: 0 !important;
+      margin-top: 0 !important;
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
     }
 
-    .download-cv-btn:hover {
-      color: #78cc6d;
-      /* Green accent color */
+    /* Control spacing strictly via the <li> itself */
+    .resume-items .resume-item ul li {
+      margin-bottom: 8px !important;
+      /* Small gap between bullets */
+      margin-top: 0 !important;
+      line-height: 1.5 !important;
+      /* Tighter line height */
     }
 
-    @media (max-width: 720px) {
-      .download-cv-btn {
-        margin-top: 25px;
-        margin-left: 15px;
+    .resume-items .resume-item ul {
+      margin-bottom: 0 !important;
+    }
+
+    /* 2. SECTION TITLE SPACING */
+    .section .title {
+      margin-bottom: 10px !important;
+      /* Reduced to 10px */
+      padding-bottom: 0 !important;
+    }
+
+    .section .title .title_inner {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    /* 3. RESUME CONTAINER SPACING */
+    .resume-items {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    /* 4. FIRST RESUME ITEM SPACING */
+    .resume-items .resume-item:first-child,
+    .resume-items .resume-item.content-box:first-child {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+      /* Even tighter to title */
+    }
+
+    /* 5. SUBSEQUENT RESUME ITEMS */
+    .resume-items .resume-item:not(:first-child) {
+      margin-top: 30px !important;
+      padding-top: 35px !important;
+    }
+
+    /* 6. INTERNAL BOX SPACING */
+    /* Ensure the name of the role (e.g. Data Engineer) is close to the bullets */
+    .resume-items .resume-item .name {
+      margin-bottom: 10px !important;
+    }
+
+    /* 7. SKILLS SECTION SPACING (Active Fix) */
+    .skills.list.content-box {
+      margin-top: 0 !important;
+      padding-top: 15px !important;
+      /* Reduced from 35px */
+    }
+
+    .skills.list.content-box ul {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    /* 8. DATE TEXT SIZE */
+    .resume-items .resume-item .date {
+      font-size: 15px !important;
+      /* Increased for better visibility */
+    }
+
+    /* 9. REDUCE GAP AFTER HERO SECTION */
+    /* original was 70px */
+    .section.started+.section,
+    .section.started.layout-creative+.section {
+      margin-top: 30px !important;
+    }
+
+    /* 10. MENU HOVER EFFECT: DATA MORPH (SLOW & DIVERSE) */
+    /* Disable existing sliding mask */
+    .hover-masks .mask-lnk {
+      transform: none !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .hover-masks .mask-lnk.mask-lnk-hover {
+      display: none !important;
+    }
+
+    /* TYPOGRAPHY CHAOS ANIMATION (Creative Shapeshifting) */
+    /* QUANTUM FLUX ANIMATION (Unlimited Decryption Mode) */
+    @keyframes font-rapid-switch {
+      0% {
+        font-family: 'Courier New';
+        font-weight: 700;
+        letter-spacing: -2px;
+        text-transform: uppercase;
       }
+
+      2% {
+        font-family: 'Impact';
+        font-weight: 400;
+        letter-spacing: 3px;
+        transform: translate(-50%, -50%) skewX(10deg);
+      }
+
+      4% {
+        font-family: 'Brush Script MT';
+        font-weight: 400;
+        letter-spacing: 0px;
+        text-transform: lowercase;
+      }
+
+      6% {
+        font-family: 'Arial';
+        font-weight: 900;
+        letter-spacing: -3px;
+        filter: blur(1px);
+      }
+
+      8% {
+        font-family: 'Garamond';
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      10% {
+        font-family: 'Lucida Console';
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+      }
+
+      12% {
+        font-family: 'Comic Sans MS';
+        font-weight: 700;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      14% {
+        font-family: 'Verdana';
+        font-weight: 100;
+        letter-spacing: 5px;
+      }
+
+      16% {
+        font-family: 'Times New Roman';
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      18% {
+        font-family: 'Impact';
+        font-weight: 400;
+        filter: blur(0.5px);
+        text-transform: lowercase;
+      }
+
+      20% {
+        font-family: 'Courier New';
+        font-weight: 700;
+        letter-spacing: -4px;
+      }
+
+      22% {
+        font-family: 'Georgia';
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+
+      24% {
+        font-family: 'Trebuchet MS';
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+
+      26% {
+        font-family: 'Arial Black';
+        font-weight: 900;
+        transform: translate(-50%, -50%) skewX(-10deg);
+      }
+
+      28% {
+        font-family: 'Palatino Linotype';
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      30% {
+        font-family: 'Lucida Console';
+        font-weight: 700;
+        letter-spacing: -2px;
+      }
+
+      32% {
+        font-family: 'Impact';
+        font-weight: 400;
+        text-transform: lowercase;
+      }
+
+      34% {
+        font-family: 'Brush Script MT';
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+
+      36% {
+        font-family: 'Verdana';
+        font-weight: 700;
+        transform: translate(-50%, -50%) scale(0.9);
+      }
+
+      38% {
+        font-family: 'Courier New';
+        font-weight: 400;
+        letter-spacing: 4px;
+      }
+
+      40% {
+        font-family: 'Garamond';
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      42% {
+        font-family: 'Arial';
+        font-weight: 100;
+        filter: blur(0.5px);
+      }
+
+      44% {
+        font-family: 'Comic Sans MS';
+        font-weight: 700;
+      }
+
+      46% {
+        font-family: 'Impact';
+        font-weight: 400;
+        letter-spacing: -3px;
+      }
+
+      48% {
+        font-family: 'Times New Roman';
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      50% {
+        font-family: 'Lucida Console';
+        font-weight: 700;
+        text-transform: uppercase;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+
+      52% {
+        font-family: 'Trebuchet MS';
+        font-weight: 400;
+        letter-spacing: 3px;
+      }
+
+      54% {
+        font-family: 'Arial Black';
+        font-weight: 900;
+        filter: blur(1px);
+      }
+
+      56% {
+        font-family: 'Brush Script MT';
+        font-weight: 400;
+        text-transform: lowercase;
+      }
+
+      58% {
+        font-family: 'Georgia';
+        font-weight: 700;
+        letter-spacing: -1px;
+      }
+
+      60% {
+        font-family: 'Courier New';
+        font-weight: 700;
+        transform: translate(-50%, -50%) skewX(5deg);
+      }
+
+      62% {
+        font-family: 'Verdana';
+        font-weight: 100;
+        letter-spacing: 2px;
+      }
+
+      64% {
+        font-family: 'Impact';
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+
+      66% {
+        font-family: 'Garamond';
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      68% {
+        font-family: 'Lucida Console';
+        font-weight: 700;
+        letter-spacing: -4px;
+      }
+
+      70% {
+        font-family: 'Comic Sans MS';
+        font-weight: 700;
+        filter: blur(0.5px);
+      }
+
+      72% {
+        font-family: 'Arial';
+        font-weight: 900;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+
+      74% {
+        font-family: 'Palatino Linotype';
+        font-weight: 400;
+      }
+
+      76% {
+        font-family: 'Trebuchet MS';
+        font-weight: 700;
+        letter-spacing: 4px;
+      }
+
+      78% {
+        font-family: 'Courier New';
+        font-weight: 400;
+        text-transform: lowercase;
+      }
+
+      80% {
+        font-family: 'Impact';
+        font-weight: 400;
+        letter-spacing: -2px;
+      }
+
+      82% {
+        font-family: 'Brush Script MT';
+        font-weight: 400;
+        transform: translate(-50%, -50%) skewX(-5deg);
+      }
+
+      84% {
+        font-family: 'Times New Roman';
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      86% {
+        font-family: 'Arial Black';
+        font-weight: 900;
+        letter-spacing: 1px;
+      }
+
+      88% {
+        font-family: 'Lucida Console';
+        font-weight: 400;
+        filter: blur(0.5px);
+      }
+
+      90% {
+        font-family: 'Verdana';
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      92% {
+        font-family: 'Garamond';
+        font-weight: 400;
+        letter-spacing: -3px;
+      }
+
+      94% {
+        font-family: 'Comic Sans MS';
+        font-weight: 700;
+      }
+
+      96% {
+        font-family: 'Impact';
+        font-weight: 400;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      98% {
+        font-family: 'Courier New';
+        font-weight: 700;
+        letter-spacing: 6px;
+      }
+
+      100% {
+        font-family: 'Courier New';
+        font-weight: 700;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+      }
+    }
+
+    /* Base Link Style & Overflow Fix */
+    /* CRITICAL: Override layout.scss:134 which sets overflow: hidden on 'a' */
+    .header .top-menu ul li a,
+    .header .top-menu ul li,
+    .header .top-menu,
+    .hover-masks,
+    .hover-masks a {
+      overflow: visible !important;
+    }
+
+    .hover-masks a {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* On Hover: Make original text transparent (holds width) */
+    .hover-masks a:hover .mask-lnk {
+      color: transparent !important;
+      opacity: 0;
+      /* Fully Hide Original */
+    }
+
+    /* Pseudo-Element: The Actor */
+    .hover-masks a:hover::before {
+      content: attr(data-text);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      /* perfectly centered */
+      white-space: nowrap;
+
+      color: #4bffa5;
+      text-shadow: 0 0 8px rgba(75, 255, 165, 0.8);
+
+      /* QUANTUM FLUX LOOP (4s) */
+      animation: font-rapid-switch 4s infinite linear;
+      pointer-events: none;
+
+      /* Ensure it sits on top and isn't clipped by z-index contexts */
+      z-index: 999;
     }
   </style>
 
