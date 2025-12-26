@@ -169,7 +169,7 @@
       display: none !important;
     }
 
-    /* 5-Step SUPER DISTINCT & LOCKED Animation */
+    /* 12-Step DIVERSE & UNCLIPPED Animation */
     @keyframes font-wild-morph {
       0% {
         font-family: 'Courier New', monospace;
@@ -177,21 +177,74 @@
         letter-spacing: -1px;
       }
 
-      25% {
+      8% {
         font-family: 'Impact', sans-serif;
         font-weight: normal;
         letter-spacing: 1px;
+        font-size: 0.85em;
+      }
+
+      16% {
+        font-family: 'Brush Script MT', cursive;
+        font-weight: normal;
+        font-size: 1.25em;
+        letter-spacing: 0px;
+      }
+
+      25% {
+        font-family: 'Garamond', serif;
+        font-weight: bold;
+        font-size: 1.1em;
+      }
+
+      33% {
+        font-family: 'Comic Sans MS', cursive;
+        font-weight: bold;
+        font-size: 0.9em;
+      }
+
+      41% {
+        font-family: 'Arial Black', sans-serif;
+        font-weight: normal;
+        font-size: 0.8em;
       }
 
       50% {
-        font-family: 'Brush Script MT', cursive;
+        font-family: 'Copperplate', serif;
+        font-weight: bold;
+        font-size: 0.85em;
+      }
+
+      58% {
+        font-family: 'Verdana', sans-serif;
+        font-weight: bold;
+        font-size: 0.8em;
+        letter-spacing: -0.5px;
+      }
+
+      66% {
+        font-family: 'Georgia', serif;
         font-weight: normal;
-        font-size: 1.2em;
+        font-size: 0.95em;
       }
 
       75% {
-        font-family: 'Garamond', serif;
+        font-family: 'Lucida Console', monospace;
         font-weight: bold;
+        font-size: 0.8em;
+        letter-spacing: -1.5px;
+      }
+
+      83% {
+        font-family: 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        font-size: 0.9em;
+      }
+
+      91% {
+        font-family: 'Palatino Linotype', serif;
+        font-weight: bold;
+        font-size: 0.95em;
       }
 
       100% {
@@ -201,12 +254,19 @@
       }
     }
 
-    /* Base Link Style */
+    /* Base Link Style & Overflow Fix */
+    /* CRITICAL: Override layout.scss:134 which sets overflow: hidden on 'a' */
+    .header .top-menu ul li a,
+    .header .top-menu ul li,
+    .header .top-menu,
+    .hover-masks,
+    .hover-masks a {
+      overflow: visible !important;
+    }
+
     .hover-masks a {
       position: relative;
       display: inline-block;
-      /* Ensure distinct sizing doesn't clip */
-      overflow: visible;
     }
 
     /* On Hover: Make original text transparent (holds width) */
@@ -229,9 +289,12 @@
       color: #4bffa5;
       text-shadow: 0 0 8px rgba(75, 255, 165, 0.8);
 
-      /* The Wild Animation */
-      animation: font-wild-morph 2s infinite linear;
+      /* Fast & Diverse Loop (1.5s) */
+      animation: font-wild-morph 1.5s infinite linear;
       pointer-events: none;
+
+      /* Ensure it sits on top and isn't clipped by z-index contexts */
+      z-index: 999;
     }
   </style>
 
