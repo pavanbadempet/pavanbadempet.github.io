@@ -29,15 +29,19 @@
                 <span class="cp-shortcut">H</span>
             </a>
 
+            <!-- Search Results -->
+            <div id="cp-search-results"></div>
+
             <div class="cp-section">Actions</div>
             <div class="cp-item" id="cp-copy-email" data-tags="email copy mail">
                 <i class="fas fa-envelope"></i>
                 <span>Copy Email</span>
             </div>
-            <div class="cp-item" onclick="window.print()" data-tags="print pdf save">
-                <i class="fas fa-print"></i>
-                <span>Print Resume</span>
-            </div>
+            <a href="https://drive.google.com/file/d/1gppjKAn5s9W06uH4ajoj7Ha2H13zEPkq/view?usp=sharing" target="_blank"
+                class="cp-item" onclick="togglePalette();" data-tags="resume cv pdf download">
+                <i class="fas fa-file-pdf"></i>
+                <span>View Resume PDF</span>
+            </a>
         </div>
     </div>
 </div>
@@ -188,7 +192,69 @@
     document.addEventListener('DOMContentLoaded', () => {
         const palette = document.getElementById('command-palette');
         const input = document.getElementById('cp-input');
-        const items = document.querySelectorAll('.cp-item');
+        const items = document.querySelectorAll('.cp-item'); // This only selects STATIC items initially
+
+        // Search Logic (Custom Implementation)
+        let searchIndex = [];
+        const resultsContainer = document.getElementById('cp-search-results');
+
+        // Fetch Search Data
+        console.log('Command Palette: Fetching search index...');
+        fetch('{{ "/search.json" | relative_url }}')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                searchIndex = data;
+                console.log('Search Index Loaded:', searchIndex.length, 'items');
+                if (searchIndex.length === 0) {
+                    console.warn('Search index is empty');
+                }
+            })
+            .catch(err => {
+                console.error('Search Index Failed:', err);
+                resultsContainer.innerHTML = `<div class="cp-section" style="color: #ff4b4b;">Error: Failed to load search index</div>`;
+            });
+
+        // Filter Function
+        function performSearch(query) {
+            if (!query) {
+                resultsContainer.innerHTML = '';
+                return;
+            }
+
+            if (searchIndex.length === 0) {
+                resultsContainer.innerHTML = `<div class="cp-item"><i>Searching... (Index loading or empty)</i></div>`;
+                return;
+            }
+
+            const lowerQuery = query.toLowerCase();
+            // Filter: Title or Tags match
+            const results = searchIndex.filter(item => {
+                const title = (item.title || '').toLowerCase();
+                const tags = (item.tags || '').toLowerCase();
+                return title.includes(lowerQuery) || tags.includes(lowerQuery);
+            }).slice(0, 5); // Limit to 5
+
+            // Render
+            if (results.length > 0) {
+                const html = results.map(item => `
+                    <a href="${item.url}" class="cp-item" onclick="togglePalette();">
+                        <i class="fas fa-search"></i>
+                        <span>${item.title}</span>
+                        <span class="cp-shortcut" style="font-size: 0.7em; opacity: 0.7;">${item.type || 'Result'}</span>
+                    </a>
+                `).join('');
+                // Add header if needed, or just items
+                resultsContainer.innerHTML = `<div class="cp-section">Search Results</div>` + html;
+            } else {
+                resultsContainer.innerHTML = `<div class="cp-section">No results found</div>`;
+            }
+        }
+
         let isOpen = false;
         let selectedIndex = 0;
 
@@ -204,7 +270,8 @@
                 void palette.offsetWidth;
                 palette.classList.add('open');
                 input.value = '';
-                filterItems('');
+                document.getElementById('cp-search-results').innerHTML = ''; // Clear previous search
+                filterItems(''); // Reset static items
                 input.focus();
                 document.body.style.overflow = 'hidden';
                 selectedIndex = 0;
@@ -249,9 +316,11 @@
             if (e.target === palette) togglePalette();
         });
 
-        // Filter Logic
+        // Filter Logic (Modified to trigger search)
         input.addEventListener('input', (e) => {
-            filterItems(e.target.value.toLowerCase());
+            const val = e.target.value.toLowerCase();
+            filterItems(val); // Existing static filter
+            performSearch(val); // New dynamic search
             selectedIndex = 0;
             updateSelection();
         });

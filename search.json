@@ -1,14 +1,20 @@
----
+﻿---
 layout: null
 ---
 [
-  {% for post in site.posts %}
+  {% assign all_docs = site.posts | concat: site.works %}
+  {% for doc in all_docs %}
+    {% assign type = "Project" %}
+    {% if doc.collection == "posts" %}
+      {% assign type = "Post" %}
+    {% endif %}
     {
-      "title"    : "{{ post.title | escape }}",
-      "category" : "{{ post.category }}",
-      "tags"     : "{{ post.tags | join: ', ' }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "date"     : "{{ post.date }}"
-    } {% unless forloop.last %},{% endunless %}
+      "title"    : "{{ doc.title | xml_escape }}",
+      "category" : "{{ doc.category | default: 'Portfolio' }}",
+      "tags"     : "{{ doc.tags | join: ', ' }}",
+      "url"      : "{{ site.baseurl }}{{ doc.url }}",
+      "date"     : "{{ doc.date | date: '%B %d, %Y' }}",
+      "type"     : "{{ type }}"
+    }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]
