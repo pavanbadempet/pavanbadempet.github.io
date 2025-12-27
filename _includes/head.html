@@ -158,19 +158,38 @@
       margin-top: 30px !important;
     }
 
-    /* 10. MENU HOVER EFFECT: DATA MORPH (SLOW & DIVERSE) */
+    /* 10. MENU HOVER EFFECT: QUANTUM FLUX (JS-Driven) */
+
     /* Disable existing sliding mask */
     .hover-masks .mask-lnk {
       transform: none !important;
       transition: all 0.2s ease !important;
     }
 
-    .hover-masks .mask-lnk.mask-lnk-hover {
+    .hover-masks .mask-lnk-hover {
       display: none !important;
     }
 
-    /* TYPOGRAPHY CHAOS ANIMATION (Creative Shapeshifting) */
-    /* QUANTUM FLUX ANIMATION (Unlimited Decryption Mode) */
+    /* Base Link Style & Overflow Fix */
+    /* CRITICAL: Override layout.scss:134 which sets overflow: hidden on 'a' */
+    .header .top-menu ul li a,
+    .header .top-menu ul li,
+    .header .top-menu,
+    .hover-masks,
+    .hover-masks a,
+    .hover-masks-logo,
+    .hover-masks-logo a,
+    .background-enabled .header .top-menu ul li a {
+      overflow: visible !important;
+    }
+
+    .hover-masks a,
+    .hover-masks-logo a {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* QUANTUM FLUX ANIMATION KEYFRAMES */
     @keyframes font-rapid-switch {
       0% {
         font-family: 'Courier New';
@@ -484,49 +503,19 @@
       }
     }
 
-    /* Base Link Style & Overflow Fix */
-    /* CRITICAL: Override layout.scss:134 which sets overflow: hidden on 'a' */
-    .header .top-menu ul li a,
-    .header .top-menu ul li,
-    .header .top-menu,
-    .hover-masks,
-    .hover-masks a,
-    .hover-masks-logo,
-    .hover-masks-logo a,
-    .background-enabled .header .top-menu ul li a {
-      overflow: visible !important;
-    }
-
-    .hover-masks a,
-    .hover-masks-logo a {
-      position: relative;
-      display: inline-block;
-    }
-
-    /* On Hover: Make original text transparent (holds width) */
-    /* Ultra-High specificity targeting every possible active/home combination */
-    /* Logic moved to .flux-on class below */
-
-    /* Pseudo-Element: The Actor */
-    /* Pseudo-Element: The Actor */
-    /* Only activate when JS adds the 'flux-on' class */
+    /* ANIMATION ACTIVATION (TRIGGERED BY JS CLASS .flux-on) */
     .flux-on::before {
       content: attr(data-text);
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      /* perfectly centered */
       white-space: nowrap;
 
       color: #4bffa5 !important;
       text-shadow: 0 0 8px rgba(75, 255, 165, 0.8) !important;
 
-      /* QUANTUM FLUX LOOP (4s) */
       animation: font-rapid-switch 4s infinite linear;
-      pointer-events: none;
-
-      /* Ensure it sits on top of everything */
       z-index: 99999;
       opacity: 1 !important;
       visibility: visible !important;
@@ -534,8 +523,7 @@
       pointer-events: none !important;
     }
 
-    /* On Hover: Make original text transparent (holds width) */
-    /* When flux is on, hide the static text */
+    /* HIDE ORIGINAL TEXT WHEN FLUX IS ON */
     .flux-on .mask-lnk {
       color: transparent !important;
       opacity: 0 !important;

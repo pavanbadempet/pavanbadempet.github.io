@@ -18,7 +18,7 @@
                     <div class="clients-item">
                         {% if item.image != '' %}
                         <div class="image">
-                            <a target="_blank" href="{{ item.link }}">
+                            <a target="_blank" href="{{ item.link }}" rel="noopener noreferrer">
                                 <img src="{{ item.image | relative_url }}" alt="{{ item.name }}" loading="lazy" />
                             </a>
                         </div>
