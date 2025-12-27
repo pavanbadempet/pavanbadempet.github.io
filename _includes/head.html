@@ -505,29 +505,12 @@
 
     /* On Hover: Make original text transparent (holds width) */
     /* Ultra-High specificity targeting every possible active/home combination */
-    .hover-masks a:hover .mask-lnk,
-    .hover-masks-logo a:hover .mask-lnk,
-    body.home .header .top-menu ul li a:hover .mask-lnk,
-    body.home .header .top-menu ul li.current-menu-item>a:hover .mask-lnk,
-    .background-enabled .header .top-menu ul li.current-menu-item>a:hover .mask-lnk,
-    .background-enabled .header .top-menu ul li a:hover .mask-lnk,
-    .header .top-menu ul li.current-menu-item>a:hover .mask-lnk {
-      color: transparent !important;
-      opacity: 0 !important;
-      /* Fully Hide Original */
-      visibility: hidden !important;
-      /* Double tap */
-      transition: none !important;
-      /* Instant hide */
-    }
+    /* Logic moved to .flux-on class below */
 
     /* Pseudo-Element: The Actor */
-    .hover-masks a:hover::before,
-    .hover-masks-logo a:hover::before,
-    body.home .header .top-menu ul li a:hover::before,
-    body.home .header .top-menu ul li.current-menu-item>a:hover::before,
-    .background-enabled .header .top-menu ul li.current-menu-item>a:hover::before,
-    .background-enabled .header .top-menu ul li a:hover::before {
+    /* Pseudo-Element: The Actor */
+    /* Only activate when JS adds the 'flux-on' class */
+    .flux-on::before {
       content: attr(data-text);
       position: absolute;
       left: 50%;
@@ -548,6 +531,16 @@
       opacity: 1 !important;
       visibility: visible !important;
       display: block !important;
+      pointer-events: none !important;
+    }
+
+    /* On Hover: Make original text transparent (holds width) */
+    /* When flux is on, hide the static text */
+    .flux-on .mask-lnk {
+      color: transparent !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: none !important;
     }
   </style>
 
