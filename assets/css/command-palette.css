@@ -1,10 +1,10 @@
 /* Command Palette Trigger - Fixed Bottom Left */
 .cmd-trigger {
     position: fixed;
-    bottom: 120px;
-    /* Increased to 120px to clear the Email/Phone text (approx 100px high) */
+    bottom: 180px;
+    /* Significantly raised to clear any footer text overlap */
     left: 50px;
-    /* Aligned with Footer text (50px padding) */
+    /* Aligned with Footer padding */
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -28,13 +28,13 @@
     box-shadow: 0 0 15px rgba(75, 255, 165, 0.3);
 }
 
-/* Mobile Adjustments (Footer is 30px/30px) */
+/* Mobile Adjustments (Footer text might wrap or change padding) */
 @media (max-width: 720px) {
     .cmd-trigger {
-        bottom: 100px;
+        bottom: 160px;
+        /* Safe clearance for mobile footer */
         left: 30px;
         width: 40px;
-        /* Slightly larger touch target */
         height: 40px;
         line-height: 40px;
         font-size: 18px;
