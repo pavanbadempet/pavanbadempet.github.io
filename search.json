@@ -29,7 +29,7 @@ layout: null
     "title": "{{ work.title | xml_escape }}",
     "category": "Portfolio",
     "tags": "{{ work.tags | join: ', ' }}",
-    "url": "{{ site.baseurl }}{{ work.url }}",
+    "url": "{{ site.baseurl }}/portfolio/#{{ work.title | slugify }}",
     "date": "",
     "type": "Project",
     "content": "{{ work.content | strip_html | strip_newlines | truncate: 500 | escape }}"

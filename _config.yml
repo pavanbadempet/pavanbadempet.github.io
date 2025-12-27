@@ -35,15 +35,7 @@ formsubmit_email: "pavan9b@gmail.com" # sign up on https://formsubmit.io/ and co
 
 # collections
 collections:
-  works:
-    output: true
-
-defaults:
-  - scope:
-      path: ""
-      type: "works"
-    values:
-      layout: "post"
+  - works
 
 # archives
 # jekyll-archives:
