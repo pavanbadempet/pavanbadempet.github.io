@@ -218,10 +218,23 @@
 	/*
 		Hover Masks
 	*/
-	$('.hover-masks a').each(function () {
+	$('.hover-masks a, .hover-masks-logo a').each(function () {
 		var mask_val = $(this).html();
 		$(this).wrapInner('<span class="mask-lnk"></span>');
 		$(this).append('<span class="mask-lnk mask-lnk-hover">' + mask_val + '</span>');
+	});
+
+	/*
+		Flux Animation Toggle (Delegated)
+	*/
+	$(document).on('mouseenter', '.hover-masks a, .hover-masks-logo a', function () {
+		$(this).addClass('flux-on');
+		console.log('Flux ON');
+	});
+
+	$(document).on('mouseleave', '.hover-masks a, .hover-masks-logo a', function () {
+		$(this).removeClass('flux-on');
+		console.log('Flux OFF');
 	});
 
 	/*

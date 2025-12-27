@@ -490,24 +490,27 @@
     .header .top-menu ul li,
     .header .top-menu,
     .hover-masks,
-    .hover-masks a {
+    .hover-masks a,
+    .hover-masks-logo,
+    .hover-masks-logo a,
+    .background-enabled .header .top-menu ul li a {
       overflow: visible !important;
     }
 
-    .hover-masks a {
+    .hover-masks a,
+    .hover-masks-logo a {
       position: relative;
       display: inline-block;
     }
 
     /* On Hover: Make original text transparent (holds width) */
-    .hover-masks a:hover .mask-lnk {
-      color: transparent !important;
-      opacity: 0;
-      /* Fully Hide Original */
-    }
+    /* Ultra-High specificity targeting every possible active/home combination */
+    /* Logic moved to .flux-on class below */
 
     /* Pseudo-Element: The Actor */
-    .hover-masks a:hover::before {
+    /* Pseudo-Element: The Actor */
+    /* Only activate when JS adds the 'flux-on' class */
+    .flux-on::before {
       content: attr(data-text);
       position: absolute;
       left: 50%;
@@ -516,15 +519,28 @@
       /* perfectly centered */
       white-space: nowrap;
 
-      color: #4bffa5;
-      text-shadow: 0 0 8px rgba(75, 255, 165, 0.8);
+      color: #4bffa5 !important;
+      text-shadow: 0 0 8px rgba(75, 255, 165, 0.8) !important;
 
       /* QUANTUM FLUX LOOP (4s) */
       animation: font-rapid-switch 4s infinite linear;
       pointer-events: none;
 
-      /* Ensure it sits on top and isn't clipped by z-index contexts */
-      z-index: 999;
+      /* Ensure it sits on top of everything */
+      z-index: 99999;
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: block !important;
+      pointer-events: none !important;
+    }
+
+    /* On Hover: Make original text transparent (holds width) */
+    /* When flux is on, hide the static text */
+    .flux-on .mask-lnk {
+      color: transparent !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: none !important;
     }
   </style>
 

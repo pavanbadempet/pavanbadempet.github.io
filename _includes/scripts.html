@@ -44,7 +44,7 @@
             ]);
         })
         .then(function () {
-            loadScript("{{ 'assets/js/main.js' | relative_url }}");
+            loadScript("{{ 'assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}");
         })
         .catch(function (error) {
             console.error('Script loading failed:', error);
