@@ -1,16 +1,51 @@
+```
 ---
 permalink: /404.html
 layout: page
 title: 404 - Lost in the Data Lake
-subtitle: "The query returned no results. Let's get you back on track."
-content: "
 <style>
-    /* Fix layout overlap by making the header taller */
+    /* Fix layout overlap by forcing natural flow instead of absolute positioning */
     .section.started.section-title {
-        height: 60vh !important;
-        min-height: 500px !important;
+        height: auto !important;
+        /* Allow container to grow */
+        min-height: 50vh !important;
+        padding-bottom: 50px !important;
+    }
+
+    .section.started.section-title .started-content {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        height: 100% !important;
+        padding-top: 100px !important;
+        /* Push down from top */
+    }
+
+    .section.started.section-title .started-content .h-title {
+        position: relative !important;
+        margin-bottom: 30px !important;
+        /* Space between title and subtitle */
+    }
+
+    .section.started.section-title .started-content .h-subtitles,
+    .section.started.section-title .started-content .h-subtitle,
+    .section.started.section-title .started-content .breadcrumbs {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        opacity: 1 !important;
+        /* Ensure visibility */
+        transform: none !important;
+        margin: 0 !important;
+        height: auto !important;
+        width: 100% !important;
+        text-align: center !important;
     }
 </style>
+subtitle: "The query returned no results. Let's get you back on track."
+content: "
 <p>It seems this data packet has been dropped. You might want to:</p>
 <ul>
     <li><a href='/'>Return to the Source (Homepage)</a></li>
