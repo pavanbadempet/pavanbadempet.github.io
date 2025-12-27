@@ -728,6 +728,16 @@
 		return false;
 	});
 
+	/*
+		Send Another Message Handler
+	*/
+	$(document).on('click', '#send-another', function (e) {
+		e.preventDefault();
+		$('.alert-success').fadeOut(500, function () {
+			$('#cform').fadeIn(500);
+		});
+	});
+
 })(jQuery);
 
 /*
