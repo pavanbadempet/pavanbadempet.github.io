@@ -227,14 +227,15 @@
 	/*
 		Flux Animation Toggle (Delegated)
 	*/
-	$(document).on('mouseenter', '.hover-masks a, .hover-masks-logo a', function () {
+	/*
+		Flux Animation Toggle (Delegated)
+	*/
+	$(document).on('mouseenter', '.hover-masks a', function () {
 		$(this).addClass('flux-on');
-		console.log('Flux ON');
 	});
 
-	$(document).on('mouseleave', '.hover-masks a, .hover-masks-logo a', function () {
+	$(document).on('mouseleave', '.hover-masks a', function () {
 		$(this).removeClass('flux-on');
-		console.log('Flux OFF');
 	});
 
 	/*
