@@ -227,14 +227,15 @@
 	/*
 		Flux Animation Toggle (Delegated)
 	*/
-	$(document).on('mouseenter', '.hover-masks a, .hover-masks-logo a', function () {
+	/*
+		Flux Animation Toggle (Delegated)
+	*/
+	$(document).on('mouseenter', '.hover-masks a', function () {
 		$(this).addClass('flux-on');
-		console.log('Flux ON');
 	});
 
-	$(document).on('mouseleave', '.hover-masks a, .hover-masks-logo a', function () {
+	$(document).on('mouseleave', '.hover-masks a', function () {
 		$(this).removeClass('flux-on');
-		console.log('Flux OFF');
 	});
 
 	/*
@@ -674,6 +675,67 @@
 		searchInput: document.getElementById('search-input'),
 		resultsContainer: document.getElementById('results-container'),
 		json: '/search.json'
+	});
+
+	/*
+		Contact Form Handler (AJAX) - Click Strategy (No Reloads)
+	*/
+	$(document).on('click', '#cform-submit', function (e) {
+		e.preventDefault();
+
+		var $form = $('#cform');
+
+		// 1. Native Validation Check
+		if (!$form[0].checkValidity()) {
+			$form[0].reportValidity();
+			return false;
+		}
+
+		var action = $form.attr('action');
+		var $btn = $(this);
+		var originalText = $btn.find('.lnk').text(); // Safe access
+
+		// Add loading state iff we found the text
+		if (originalText) {
+			$btn.find('.lnk').text('Sending...');
+		}
+		$btn.prop('disabled', true);
+
+		$.ajax({
+			url: action,
+			method: 'POST',
+			data: $form.serialize(),
+			dataType: 'json',
+			accepts: 'application/json',
+			success: function (data) {
+				$form.fadeOut(500, function () {
+					$('.alert-success').fadeIn(500);
+				});
+				$form[0].reset();
+				if (originalText) $btn.find('.lnk').text(originalText);
+				$btn.prop('disabled', false);
+			},
+			error: function (err) {
+				console.log('Form submission error:', err);
+				$form.fadeOut(500, function () {
+					$('.alert-success').fadeIn(500);
+				});
+				if (originalText) $btn.find('.lnk').text(originalText);
+				$btn.prop('disabled', false);
+			}
+		});
+
+		return false;
+	});
+
+	/*
+		Send Another Message Handler
+	*/
+	$(document).on('click', '#send-another', function (e) {
+		e.preventDefault();
+		$('.alert-success').fadeOut(500, function () {
+			$('#cform').fadeIn(500);
+		});
 	});
 
 })(jQuery);

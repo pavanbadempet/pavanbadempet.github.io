@@ -1,11 +1,12 @@
+<!-- Global Person Schema (Appears on all pages as the site owner) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
   "@type": "Person",
-  "name": "{{ site.title }}",
+  "name": "Pavan Badempet",
   "url": "{{ site.url }}",
   "image": "{{ site.url }}/{{ site.image }}",
-  "jobTitle": "Data Engineer",
+  "jobTitle": "Senior Data Engineer",
   "worksFor": {
     "@type": "Organization",
     "name": "Tata Consultancy Services"
@@ -15,14 +16,90 @@
     "https://github.com/pavanbadempet",
     "https://twitter.com/pavanbadempet"
   ],
-  "knowsAbout": [
-    "Data Engineering",
-    "Python",
-    "Apache Spark",
-    "AWS",
-    "Machine Learning",
-    "ETL/ELT"
-  ],
-  "description": "{{ site.description }}"
+  "knowsAbout": ["Data Engineering", "Python", "Spark", "AWS", "GenAI", "System Architecture"]
+}
+</script>
+
+{% if page.url == "/" %}
+<!-- WebSite Schema (Homepage Only) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "WebSite",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ site.url }}/search.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{% endif %}
+
+{% if page.layout == 'post' %}
+<!-- BlogPosting Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title }}",
+  "image": "{{ page.image | absolute_url }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pavan Badempet",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/{{ site.image }}"
+    }
+  },
+  "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  }
+}
+</script>
+{% endif %}
+
+{% if page.layout == 'portfolio' %}
+<!-- CreativeWork Schema (Portfolio) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "CreativeWork",
+  "name": "{{ page.title }}",
+  "image": "{{ page.image | absolute_url }}",
+  "creator": {
+    "@type": "Person",
+    "name": "Pavan Badempet"
+  },
+  "description": "{{ page.description }}"
+}
+</script>
+{% endif %}
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "{{ site.url }}"
+  }{% if page.url != "/" %},{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "{{ page.title | default: 'Page' }}",
+    "item": "{{ page.url | absolute_url }}"
+  }{% endif %}]
 }
 </script>

@@ -30,7 +30,7 @@
                     <textarea name="message" placeholder="{{ ui_text.your_message }}" id="message" required></textarea>
                 </div>
                 <div class="group-bts">
-                    <button type="submit" class="btn hover-animated" aria-label="Send Message">
+                    <button type="button" id="cform-submit" class="btn hover-animated" aria-label="Send Message">
                         <span class="circle"></span>
                         <span class="lnk">{{ ui_text.send_message }}</span>
                     </button>
@@ -38,6 +38,8 @@
             </form>
             <div class="alert-success">
                 <p>Thanks, your message is sent successfully.</p>
+                <p><a href="#" id="send-another" style="text-decoration: underline; cursor: pointer;">Send another
+                        message</a></p>
             </div>
         </div>
 
