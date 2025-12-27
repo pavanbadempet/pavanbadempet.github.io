@@ -200,7 +200,8 @@
 
         // Fetch Search Data
         console.log('Command Palette: Fetching search index...');
-        fetch('{{ "/search.json" | relative_url }}')
+        // Add cache buster to force fresh load
+        fetch('{{ "/search.json" | relative_url }}?v={{ site.time | date: "%s" }}')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
