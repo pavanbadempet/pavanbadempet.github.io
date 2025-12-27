@@ -678,15 +678,28 @@
 	});
 
 	/*
-		Contact Form Handler (AJAX) - Robust Event Delegation
+		Contact Form Handler (AJAX) - Click Strategy (No Reloads)
 	*/
-	$(document).on('submit', '#cform', function (e) {
+	$(document).on('click', '#cform-submit', function (e) {
 		e.preventDefault();
-		var $form = $(this);
-		var action = $form.attr('action');
 
-		// Add loading state
-		$form.find('button[type="submit"] .lnk').text('Sending...');
+		var $form = $('#cform');
+
+		// 1. Native Validation Check
+		if (!$form[0].checkValidity()) {
+			$form[0].reportValidity();
+			return false;
+		}
+
+		var action = $form.attr('action');
+		var $btn = $(this);
+		var originalText = $btn.find('.lnk').text(); // Safe access
+
+		// Add loading state iff we found the text
+		if (originalText) {
+			$btn.find('.lnk').text('Sending...');
+		}
+		$btn.prop('disabled', true);
 
 		$.ajax({
 			url: action,
@@ -698,20 +711,21 @@
 				$form.fadeOut(500, function () {
 					$('.alert-success').fadeIn(500);
 				});
-				// Optional: Reset form
 				$form[0].reset();
+				if (originalText) $btn.find('.lnk').text(originalText);
+				$btn.prop('disabled', false);
 			},
 			error: function (err) {
-				// Even on error (rare with formsubmit.co unless spam), show success to be safe for user
-				// fallback.
 				console.log('Form submission error:', err);
 				$form.fadeOut(500, function () {
 					$('.alert-success').fadeIn(500);
 				});
+				if (originalText) $btn.find('.lnk').text(originalText);
+				$btn.prop('disabled', false);
 			}
 		});
 
-		return false; // Ultra-safe prevention
+		return false;
 	});
 
 })(jQuery);
