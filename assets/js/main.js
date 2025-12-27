@@ -678,9 +678,9 @@
 	});
 
 	/*
-		Contact Form Handler (AJAX)
+		Contact Form Handler (AJAX) - Robust Event Delegation
 	*/
-	$('#cform').on('submit', function (e) {
+	$(document).on('submit', '#cform', function (e) {
 		e.preventDefault();
 		var $form = $(this);
 		var action = $form.attr('action');
@@ -698,15 +698,20 @@
 				$form.fadeOut(500, function () {
 					$('.alert-success').fadeIn(500);
 				});
+				// Optional: Reset form
+				$form[0].reset();
 			},
 			error: function (err) {
 				// Even on error (rare with formsubmit.co unless spam), show success to be safe for user
-				// or debug. For now, assume success as fallback to avoid stuck state.
+				// fallback.
+				console.log('Form submission error:', err);
 				$form.fadeOut(500, function () {
 					$('.alert-success').fadeIn(500);
 				});
 			}
 		});
+
+		return false; // Ultra-safe prevention
 	});
 
 })(jQuery);
