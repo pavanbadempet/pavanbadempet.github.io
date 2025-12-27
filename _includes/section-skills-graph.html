@@ -1,0 +1,119 @@
+{% assign content = site.data.content['skills'] %}
+
+<!-- Section Skills Graph -->
+<div class="section skills" id="section-skills-graph" style="height: 100vh; min-height: 600px; position: relative;">
+    <div class="content" style="height: 100%;">
+
+        <!-- Title -->
+        <div class="title">
+            <div class="title_inner">Skills Knowledge Graph</div>
+        </div>
+
+        <!-- Graph Container -->
+        <div id="skills-network"
+            style="width: 100%; height: calc(100% - 100px); border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2);">
+        </div>
+
+        <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+                var nodes = [];
+                var edges = [];
+                var categoryId = 1;
+                var skillId = 100;
+
+                // Colors
+                var categoryColor = "#78cc6d"; // Green default
+                var skillColor = "#ffffff";
+                var activeColor = getComputedStyle(document.documentElement).getPropertyValue('--active-color').trim() || '#78cc6d';
+
+                // Parse Liquid Data
+                {% for column in content.columns %}
+                // Add Category Node
+                var currentCatId = categoryId++;
+                nodes.push({
+                    id: currentCatId,
+                    label: "{{ column.title }}",
+                    group: 'category',
+                    shape: 'circle',
+                    color: { background: activeColor, border: activeColor },
+                    font: { size: 20, color: '#fff', face: 'Roboto' },
+                    value: 20
+                });
+
+                // Add Skill Nodes
+                {% for item in column.items %}
+                var currentSkillId = skillId++;
+                nodes.push({
+                    id: currentSkillId,
+                    label: "{{ item.label }}",
+                    group: 'skill',
+                    shape: 'dot',
+                    color: { background: '#fff', border: '#fff' },
+                    font: { size: 14, color: '#aaa', face: 'Roboto' },
+                    value: 10
+                });
+
+                // Link Category -> Skill
+                edges.push({
+                    from: currentCatId,
+                    to: currentSkillId,
+                    color: { color: 'rgba(255,255,255,0.1)' }
+                });
+                {% endfor %}
+                {% endfor %}
+
+                // Center Node (Me)
+                var centerId = 0;
+                nodes.push({
+                    id: centerId,
+                    label: "Pavan\nBadempet",
+                    shape: 'circularImage',
+                    image: "{{ site.baseurl }}/assets/img/man2.jpg",
+                    size: 40,
+                    font: { size: 24, color: '#fff' }
+                });
+
+                // Link Me -> Categories
+                for (let i = 1; i < categoryId; i++) {
+                    edges.push({ from: centerId, to: i, length: 200, color: { color: 'rgba(255,255,255,0.1)' } });
+                }
+
+                // Create Network
+                var container = document.getElementById('skills-network');
+                var data = { nodes: nodes, edges: edges };
+                var options = {
+                    nodes: {
+                        borderWidth: 2,
+                        shadow: true
+                    },
+                    edges: {
+                        width: 1,
+                        smooth: {
+                            type: 'continuous'
+                        }
+                    },
+                    physics: {
+                        stabilization: false,
+                        barnesHut: {
+                            gravitationalConstant: -8000,
+                            springConstant: 0.04,
+                            springLength: 95
+                        }
+                    },
+                    interaction: {
+                        hover: true,
+                        tooltipDelay: 200
+                    }
+                };
+
+                var network = new vis.Network(container, data, options);
+
+                // Interaction
+                network.on("click", function (params) {
+                    // Could add logic here to filter portfolio on click
+                });
+            });
+        </script>
+    </div>
+</div>
