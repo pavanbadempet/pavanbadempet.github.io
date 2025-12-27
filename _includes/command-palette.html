@@ -194,27 +194,38 @@
         const input = document.getElementById('cp-input');
         const items = document.querySelectorAll('.cp-item'); // This only selects STATIC items initially
 
-        // Initialize Simple Jekyll Search
-        // Note: SimpleJekyllSearch is loaded in scripts.html
-        if (window.SimpleJekyllSearch) {
-            SimpleJekyllSearch({
-                searchInput: document.getElementById('cp-input'),
-                resultsContainer: document.getElementById('cp-search-results'),
-                json: '{{ "/search.json" | relative_url }}',
-                searchResultTemplate: `
-                    <a href="{url}" class="cp-item">
-                        <i class="fas fa-search"></i>
-                        <span>{title}</span>
-                        <span class="cp-shortcut" style="font-size: 0.7em; opacity: 0.7;">Post</span>
-                    </a>
-                `,
-                noResultsText: '',
-                limit: 5,
-                success: function (data) {
-                    console.log('Search initialized');
-                }
-            });
+        // Initialize Simple Jekyll Search with Retry Logic
+        // Scripts are loaded async, so we must wait for them
+        function initSearch() {
+            if (window.SimpleJekyllSearch) {
+                // Remove any existing manual filtering that might conflict if needed
+                // But generally SimpleJekyllSearch attaches to the input event
+
+                SimpleJekyllSearch({
+                    searchInput: document.getElementById('cp-input'),
+                    resultsContainer: document.getElementById('cp-search-results'),
+                    json: '{{ "/search.json" | relative_url }}',
+                    searchResultTemplate: `
+                        <a href="{url}" class="cp-item" onclick="togglePalette();">
+                            <i class="fas fa-search"></i>
+                            <span>{title}</span>
+                            <span class="cp-shortcut" style="font-size: 0.7em; opacity: 0.7;">Post</span>
+                        </a>
+                    `,
+                    noResultsText: '',
+                    limit: 5,
+                    fuzzy: false,
+                    success: function () {
+                        console.log('Command Palette Search: Ready');
+                    }
+                });
+            } else {
+                // library not loaded yet, retry in 100ms
+                setTimeout(initSearch, 100);
+            }
         }
+
+        initSearch();
 
         let isOpen = false;
         let selectedIndex = 0;
