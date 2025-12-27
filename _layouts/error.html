@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+{% assign ui_text = site.data.ui-text['ui_text'] %}
+
+<!-- Section Started / 404 Error -->
+<div class="section started section-title" id="section-error" style="height: auto; min-height: 100vh;">
+
+    <!-- background -->
+    <div class="video-bg">
+        <div class="video-bg-mask"></div>
+        <div class="video-bg-texture" id="grained_container"></div>
+    </div>
+
+    <!-- content (Flexbox Stack) -->
+    <div class="started-content"
+        style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 0 20px;">
+
+        <!-- Title -->
+        <h1 class="h-title"
+            style="position: relative; margin: 0 0 30px 0; width: 100%; max-width: 800px; left: auto; top: auto;">{{
+            page.title }}</h1>
+
+        <!-- Subtitle -->
+        <div class="h-subtitles" style="position: relative; height: auto; opacity: 1;">
+            <div class="h-subtitle type-bread"
+                style="position: relative; margin: 0; top: auto; left: auto; color: #fff; font-size: 20px; line-height: 1.5; white-space: normal;">
+                <p class="breadcrumbs" style="position: relative; margin: 0;">
+                    {% if page.subtitle == '' or page.subtitle == nil %}
+                    <a href="{{ site.url }}">{{ ui_text.home }}</a> / <a href="{{ page.url }}">{{ page.title }}</a>
+                    {% else %}
+                    {{ page.subtitle }}
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% if page.content != '' %}
+<div class="section blog">
+    <div class="content">
+        <div class="post">
+            <div class="content-box">
+                <div class="single-post-text" style="text-align: center;">
+                    {{ page.content }}
+                </div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+{% endif %}
