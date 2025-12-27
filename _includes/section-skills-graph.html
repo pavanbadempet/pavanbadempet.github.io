@@ -25,7 +25,7 @@
                 // Colors & Styles
                 var categoryColor = activeColor;
                 var skillColor = "rgba(255, 255, 255, 0.9)";
-                var edgeColor = "rgba(255, 255, 255, 0.15)";
+                var edgeColor = "rgba(255, 255, 255, 0.2)";
 
                 // Parse Liquid Data
                 {% for column in content.columns %}
@@ -36,14 +36,14 @@
                     label: "{{ column.title }}",
                     group: 'category',
                     shape: 'dot',
-                    size: 30, // Increased from 20
+                    size: 60, // Doubled from 30
                     color: {
                         background: categoryColor,
                         border: '#ffffff',
                         highlight: { background: categoryColor, border: '#ffffff' }
                     },
-                    font: { size: 18, color: '#fff', face: 'Roboto', strokeWidth: 3, strokeColor: '#000000' },
-                    borderWidth: 2
+                    font: { size: 26, color: '#fff', face: 'Roboto', strokeWidth: 4, strokeColor: '#000000' },
+                    borderWidth: 3
                 });
 
                 // Add Skill Nodes (Moons)
@@ -54,14 +54,14 @@
                     label: "{{ item.label }}",
                     group: 'skill',
                     shape: 'dot',
-                    size: 10,
+                    size: 25, // Increased from 10 to 25
                     color: {
                         background: skillColor,
                         border: skillColor,
                         highlight: { background: '#fff', border: '#fff' }
                     },
-                    font: { size: 14, color: '#ccc', face: 'Roboto' }, // More readable
-                    borderWidth: 1
+                    font: { size: 18, color: '#ccc', face: 'Roboto', strokeWidth: 2, strokeColor: '#000' },
+                    borderWidth: 2
                 });
 
                 // Link Category -> Skill
@@ -69,7 +69,8 @@
                     from: currentCatId,
                     to: currentSkillId,
                     color: { color: edgeColor, highlight: '#fff' },
-                    width: 1
+                    width: 2,
+                    length: 100 // Shorter local links
                 });
                 {% endfor %}
                 {% endfor %}
@@ -81,10 +82,10 @@
                     label: "Pavan", // Shortened for cleaner look
                     shape: 'circularImage',
                     image: "{{ site.baseurl }}/assets/img/man2.jpg",
-                    size: 60, // Much larger
-                    borderWidth: 4,
+                    size: 100, // Massive center
+                    borderWidth: 6,
                     color: { border: activeColor, background: '#000' },
-                    font: { size: 24, color: '#fff', face: 'Roboto', strokeWidth: 4, strokeColor: '#000' }
+                    font: { size: 40, color: '#fff', face: 'Roboto', strokeWidth: 6, strokeColor: '#000' }
                 });
 
                 // Link Me -> Categories
@@ -92,9 +93,9 @@
                     edges.push({
                         from: centerId,
                         to: i,
-                        length: 250, // Push categories further out
-                        color: { color: 'rgba(255,255,255,0.05)' },
-                        width: 2,
+                        length: 400, // Push categories way out
+                        color: { color: 'rgba(255,255,255,0.1)' },
+                        width: 4,
                         dashes: true // Distinguish these links
                     });
                 }
@@ -114,23 +115,23 @@
                         smooth: {
                             type: 'continuous',
                             forceDirection: 'none',
-                            roundness: 0
+                            roundness: 0.5
                         }
                     },
                     physics: {
                         stabilization: true, // Turn on to prevent initial explosion
                         barnesHut: {
-                            gravitationalConstant: -15000, // Stronger repulsion spread
-                            springConstant: 0.015,
-                            springLength: 120,
-                            damping: 0.3
+                            gravitationalConstant: -30000, // Massive repulsion
+                            springConstant: 0.01,
+                            springLength: 200,
+                            damping: 0.2
                         },
                         minVelocity: 0.75
                     },
                     interaction: {
                         hover: true,
                         tooltipDelay: 200,
-                        zoomView: false // Keep stable zoom
+                        zoomView: true // Allow zooming now
                     }
                 };
 
