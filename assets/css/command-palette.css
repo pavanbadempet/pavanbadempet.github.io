@@ -1,0 +1,39 @@
+/* Command Palette Trigger - Fixed Bottom Left */
+.cmd-trigger {
+    position: fixed;
+    bottom: 90px;
+    /* Positioned above the Email/Phone lines */
+    left: 45px;
+    /* Aligning typically with standard padding */
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    z-index: 999;
+    /* High Z-index to float above content */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.2);
+    /* Subtle bg to ensure visibility */
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cmd-trigger:hover {
+    color: #4bffa5;
+    /* Active Green */
+    background: rgba(75, 255, 165, 0.1);
+    border-color: #4bffa5;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(75, 255, 165, 0.3);
+}
+
+/* Hide on very small screens if it overlaps content */
+@media (max-width: 480px) {
+    .cmd-trigger {
+        bottom: 70px;
+        left: 20px;
+    }
+}
