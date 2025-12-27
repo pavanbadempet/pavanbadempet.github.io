@@ -29,6 +29,9 @@
                 <span class="cp-shortcut">H</span>
             </a>
 
+            <!-- Search Results -->
+            <div id="cp-search-results"></div>
+
             <div class="cp-section">Actions</div>
             <div class="cp-item" id="cp-copy-email" data-tags="email copy mail">
                 <i class="fas fa-envelope"></i>
@@ -189,7 +192,30 @@
     document.addEventListener('DOMContentLoaded', () => {
         const palette = document.getElementById('command-palette');
         const input = document.getElementById('cp-input');
-        const items = document.querySelectorAll('.cp-item');
+        const items = document.querySelectorAll('.cp-item'); // This only selects STATIC items initially
+
+        // Initialize Simple Jekyll Search
+        // Note: SimpleJekyllSearch is loaded in scripts.html
+        if (window.SimpleJekyllSearch) {
+            SimpleJekyllSearch({
+                searchInput: document.getElementById('cp-input'),
+                resultsContainer: document.getElementById('cp-search-results'),
+                json: '{{ "/search.json" | relative_url }}',
+                searchResultTemplate: `
+                    <a href="{url}" class="cp-item">
+                        <i class="fas fa-search"></i>
+                        <span>{title}</span>
+                        <span class="cp-shortcut" style="font-size: 0.7em; opacity: 0.7;">Post</span>
+                    </a>
+                `,
+                noResultsText: '',
+                limit: 5,
+                success: function (data) {
+                    console.log('Search initialized');
+                }
+            });
+        }
+
         let isOpen = false;
         let selectedIndex = 0;
 
