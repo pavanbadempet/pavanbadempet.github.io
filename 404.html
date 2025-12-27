@@ -2,9 +2,15 @@
 permalink: /404.html
 layout: page
 title: 404 - Lost in the Data Lake
-subtitle: "<span style='display: inline-block; margin-top: 20px; line-height: 1.5;'>The query returned no results. Let's
-    get you back on track.</span>"
+subtitle: "The query returned no results. Let's get you back on track."
 content: "
+<style>
+    /* Fix layout overlap by making the header taller */
+    .section.started.section-title {
+        height: 60vh !important;
+        min-height: 500px !important;
+    }
+</style>
 <p>It seems this data packet has been dropped. You might want to:</p>
 <ul>
     <li><a href='/'>Return to the Source (Homepage)</a></li>
