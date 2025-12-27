@@ -196,21 +196,38 @@
 
         // Search Logic (Custom Implementation)
         let searchIndex = [];
+        const resultsContainer = document.getElementById('cp-search-results');
 
         // Fetch Search Data
+        console.log('Command Palette: Fetching search index...');
         fetch('{{ "/search.json" | relative_url }}')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
                 searchIndex = data;
                 console.log('Search Index Loaded:', searchIndex.length, 'items');
+                if (searchIndex.length === 0) {
+                    console.warn('Search index is empty');
+                }
             })
-            .catch(err => console.error('Search Index Failed:', err));
+            .catch(err => {
+                console.error('Search Index Failed:', err);
+                resultsContainer.innerHTML = `<div class="cp-section" style="color: #ff4b4b;">Error: Failed to load search index</div>`;
+            });
 
         // Filter Function
         function performSearch(query) {
-            const container = document.getElementById('cp-search-results');
             if (!query) {
-                container.innerHTML = '';
+                resultsContainer.innerHTML = '';
+                return;
+            }
+
+            if (searchIndex.length === 0) {
+                resultsContainer.innerHTML = `<div class="cp-item"><i>Searching... (Index loading or empty)</i></div>`;
                 return;
             }
 
@@ -232,9 +249,9 @@
                     </a>
                 `).join('');
                 // Add header if needed, or just items
-                container.innerHTML = `<div class="cp-section">Search Results</div>` + html;
+                resultsContainer.innerHTML = `<div class="cp-section">Search Results</div>` + html;
             } else {
-                container.innerHTML = ''; // Or show "No results" if you want
+                resultsContainer.innerHTML = `<div class="cp-section">No results found</div>`;
             }
         }
 
