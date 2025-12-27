@@ -233,11 +233,12 @@
             }
 
             const lowerQuery = query.toLowerCase();
-            // Filter: Title or Tags match
+            // Filter: Title, Tags, or Content match
             const results = searchIndex.filter(item => {
                 const title = (item.title || '').toLowerCase();
                 const tags = (item.tags || '').toLowerCase();
-                return title.includes(lowerQuery) || tags.includes(lowerQuery);
+                const content = (item.content || '').toLowerCase();
+                return title.includes(lowerQuery) || tags.includes(lowerQuery) || content.includes(lowerQuery);
             }).slice(0, 5); // Limit to 5
 
             // Render

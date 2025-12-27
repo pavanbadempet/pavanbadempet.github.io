@@ -8,7 +8,8 @@ layout: null
     "tags": "help usage",
     "url": "#",
     "date": "",
-    "type": "System"
+    "type": "System",
+    "content": "Use this search to find projects, blog posts, and more."
   }
   {% for post in site.posts %}
   ,
@@ -18,7 +19,8 @@ layout: null
     "tags": "{{ post.tags | join: ', ' }}",
     "url": "{{ site.baseurl }}{{ post.url }}",
     "date": "{{ post.date | date: '%B %d, %Y' }}",
-    "type": "Post"
+    "type": "Post",
+    "content": "{{ post.content | strip_html | strip_newlines | truncate: 500 | escape }}"
   }
   {% endfor %}
   {% for work in site.works %}
@@ -29,7 +31,8 @@ layout: null
     "tags": "{{ work.tags | join: ', ' }}",
     "url": "{{ site.baseurl }}{{ work.url }}",
     "date": "",
-    "type": "Project"
+    "type": "Project",
+    "content": "{{ work.content | strip_html | strip_newlines | truncate: 500 | escape }}"
   }
   {% endfor %}
 ]
