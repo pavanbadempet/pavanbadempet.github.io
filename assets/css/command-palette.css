@@ -1,10 +1,10 @@
 /* Command Palette Trigger - Fixed Bottom Left */
 .cmd-trigger {
     position: fixed;
-    bottom: 90px;
-    /* Positioned above the Email/Phone lines */
-    left: 45px;
-    /* Aligning typically with standard padding */
+    bottom: 120px;
+    /* Increased to 120px to clear the Email/Phone text (approx 100px high) */
+    left: 50px;
+    /* Aligned with Footer text (50px padding) */
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -12,11 +12,9 @@
     color: rgba(255, 255, 255, 0.5);
     font-size: 16px;
     z-index: 999;
-    /* High Z-index to float above content */
     cursor: pointer;
     transition: all 0.3s ease;
     background: rgba(0, 0, 0, 0.2);
-    /* Subtle bg to ensure visibility */
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -30,10 +28,15 @@
     box-shadow: 0 0 15px rgba(75, 255, 165, 0.3);
 }
 
-/* Hide on very small screens if it overlaps content */
-@media (max-width: 480px) {
+/* Mobile Adjustments (Footer is 30px/30px) */
+@media (max-width: 720px) {
     .cmd-trigger {
-        bottom: 70px;
-        left: 20px;
+        bottom: 100px;
+        left: 30px;
+        width: 40px;
+        /* Slightly larger touch target */
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
     }
 }
