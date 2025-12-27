@@ -1,10 +1,9 @@
 /* Command Palette Trigger - Fixed Bottom Left */
 .cmd-trigger {
     position: fixed;
-    bottom: 180px;
-    /* Significantly raised to clear any footer text overlap */
+    bottom: 135px;
+    /* Goldilocks zone: 120px overlapped, 180px was too high */
     left: 50px;
-    /* Aligned with Footer padding */
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -28,11 +27,11 @@
     box-shadow: 0 0 15px rgba(75, 255, 165, 0.3);
 }
 
-/* Mobile Adjustments (Footer text might wrap or change padding) */
+/* Mobile Adjustments */
 @media (max-width: 720px) {
     .cmd-trigger {
-        bottom: 160px;
-        /* Safe clearance for mobile footer */
+        bottom: 115px;
+        /* Adjusted proportionally */
         left: 30px;
         width: 40px;
         height: 40px;
