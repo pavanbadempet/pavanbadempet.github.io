@@ -2325,7 +2325,8 @@
 		position: relative;
 		text-align: center;
 		font-size: 13px;
-		float: left;
+		display: inline-block;
+		vertical-align: top;
 
 		.image {
 			position: relative;
@@ -2469,10 +2470,6 @@
 	}
 
 	.description-col {
-		width: 100%;
-	}
-
-	.details-col {
 		width: 100%;
 	}
 
