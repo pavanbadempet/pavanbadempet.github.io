@@ -6,13 +6,21 @@ layout: null
   }
   {% for doc in all_docs %
   }
+    {% assign type = "Project" %
+  }
+    {% if doc.collection == "posts" %
+  }
+      {% assign type = "Post" %
+  }
+    {% endif %
+  }
     {
     "title": "{{ doc.title | xml_escape }}",
     "category": "{{ doc.category | default: 'Portfolio' }}",
     "tags": "{{ doc.tags | join: ', ' }}",
     "url": "{{ site.baseurl }}{{ doc.url }}",
     "date": "{{ doc.date | date: '%B %d, %Y' }}",
-    "type": "{% if doc.collection == 'posts' %}Post{% else %}Project{% endif %}"
+    "type": "{{ type }}"
   }{% unless forloop.last %
   },
   {% endunless %
