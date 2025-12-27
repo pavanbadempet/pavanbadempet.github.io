@@ -19,15 +19,15 @@
                         <div class="name">{{ item.name }}</div>
                         <div class="category">{{ item.role }}</div>
                         <ul>
-                            {% if item.text1 != '' %}<div align="left">
-                                <li>{{item.text1}}</li>
-                            </div>{% endif %}
-                            {% if item.text2 != '' %}<div align="left">
-                                <li>{{item.text2}}</li>
-                            </div>{% endif %}
-                            {% if item.text3 != '' %}<div align="left">
-                                <li>{{item.text3}}</li>
-                            </div>{% endif %}
+                            {% if item.text1 != '' %}
+                            <li class="text-left">{{item.text1}}</li>
+                            {% endif %}
+                            {% if item.text2 != '' %}
+                            <li class="text-left">{{item.text2}}</li>
+                            {% endif %}
+                            {% if item.text3 != '' %}
+                            <li class="text-left">{{item.text3}}</li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>

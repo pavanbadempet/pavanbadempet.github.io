@@ -11,7 +11,8 @@
         <div class="follow-label">{{ ui_text.follow_me }}</div>
         <div class="soc">
             {% for link in footer.social %}
-            <a target="_blank" href="{{ link.url }}" title="{{ link.title }}">
+            <a target="_blank" href="{{ link.url }}" title="{{ link.title }}" rel="noopener noreferrer"
+                aria-label="{{ link.title }}">
                 <span class="icon {{ link.icon }}"></span>
             </a>
             {% endfor %}

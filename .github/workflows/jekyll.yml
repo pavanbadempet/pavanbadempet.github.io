@@ -31,6 +31,13 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      
+      - name: Test Site (HTML Proofer)
+        run: |
+          gem install html-proofer
+          htmlproofer ./_site --disable-external --check-html --check-img-http --allow-hash-href
+        continue-on-error: true # Warning only initially
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
