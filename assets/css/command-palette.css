@@ -1,15 +1,15 @@
 /* Command Palette Trigger in Header */
 .cmd-trigger {
-    position: absolute;
-    right: 90px;
+    left: 50%;
+    right: auto;
     top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
     color: rgba(255, 255, 255, 0.4);
-    font-size: 16px;
+    font-size: 18px;
     z-index: 101;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -22,12 +22,15 @@
     transform: translateY(-50%) scale(1.1);
 }
 
+/* Center position remains consistent */
 .header.active .cmd-trigger {
-    right: 80px;
+    /* No change needed for center alignment */
 }
 
 @media (max-width: 720px) {
     .cmd-trigger {
-        right: 60px;
+        /* On mobile, keep it centered or adjust if logo overlaps */
+        left: 50%;
+        width: 40px;
     }
 }
