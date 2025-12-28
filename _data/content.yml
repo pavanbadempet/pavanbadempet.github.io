@@ -4,7 +4,7 @@
 
 ### About [ about ]
 about:
-  image: "assets/img/man2.jpg"
+  image: "assets/img/pavan_badempet.jpg"
   image_alt: "Pavan Badempet - Senior Data Engineer"
   text: "<p><b>Data Engineer</b> with 2+ years of experience building and optimizing scalable ETL/ELT pipelines across AWS and on-premises environments. Strong expertise in Python, SQL, Scala, and Apache Spark for large-scale data ingestion, transformation, and validation. Experienced in designing serverless, batch, and event-driven data workflows, delivering production-grade data platforms for FinTech and Automotive domains.</p>"
 

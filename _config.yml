@@ -7,7 +7,7 @@ keywords: "Data Engineer, Python, Apache Spark, AWS, ETL, Machine Learning, Resu
 author: "Pavan Badempet"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://pavanbadempet.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-image: "assets/img/man2.jpg"
+image: "assets/img/pavan_badempet.jpg"
 twitter:
   card: summary_large_image
   username: "pavanbadempet"
