@@ -1,0 +1,378 @@
+<!-- Command Palette Modal -->
+<div id="command-palette" class="command-palette-overlay" style="display: none;">
+    <div class="command-palette-modal">
+        <div class="cp-header">
+            <i class="fas fa-search"></i>
+            <input type="text" id="cp-input" placeholder="Type a command or search..." autocomplete="off">
+            <span class="cp-esc">ESC</span>
+        </div>
+        <div class="cp-body">
+            <div class="cp-section">Navigation</div>
+            <a href="{{ '/resume/' | relative_url }}" class="cp-item" data-tags="resume cv experience job work">
+                <i class="fas fa-file-alt"></i>
+                <span>Go to Resume</span>
+                <span class="cp-shortcut">R</span>
+            </a>
+            <a href="{{ '/portfolio/' | relative_url }}" class="cp-item" data-tags="projects portfolio work code">
+                <i class="fas fa-layer-group"></i>
+                <span>Go to Projects</span>
+                <span class="cp-shortcut">P</span>
+            </a>
+            <a href="{{ '/contacts/' | relative_url }}" class="cp-item" data-tags="contact email phone hire">
+                <i class="fas fa-paper-plane"></i>
+                <span>Contact Me</span>
+                <span class="cp-shortcut">C</span>
+            </a>
+            <a href="{{ '/' | relative_url }}" class="cp-item" data-tags="home start landing">
+                <i class="fas fa-home"></i>
+                <span>Go Home</span>
+                <span class="cp-shortcut">H</span>
+            </a>
+
+            <!-- Search Results -->
+            <div id="cp-search-results"></div>
+
+            <div class="cp-section">Actions</div>
+            <div class="cp-item" id="cp-copy-email" data-tags="email copy mail">
+                <i class="fas fa-envelope"></i>
+                <span>Copy Email</span>
+            </div>
+            <a href="https://drive.google.com/file/d/1gppjKAn5s9W06uH4ajoj7Ha2H13zEPkq/view?usp=sharing" target="_blank"
+                class="cp-item" onclick="togglePalette();" data-tags="resume cv pdf download">
+                <i class="fas fa-file-pdf"></i>
+                <span>View Resume PDF</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Command Palette Styles */
+    .command-palette-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 10vh;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .command-palette-overlay.open {
+        opacity: 1;
+    }
+
+    .command-palette-modal {
+        width: 100%;
+        max-width: 600px;
+        background: #1e1e1e;
+        /* VS Code Dark */
+        border-radius: 8px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        border: 1px solid #333;
+        transform: translateY(-20px);
+        transition: transform 0.2s ease;
+    }
+
+    .command-palette-overlay.open .command-palette-modal {
+        transform: translateY(0);
+    }
+
+    .cp-header {
+        padding: 15px 20px;
+        border-bottom: 1px solid #333;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .cp-header i {
+        color: #888;
+        font-size: 1.2em;
+    }
+
+    #cp-input {
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.2em;
+        width: 100%;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        /* Override default input styles */
+        height: auto;
+    }
+
+    /* Force override conflicting input styles from main theme */
+    #cp-input:focus {
+        border-bottom: none;
+    }
+
+    .cp-esc {
+        background: #333;
+        color: #aaa;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.8em;
+    }
+
+    .cp-body {
+        max-height: 400px;
+        overflow-y: auto;
+        padding: 10px 0;
+    }
+
+    .cp-section {
+        padding: 8px 20px;
+        color: #666;
+        font-size: 0.85em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+
+    .cp-item {
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        cursor: pointer;
+        color: #ccc;
+        text-decoration: none;
+        border-left: 3px solid transparent;
+        transition: background 0.1s;
+    }
+
+    .cp-item:hover,
+    .cp-item.selected {
+        background: #2a2d2e;
+        color: #fff;
+        border-left: 3px solid #007acc;
+        /* VS Code Blue */
+        text-decoration: none;
+    }
+
+    .cp-item i {
+        width: 20px;
+        text-align: center;
+        color: #888;
+    }
+
+    .cp-item:hover i,
+    .cp-item.selected i {
+        color: #fff;
+    }
+
+    .cp-shortcut {
+        margin-left: auto;
+        background: #333;
+        color: #aaa;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 0.8em;
+        font-family: monospace;
+    }
+
+    .cp-item.hidden {
+        display: none;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const palette = document.getElementById('command-palette');
+        const input = document.getElementById('cp-input');
+        const items = document.querySelectorAll('.cp-item'); // This only selects STATIC items initially
+
+        // Search Logic (Custom Implementation)
+        let searchIndex = [];
+        const resultsContainer = document.getElementById('cp-search-results');
+
+        // Fetch Search Data
+        console.log('Command Palette: Fetching search index...');
+        // Add cache buster to force fresh load
+        fetch('{{ "/search.json" | relative_url }}?v={{ site.time | date: "%s" }}')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                searchIndex = data;
+                console.log('Search Index Loaded:', searchIndex.length, 'items');
+                if (searchIndex.length === 0) {
+                    console.warn('Search index is empty');
+                }
+            })
+            .catch(err => {
+                console.error('Search Index Failed:', err);
+                resultsContainer.innerHTML = `<div class="cp-section" style="color: #ff4b4b;">Error: Failed to load search index</div>`;
+            });
+
+        // Filter Function
+        function performSearch(query) {
+            if (!query) {
+                resultsContainer.innerHTML = '';
+                return;
+            }
+
+            if (searchIndex.length === 0) {
+                resultsContainer.innerHTML = `<div class="cp-item"><i>Searching... (Index loading or empty)</i></div>`;
+                return;
+            }
+
+            const lowerQuery = query.toLowerCase();
+            // Filter: Title, Tags, or Content match
+            const results = searchIndex.filter(item => {
+                const title = (item.title || '').toLowerCase();
+                const tags = (item.tags || '').toLowerCase();
+                const content = (item.content || '').toLowerCase();
+                return title.includes(lowerQuery) || tags.includes(lowerQuery) || content.includes(lowerQuery);
+            }).slice(0, 5); // Limit to 5
+
+            // Render
+            if (results.length > 0) {
+                const html = results.map(item => `
+                    <a href="${item.url}" class="cp-item" onclick="togglePalette();" style="flex-direction: column; align-items: flex-start; padding: 10px 15px;">
+                        <div style="display: flex; width: 100%; align-items: center; justify-content: space-between;">
+                            <div style="display: flex; align-items: center;">
+                                <i class="fas fa-search" style="margin-right: 10px;"></i>
+                                <span style="font-weight: 500;">${item.title}</span>
+                            </div>
+                            <span class="cp-shortcut" style="opacity: 0.7;">${item.type || 'Result'}</span>
+                        </div>
+                        <div style="font-size: 0.75em; opacity: 0.6; margin-left: 24px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 90%;">
+                            ${item.tags ? item.tags : ''}
+                        </div>
+                    </a>
+                `).join('');
+                // Add header if needed, or just items
+                resultsContainer.innerHTML = `<div class="cp-section">Search Results</div>` + html;
+            } else {
+                resultsContainer.innerHTML = `<div class="cp-section">No results found</div>`;
+            }
+        }
+
+        let isOpen = false;
+        let selectedIndex = 0;
+
+        // Open/Close Logic
+        function togglePalette() {
+            if (isOpen) {
+                palette.classList.remove('open');
+                setTimeout(() => { palette.style.display = 'none'; }, 200);
+                document.body.style.overflow = '';
+            } else {
+                palette.style.display = 'flex';
+                // Force reflow
+                void palette.offsetWidth;
+                palette.classList.add('open');
+                input.value = '';
+                document.getElementById('cp-search-results').innerHTML = ''; // Clear previous search
+                filterItems(''); // Reset static items
+                input.focus();
+                document.body.style.overflow = 'hidden';
+                selectedIndex = 0;
+                updateSelection();
+            }
+            isOpen = !isOpen;
+        }
+
+        // Shortcut: Ctrl+K or Cmd+K
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                togglePalette();
+            }
+            if (e.key === 'Escape' && isOpen) {
+                togglePalette();
+            }
+
+            if (!isOpen) return;
+
+            // Navigation
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                selectedIndex = (selectedIndex + 1) % getVisibleItems().length;
+                updateSelection();
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                const visible = getVisibleItems();
+                selectedIndex = (selectedIndex - 1 + visible.length) % visible.length;
+                updateSelection();
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                const visible = getVisibleItems();
+                if (visible[selectedIndex]) {
+                    visible[selectedIndex].click();
+                }
+            }
+        });
+
+        // Close on click outside
+        palette.addEventListener('click', (e) => {
+            if (e.target === palette) togglePalette();
+        });
+
+        // Filter Logic (Modified to trigger search)
+        input.addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            filterItems(val); // Existing static filter
+            performSearch(val); // New dynamic search
+            selectedIndex = 0;
+            updateSelection();
+        });
+
+        function filterItems(query) {
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                const tags = item.getAttribute('data-tags') || '';
+                if (text.includes(query) || tags.includes(query)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        function getVisibleItems() {
+            // Select both static items AND dynamic search results that are not hidden
+            // Note: We need a fresh querySelectorAll because search results are dynamic
+            const staticItems = Array.from(items).filter(item => !item.classList.contains('hidden'));
+            const dynamicItems = Array.from(document.querySelectorAll('#cp-search-results .cp-item'));
+            return [...staticItems, ...dynamicItems];
+        }
+
+        function updateSelection() {
+            // Clear all selected classes first
+            document.querySelectorAll('.cp-item').forEach(item => item.classList.remove('selected'));
+            const visible = getVisibleItems();
+            if (visible[selectedIndex]) {
+                visible[selectedIndex].classList.add('selected');
+                visible[selectedIndex].scrollIntoView({ block: 'nearest' });
+            }
+        }
+
+        // Copy Email Action
+        const copyEmailBtn = document.getElementById('cp-copy-email');
+        if (copyEmailBtn) {
+            copyEmailBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText("pavan9b@gmail.com").then(() => {
+                    togglePalette();
+                    // Optional: Show a toast? relying on the existing system for now
+                });
+            });
+        }
+    });
+</script>

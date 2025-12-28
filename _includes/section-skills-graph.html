@@ -1,0 +1,148 @@
+{% assign content = site.data.content['skills'] %}
+
+<!-- Section Skills Graph -->
+<div class="section skills" id="section-skills-graph" style="height: 100vh; min-height: 600px; position: relative;">
+    <div class="content" style="height: 100%;">
+
+        <!-- Title -->
+        <div class="title">
+            <div class="title_inner">Skills Knowledge Graph</div>
+        </div>
+
+        <!-- Graph Container -->
+        <div id="skills-network"
+            style="width: 100%; height: calc(100% - 100px); border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2);">
+        </div>
+
+        <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+                var nodes = [];
+                var edges = [];
+                var categoryId = 1;
+                var skillId = 100;
+
+                // Colors & Styles
+                var activeColor = getComputedStyle(document.documentElement).getPropertyValue('--active-color').trim() || '#78cc6d';
+                var categoryColor = activeColor;
+                var skillColor = "rgba(255, 255, 255, 0.9)";
+                var edgeColor = "rgba(255, 255, 255, 0.2)";
+
+                // Parse Liquid Data
+                {% for column in content.columns %}
+                // Add Category Node (Planets)
+                var currentCatId = categoryId++;
+                nodes.push({
+                    id: currentCatId,
+                    label: "{{ column.title }}",
+                    group: 'category',
+                    shape: 'dot',
+                    size: 60, // Doubled from 30
+                    color: {
+                        background: categoryColor,
+                        border: '#ffffff',
+                        highlight: { background: categoryColor, border: '#ffffff' }
+                    },
+                    font: { size: 26, color: '#fff', face: 'Roboto', strokeWidth: 4, strokeColor: '#000000' },
+                    borderWidth: 3
+                });
+
+                // Add Skill Nodes (Moons)
+                {% for item in column.items %}
+                var currentSkillId = skillId++;
+                nodes.push({
+                    id: currentSkillId,
+                    label: "{{ item.label }}",
+                    group: 'skill',
+                    shape: 'dot',
+                    size: 25, // Increased from 10 to 25
+                    color: {
+                        background: skillColor,
+                        border: skillColor,
+                        highlight: { background: '#fff', border: '#fff' }
+                    },
+                    font: { size: 18, color: '#ccc', face: 'Roboto', strokeWidth: 2, strokeColor: '#000' },
+                    borderWidth: 2
+                });
+
+                // Link Category -> Skill
+                edges.push({
+                    from: currentCatId,
+                    to: currentSkillId,
+                    color: { color: edgeColor, highlight: '#fff' },
+                    width: 2,
+                    length: 100 // Shorter local links
+                });
+                {% endfor %}
+                {% endfor %}
+
+                // Center Node (Sun)
+                var centerId = 0;
+                nodes.push({
+                    id: centerId,
+                    label: "Pavan", // Shortened for cleaner look
+                    shape: 'circularImage',
+                    image: "{{ site.baseurl }}/assets/img/man2.jpg",
+                    size: 100, // Massive center
+                    borderWidth: 6,
+                    color: { border: activeColor, background: '#000' },
+                    font: { size: 40, color: '#fff', face: 'Roboto', strokeWidth: 6, strokeColor: '#000' }
+                });
+
+                // Link Me -> Categories
+                for (let i = 1; i < categoryId; i++) {
+                    edges.push({
+                        from: centerId,
+                        to: i,
+                        length: 400, // Push categories way out
+                        color: { color: 'rgba(255,255,255,0.1)' },
+                        width: 4,
+                        dashes: true // Distinguish these links
+                    });
+                }
+
+                // Create Network
+                var container = document.getElementById('skills-network');
+                var data = { nodes: nodes, edges: edges };
+                var options = {
+                    nodes: {
+                        shadow: true,
+                        font: {
+                            multi: 'html',
+                            vadjust: 0
+                        }
+                    },
+                    edges: {
+                        smooth: {
+                            type: 'continuous',
+                            forceDirection: 'none',
+                            roundness: 0.5
+                        }
+                    },
+                    physics: {
+                        stabilization: true, // Turn on to prevent initial explosion
+                        barnesHut: {
+                            gravitationalConstant: -30000, // Massive repulsion
+                            springConstant: 0.01,
+                            springLength: 200,
+                            damping: 0.2
+                        },
+                        minVelocity: 0.75
+                    },
+                    interaction: {
+                        hover: true,
+                        tooltipDelay: 200,
+                        zoomView: true // Allow zooming now
+                    }
+                };
+
+                var network = new vis.Network(container, data, options);
+
+                // Interaction
+                network.on("click", function (params) {
+                    // Could add logic here to filter portfolio on click
+                });
+            });
+        </script>
+    </div>
+</div>

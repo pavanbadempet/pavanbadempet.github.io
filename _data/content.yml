@@ -1,187 +1,132 @@
 # Sections content configuration file
-## 
 ### use navigation.yml file to re-order, delete or add section of each card
 ### here you can find all content in all pre-build sections
 
 ### About [ about ]
 about:
   image: "assets/img/man2.jpg"
-  text: "<p>Systems Engineer at TCS | Data Engineer | Digital Cadre | AI/ML Enthusiast | Python | Java | SQL | Data Structures & Algorithms | AWS | Fullstack Developer | 100K Instagram | 5K X
-"
+  image_alt: "Pavan Badempet - Senior Data Engineer"
+  text: "<p><b>Data Engineer</b> with 2+ years of experience building and optimizing scalable ETL/ELT pipelines across AWS and on-premises environments. Strong expertise in Python, SQL, Scala, and Apache Spark for large-scale data ingestion, transformation, and validation. Experienced in designing serverless, batch, and event-driven data workflows, delivering production-grade data platforms for FinTech and Automotive domains.</p>"
 
   list:
-    - label: "DOB"
-      value: "14/10/2001"
-
-    - label: "Residence"
-      value: "India"
-
-    - label: "Freelance"
-      value: "Available"
 
     - label: "Address"
-      value: "HAL Township, Hyderabad"
+      value: "Hyderabad, TS"
 
     - label: "Phone"
-      value: "+917989256101"
+      value: "<a href='tel:+917989256101'>+91 7989256101</a>"
 
     - label: "E-mail"
-      value: "pavan9b@gmail.com"
+      value: "<a href='mailto:pavan9b@gmail.com'>pavan9b@gmail.com</a>"
+    
+    - label: "LinkedIn"
+      value: "<a href='https://linkedin.com/in/pavanbadempet/'>pavanbadempet</a>"
+
+    - label: "GitHub"
+      value: "<a href='https://github.com/pavanbadempet'>pavanbadempet</a>"
 
   download:
     text: "Download Resume"
-    link: "https://drive.google.com/file/d/1mhugVGoEQMlBTJc5mg4TdxmHVXzvlGfY/view?usp=sharing"
-
-### Services [ services ]
-services:
-  title: "Certifications"
-  items:
-    - icon: ""
-      name: "Elements of AI"
-      text: "University of Helsinki"
-
-    - icon: ""
-      name: "Python for Everybody Specialization"
-      text: "Coursera"
-
-    - icon: ""
-      name: "ICSI | Certified Network Security Specialist (CNSS)"
-      text: "International CyberSecurity Institute"  
-
-    - icon: ""
-      name: "Advanced Google Analytics"
-      text: "Google"
-
-    - icon: ""
-      name: "Financial Markets"
-      text: "Coursera"
+    link: "https://drive.google.com/file/d/1gppjKAn5s9W06uH4ajoj7Ha2H13zEPkq/view?usp=sharing"
 
 ### Resume [ resume ]
 resume:
   experience:
     title: "Experience"
     items:
-      - year: "Nov 2023 - Present"
-        name: "Systems Engineer - Tata Consultancy Services"
-        text: "Drove end‑to‑end development of critical components using Python, Streamlit, AWS Lambda, Amazon S3, Amazon EC2, Docker, Git, and Snowflake."
+      - year: "Nov 2023 – Present"
+        name: "Data Engineer - Tata Consultancy Services"
+        text1: "<b>Nissan Data Platform:</b> Designed and implemented a serverless data ingestion and validation pipeline using AWS Lambda, API Gateway, and Streamlit."
+        text2: "Automated schema validation, preprocessing, and data quality checks, reducing manual data onboarding effort by 60%."
+        text3: "Implemented robust error-handling logic and comprehensive unit tests using Pytest and Moto, achieving 95% coverage of core ingestion workflows and AWS integrations."
+        text4: "<b>Nomura Capital:</b> Engineered large-scale Apache Spark ETL pipelines for batch processing of multi-entity financial datasets."
+        text5: "Computed complex risk and valuation metrics, improving batch throughput by 30% through partition pruning, broadcast joins, and shuffle optimization."
+        text6: "Executed and stabilized Spark workloads on a Kubernetes + MinIO platform during migration from MapR/YARN."
+        text7: "Integrated Dremio for data virtualization and used AutoSys for orchestration, collaborating with platform and business teams to improve batch reliability by 20%."
 
-      - year: "Mar 2021 - Apr 2021"
-        name: "Intern - TCS iON"
-        text: "Conducted a comprehensive employee performance and attrition study, leveraging data analysis skills to identify key analytics-driven factors impacting the organization."
-
-      - year: "Sep 2021 - Dec 2021"
-        name: "Intern - FutureSkills Prime"
-        text: "Successfully developed and implemented a network app hosted on Azure using the Azure Web Apps service."
+      - year: "Mar 2023 – Apr 2023"
+        name: "Data Analytics Intern - TCS iON"
+        text1: "Built an ensemble ML-based employee attrition prediction system achieving 86% accuracy."
+        text2: "Developed and deployed a FastAPI backend for real-time model inference and API-based consumption."
 
   education:
     title: "Education"
     items:
-      - year: "Aug 2019 - Sep 2023"
-        name: "Guru Nanak Institutions Technical Campus"
-        text: "Bachelor of Technology with Major in Computer Science & Engineeing and Minor in Artificial Intelligence"
-
-      - year: "2017 - 2019"
-        name: "Sri Gayatri Junior College"
-        text: "Intermediate (Class XII) in Maths, Physics and Chemistry"
-
-      - year: "2016 - 2017"
-        name: "HAL Secondary School"
-        text: "Class X"
+      - year: "Aug 2019 – Sep 2023"
+        college: "<b>College:</b> Guru Nanak Institutions Technical Campus"
+        degree: "<b>Degree:</b> Bachelor of Technology in Computer Science & Engineering"
+        major: "<b>Minor:</b> AI/ML"
+        macgpa: "<b>Grade:</b> 8.2 CGPA (First Class with Distinction)"
+        macoursework: "<b>Scholarships:</b> Prime Minister’s Scholarship 2019-2023"
 
 ### Skills [ skills ]
 skills:
   columns:
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Programming Languages"
+    - type: "list"
+      title: "Languages"
       items:
         - label: "Python"
-
+        - label: "SQL"
+        - label: "Scala"
         - label: "Java"
+        - label: "HTML/CSS"
 
-        - label: "C"
-
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Machine Learning Libraries"
+    - type: "list"
+      title: "Big Data & Frameworks"
       items:
-        - label: "Tensorflow/Keras"
+        - label: "Apache Spark"
+        - label: "Pandas"
+        - label: "NumPy"
+        - label: "FastAPI"
+        - label: "Streamlit"
 
-        - label: "scikit‑learn"
-
-        - label: "NLTK"
-
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Web Development"
-      items:
-        - label: "HTML"
-          
-        - label: "CSS"
-          
-        - label: "JavaScript"
-
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Cloud & DevOps"
+    - type: "list"
+      title: "Data Platforms & Storage"
       items:
         - label: "AWS"
+        - label: "Snowflake"
+        - label: "MinIO"
+        - label: "Dremio"
 
-        - label: "Azure PaaS"
-
-        - label: "GCP PaaS"
-
+    - type: "list"
+      title: "Orchestration & Tools"
+      items:
         - label: "Docker"
-
+        - label: "AutoSys"
         - label: "Git"
 
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "DBMS & Data Plaform"
-      items:
-        - label: "SQL"
-
-        - label: "MySQL"
-
-        - label: "Snowflake"
-
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Operating Systems"
-      items:
-        - label: "Windows"
-
-        - label: "Unix/Linux"
-
-    - type: "list" #skills progress type - default, dotted, circles, list
-      title: "Soft Skills"
-      items:
-        - label: "Problem‑solving"
-
-        - label: "Teamwork"
-
-        - label: "Leadership"
-
-        - label: "Communication"
-
-        - label: "Critical Thinking"
-
-        - label: "Adaptability"
-
-        - label: "Time Management"
-
-        - label: "Attention to Detail"
-
-### Team [ team ]
-### Team [ team ]
+### Projects [ team ]
 team:
-  title: "Volunteer Experience"
+  title: "Projects"
+  items:
+    - name: An AIO Healthcare System
+      role: "Python, Streamlit, OpenAI API, GCP, Docker"
+      text1: "Built an end-to-end healthcare diagnostic platform integrating Generative AI for personalized recommendations and ML classification models (89% accuracy)."
+      text2: "Containerized the application using Docker and deployed on GCP, implementing a unified Streamlit interface to handle real-time user inputs and model inference."
+      text3: ""
+
+    - name: "Movie Recommendation System"
+      role: "Python, NLTK, TMDB API, Azure"
+      text1: "Developed a content-based movie recommendation engine using NLTK and Cosine Similarity, integrating the TMDB API and deploying the application on Azure."
+      text2: ""
+      text3: ""
+
+### Honors & Awards [ clients ]
+clients:
+  title: "Honors & Awards"
   items:
     - image: ""
-      name: "Fundraising"
-      role: "I Volunteered with Muskurahat Foundation, an NGO based in Mumbai. Where I was involved in Project KEYtaab an initiative by Muskurahat Foundation, aiming at providing the underprivileged children from Shelter Homes and orphanages with the holistic development that they lack."
-                
+      name: "Prime Minister's Scholarship Scheme"
+      role: "Awarded for academic excellence during studies as part of the Prime Minister's Scholarship Scheme."
+  
+
 ### Contact Info [ contacts-info ]
 contacts_info:
   title: "Contacts Info"
   list:
     - label: "Phone"
       icon: "fas fa-phone"
-      value: "+917989256101"
+      value: "<a href='tel:+917989256101'>+917989256101</a>"
 
     - label: "Email"
       icon:  "fas fa-envelope"
@@ -189,8 +134,28 @@ contacts_info:
 
     - label: "Address"
       icon: "fas fa-map-marker-alt"
-      value: "HAL Township, Balanagar, Hyderabad 500042"
+      value: "Hyderabad, TS"
     
-    - label: "Freelance Available"
+    - label: "Open to"
       icon: "fas fa-user-tie"
-      value: "I am open to opportunities for Full-time positions, Contract work, and Freelance engagements."
+      value: "I am open to opportunities for Full-time positions, Contract Work, and Freelance Engagements."
+
+### Services [ services ]
+services:
+  title: "What I Do"
+  items:
+    - name: "Data Pipeline Architecture"
+      text: "Designing and implementing scalable ETL/ELT workflows using Apache Spark, AWS Glue, and Lambda to process terabytes of data efficiently."
+      icon: "fas fa-network-wired"
+
+    - name: "Cloud Data Platforms"
+      text: "Architecting secure, serverless data lakes and warehouses on AWS (S3, Redshift, Athena) and Azure, ensuring high availability and cost optimization."
+      icon: "fas fa-cloud"
+
+    - name: "Big Data Processing"
+      text: "Optimizing complex SQL queries and Spark jobs for finding patterns in massive datasets, reducing processing time and improving data quality."
+      icon: "fas fa-database"
+
+    - name: "MLOps & AI Integration"
+      text: "Deploying machine learning models and GenAI agents into production environments using Docker, FastAPI, and CI/CD pipelines."
+      icon: "fas fa-robot"

@@ -1,13 +1,30 @@
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  {%- seo -%}
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="HhmK4jV3AhDa3JLZHRTNIkCdyr0bAj0qd7UDBJzHnSg" />
+  <meta name="keywords" content="{{ site.keywords }}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ page.url | absolute_url }}" />
 
-  <!-- Load Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic" rel="stylesheet" />
-  
+  {%- seo -%}
+  {%- include json-ld.html -%}
+
+  <!-- 1. Load Main Site Font (Roboto) - PRIORITY -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic" />
+
+  <!-- 2. Load Quantum Flux Menu Fonts (Hyper-Distinct) - SECONDARY -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Aldrich&family=Alex+Brush&family=Allura&family=Amatic+SC:wght@700&family=Annie+Use+Your+Telescope&family=Architects+Daughter&family=Audiowide&family=Bangers&family=Barrio&family=Black+Ops+One&family=Boogaloo&family=Bungee+Inline&family=Bungee+Shade&family=Butcherman&family=Cabin+Sketch:wght@700&family=Caveat:wght@700&family=Cedarville+Cursive&family=Chakra+Petch:wght@700&family=Cinzel:wght@900&family=Codystar:wght@400;800&family=Comfortaa:wght@700&family=Comforter+Brush&family=Creepster&family=Dancing+Script:wght@700&family=Diplomata&family=DotGothic16&family=Eater&family=Ewert&family=Faster+One&family=Finger+Paint&family=Fjalla+One&family=Flavors&family=Foldit:wght@900&family=Fontdiner+Swanky&family=Fredericka+the+Great&family=Frijole&family=Fugaz+One&family=Geostar+Fill&family=Gloria+Hallelujah&family=Gochi+Hand&family=Graduate&family=Great+Vibes&family=Grenze+Gotisch:wght@900&family=Hanalei+Fill&family=Homemade+Apple&family=Indie+Flower&family=Irish+Grover&family=Jacques+Francois+Shadow&family=Jolly+Lodger&family=Josefin+Sans:ital,wght@1,700&family=Just+Me+Again+Down+Here&family=Knewave&family=Kranky&family=Kumar+One+Outline&family=Life+Savers:wght@800&family=Limelight&family=Lobster&family=Love+Ya+Like+A+Sister&family=Loved+by+the+King&family=Luckiest+Guy&family=Major+Mono+Display&family=Megrim&family=Metal+Mania&family=Monoton&family=Montserrat:wght@100;400;900&family=Mountains+of+Christmas:wght@700&family=Mr+Dafoe&family=Mrs+Saint+Delafield&family=Mrs+Sheppards&family=Mystery+Quest&family=Nanum+Brush+Script&family=Nanum+Pen+Script&family=Neucha&family=New+Rocker&family=Nosifer&family=Nova+Mono&family=Orbitron:wght@900&family=Pacifico&family=Parisienne&family=Patrick+Hand&family=Permanent+Marker&family=Petit+Formal+Script&family=Piedra&family=Pinyon+Script&family=Plaster&family=Playball&family=Playfair+Display:ital,wght@1,900&family=Poiret+One&family=Poller+One&family=Pompiere&family=Press+Start+2P&family=Prosto+One&family=Racing+Sans+One&family=Ranchers&family=Reenie+Beanie&family=Ribeye+Marrow&family=Righteous&family=Rochester&family=Rock+Salt&family=Rubik+Glitch&family=Rubik+Iso&family=Rubik+Moonrocks&family=Rubik+Puddles&family=Rubik+Wet+Paint&family=Ruslan+Display&family=Rye&family=Sacramento&family=Sail&family=Sancreek&family=Shadows+Into+Light&family=Shojumaru&family=Sigmar+One&family=Six+Caps&family=Slackey&family=Smokum&family=Special+Elite&family=Spicy+Rice&family=Squada+One&family=Staatliches&family=Stalemate&family=Stalinist+One&family=Stardos+Stencil:wght@700&family=Sue+Ellen+Francisco&family=Sunshiney&family=Syncopate:wght@700&family=Tangerine:wght@700&family=Tasty+Birds&family=Teko:wght@700&family=Text+Me+One&family=Trade+Winds&family=Ultra&family=Uncial+Antiqua&family=Underdog&family=Unica+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&family=Unlock&family=Vampiro+One&family=Vast+Shadow&family=Voces&family=VT323&family=Waiting+for+the+Sunrise&family=Wallpoet&family=Walter+Turncoat&family=Warnes&family=Wire+One&family=Yeon+Sung&family=Yeseva+One&family=Zeyada&display=swap"
+    rel="stylesheet" />
+
   <!-- Load CSS -->
+  <link rel="preload" href="{{ 'assets/css/style.css' | relative_url }}" as="style">
   <link rel="stylesheet" href="{{ 'assets/css/style.css' | relative_url }}">
   <link rel="stylesheet" href="{{ 'assets/css/animate.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ 'assets/css/magnific-popup.css' | relative_url }}" />
@@ -15,28 +32,328 @@
   <link rel="stylesheet" href="{{ 'assets/css/jarallax.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ 'assets/css/swiper.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ 'assets/css/fontawesome.css' | relative_url }}" />
+
+
+  <link rel="stylesheet" href="{{ 'assets/css/command-palette.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ 'assets/css/syntax.css' | relative_url }}" />
-    
+
+
+
+  <!-- Mermaid.js (Architecture Diagrams) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    });
+  </script>
+
   {% assign settings = site.data.settings['settings'] %}
-  
-  <!-- Template Colors -->
+
+  <!-- Color Theme -->
   {% if settings.quick_colors != '' %}
-  <link rel="stylesheet" href="{{ 'assets/css/template-colors/' | append: settings.quick_colors | append: '.css' | relative_url }}" />
+  <link rel="stylesheet"
+    href="{{ 'assets/css/template-colors/' | append: settings.quick_colors | append: '.css' | relative_url }}" />
   {% endif %}
-  
-  <!--[if lt IE 9]>
-  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  
+
+
+
   <!-- Favicons -->
-  <link rel="shortcut icon" href="{{ 'assets/images/favicons/favicon.ico' | relative_url }}">
+  <link rel="shortcut icon" href="{{ 'assets/images/favicons/favicon.png' | relative_url }}">
 
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
-    {%- include google-analytics.html -%}
+  {%- include google-analytics.html -%}
   {%- endif -%}
 
   {%- include custom-head.html -%}
-  
+
+
+
+
+  <!-- Custom Styles for Resume Spacing -->
+  <style>
+    /* =========================================
+       CRITICAL SPACING OVERRIDES
+       ========================================= */
+
+    /* 1. COMPACT RESUME LISTS (BULLET POINTS) */
+    /* Markdownify creates <p> tags inside <li>. We must KILL their margins. */
+    .resume-items .resume-item ul li p {
+      margin-bottom: 0 !important;
+      margin-top: 0 !important;
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    /* Control spacing strictly via the <li> itself */
+    .resume-items .resume-item ul li {
+      margin-bottom: 8px !important;
+      /* Small gap between bullets */
+      margin-top: 0 !important;
+      line-height: 1.5 !important;
+      /* Tighter line height */
+    }
+
+    .resume-items .resume-item ul {
+      margin-bottom: 0 !important;
+    }
+
+    /* 2. SECTION TITLE SPACING */
+    .section .title {
+      margin-bottom: 10px !important;
+      /* Reduced to 10px */
+      padding-bottom: 0 !important;
+    }
+
+    .section .title .title_inner {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    /* 3. RESUME CONTAINER SPACING */
+    .resume-items {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    /* 4. FIRST RESUME ITEM SPACING */
+    .resume-items .resume-item:first-child,
+    .resume-items .resume-item.content-box:first-child {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+      /* Even tighter to title */
+    }
+
+    /* 5. SUBSEQUENT RESUME ITEMS */
+    .resume-items .resume-item:not(:first-child) {
+      margin-top: 30px !important;
+      padding-top: 35px !important;
+    }
+
+    /* 6. INTERNAL BOX SPACING */
+    /* Ensure the name of the role (e.g. Data Engineer) is close to the bullets */
+    .resume-items .resume-item .name {
+      margin-bottom: 10px !important;
+    }
+
+    /* 7. SKILLS SECTION SPACING (Active Fix) */
+    .skills.list.content-box {
+      margin-top: 0 !important;
+      padding-top: 15px !important;
+      /* Reduced from 35px */
+    }
+
+    .skills.list.content-box ul {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    /* 8. DATE TEXT SIZE */
+    .resume-items .resume-item .date {
+      font-size: 15px !important;
+      /* Increased for better visibility */
+    }
+
+    /* 9. REDUCE GAP AFTER HERO SECTION */
+    /* original was 70px */
+    .section.started+.section,
+    .section.started.layout-creative+.section {
+      margin-top: 30px !important;
+    }
+
+    /* 10. MENU HOVER EFFECT: QUANTUM FLUX (JS-Driven) */
+
+    /* Disable existing sliding mask */
+    .hover-masks .mask-lnk {
+      transform: none !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .hover-masks .mask-lnk-hover {
+      display: none !important;
+    }
+
+    /* Base Link Style & Overflow Fix */
+    /* CRITICAL: Override layout.scss:134 which sets overflow: hidden on 'a' */
+    .header .top-menu ul li a,
+    .header .top-menu ul li,
+    .header .top-menu,
+    .hover-masks,
+    .hover-masks a,
+    .background-enabled .header .top-menu ul li a {
+      overflow: visible !important;
+    }
+
+    /* REPAIR LOGO MASKING */
+    .logo,
+    .logo a,
+    .hover-masks-logo,
+    .hover-masks-logo a {
+      overflow: hidden !important;
+    }
+
+    .hover-masks a,
+    .hover-masks-logo a {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* QUANTUM FLUX ANIMATION KEYFRAMES */
+    /* QUANTUM FLUX ANIMATION KEYFRAMES - DIVERSITY MODE */
+    @keyframes font-rapid-switch {
+      0% {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+      }
+
+      5% {
+        font-family: 'Alex Brush', cursive;
+        font-weight: 400;
+        letter-spacing: 0px;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+
+      10% {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 0.7em;
+        /* Pixel font is large */
+        color: #ff0055 !important;
+        text-shadow: 2px 2px 0px #00ffea;
+      }
+
+      15% {
+        font-family: 'Cinzel', serif;
+        font-weight: 700;
+        letter-spacing: 4px;
+      }
+
+      20% {
+        font-family: 'Rubik Glitch', system-ui;
+        transform: translate(-50%, -50%) skewX(-20deg);
+        opacity: 0.8;
+      }
+
+      25% {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-weight: 900;
+      }
+
+      30% {
+        font-family: 'Bungee Inline', display;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+      }
+
+      35% {
+        font-family: 'Shadows Into Light', cursive;
+        transform: translate(-50%, -50%) rotate(-5deg);
+      }
+
+      40% {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 900;
+        letter-spacing: 2px;
+      }
+
+      45% {
+        font-family: 'Uncial Antiqua', display;
+        text-transform: lowercase;
+      }
+
+      50% {
+        font-family: 'Monoton', display;
+        font-weight: 400;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      55% {
+        font-family: 'Special Elite', monospace;
+        letter-spacing: -2px;
+        font-weight: 700;
+      }
+
+      60% {
+        font-family: 'Rock Salt', cursive;
+        transform: translate(-50%, -50%) rotate(3deg);
+      }
+
+      65% {
+        font-family: 'Audiowide', sans-serif;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+
+      70% {
+        font-family: 'Permanent Marker', cursive;
+        transform: translate(-50%, -50%) skewX(10deg);
+      }
+
+      75% {
+        font-family: 'Cinzel', serif;
+        font-weight: 400;
+      }
+
+      80% {
+        font-family: 'Rubik Glitch', system-ui;
+        filter: blur(0.5px);
+      }
+
+      85% {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 100;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+      }
+
+      90% {
+        font-family: 'Alex Brush', cursive;
+        transform: translate(-50%, -50%) scale(1.3);
+      }
+
+      95% {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 0.7em;
+        color: #00ffea !important;
+      }
+
+      100% {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+      }
+    }
+
+    /* ANIMATION ACTIVATION (TRIGGERED BY JS CLASS .flux-on) */
+    .flux-on::before {
+      content: attr(data-text);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+
+      color: #4bffa5 !important;
+      text-shadow: 0 0 8px rgba(75, 255, 165, 0.8) !important;
+
+      animation: font-rapid-switch 2.5s infinite linear;
+      z-index: 99999;
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: block !important;
+      pointer-events: none !important;
+    }
+
+    /* HIDE ORIGINAL TEXT WHEN FLUX IS ON */
+    .flux-on .mask-lnk {
+      color: transparent !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: none !important;
+    }
+  </style>
+
 </head>

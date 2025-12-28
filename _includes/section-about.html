@@ -6,23 +6,23 @@
         {% if content.image != '' %}
         <!-- image -->
         <div class="image">
-            <img src="{{ content.image | relative_url }}" alt="" />
+            <img src="{{ content.image | relative_url }}" alt="{{ content.image_alt }}" loading="lazy" />
         </div>
         {% endif %}
 
         <!-- desc -->
         <div class="desc">
             {{ content.text }}
-            
+
             <div class="info-list">
                 <ul>
                     {% for item in content.list %}
-					<li><strong>{{ item.label }}:</strong> {{ item.value }}</li>
-					{% endfor %}
+                    <li><strong>{{ item.label }}:</strong> {{ item.value }}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="bts">
-                <a href="{{ content.download.link }}" class="btn hover-animated">
+                <a href="{{ content.download.link }}" class="btn hover-animated" aria-label="Download CV">
                     <span class="circle"></span>
                     <span class="lnk">{{ content.download.text }}</span>
                 </a>

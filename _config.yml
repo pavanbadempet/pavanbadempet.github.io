@@ -1,10 +1,24 @@
 # basic settings
-title: "Pavan Badempet"
+title: "Pavan Badempet | Data Engineer & Architect"
+title_separator: "|"
 email: "pavan9b@gmail.com"
-description: "Developer & Entrepreneur"
-author: "Pavan Badepet"
+description: "Data Engineer specializing in Python, Spark, AWS, and AI/ML. Building scalable data platforms and production-grade applications."
+keywords: "Data Engineer, Python, Apache Spark, AWS, ETL, Machine Learning, Resume, Portfolio, TCS, Big Data"
+author: "Pavan Badempet"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://pavanbadempet.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+image: "assets/img/man2.jpg"
+twitter:
+  card: summary_large_image
+  username: "pavanbadempet"
+github:
+  username: "pavanbadempet"
+social:
+  name: "Pavan Badempet"
+  links:
+    - "https://twitter.com/pavanbadempet"
+    - "https://github.com/pavanbadempet"
+    - "https://linkedin.com/in/pavanbadempet"
 date_format: "%d %B %Y"
 
 # paginations & permalinks
@@ -24,23 +38,24 @@ collections:
   - works
 
 # archives
-jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layouts:
-    category: archive
-    tag: archive
-  permalinks:
-    category: /categories/:name/
-    tag: /tags/:name/
+# jekyll-archives:
+#   enabled:
+#     - categories
+#     - tags
+#   layouts:
+#     category: archive
+#     tag: archive
+#   permalinks:
+#     category: /categories/:name/
+#     tag: /tags/:name/
 
 # Build settings
 plugins:
-  - jekyll-archives
+  # - jekyll-archives
   - jekyll-paginate
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.
