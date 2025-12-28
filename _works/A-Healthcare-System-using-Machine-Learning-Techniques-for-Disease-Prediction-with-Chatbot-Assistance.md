@@ -5,6 +5,7 @@ category_slug: f-content
 type: content
 image: assets/img/works/hs.png
 button_url: https://github.com/pavanbadempet/A-Healthcare-System-using-Machine-Learning-Techniques-for-Disease-Prediction-with-Chatbot-Assistance
+tags: [python, machine-learning, streamlit, ai, docker, gcp]
 ---
 
 **AIO Healthcare System: AI-Powered Medical Insights**

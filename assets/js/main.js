@@ -607,30 +607,14 @@
 	/*
 		Validate Contact Form
 	*/
+	/*
+		Validate Contact Form (Removed to rely on AJAX handler below)
+	*/
+	/*
 	$('#cform').validate({
-		rules: {
-			name: {
-				required: true
-			},
-			message: {
-				required: true
-			},
-			email: {
-				required: true,
-				email: true
-			}
-		},
-		success: 'valid',
-		submitHandler: function (form) {
-			// Allow form to submit to FormSubmit.co
-			form.submit();
-			// Clear form and show success message after submission
-			setTimeout(function () {
-				$("#cform").find('input[type="text"], input[type="email"], input[type="tel"], textarea').val('');
-				$('.alert-success').fadeIn();
-			}, 500);
-		}
+		...
 	});
+	*/
 
 	/*
 		Google Maps
