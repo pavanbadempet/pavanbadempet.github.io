@@ -1,5 +1,5 @@
 /* TEAM */
-  Chief Architect: Pavan Badempet
+  Developer: Pavan Badempet
   Stack: Jekyll, Liquid, SCSS, JS
   Location: Hyderabad, India
 
