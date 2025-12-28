@@ -1,0 +1,2 @@
+# Ignore SCSS files with Jekyll front matter
+assets/css/style.scss
