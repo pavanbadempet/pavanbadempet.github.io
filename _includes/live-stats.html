@@ -1,0 +1,151 @@
+<!-- Live Stats Widget -->
+<div id="live-stats-container" class="live-stats-widget">
+    <div class="ls-header">
+        <span class="ls-dot"></span> SYSTEM LIVE
+    </div>
+    <div class="ls-grid">
+        <div class="ls-item">
+            <span class="ls-label">REPOS</span>
+            <span class="ls-value" id="stat-repos">--</span>
+        </div>
+        <div class="ls-item">
+            <span class="ls-label">STARS</span>
+            <span class="ls-value" id="stat-stars">--</span>
+        </div>
+        <div class="ls-item">
+            <span class="ls-label">FOLLOWERS</span>
+            <span class="ls-value" id="stat-followers">--</span>
+        </div>
+        <div class="ls-item">
+            <span class="ls-label">SESSION</span>
+            <span class="ls-value mono" id="stat-uptime">00:00:00</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Live Stats Widget Styles */
+    .live-stats-widget {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        background: rgba(10, 10, 10, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px 20px;
+        border-radius: 8px;
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+        z-index: 100;
+        width: 200px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        /* Initial state for entrance animation if desired */
+        animation: fadeInSlideUp 1s ease-out 1s backwards;
+    }
+
+    @keyframes fadeInSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .ls-header {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        color: #4bffa5;
+        /* Bright green */
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+    }
+
+    .ls-dot {
+        width: 6px;
+        height: 6px;
+        background: #4bffa5;
+        border-radius: 50%;
+        margin-right: 6px;
+        box-shadow: 0 0 5px #4bffa5;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            opacity: 1;
+            box-shadow: 0 0 5px #4bffa5;
+        }
+
+        50% {
+            opacity: 0.5;
+            box-shadow: 0 0 2px #4bffa5;
+        }
+
+        100% {
+            opacity: 1;
+            box-shadow: 0 0 5px #4bffa5;
+        }
+    }
+
+    .ls-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .ls-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ls-label {
+        font-size: 0.6rem;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .ls-value {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .ls-value.mono {
+        font-family: 'Courier New', monospace;
+        font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        .live-stats-widget {
+            bottom: 20px;
+            right: 20px;
+            left: 20px;
+            width: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ls-grid {
+            display: flex;
+            gap: 15px;
+        }
+
+        .ls-header {
+            margin-bottom: 0;
+            margin-right: 15px;
+            display: none;
+            /* Hide header on very small screens if needed, or keep */
+        }
+    }
+</style>
+
+<script src="{{ '/assets/js/live-stats.js' | relative_url }}"></script>
