@@ -39,7 +39,7 @@ jobs:
         continue-on-error: true # Warning only initially
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
 
   deploy:
     environment:
