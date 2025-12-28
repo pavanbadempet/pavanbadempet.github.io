@@ -347,11 +347,16 @@
         }
 
         function getVisibleItems() {
-            return Array.from(items).filter(item => !item.classList.contains('hidden'));
+            // Select both static items AND dynamic search results that are not hidden
+            // Note: We need a fresh querySelectorAll because search results are dynamic
+            const staticItems = Array.from(items).filter(item => !item.classList.contains('hidden'));
+            const dynamicItems = Array.from(document.querySelectorAll('#cp-search-results .cp-item'));
+            return [...staticItems, ...dynamicItems];
         }
 
         function updateSelection() {
-            items.forEach(item => item.classList.remove('selected'));
+            // Clear all selected classes first
+            document.querySelectorAll('.cp-item').forEach(item => item.classList.remove('selected'));
             const visible = getVisibleItems();
             if (visible[selectedIndex]) {
                 visible[selectedIndex].classList.add('selected');
