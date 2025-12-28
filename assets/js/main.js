@@ -605,15 +605,7 @@
 	});
 
 	/*
-		Validate Contact Form
-	*/
-	/*
-		Validate Contact Form (Removed to rely on AJAX handler below)
-	*/
-	/*
-	$('#cform').validate({
-		...
-	});
+		Validate Contact Form (AJAX handler below)
 	*/
 
 	/*
