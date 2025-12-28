@@ -1,0 +1,28 @@
+{
+    "name": "pavan-badempet-portfolio",
+    "version": "1.0.0",
+    "description": "Personal Data Engineering Portfolio and Blog",
+    "main": "index.html",
+    "scripts": {
+        "start": "bundle exec jekyll serve",
+        "build": "bundle exec jekyll build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pavanbadempet/pavanbadempet.github.io.git"
+    },
+    "keywords": [
+        "data-engineering",
+        "jekyll",
+        "portfolio",
+        "resume"
+    ],
+    "author": "Pavan Badempet <pavan9b@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/pavanbadempet/pavanbadempet.github.io/issues"
+    },
+    "homepage": "https://pavanbadempet.github.io",
+    "private": true
+}

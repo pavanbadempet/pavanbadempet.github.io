@@ -1,0 +1,6 @@
+{
+    "[scss]": {
+        "editor.formatOnSave": false
+    },
+    "scss.format.enable": false
+}

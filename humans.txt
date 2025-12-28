@@ -1,0 +1,9 @@
+/* TEAM */
+  Developer: Pavan Badempet
+  Stack: Jekyll, Liquid, SCSS, JS
+  Location: Hyderabad, India
+
+/* SITE */
+  Last Updated: 2025/12/28
+  Standards: HTML5, CSS3, ES6
+  Components: Custom Built
