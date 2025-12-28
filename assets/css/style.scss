@@ -1,8 +1,3 @@
-﻿---
-# Only the main Sass file needs front matter (the dashes are enough)
----
-
-@import
-  "cvio/setting",
-  "cvio/basic",
-  "cvio/layout";
+--- # Only the main Sass file needs front matter (the dashes are enough) --- @import "cvio/setting",
+"cvio/basic",
+"cvio/layout"
