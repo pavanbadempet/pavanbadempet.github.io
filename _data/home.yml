@@ -4,57 +4,57 @@
 
 ### Started Default
 started:
-  title: "Hello, I’m <strong>Pavan Badempet</strong>, a Data Engineer <br />crafting data-driven & cloud-native solutions from Hyderabad."
+  title: "Hello, I’m <strong>Pavan Badempet</strong>, an Software Engineer, <br />Writer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I build <strong>Scalable Infrastructure</strong>"
-    - "I optimize <strong>Data Pipelines</strong>"
-    - "I architect <strong>Cloud Solutions</strong>"
-    - "I automate <strong>Workflows</strong>"
-    - "I develop <strong>Backend Systems</strong>"
+    - "I obtain <strong>data</strong>"
+    - "I scrub <strong>data</strong>"
+    - "I explore <strong>data</strong>"
+    - "I model <strong>data</strong>"
+    - "I interpret <strong>data</strong>"
 
 ### Started Personal
 started-personal:
-  title: "Data Engineer building scalable cloud data platforms using Python, Spark, SQL, and AWS, integrating GenAI and ML into real-world systems."
+  title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Designer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I build <strong>backend systems</strong>"
-    - "I design <strong>data pipelines</strong>"
-    - "I deploy <strong>cloud architectures</strong>"
-    - "I automate <strong>workflows</strong>"
-    - "I develop <strong>APIs</strong>"
-  image: "assets/img/pavan.jpg"
+    - "I obtain <strong>data</strong>"
+    - "I scrub <strong>data</strong>"
+    - "I explore <strong>data</strong>"
+    - "I model <strong>data</strong>"
+    - "I interpret <strong>data</strong>"
+  image: "assets/img/man.jpg"
   
 ### Started Image
 started-image:
-  title: "<strong>Data Engineer</strong> building scalable cloud data platforms using Python, Spark, SQL, and AWS, <br />integrating GenAI and ML into real-world systems."
+  title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Designer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I build <strong>backend systems</strong>"
-    - "I design <strong>data pipelines</strong>"
-    - "I deploy <strong>cloud architectures</strong>"
-    - "I automate <strong>workflows</strong>"
-    - "I develop <strong>APIs</strong>"
+    - "I obtain <strong>data</strong>"
+    - "I scrub <strong>data</strong>"
+    - "I explore <strong>data</strong>"
+    - "I model <strong>data</strong>"
+    - "I interpret <strong>data</strong>"
   image: "assets/img/started_image_p.jpg"
   
 ### Started Video
 started-video:
-  title: "<strong>Data Engineer</strong> building scalable cloud data platforms using Python, Spark, SQL, and AWS, <br />integrating GenAI and ML into real-world systems."
+  title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Designer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I build <strong>backend systems</strong>"
-    - "I design <strong>data pipelines</strong>"
-    - "I deploy <strong>cloud architectures</strong>"
-    - "I automate <strong>workflows</strong>"
-    - "I develop <strong>APIs</strong>"
+    - "I obtain <strong>data</strong>"
+    - "I scrub <strong>data</strong>"
+    - "I explore <strong>data</strong>"
+    - "I model <strong>data</strong>"
+    - "I interpret <strong>data</strong>"
   video: "https://youtu.be/S4L8T2kFFck"
   image: "assets/img/started_image_p.jpg"
   
 ### Started Slider
 started-slider:
-  title: "<strong>Data Engineer</strong> building scalable cloud data platforms using Python, Spark, SQL, and AWS, <br />integrating GenAI and ML into real-world systems."
+  title: "Hello, I’m <strong>Pavan Badempet</strong>, an Engineer, <br />Designer & Entrepreneur Based in Hyderabad."
   typed:
-    - "I build <strong>backend systems</strong>"
-    - "I design <strong>data pipelines</strong>"
-    - "I deploy <strong>cloud architectures</strong>"
-    - "I automate <strong>workflows</strong>"
-    - "I develop <strong>APIs</strong>"
+    - "I obtain <strong>data</strong>"
+    - "I scrub <strong>data</strong>"
+    - "I explore <strong>data</strong>"
+    - "I model <strong>data</strong>"
+    - "I interpret <strong>data</strong>"
   images:
     - "assets/img/started_image.jpg"
     - "assets/img/started_image2.jpg"

@@ -1,48 +1,40 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  
+  {%- include head.html -%}
+  
+  <body class="{% if page.layout == 'home' %} home{% endif %}{% if page.layout == 'post' %} blog{% endif %}">
+    
+    {%- include preloader.html -%}
 
-{%- include head.html -%}
+    <!-- Container -->
+    <div class="container">
+      <!-- Cursor -->
+      <div class="cursor-follower"></div>
+        
+      {%- include header.html -%}
+      
+      <!-- Wrapper -->
+      <div class="wrapper">
+        {{ content }}
+      </div>
+      
+      {%- include footer.html -%}
 
-<body class="{% if page.layout == 'home' %} home{% endif %}{% if page.layout == 'post' %} blog{% endif %}">
-
-  {%- include preloader.html -%}
-
-  <!-- Container -->
-  <div class="container">
-    <!-- Cursor -->
-    <div class="cursor-follower"></div>
-
-    {%- include header.html -%}
-
-    <!-- Wrapper -->
-    <div class="wrapper">
-      {{ content }}
-    </div>
-
-    {%- include footer.html -%}
-
-    <!-- Lines -->
-    <div class="lines">
-      <div class="content">
-        <div class="line-col"></div>
-        <div class="line-col"></div>
-        <div class="line-col"></div>
-        <div class="line-col"></div>
-        <div class="line-col"></div>
+      <!-- Lines -->
+      <div class="lines">
+        <div class="content">
+          <div class="line-col"></div>
+          <div class="line-col"></div>
+          <div class="line-col"></div>
+          <div class="line-col"></div>
+          <div class="line-col"></div>
+        </div>
       </div>
     </div>
-  </div>
+    
+    {%- include scripts.html -%}
 
-  {%- include scripts.html -%}
-  <!-- Command Palette Trigger -->
-  <a href="#" class="cmd-trigger"
-    onclick="document.dispatchEvent(new KeyboardEvent('keydown', {'key':'k', 'ctrlKey':true})); return false;"
-    title="Command Palette (Ctrl+K)">
-    <i class="fas fa-terminal"></i>
-  </a>
-
-  {%- include command-palette.html -%}
-
-</body>
+  </body>
 
 </html>

@@ -1,0 +1,48 @@
+{% assign content = site.data.content['pricing'] %}
+
+<!-- Section Pricing -->
+<div class="section pricing" id="section-pricing">
+    <div class="content">
+        {% if content.title != '' %}
+        <!-- title -->
+        <div class="title">
+            <div class="title_inner">{{ content.title }}</div>
+        </div>
+        {% endif %}
+        
+        <!-- pricing items -->
+        <div class="pricing-items">
+            {% for item in content.items %}
+            <div class="pricing-col">
+                <div class="pricing-item content-box">
+                    <div class="icon">
+                        <span class="{{ item.icon }}"></span>
+                    </div>
+                    <div class="name">{{ item.name }}</div>
+                    <div class="amount">
+                        <span class="number">
+                            <span class="dollar">{{ item.price_before }}</span>
+                            <span>{{ item.price }}</span>
+                            <span class="period">{{ item.price_after }}</span>
+                        </span>
+                    </div>
+                    <div class="feature-list">
+                        <ul>
+                            {% for list in item.list %}
+                            <li{% if list.disable == "yes" %} class="disable"{% endif %}>{{ list.value }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="bts">
+                        <a href="{{ item.link }}" class="btn hover-animated">
+                            <span class="circle"></span>
+                            <span class="lnk">{{ item.button }}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>

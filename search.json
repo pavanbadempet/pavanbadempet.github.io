@@ -2,37 +2,13 @@
 layout: null
 ---
 [
-  {
-    "title": "Search Help",
-    "category": "System",
-    "tags": "help usage",
-    "url": "#",
-    "date": "",
-    "type": "System",
-    "content": "Use this search to find projects, blog posts, and more."
-  }
   {% for post in site.posts %}
-  ,
-  {
-    "title": "{{ post.title | xml_escape }}",
-    "category": "{{ post.category | default: 'Blog' }}",
-    "tags": "{{ post.tags | join: ', ' }}",
-    "url": "{{ site.baseurl }}{{ post.url }}",
-    "date": "{{ post.date | date: '%B %d, %Y' }}",
-    "type": "Post",
-    "content": "{{ post.content | strip_html | strip_newlines | truncate: 500 | escape }}"
-  }
-  {% endfor %}
-  {% for work in site.works %}
-  ,
-  {
-    "title": "{{ work.title | xml_escape }}",
-    "category": "Portfolio",
-    "tags": "{{ work.tags | join: ', ' }}",
-    "url": "{{ site.baseurl }}/portfolio/#{{ work.title | slugify }}",
-    "date": "",
-    "type": "Project",
-    "content": "{{ work.content | strip_html | strip_newlines | truncate: 500 | escape }}"
-  }
+    {
+      "title"    : "{{ post.title | escape }}",
+      "category" : "{{ post.category }}",
+      "tags"     : "{{ post.tags | join: ', ' }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "date"     : "{{ post.date }}"
+    } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

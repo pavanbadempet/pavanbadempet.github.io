@@ -1,76 +1,23 @@
-<!-- Async Script Loader & PWA -->
-<script>
-    // Service Worker Registration
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js').then(registration => {
-                // console.log('SW registered: ', registration);
-            }).catch(registrationError => {
-                // console.log('SW registration failed: ', registrationError);
-            });
-        });
-    }
-
-    // Async Script Loader
-    function loadScript(src) {
-        return new Promise(function (resolve, reject) {
-            var s = document.createElement('script');
-            s.src = src;
-            s.onload = resolve;
-            s.onerror = reject;
-            document.body.appendChild(s);
-        });
-    }
-
-    // Load Dependencies
-    // jQuery first, then Plugins, then Main
-    loadScript("{{ 'assets/js/jquery.min.js' | relative_url }}")
-        .then(function () {
-            return Promise.all([
-                loadScript("{{ 'assets/js/jquery.validate.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/jquery.magnific-popup.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/simpleParallax.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/jarallax.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/jarallax-video.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/jarallax-element.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/imagesloaded.pkgd.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/isotope.pkgd.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/swiper.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/typed.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/rrssb.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/grained.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/simple-jekyll-search.js' | relative_url }}"),
-                loadScript("https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"),
-                loadScript("{{ 'assets/js/data-particles.js' | relative_url }}")
-            ]);
-        })
-        .then(function () {
-            loadScript("{{ 'assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}");
-        })
-        .catch(function (error) {
-            console.error('Script loading failed:', error);
-        });
-
-    // Dynamic "Miss You" Title (Recruiter Delight)
-    (function () {
-        var originalTitle = document.title;
-        var hiddenTitle = "Hire Me? 👀";
-
-        document.addEventListener('visibilitychange', function () {
-            if (document.hidden) {
-                document.title = hiddenTitle;
-            } else {
-                document.title = originalTitle;
-            }
-        });
-    })();
-</script>
+<!-- Plugins -->
+<script src="{{ 'assets/js/jquery.min.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/jquery.validate.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/jquery.magnific-popup.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/simpleParallax.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/jarallax.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/jarallax-video.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/jarallax-element.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/imagesloaded.pkgd.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/isotope.pkgd.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/swiper.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/typed.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/rrssb.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/grained.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/simple-jekyll-search.js' | relative_url }}"></script>
 
 {% if site.google_maps_api_key != '' %}
 <!-- Google map api -->
-<script src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_api_key }}" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_api_key }}"></script>
 {% endif %}
 
-<!-- Instant Page (Prefetching) -->
-<script src="//instant.page/5.2.0.js" type="module"
-    integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84GO0uHFLgwvcD76uUhRheOs1zIuqOnap"></script>
+<!-- Main -->
+<script src="{{ 'assets/js/main.js' | relative_url }}"></script>

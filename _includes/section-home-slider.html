@@ -25,10 +25,8 @@
 
     <!-- slider navigation -->
     <div class="swiper-nav">
-        <a href="#" class="prev swiper-button-prev fas fa-long-arrow-alt-left" role="button"
-            aria-label="Previous Slide"></a>
-        <a href="#" class="next swiper-button-next fas fa-long-arrow-alt-right" role="button"
-            aria-label="Next Slide"></a>
+        <a class="prev swiper-button-prev fas fa-long-arrow-alt-left"></a>
+        <a class="next swiper-button-next fas fa-long-arrow-alt-right"></a>
     </div>
 
     <!-- started content -->
@@ -40,11 +38,11 @@
                     {{ content.title }}
                 </h1>
                 {% endif %}
-                <h2 class="h-subtitle typing-subtitle">
+                <div class="h-subtitle typing-subtitle">
                     {% for item in content.typed %}
                     <p>{{ item }}</p>
                     {% endfor %}
-                </h2>
+                </div>
                 <span class="typed-subtitle"></span>
             </div>
         </div>

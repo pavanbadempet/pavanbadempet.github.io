@@ -30,7 +30,7 @@ layout: default
             </div>
         </div>
     </div>
-
+    
     <!-- mosue button -->
     <a href="#" class="mouse_btn" style="display: none;"><span class="icon fas fa-chevron-down"></span></a>
 
@@ -41,18 +41,14 @@ layout: default
     <div class="content">
 
         <!-- portfolio filter -->
-        <!-- portfolio filter -->
         <div class="filter-menu content-box">
             <div class="filters">
                 <div class="btn-group">
-                    <label class="glitch-effect"><input type="radio" name="fl_radio" value=".box-item" />{{ ui_text.all
-                        }}</label>
+                    <label class="glitch-effect"><input type="radio" name="fl_radio" value=".box-item" />{{ ui_text.all }}</label>
                 </div>
                 {% for category in categories.filters %}
                 <div class="btn-group">
-                    <label data-text="{{ category.name }}"><input type="radio" name="fl_radio"
-                            value=".{{ category.slug }}" />{{
-                        category.name }}</label>
+                    <label data-text="Video"><input type="radio" name="fl_radio" value=".{{ category.slug }}" />{{ category.name }}</label>
                 </div>
                 {% endfor %}
             </div>
@@ -61,14 +57,12 @@ layout: default
         <!-- portfolio items -->
         <div class="box-items portfolio-items">
             {% for work in site.works %}
-
-            {% if work.type == 'image' or work.type == '' %}
-            <div class="box-item {{ work.category_slug }} {{ work.tags | join: ' ' | slugify }}"
-                id="{{ work.title | slugify }}">
+            
+            {% if work.type == 'image' or work.type == '' %}            
+            <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="{{ work.image | relative_url }}" class="has-popup-image hover-animated">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
-                            loading="lazy" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
@@ -85,13 +79,11 @@ layout: default
             </div>
             {% endif %}
 
-            {% if work.type == 'gallery' %}
-            <div class="box-item {{ work.category_slug }} {{ work.tags | join: ' ' | slugify }}"
-                id="{{ work.title | slugify }}">
+            {% if work.type == 'gallery' %}            
+            <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="#gallery-{{ work.id | replace: '/', '-' }}" class="has-popup-gallery hover-animated">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
-                            loading="lazy" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
@@ -109,18 +101,16 @@ layout: default
                         {% for img in gallery %}
                         <a href="{{ img | relative_url }}"></a>
                         {% endfor %}
-                    </div>
+                    </div>	
                 </div>
             </div>
             {% endif %}
 
-            {% if work.type == 'video' %}
-            <div class="box-item {{ work.category_slug }} {{ work.tags | join: ' ' | slugify }}"
-                id="{{ work.title | slugify }}">
+            {% if work.type == 'video' %}            
+            <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="{{ work.video }}" class="has-popup-video hover-animated">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
-                            loading="lazy" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
@@ -137,13 +127,11 @@ layout: default
             </div>
             {% endif %}
 
-            {% if work.type == 'link' %}
-            <div class="box-item {{ work.category_slug }} {{ work.tags | join: ' ' | slugify }}"
-                id="{{ work.title | slugify }}">
+            {% if work.type == 'link' %}            
+            <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="{{ work.link }}" class="has-popup-link hover-animated" target="_blank">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
-                            loading="lazy" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
@@ -155,18 +143,16 @@ layout: default
                                 </span>
                             </span>
                         </span>
-                    </a>
+                    </a>	
                 </div>
             </div>
             {% endif %}
 
-            {% if work.type == 'music' %}
-            <div class="box-item {{ work.category_slug }} {{ work.tags | join: ' ' | slugify }}"
-                id="{{ work.title | slugify }}">
+            {% if work.type == 'music' %}            
+            <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="{{ work.music }}" class="has-popup-music hover-animated">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
-                            loading="lazy" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
@@ -183,12 +169,11 @@ layout: default
             </div>
             {% endif %}
 
-            {% if work.type == 'content' %}
-            <div class="box-item {{ work.category_slug }}" id="{{ work.title | slugify }}">
+            {% if work.type == 'content' %}            
+            <div class="box-item {{ work.category_slug }}">
                 <div class="image">
                     <a href="#popup-{{ work.id | replace: '/', '-' }}" class="has-popup-media hover-animated">
-                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}"
-                            loading="lazy" />
+                        <img src="{{ work.image | relative_url }}" class="wp-post-image" alt="{{ work.title }}" />
                         <span class="info circle">
                             <span class="centrize full-width">
                                 <span class="vertical-center">
@@ -226,4 +211,4 @@ layout: default
             {% endif %}
 
             {% endfor %}
-            <div class="clear"></div>
+        <div class="clear"></div>
