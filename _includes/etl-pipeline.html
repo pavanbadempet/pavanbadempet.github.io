@@ -1,0 +1,189 @@
+<!-- ETL Pipeline Animation -->
+<div class="etl-pipeline-container">
+    <svg viewBox="0 0 800 200" preserveAspectRatio="xMidYMid meet" class="etl-svg">
+        <defs>
+            <linearGradient id="flow-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#4bffa5;stop-opacity:0" />
+                <stop offset="50%" style="stop-color:#4bffa5;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#4bffa5;stop-opacity:0" />
+            </linearGradient>
+            <filter id="glow">
+                <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+                <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+        </defs>
+
+        <!-- Connecting Lines (Pipes) -->
+        <path d="M100 100 L 350 100" class="pipe-line" />
+        <path d="M450 100 L 700 100" class="pipe-line" />
+
+        <!-- Source Node -->
+        <g class="node source">
+            <circle cx="100" cy="100" r="40" class="node-bg" />
+            <text x="100" y="105" text-anchor="middle" class="node-icon">RAW</text>
+            <text x="100" y="160" text-anchor="middle" class="node-label">Ingestion</text>
+        </g>
+
+        <!-- Processing Node (Gear) -->
+        <g class="node process" transform="translate(400, 100)">
+            <path
+                d="M-30,-5 L-40,-5 L-40,5 L-30,5 L-30,25 L-20,35 L-5,30 L-5,40 L5,40 L5,30 L20,35 L30,25 L30,5 L40,5 L40,-5 L30,-5 L30,-25 L20,-35 L5,-30 L5,-40 L-5,-40 L-5,-30 L-20,-35 L-30,-25 Z"
+                class="gear-shape" />
+            <circle r="15" class="gear-center" />
+            <text x="0" y="60" text-anchor="middle" class="node-label">Transform</text>
+        </g>
+
+        <!-- Target Node -->
+        <g class="node target">
+            <rect x="660" y="60" width="80" height="80" rx="5" class="node-bg" />
+            <text x="700" y="105" text-anchor="middle" class="node-icon">DATA</text>
+            <text x="700" y="160" text-anchor="middle" class="node-label">Insights</text>
+        </g>
+
+        <!-- Particle 1: Raw Data Flowing -->
+        <circle r="6" class="particle p1">
+            <animateMotion dur="3s" repeatCount="indefinite" path="M100 100 L 360 100" />
+            <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite" />
+        </circle>
+
+        <!-- Particle 2: Processed Data Flowing -->
+        <circle r="6" class="particle p2">
+            <animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" path="M440 100 L 700 100" />
+            <animate attributeName="opacity" values="0;1;1;0" dur="3s" begin="1.5s" repeatCount="indefinite" />
+        </circle>
+
+        <!-- Status Text (Optional dynamic feeling) -->
+        <text x="400" y="180" text-anchor="middle" class="status-text">PIPELINE ACTIVE</text>
+    </svg>
+</div>
+
+<style>
+    /* ETL Pipeline Styles */
+    .etl-pipeline-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .etl-svg {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+
+    /* Nodes */
+    .node-bg {
+        fill: #1e1e1e;
+        stroke: #444;
+        stroke-width: 2px;
+    }
+
+    .source .node-bg {
+        stroke: #64b5f6;
+    }
+
+    /* Blue for Source */
+    .target .node-bg {
+        stroke: #4bffa5;
+    }
+
+    /* Green for Target */
+
+    .node-icon {
+        fill: #fff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .node-label {
+        fill: #888;
+        font-size: 14px;
+        font-family: 'Roboto', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Gear Animation */
+    .gear-shape {
+        fill: #ffb74d;
+        /* Orange for Process */
+        stroke: none;
+        animation: spin 4s linear infinite;
+        transform-origin: center;
+    }
+
+    .gear-center {
+        fill: #1e1e1e;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Pipes */
+    .pipe-line {
+        fill: none;
+        stroke: #333;
+        stroke-width: 4px;
+        stroke-dasharray: 10, 5;
+    }
+
+    /* Particles */
+    .particle {
+        fill: #fff;
+        filter: url(#glow);
+    }
+
+    .p1 {
+        fill: #64b5f6;
+    }
+
+    /* Blue entering */
+    .p2 {
+        fill: #4bffa5;
+    }
+
+    /* Green exiting */
+
+    /* Status Pulse */
+    .status-text {
+        fill: #4bffa5;
+        font-size: 12px;
+        font-family: monospace;
+        opacity: 0.5;
+        animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+
+        0%,
+        100% {
+            opacity: 0.3;
+        }
+
+        50% {
+            opacity: 0.8;
+        }
+    }
+
+    /* Mobile Tweaks */
+    @media (max-width: 600px) {
+        .node-label {
+            font-size: 12px;
+        }
+    }
+</style>
