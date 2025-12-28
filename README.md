@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Jekyll](https://img.shields.io/badge/built%20with-Jekyll-red)
 
-A professional, responsive portfolio website built for showcasing Data Engineering projects, technical skills, and architecture diagrams.
+A professional, responsive portfolio website architected by Pavan Badempet to showcase Data Engineering projects, technical skills, and architecture diagrams.
 
 ## 🚀 Features
 
