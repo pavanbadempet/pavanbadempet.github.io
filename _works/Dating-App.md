@@ -5,6 +5,7 @@ category_slug: f-content
 type: content
 image: assets/img/works/datingapp.png
 button_url: https://github.com/pavanbadempet/Dating-App
+tags: [csharp, dotnet, angular, sql, azure]
 ---
 
 **Full-Stack Dating Application**

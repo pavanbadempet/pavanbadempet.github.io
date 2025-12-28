@@ -5,6 +5,7 @@ category_slug: f-content
 type: content
 image: assets/img/works/mrsbup.png
 button_url: https://github.com/pavanbadempet/Movie-Recommendation-System-based-on-User-Preferences
+tags: [python, machine-learning, nlp, api]
 ---
 
 **Movie Recommendation System Based on User Preferences**
