@@ -41,69 +41,8 @@ layout: default
     <div class="content">
 
         <!-- portfolio filter -->
+        <!-- portfolio filter -->
         <div class="filter-menu content-box">
-
-            <!-- SQL Bash Terminal -->
-            <div class="sql-terminal"
-                style="margin-bottom: 20px; text-align: left; background: #000; padding: 15px; border-radius: 4px; border: 1px solid #333; font-family: 'Courier New', monospace;">
-                <span style="color: #4CAF50;">➜</span> <span style="color: #55dbcb;">~</span> <span
-                    style="color: #fff;">sql_query</span>
-                <input type="text" id="sql-input" placeholder="SELECT * FROM projects WHERE category = '...'"
-                    style="width: 100%; background: transparent; border: none; color: #fff; font-family: 'Courier New', monospace; outline: none; margin-top: 5px; font-size: 14px;"
-                    onkeydown="handleSql(event)">
-                <div id="sql-result" style="color: #aaa; font-size: 12px; margin-top: 5px; height: 15px;"></div>
-            </div>
-
-            <script>
-                function handleSql(event) {
-                    if (event.key === 'Enter') {
-                        let query = event.target.value.trim().toLowerCase();
-                        let resultDiv = document.getElementById('sql-result');
-                        let filterValue = '*';
-
-                        // Parse simple SQL: SELECT * FROM projects WHERE category = 'x'
-                        // Simplified regex to catch "category = 'x'" or "tag = 'x'"
-                        let match = query.match(/where\s+(category|tag)\s*=\s*['"]([^'"]+)['"]/i);
-
-                        if (match) {
-                            let value = match[2]; // e.g. "python"
-                            // Try to find matching slug
-                            // We need to map user input "data engineering" -> slug "data-engineering"
-                            let slug = value.replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-                            filterValue = '.' + slug;
-                            resultDiv.innerHTML = `<span style="color: #4CAF50;">✔ Query Executed: Filtering by '${value}'...</span>`;
-                        } else if (query.includes('select *') && !query.includes('where')) {
-                            filterValue = '*';
-                            resultDiv.innerHTML = `<span style="color: #4CAF50;">✔ Resetting view...</span>`;
-                        } else {
-                            resultDiv.innerHTML = `<span style="color: #f44336;">✘ Syntax Error. Try: SELECT * FROM projects WHERE category = 'python'</span>`;
-                            return;
-                        }
-
-                        // Trigger Isotope
-                        // We tap into the existing radio button logic if possible, or trigger isotope directly
-                        // Find the radio button with this value to sync UI
-                        let radio = document.querySelector(`input[name="fl_radio"][value="${filterValue}"]`);
-                        if (radio) {
-                            radio.checked = true;
-                            // Trigger change event for Isotope
-                            radio.dispatchEvent(new Event('change', { bubbles: true }));
-                        } else {
-                            // If no exact radio match, try generic filter (Isotope might need direct variable access, but let's try jQuery trigger since main.js likely uses it)
-                            // Assuming main.js listens to .filter-menu input change
-
-                            // Fallback: manually trigger isotope if we can't find a radio
-                            if (window.jQuery && window.jQuery('.portfolio-items').length) {
-                                window.jQuery('.portfolio-items').isotope({ filter: filterValue });
-                                resultDiv.innerHTML = `<span style="color: #4CAF50;">✔ Query Executed: Filtering by '${value}'...</span>`;
-                            } else {
-                                resultDiv.innerHTML = `<span style="color: #ff9800;">⚠ Category '${match ? match[2] : ''}' not found in filters.</span>`;
-                            }
-                        }
-                    }
-                }
-            </script>
-
             <div class="filters">
                 <div class="btn-group">
                     <label class="glitch-effect"><input type="radio" name="fl_radio" value=".box-item" />{{ ui_text.all
