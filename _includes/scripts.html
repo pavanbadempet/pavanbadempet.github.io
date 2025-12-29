@@ -35,13 +35,16 @@
                 loadScript("{{ 'assets/js/jarallax-element.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/imagesloaded.pkgd.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/isotope.pkgd.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/swiper.js' | relative_url }}"),
+                loadScript("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"),
                 loadScript("{{ 'assets/js/typed.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/rrssb.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/grained.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/simple-jekyll-search.js' | relative_url }}"),
                 loadScript("https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"),
-                loadScript("{{ 'assets/js/data-particles.js' | relative_url }}")
+                loadScript("{{ 'assets/js/data-particles.js' | relative_url }}"),
+                loadScript("https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js").then(function () {
+                    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+                })
             ]);
         })
         .then(function () {
