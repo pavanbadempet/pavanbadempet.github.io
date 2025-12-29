@@ -3,7 +3,6 @@ const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
     '/assets/css/style.css',
-    '/assets/css/animate.css',
     '/assets/css/fontawesome.css',
     '/assets/js/jquery.min.js',
     '/assets/js/main.js',
