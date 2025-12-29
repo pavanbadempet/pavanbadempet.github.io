@@ -281,3 +281,8 @@
     visibility: hidden !important;
     transition: none !important;
 }
+
+/* 11. REMOVE UNDERLINE IN CONTACT INFO */
+#section-contacts-info a {
+    text-decoration: none !important;
+}
