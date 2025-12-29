@@ -99,7 +99,7 @@ skills:
 team:
   title: "Projects"
   items:
-    - name: An AIO Healthcare System
+    - name: AIO Healthcare System
       role: "Python, Streamlit, OpenAI API, GCP, Docker"
       text1: "Built an end-to-end healthcare diagnostic platform integrating Generative AI for personalized recommendations and ML classification models (89% accuracy)."
       text2: "Containerized the application using Docker and deployed on GCP, implementing a unified Streamlit interface to handle real-time user inputs and model inference."
@@ -122,7 +122,7 @@ clients:
 
 ### Contact Info [ contacts-info ]
 contacts_info:
-  title: "Contacts Info"
+  title: "Contact Info"
   list:
     - label: "Phone"
       icon: "fas fa-phone"
@@ -138,7 +138,7 @@ contacts_info:
     
     - label: "Open to"
       icon: "fas fa-user-tie"
-      value: "I am open to opportunities for Full-time positions, Contract Work, and Freelance Engagements."
+      value: "I am open to opportunities for full-time positions, contract work, and freelance engagements."
 
 ### Services [ services ]
 services:
@@ -149,7 +149,7 @@ services:
       icon: "fas fa-network-wired"
 
     - name: "Cloud Data Platforms"
-      text: "Architecting secure, serverless data lakes and warehouses on AWS (S3, Redshift, Athena) and Azure, ensuring high availability and cost optimization."
+      text: "Designing secure, serverless data lakes and warehouses on AWS (S3, Redshift, Athena) and Azure, ensuring high availability and cost optimization."
       icon: "fas fa-cloud"
 
     - name: "Big Data Processing"
