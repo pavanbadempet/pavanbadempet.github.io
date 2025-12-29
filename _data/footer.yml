@@ -12,7 +12,7 @@ main:
       icon: "fab fa-facebook"
       url: "https://www.facebook.com/badempetpavan"
     - title: "LinkedIn"
-      icon: "ion-social-linkedin"
+      icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/pavanbadempet/"
     - title: "Github"
       icon: "fab fa-github"
