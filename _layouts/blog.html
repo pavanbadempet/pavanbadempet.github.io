@@ -29,39 +29,40 @@ layout: default
             </div>
         </div>
     </div>
-    
-    <!-- mosue button -->
-    <a href="#" class="mouse_btn" style="display: none;"><span class="icon fas fa-chevron-down"></span></a>
+
 
 </div>
 
 <div class="section blog">
     <div class="content">
-        <div class="title"><div class="title_inner">{{ ui_text.latest_posts }}</div></div>
-        
+        <div class="title">
+            <div class="title_inner">{{ ui_text.latest_posts }}</div>
+        </div>
+
         <div class="blog-items">
             {% for post in paginator.posts %}
             <div class="blog-col">
                 <div class="blog-item content-box">
                     <div class="post">
-                        <div class="image"> 
-                            <a class="post-thumbnail" href="{{ post.url }}"> 
+                        <div class="image">
+                            <a class="post-thumbnail" href="{{ post.url }}">
                                 {% if post.image != nil %}
-                                <img src="{{ post.image | relative_url }}" class="wp-post-image" alt="{{ post.title }}" />
+                                <img src="{{ post.image | relative_url }}" class="wp-post-image"
+                                    alt="{{ post.title }}" />
                                 {% endif %}
-                                <span class="info"> 
-                                    <span class="centrize full-width"> 
-                                        <span class="vertical-center"> 
-                                            <span class="icon fas fa-plus"></span> 
-                                        </span> 
-                                    </span> 
-                                </span> 
+                                <span class="info">
+                                    <span class="centrize full-width">
+                                        <span class="vertical-center">
+                                            <span class="icon fas fa-plus"></span>
+                                        </span>
+                                    </span>
+                                </span>
                             </a>
                         </div>
                         <div class="desc">
-                            <div class="date"> 
+                            <div class="date">
                                 {{ post.date | date: site.date_format }}
-                            </div> 
+                            </div>
                             <!--<div class="categories">{{ post.categories | join: ", " }}</div>-->
                             <a href="{{ post.url }}" class="name">{{ post.title }}</a>
                             <div class="single-post-text">
@@ -72,37 +73,39 @@ layout: default
                 </div>
             </div>
             {% endfor %}
-            
+
             {% if paginator.total_pages > 1 %}
             <div class="pager">
-              {% if paginator.previous_page %}
-                <a href="{{ paginator.previous_page_path | relative_url }}" class="page-numbers prev">{{ ui_text.prev }}</a>
-              {% else %}
-                <span class="page-numbers prev">{{ ui_text.prev }}</span>
-              {% endif %}
-
-              {% for page in (1..paginator.total_pages) %}
-                {% if page == paginator.page %}
-                  <span class="page-numbers current">{{ page }}</span>
-                {% elsif page == 1 %}
-                  <a href="{{ '/' | relative_url }}" class="page-numbers">{{ page }}</a>
+                {% if paginator.previous_page %}
+                <a href="{{ paginator.previous_page_path | relative_url }}" class="page-numbers prev">{{ ui_text.prev
+                    }}</a>
                 {% else %}
-                  <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-numbers">{{ page }}</a>
+                <span class="page-numbers prev">{{ ui_text.prev }}</span>
                 {% endif %}
-              {% endfor %}
 
-              {% if paginator.next_page %}
+                {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                <span class="page-numbers current">{{ page }}</span>
+                {% elsif page == 1 %}
+                <a href="{{ '/' | relative_url }}" class="page-numbers">{{ page }}</a>
+                {% else %}
+                <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-numbers">{{ page
+                    }}</a>
+                {% endif %}
+                {% endfor %}
+
+                {% if paginator.next_page %}
                 <a href="{{ paginator.next_page_path | relative_url }}" class="page-numbers next">{{ ui_text.next }}</a>
-              {% else %}
+                {% else %}
                 <span class="page-numbers next">{{ ui_text.next }}</span>
-              {% endif %}
+                {% endif %}
             </div>
             {% endif %}
-            
+
         </div>
-        
+
         {%- include sidebar.html -%}
-        
+
         <div class="clear"></div>
     </div>
 </div>
