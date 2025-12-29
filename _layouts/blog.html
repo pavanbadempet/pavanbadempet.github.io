@@ -47,8 +47,8 @@ layout: default
                         <div class="image">
                             <a class="post-thumbnail" href="{{ post.url }}">
                                 {% if post.image != nil %}
-                                <img src="{{ post.image | relative_url }}" class="wp-post-image"
-                                    alt="{{ post.title }}" />
+                                <img src="{{ post.image | relative_url }}" class="wp-post-image" alt="{{ post.title }}"
+                                    loading="lazy" />
                                 {% endif %}
                                 <span class="info">
                                     <span class="centrize full-width">
