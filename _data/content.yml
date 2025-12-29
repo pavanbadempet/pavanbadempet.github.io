@@ -126,7 +126,7 @@ contacts_info:
   list:
     - label: "Phone"
       icon: "fas fa-phone"
-      value: "<a href='tel:+917989256101'>+917989256101</a>"
+      value: "<a href='tel:+917989256101'>+91 7989256101</a>"
 
     - label: "Email"
       icon:  "fas fa-envelope"
