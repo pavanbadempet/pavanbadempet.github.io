@@ -225,18 +225,8 @@
 	});
 
 	/*
-		Flux Animation Toggle (Delegated)
+		Flux Animation Toggle (Removed)
 	*/
-	/*
-		Flux Animation Toggle (Delegated)
-	*/
-	$(document).on('mouseenter', '.hover-masks a', function () {
-		$(this).addClass('flux-on');
-	});
-
-	$(document).on('mouseleave', '.hover-masks a', function () {
-		$(this).removeClass('flux-on');
-	});
 
 	/*
 		Hover Button Effect
