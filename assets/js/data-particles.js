@@ -5,7 +5,7 @@
 
 (function () {
     const canvas = document.createElement('canvas');
-    const container = document.getElementById('section-started');
+    const container = document.getElementById('section-started') || document.getElementById('section-post');
 
     // If container doesn't exist, exit
     if (!container) return;

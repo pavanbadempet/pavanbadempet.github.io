@@ -5,7 +5,7 @@ layout: default
 {% assign ui_text = site.data.ui-text['ui_text'] %}
 
 <!-- Section Started -->
-<div class="section started section-title" id="section-post">
+<div class="section started section-title" id="section-started">
 
     <!-- background -->
     <div class="video-bg">
@@ -22,9 +22,10 @@ layout: default
                     <div class="h-subtitle typing-bread">
                         <p class="breadcrumbs">
                             {% if page.subtitle == '' or page.subtitle == nil %}
-                            <a href="{{ site.url }}">{{ ui_text.home }}</a> / <a href="{{ page.url }}">{{ page.title }}</a>
+                            <a href="{{ site.url }}">{{ ui_text.home }}</a> / <a href="{{ page.url }}">{{ page.title
+                                }}</a>
                             {% else %}
-                                {{ page.subtitle }}
+                            {{ page.subtitle }}
                             {% endif %}
                         </p>
                     </div>
@@ -33,7 +34,7 @@ layout: default
             </div>
         </div>
     </div>
-    
+
     {% if page.content != '' %}
     <!-- mosue button -->
     <a href="#" class="mouse_btn" style="display: none;"><span class="icon fas fa-chevron-down"></span></a>
@@ -50,7 +51,7 @@ layout: default
                 </div>
             </div>
         </div>
-        
+
         <div class="clear"></div>
     </div>
 </div>
