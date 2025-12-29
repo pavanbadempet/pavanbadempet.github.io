@@ -692,13 +692,14 @@
 	}
 
 	&.section-title {
-		height: 40vh;
-		min-height: 300px;
+		height: auto; /* Dynamic height based on content */
+		min-height: 40vh; /* Minimum for short titles */
 
 		.started-content {
-			padding-left: 0;
-			padding-right: 0;
-			padding-top: 60px; /* Added spacing from header */
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-top: 120px; /* Space for header */
+			padding-bottom: 60px; /* Space at bottom */
 			margin: 0 auto;
 			max-width: 855px;
 			text-align: center;
@@ -971,8 +972,8 @@
 	}
 
 	.section.started.section-title {
-		height: 35vh;
-		min-height: 250px;
+		height: auto;
+		min-height: 35vh;
 	}
 
 	.section.started.layout-creative,

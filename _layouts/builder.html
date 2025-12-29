@@ -8,7 +8,8 @@ layout: default
 <div class="section started section-title" id="section-started">
 
     <!-- background -->
-    <div class="video-bg"{% if page.bg_image != '' %} style="background-image: url({{ page.bg_image | relative_url }});"{% endif %}>
+    <div class="video-bg" {% if page.bg_image !='' %} style="background-image: url({{ page.bg_image | relative_url }});"
+        {% endif %}>
         {% if page.bg_image == 'map' %}
         <div class="map" id="map"></div>
         {% endif %}
@@ -33,13 +34,11 @@ layout: default
         </div>
     </div>
 
-    <!-- mosue button -->
-    <a href="#" class="mouse_btn" style="display: none;"><span class="icon fas fa-chevron-down"></span></a>
 
 </div>
 
 {% assign sections = page.sections | split: "," %}
 
 {% for section in sections %}
-	{% include section-{{ section }}.html %}
+{% include section-{{ section }}.html %}
 {% endfor %}
