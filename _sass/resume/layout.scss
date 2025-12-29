@@ -722,18 +722,18 @@
 			.h-subtitle,
 			.typed-subtitle,
 			.typed-bread {
-				margin: 0;
-				padding-left: 35px;
-				position: absolute;
-				left: 20%;
+				margin: 20px 0 0 0;
+				padding-left: 0;
+				position: relative;
+				left: auto;
 				top: auto;
-				bottom: 50px;
-				width: auto;
-				max-width: 560px;
+				bottom: auto;
+				width: 100%;
+				max-width: 100%;
 				font-size: 20px;
 				line-height: $line_height;
 				font-weight: 400;
-				text-align: left;
+				text-align: center;
 			}
 
 			.h-subtitle p {
