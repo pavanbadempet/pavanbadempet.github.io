@@ -5,8 +5,7 @@ const ASSETS_TO_CACHE = [
     '/assets/css/style.css',
     '/assets/css/fontawesome.css',
     '/assets/js/jquery.min.js',
-    '/assets/js/main.js',
-    '/assets/js/glitche-scripts.js'
+    '/assets/js/main.js'
 ];
 
 self.addEventListener('install', event => {

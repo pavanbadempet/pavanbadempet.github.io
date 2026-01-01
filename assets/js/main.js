@@ -23,7 +23,7 @@
 		$('.lines').addClass('finish');
 		setTimeout(function () {
 			$('.lines').addClass('ready');
-		}, 2000);
+		}, 800);
 
 		/*
 			Typed Subtitle
@@ -48,7 +48,7 @@
 					showCursor: false
 				});
 			}
-		}, 1000);
+		}, 500);
 
 		/*
 			One Page Nav
@@ -285,7 +285,7 @@
 			$('.lines').addClass('no-lines');
 			setTimeout(function () {
 				location.href = "" + link;
-			}, 2500);
+			}, 800);
 		}
 		return false;
 	});
@@ -683,9 +683,7 @@
 			},
 			error: function (err) {
 				console.log('Form submission error:', err);
-				$form.fadeOut(500, function () {
-					$('.alert-success').fadeIn(500);
-				});
+				alert('Sorry, there was an error sending your message. Please try again or email me directly.');
 				if (originalText) $btn.find('.lnk').text(originalText);
 				$btn.prop('disabled', false);
 			}
@@ -710,7 +708,7 @@
 	Google Map Options
 */
 function initMap() {
-	var myLatlng = new google.maps.LatLng(48.859003, 2.345275); // <- Your latitude and longitude
+	var myLatlng = new google.maps.LatLng(17.385044, 78.486671); // Hyderabad, India
 	var styles = [
 		{
 			"stylers": [
