@@ -1,5 +1,5 @@
 ---
-title: A Healthcare System using Machine Learning Techniques for Disease Prediction with Chatbot Assistance
+title: AI Healthcare System
 category: Content
 category_slug: f-content
 type: content
