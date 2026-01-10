@@ -5,8 +5,8 @@
 ### About [ about ]
 about:
   image: "assets/img/pavan_badempet.png"
-  image_alt: "Pavan Badempet - Senior Data Engineer"
-  text: "<p><b>Data Engineer</b> with 2+ years of experience building and optimizing scalable ETL/ELT pipelines across AWS and on-premises environments. Strong expertise in Python, SQL, Scala, and Apache Spark for large-scale data ingestion, transformation, and validation. Experienced in designing serverless, batch, and event-driven data workflows, delivering production-grade data platforms for FinTech and Automotive domains.</p>"
+  image_alt: "Pavan Badempet - Data Engineer"
+  text: "<p><b>Data Engineer</b> with 2+ years of experience building scalable ETL/ELT pipelines using Python, SQL, and Spark across AWS and on-prem environments. Solid grounding in computer science fundamentals, including data structures and algorithms, and distributed systems, applied to batch processing, data quality, and fault-tolerant pipeline design. Experience working on large-scale Spark ETL systems for FinTech and Automotive domains, with a focus on performance optimization and reliability.</p>"
 
   list:
 
@@ -36,18 +36,18 @@ resume:
     items:
       - year: "Nov 2023 – Present"
         name: "Data Engineer - Tata Consultancy Services"
-        text1: "<b>Nissan Data Platform:</b> Designed and implemented a serverless data ingestion and validation pipeline using AWS Lambda, API Gateway, and Streamlit."
-        text2: "Automated schema validation, preprocessing, and data quality checks, reducing manual data onboarding effort by 60%."
-        text3: "Implemented robust error-handling logic and comprehensive unit tests using Pytest and Moto, achieving 95% coverage of core ingestion workflows and AWS integrations."
-        text4: "<b>Nomura Capital:</b> Engineered large-scale Apache Spark ETL pipelines for batch processing of multi-entity financial datasets."
-        text5: "Computed complex risk and valuation metrics, improving batch throughput by 30% through partition pruning, broadcast joins, and shuffle optimization."
-        text6: "Executed and stabilized Spark workloads on a Kubernetes + MinIO platform during migration from MapR/YARN."
-        text7: "Integrated Dremio for data virtualization and used AutoSys for orchestration, collaborating with platform and business teams to improve batch reliability by 20%."
+        text1: "<b>Nomura Capital:</b> Engineered and maintained large-scale Spark ETL pipelines using Spark SQL and complex analytical SQL queries for capital markets datasets (trades, reference, risk, and valuation feeds), involving multi-way joins and window functions to support downstream reporting and risk analytics."
+        text2: "Analyzed Spark execution metrics to improve execution time by 30% through broadcast joins, partition pruning, predicate pushdown, and optimized star schema joins between fact and dimension tables."
+        text3: "Orchestrated Spark workflows using AutoSys, managing dependency chains, reruns, and recovery logic, improving batch completion reliability and reducing manual intervention by 25%."
+        text4: "Executed migration of Spark workloads from YARN to Kubernetes, transitioning storage from HDFS to MinIO (S3-compatible), resolving Spark connector and storage compatibility issues."
+        text5: "<b>Nissan:</b> Architected daily batch pipelines using AWS Lambda and Step Functions, while developing a Streamlit interface for ad-hoc file ingestion and idempotent re-runs for business users."
+        text6: "Implemented schema validation, data quality checks, and incremental batch processing with idempotent re-runs, preparing curated datasets for Snowflake Data Warehouse ingestion and reducing manual effort by 60%."
+        text7: "Improved pipeline reliability via retries, implementing comprehensive monitoring and alerting using CloudWatch with automated notifications for pipeline failures, data freshness, and quality issues, reducing MTTR by 30%."
 
       - year: "Mar 2023 – Apr 2023"
         name: "Data Analytics Intern - TCS iON"
-        text1: "Built an ensemble ML-based employee attrition prediction system achieving 86% accuracy."
-        text2: "Developed and deployed a FastAPI backend for real-time model inference and API-based consumption."
+        text1: "Implemented an ensemble-based attrition prediction model, achieving 86% accuracy on validation data."
+        text2: "Designed a lightweight FastAPI service to expose the model for real-time inference and testing."
 
   education:
     title: "Education"
@@ -63,52 +63,51 @@ resume:
 skills:
   columns:
     - type: "list"
-      title: "Languages"
+      title: "Programming Languages"
       items:
         - label: "Python"
         - label: "SQL"
         - label: "Scala"
         - label: "Java"
-        - label: "HTML/CSS"
 
     - type: "list"
-      title: "Big Data & Frameworks"
+      title: "Data Processing"
       items:
-        - label: "Apache Spark"
+        - label: "Apache Spark (PySpark, Spark SQL)"
         - label: "Pandas"
         - label: "NumPy"
-        - label: "FastAPI"
-        - label: "Streamlit"
 
     - type: "list"
-      title: "Data Platforms & Storage"
+      title: "Cloud & Storage"
       items:
-        - label: "AWS"
+        - label: "AWS (Lambda, Glue, Step Functions, S3)"
         - label: "Snowflake"
         - label: "MinIO"
-        - label: "Dremio"
 
     - type: "list"
-      title: "Orchestration & Tools"
+      title: "Tools"
       items:
-        - label: "Docker"
         - label: "AutoSys"
+        - label: "Docker"
         - label: "Git"
+        - label: "FastAPI"
+        - label: "Streamlit"
+        - label: "Pytest"
 
 ### Projects [ team ]
 team:
   title: "Projects"
   items:
-    - name: AIO Healthcare System
-      role: "Python, Streamlit, OpenAI API, GCP, Docker"
-      text1: "Built an end-to-end healthcare diagnostic platform integrating Generative AI for personalized recommendations and ML classification models (89% accuracy)."
-      text2: "Containerized the application using Docker and deployed on GCP, implementing a unified Streamlit interface to handle real-time user inputs and model inference."
-      text3: ""
+    - name: AI Healthcare System
+      role: "Python, Pandas, FastAPI, Streamlit, Render, Neon, GCP, Docker"
+      text1: "Built automated ETL pipelines processing 250k+ records to train XGBoost classifiers; implemented comprehensive data quality checks achieving 89% prediction accuracy."
+      text2: "Architected a decoupled application with FastAPI backend and Streamlit frontend, containerized via Docker for deployment on GCP/Render, with managed PostgreSQL database on Neon."
+      text3: "Integrated a RAG using Gemini to provide context-aware queries, significantly reducing manual data entry."
 
     - name: "Movie Recommendation System"
-      role: "Python, NLTK, TMDB API, Azure"
-      text1: "Developed a content-based movie recommendation engine using NLTK and Cosine Similarity, integrating the TMDB API and deploying the application on Azure."
-      text2: ""
+      role: "Python, PySpark, FastAPI, Streamlit, Render, Azure"
+      text1: "Built end-to-end recommendation pipeline processing 1M+ movie records using PySpark for ETL and Cosine Similarity for efficient similarity search."
+      text2: "Deployed model via FastAPI backend and Streamlit UI, enabling real-time content-based filtering."
       text3: ""
 
 ### Honors & Awards [ clients ]
