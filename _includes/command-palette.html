@@ -189,6 +189,30 @@
 </style>
 
 <script>
+    // Toggle function exposed globally for inline handlers
+    let paletteState = { isOpen: false, selectedIndex: 0 };
+    function togglePalette() {
+        const palette = document.getElementById('command-palette');
+        const input = document.getElementById('cp-input');
+        if (paletteState.isOpen) {
+            palette.classList.remove('open');
+            setTimeout(() => { palette.style.display = 'none'; }, 200);
+            document.body.style.overflow = '';
+        } else {
+            palette.style.display = 'flex';
+            void palette.offsetWidth;
+            palette.classList.add('open');
+            input.value = '';
+            document.getElementById('cp-search-results').innerHTML = '';
+            if (window.cpFilterItems) window.cpFilterItems('');
+            input.focus();
+            document.body.style.overflow = 'hidden';
+            paletteState.selectedIndex = 0;
+            if (window.cpUpdateSelection) window.cpUpdateSelection();
+        }
+        paletteState.isOpen = !paletteState.isOpen;
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         const palette = document.getElementById('command-palette');
         const input = document.getElementById('cp-input');
@@ -264,58 +288,33 @@
             }
         }
 
-        let isOpen = false;
-        let selectedIndex = 0;
-
-        // Open/Close Logic
-        function togglePalette() {
-            if (isOpen) {
-                palette.classList.remove('open');
-                setTimeout(() => { palette.style.display = 'none'; }, 200);
-                document.body.style.overflow = '';
-            } else {
-                palette.style.display = 'flex';
-                // Force reflow
-                void palette.offsetWidth;
-                palette.classList.add('open');
-                input.value = '';
-                document.getElementById('cp-search-results').innerHTML = ''; // Clear previous search
-                filterItems(''); // Reset static items
-                input.focus();
-                document.body.style.overflow = 'hidden';
-                selectedIndex = 0;
-                updateSelection();
-            }
-            isOpen = !isOpen;
-        }
-
         // Shortcut: Ctrl+K or Cmd+K
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                 e.preventDefault();
                 togglePalette();
             }
-            if (e.key === 'Escape' && isOpen) {
+            if (e.key === 'Escape' && paletteState.isOpen) {
                 togglePalette();
             }
 
-            if (!isOpen) return;
+            if (!paletteState.isOpen) return;
 
             // Navigation
             if (e.key === 'ArrowDown') {
                 e.preventDefault();
-                selectedIndex = (selectedIndex + 1) % getVisibleItems().length;
+                paletteState.selectedIndex = (paletteState.selectedIndex + 1) % getVisibleItems().length;
                 updateSelection();
             } else if (e.key === 'ArrowUp') {
                 e.preventDefault();
                 const visible = getVisibleItems();
-                selectedIndex = (selectedIndex - 1 + visible.length) % visible.length;
+                paletteState.selectedIndex = (paletteState.selectedIndex - 1 + visible.length) % visible.length;
                 updateSelection();
             } else if (e.key === 'Enter') {
                 e.preventDefault();
                 const visible = getVisibleItems();
-                if (visible[selectedIndex]) {
-                    visible[selectedIndex].click();
+                if (visible[paletteState.selectedIndex]) {
+                    visible[paletteState.selectedIndex].click();
                 }
             }
         });
@@ -330,7 +329,7 @@
             const val = e.target.value.toLowerCase();
             filterItems(val); // Existing static filter
             performSearch(val); // New dynamic search
-            selectedIndex = 0;
+            paletteState.selectedIndex = 0;
             updateSelection();
         });
 
@@ -345,6 +344,7 @@
                 }
             });
         }
+        window.cpFilterItems = filterItems; // Expose globally
 
         function getVisibleItems() {
             // Select both static items AND dynamic search results that are not hidden
@@ -358,11 +358,12 @@
             // Clear all selected classes first
             document.querySelectorAll('.cp-item').forEach(item => item.classList.remove('selected'));
             const visible = getVisibleItems();
-            if (visible[selectedIndex]) {
-                visible[selectedIndex].classList.add('selected');
-                visible[selectedIndex].scrollIntoView({ block: 'nearest' });
+            if (visible[paletteState.selectedIndex]) {
+                visible[paletteState.selectedIndex].classList.add('selected');
+                visible[paletteState.selectedIndex].scrollIntoView({ block: 'nearest' });
             }
         }
+        window.cpUpdateSelection = updateSelection; // Expose globally
 
         // Copy Email Action
         const copyEmailBtn = document.getElementById('cp-copy-email');
