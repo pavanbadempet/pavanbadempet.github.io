@@ -22,7 +22,7 @@
         var el = document.getElementById('cp-ai-config');
         if (!el) return {};
         try {
-            return JSON.parse(el.textContent);
+            return JSON.parse(String(el.textContent).replace(/^\uFEFF/, '').trim());
         } catch (e) {
             return {};
         }
@@ -127,33 +127,44 @@
         if (!chunkStore.length) return [];
         if (!bm25Index) bm25Index = buildBm25Index(chunkStore);
 
-        var terms = [...new Set(tokenize(query))].filter(function (t) {
+        var raw = String(query || '').trim();
+        var terms = [...new Set(tokenize(raw))].filter(function (t) {
             return !STOPWORDS.has(t) && t.length > 1;
         });
-        if (!terms.length) {
-            var fb = chunkStore.slice(0, k);
-            lastSources = fb.map(function (c, i) {
-                return { index: i + 1, id: c.id, title: c.title, url: c.url, score: 0 };
-            });
-            return fb;
+
+        /* Too-short or stopword-only queries: do not inject random first chunks (bad UX / false "sources"). */
+        if (raw.length < 4 || !terms.length) {
+            return [];
         }
 
         var scored = scoreBm25(bm25Index, terms);
         var positive = scored.filter(function (x) {
-            return x.score > 0;
+            return x.score > 1e-6;
         });
-        var picks = (positive.length ? positive : scored).slice(0, k);
+        if (!positive.length) {
+            return [];
+        }
 
-        lastSources = picks.map(function (p, i) {
+        var seen = {};
+        var deduped = [];
+        for (var i = 0; i < positive.length && deduped.length < k; i++) {
+            var ch = positive[i].chunk;
+            var key = (ch.url || '') + '|' + (ch.id || '');
+            if (seen[key]) continue;
+            seen[key] = true;
+            deduped.push(positive[i]);
+        }
+
+        lastSources = deduped.map(function (p, idx) {
             return {
-                index: i + 1,
+                index: idx + 1,
                 id: p.chunk.id,
                 title: p.chunk.title,
                 url: p.chunk.url,
                 score: Math.round(p.score * 1000) / 1000,
             };
         });
-        return picks.map(function (p) {
+        return deduped.map(function (p) {
             return p.chunk;
         });
     }
@@ -237,7 +248,17 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ messages: messages, model: 'openai', temperature: temperature }),
         });
-        if (!res.ok) throw new Error('Pollinations HTTP ' + res.status);
+        if (!res.ok) {
+            var errBody = '';
+            try {
+                errBody = (await res.text()).trim().slice(0, 240);
+            } catch (e0) {
+                /* ignore */
+            }
+            throw new Error(
+                'Pollinations HTTP ' + res.status + (errBody ? ': ' + errBody : ' (empty body; check network / ad blockers)')
+            );
+        }
         return res.text();
     }
 

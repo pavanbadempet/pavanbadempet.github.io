@@ -5,11 +5,13 @@
             <div class="cp-mode-icon">
                 <i class="fas fa-sparkles" id="cp-mode-icon"></i>
             </div>
-            <input type="text" id="cp-input" placeholder="Ask AI about Pavan... (or type / for commands)"
-                autocomplete="off">
+            <div class="cp-header-mid">
+                <div class="cp-title">Portfolio assistant</div>
+                <div class="cp-sub" id="cp-subhint">Ask about projects, skills, or experience</div>
+            </div>
             <div class="cp-actions">
                 <span id="cp-status-tag" class="cp-status-tag">AI Active</span>
-                <span class="cp-esc">ESC</span>
+                <button type="button" class="cp-close" id="cp-close-btn" aria-label="Close">×</button>
             </div>
         </div>
 
@@ -73,8 +75,16 @@
             </div>
         </div>
         <div class="cp-footer">
-            <span></span>
-            <span class="cp-hint">Type <b>/</b> to switch modes</span>
+            <div class="cp-composer">
+                <input type="text" id="cp-input" class="cp-input-field"
+                    placeholder="Message… ( / for command mode )" autocomplete="off" enterkeyhint="send">
+                <button type="button" class="cp-send" id="cp-send-btn" aria-label="Send message" title="Send">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="cp-footer-meta">
+                <span class="cp-hint"><kbd>Enter</kbd> send · <kbd>/</kbd> commands · <kbd>Esc</kbd> close</span>
+            </div>
         </div>
     </div>
 </div>
@@ -139,19 +149,18 @@
     .command-palette-modal {
         width: 100%;
         max-width: 650px;
-        background: #1E1E1E;
-        border-radius: 12px;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: #1a1b1e;
+        border-radius: 14px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         display: flex;
         flex-direction: column;
-        max-height: 80vh;
-        /* Prevent it from being taller than screen */
+        max-height: 82vh;
         margin: 0 15px;
-        /* Side margins on mobile */
         transform: scale(0.95);
         opacity: 0;
         transition: all 0.2s ease;
+        color-scheme: dark;
     }
 
     .command-palette-overlay.open .command-palette-modal {
@@ -220,23 +229,46 @@
         text-shadow: 0 0 10px rgba(75, 255, 165, 0.4);
     }
 
-    #cp-input {
-        background: transparent;
-        border: none;
-        color: #fff;
-        font-family: 'Roboto', sans-serif;
-        font-size: 1.1em;
-        flex-grow: 1;
-        outline: none;
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        line-height: normal;
-        /* Fix vertical align */
+    .cp-header-mid {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
     }
 
-    #cp-input::placeholder {
-        color: #666;
+    .cp-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #f0f0f0;
+        letter-spacing: 0.01em;
+    }
+
+    .cp-sub {
+        font-size: 0.78rem;
+        color: #8a8a8a;
+        line-height: 1.35;
+    }
+
+    .cp-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.06);
+        color: #ccc;
+        font-size: 1.25rem;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .cp-close:hover {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
     }
 
     .cp-actions {
@@ -244,15 +276,6 @@
         align-items: center;
         gap: 12px;
         margin-left: auto;
-    }
-
-    .cp-esc {
-        background: rgba(255, 255, 255, 0.1);
-        color: #aaa;
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-size: 0.75em;
-        border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .cp-status-tag {
@@ -273,18 +296,28 @@
         padding: 0;
         min-height: 200px;
         scroll-behavior: smooth;
-        /* Scrollbar styling */
         scrollbar-width: thin;
-        scrollbar-color: #333 transparent;
+        scrollbar-color: rgba(100, 100, 100, 0.55) rgba(0, 0, 0, 0.2);
     }
 
     .cp-body::-webkit-scrollbar {
-        width: 6px;
+        width: 8px;
+    }
+
+    .cp-body::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
     }
 
     .cp-body::-webkit-scrollbar-thumb {
-        background-color: #333;
-        border-radius: 3px;
+        background-color: rgba(90, 90, 90, 0.75);
+        border-radius: 4px;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+    }
+
+    .cp-body::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(120, 120, 120, 0.85);
     }
 
     /* Messages */
@@ -308,29 +341,117 @@
         flex: 1 1 100%;
         font-size: 0.72rem;
         color: #8a8a8a;
-        line-height: 1.5;
-        padding-top: 2px;
+        line-height: 1.45;
+        padding-top: 6px;
+        margin-top: 4px;
     }
 
-    .cp-retrieval-label {
-        color: #666;
-        margin-right: 6px;
+    .cp-retrieval-details {
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(0, 0, 0, 0.22);
+        padding: 0 8px;
+    }
+
+    .cp-retrieval-details summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 6px 0;
+        font-size: 0.7rem;
+        color: #777;
+        user-select: none;
+    }
+
+    .cp-retrieval-details summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .cp-retrieval-details summary::before {
+        content: '▸ ';
+        color: #555;
+    }
+
+    .cp-retrieval-details[open] summary::before {
+        content: '▾ ';
+    }
+
+    .cp-retrieval-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 8px;
+        padding-bottom: 8px;
     }
 
     .cp-chip {
         display: inline-block;
-        margin: 2px 6px 2px 0;
-        padding: 2px 8px;
-        border-radius: 4px;
-        border: 1px solid rgba(143, 217, 255, 0.35);
-        color: #9fdcff;
+        max-width: min(260px, 100%);
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid rgba(143, 217, 255, 0.22);
+        color: #8ec8f0;
         text-decoration: none;
-        font-size: 0.7rem;
+        font-size: 0.68rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .cp-chip:hover {
-        border-color: #4bffa5;
+        border-color: rgba(75, 255, 165, 0.45);
+        color: #b8ffe0;
+    }
+
+    .cp-composer {
+        display: flex;
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .cp-input-field {
+        flex: 1;
+        min-width: 0;
+        background: #141518;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        color: #f2f2f2;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.95rem;
+        outline: none;
+        padding: 11px 14px;
+        line-height: 1.35;
+    }
+
+    .cp-input-field:focus {
+        border-color: rgba(75, 255, 165, 0.35);
+        box-shadow: 0 0 0 1px rgba(75, 255, 165, 0.12);
+    }
+
+    .cp-input-field::placeholder {
+        color: #666;
+    }
+
+    .cp-send {
+        flex-shrink: 0;
+        width: 44px;
+        border-radius: 10px;
+        border: 1px solid rgba(75, 255, 165, 0.35);
+        background: rgba(75, 255, 165, 0.12);
         color: #4bffa5;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.95rem;
+    }
+
+    .cp-send:hover {
+        background: rgba(75, 255, 165, 0.2);
+    }
+
+    .cp-send:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
     }
 
     .cp-avatar {
@@ -393,23 +514,33 @@
     }
 
     .cp-footer {
-        padding: 10px 20px;
-        background: #1E1E1E;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 0.75em;
-        color: #666;
+        padding: 12px 16px 14px;
+        background: #16171a;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        gap: 8px;
         flex-shrink: 0;
     }
 
-    .cp-hint b {
-        color: #eee;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 0 4px;
-        border-radius: 3px;
-        font-weight: 500;
+    .cp-footer-meta {
+        display: flex;
+        justify-content: center;
+    }
+
+    .cp-hint {
+        font-size: 0.72rem;
+        color: #5c5c5c;
+    }
+
+    .cp-hint kbd {
+        font-family: ui-monospace, monospace;
+        font-size: 0.68rem;
+        color: #9a9a9a;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 4px;
+        padding: 1px 5px;
     }
 
     /* Thinking Animation */
@@ -462,6 +593,7 @@
     function togglePalette() {
         const palette = document.getElementById('command-palette');
         const input = document.getElementById('cp-input');
+        if (!palette) return;
         if (paletteState.isOpen) {
             palette.classList.remove('open');
             setTimeout(() => { palette.style.display = 'none'; }, 200);
@@ -470,8 +602,10 @@
             palette.style.display = 'flex';
             void palette.offsetWidth;
             palette.classList.add('open');
-            input.value = '';
-            input.focus();
+            if (input) {
+                input.value = '';
+                input.focus();
+            }
             document.body.style.overflow = 'hidden';
             setMode('ai');
             if (!aiContextLoaded) loadContext();
@@ -486,6 +620,7 @@
         const cmdContainer = document.getElementById('cp-commands-container');
         const status = document.getElementById('cp-status-tag');
         const input = document.getElementById('cp-input');
+        const sub = document.getElementById('cp-subhint');
 
         if (mode === 'ai') {
             icon.className = 'fas fa-sparkles';
@@ -495,14 +630,16 @@
             status.style.background = '#4bffa5';
             status.style.color = '#000';
             status.style.boxShadow = '0 0 10px rgba(75, 255, 165, 0.3)';
-            input.placeholder = "Ask AI about Pavan... (or type / for commands)";
+            if (sub) sub.textContent = 'Ask about projects, skills, or experience';
+            if (input) input.placeholder = 'Message… ( / for command mode )';
         } else {
             icon.className = 'fas fa-search';
             chatContainer.style.display = 'none';
             cmdContainer.style.display = 'block';
             status.textContent = 'CMD Mode';
             status.style.background = '#007acc';
-            input.placeholder = "Search commands... (backspace to clear /)";
+            if (sub) sub.textContent = 'Jump to pages or run actions';
+            if (input) input.placeholder = 'Search commands… (backspace clears / )';
         }
     }
 
@@ -544,10 +681,43 @@
         }
     }
 
+    function submitFromComposer() {
+        const input = document.getElementById('cp-input');
+        if (!input) return;
+        if (paletteState.mode === 'command') {
+            const visible = document.querySelector('.cp-item:not(.hidden)') || document.querySelector('.cp-search-result');
+            if (visible) visible.click();
+        } else {
+            handleUserMessage(input.value);
+            input.value = '';
+        }
+    }
+
     // --- Event Listeners ---
     document.addEventListener('DOMContentLoaded', () => {
         const input = document.getElementById('cp-input');
+        const palette = document.getElementById('command-palette');
         const prov = document.getElementById('cp-ai-provider');
+        if (!input) return;
+
+        if (palette) {
+            palette.addEventListener('click', (e) => {
+                if (e.target === palette) togglePalette();
+            });
+        }
+
+        const sendBtn = document.getElementById('cp-send-btn');
+        if (sendBtn) {
+            sendBtn.addEventListener('click', () => submitFromComposer());
+        }
+
+        const closeBtn = document.getElementById('cp-close-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                if (paletteState.isOpen) togglePalette();
+            });
+        }
+
         if (prov) {
             setAiProviderUi(readStoredProvider());
             prov.addEventListener('change', () => {
@@ -581,13 +751,7 @@
         input.addEventListener('keydown', async (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                if (paletteState.mode === 'command') {
-                    const visible = document.querySelector('.cp-item:not(.hidden)') || document.querySelector('.cp-search-result');
-                    if (visible) visible.click();
-                } else {
-                    handleUserMessage(input.value);
-                    input.value = '';
-                }
+                submitFromComposer();
             }
             if (e.key === 'Escape') {
                 togglePalette();
@@ -645,40 +809,74 @@
                 : null;
 
             const answer = await PortfolioAI.callProvider({ provider: provider, messages: messages, onProgress: onProgress });
+            const answerStr = answer == null ? '' : String(answer);
+            const trimmed = answerStr.trim();
 
             removeMessage(thinkingId);
-            const botEl = addBotMessage(answer);
+            if (!trimmed) {
+                addBotMessage(
+                    '**No reply** from the selected inference provider. Try another option in **Inference**, check your connection, or open the browser console (F12) for network errors.'
+                );
+                return;
+            }
+            const botEl = addBotMessage(answerStr);
             renderCpRetrievalBar(botEl);
             chatHistory.push({ role: 'user', content: msg });
-            chatHistory.push({ role: 'assistant', content: answer });
+            chatHistory.push({ role: 'assistant', content: answerStr });
         } catch (error) {
             removeMessage(thinkingId);
             addBotMessage('**Error:** ' + error.message);
         }
     }
 
+    function truncateCpTitle(title, maxLen) {
+        var t = String(title || '');
+        maxLen = maxLen || 48;
+        if (t.length <= maxLen) return t;
+        return t.slice(0, maxLen - 1) + '\u2026';
+    }
+
     function renderCpRetrievalBar(botMessageEl) {
         if (!window.PortfolioAI || !botMessageEl) return;
-        const src = PortfolioAI.getLastSources();
-        if (!src || !src.length) return;
+        const src = PortfolioAI.getLastSources().filter(function (s) {
+            return (s.score || 0) > 1e-9;
+        });
+        if (!src.length) return;
+
+        const maxChips = 5;
+        const slice = src.slice(0, maxChips);
         const bar = document.createElement('div');
         bar.className = 'cp-retrieval-bar';
         bar.setAttribute('aria-label', 'Retrieval sources');
-        var parts = ['<span class="cp-retrieval-label">Grounded with</span>'];
-        for (var i = 0; i < src.length; i++) {
-            var s = src[i];
-            var href = encodeURI(String(s.url || '#'));
-            parts.push(
-                '<a class="cp-chip" href="' +
-                    href.replace(/"/g, '%22') +
-                    '">[' +
-                    s.index +
-                    '] ' +
-                    escapeHtml(String(s.title || '')) +
-                    '</a>'
-            );
+
+        const det = document.createElement('details');
+        det.className = 'cp-retrieval-details';
+        const sum = document.createElement('summary');
+        var n = src.length;
+        sum.textContent = 'Sources from site index' + (n > maxChips ? ' (' + n + ' matches, top ' + maxChips + ')' : ' (' + n + ')');
+        const wrap = document.createElement('div');
+        wrap.className = 'cp-retrieval-chips';
+
+        for (var i = 0; i < slice.length; i++) {
+            var s = slice[i];
+            var a = document.createElement('a');
+            a.className = 'cp-chip';
+            try {
+                a.href = s.url ? encodeURI(String(s.url)) : '#';
+            } catch (eUrl) {
+                a.href = '#';
+            }
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            var fullTitle = String(s.title || '');
+            a.title = fullTitle;
+            a.textContent = '[' + s.index + '] ' + truncateCpTitle(fullTitle, 46);
+            wrap.appendChild(a);
         }
-        bar.innerHTML = parts.join('');
+
+        det.appendChild(sum);
+        det.appendChild(wrap);
+        bar.appendChild(det);
         botMessageEl.appendChild(bar);
     }
 
