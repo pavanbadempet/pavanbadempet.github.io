@@ -102,6 +102,23 @@
             }
         });
     })();
+
+    // Back to Top Button
+    (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
 </script>
 
 {% comment %} Maps JS is heavy (~65+ KiB); only load when this page actually renders #map. {% endcomment %}
