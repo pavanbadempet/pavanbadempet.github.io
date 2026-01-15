@@ -13,6 +13,16 @@
             </div>
         </div>
 
+        <div class="cp-ai-toolbar">
+            <label for="cp-ai-provider" class="cp-ai-label">Inference</label>
+            <select id="cp-ai-provider" aria-label="AI inference provider">
+                <option value="pollinations">Cloud — Pollinations (free)</option>
+                <option value="worker" {% unless site.ai_worker_url %}disabled{% endunless %}>Cloud — your Worker (OpenAI-compatible)</option>
+                <option value="ollama">Ollama (local http, or https tunnel via ollama_base_url)</option>
+                <option value="webllm">Browser — WebGPU / WebLLM (large one-time download)</option>
+            </select>
+        </div>
+
         <div class="cp-body">
             <!-- Chat Mode Container -->
             <div id="cp-chat-container">
@@ -69,7 +79,23 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script type="application/json" id="cp-ai-config">
+    {
+        "workerUrl": {{ site.ai_worker_url | default: '' | jsonify }},
+        "workerModel": {{ site.ai_worker_model | default: 'gpt-4o-mini' | jsonify }},
+        "ollamaModel": {{ site.ollama_default_model | default: 'llama3.2' | jsonify }},
+        "ollamaBaseUrl": {{ site.ollama_base_url | default: '' | jsonify }},
+        "webllmModel": {{ site.webllm_default_model | default: 'Llama-3.2-1B-Instruct-q4f16_1-MLC' | jsonify }},
+        "chunksUrl": {{ '/ai_chunks.json' | relative_url | jsonify }},
+        "siteCard": {{ site.description | jsonify }},
+        "retrievalK": {{ site.ai_retrieval_k | default: 8 }},
+        "temperature": {{ site.ai_temperature | default: 0.42 }},
+        "contractVersion": {{ site.ai_contract_version | default: 'portfolio-ai-v2' | jsonify }},
+        "aiFacts": {% if site.data.ai_facts %}{{ site.data.ai_facts | jsonify }}{% else %}null{% endif %}
+    }
+</script>
+<script src="{{ '/assets/js/ai-engine.js' | relative_url }}" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
 
 <style>
     /* Command Palette Styles */
@@ -142,6 +168,39 @@
         background: #1E1E1E;
         flex-shrink: 0;
         /* Keep header from shrinking */
+    }
+
+    .cp-ai-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 20px 12px;
+        background: #1E1E1E;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        flex-wrap: wrap;
+    }
+
+    .cp-ai-label {
+        font-size: 0.72rem;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+    }
+
+    #cp-ai-provider {
+        flex: 1;
+        min-width: 180px;
+        background: #2a2a2a;
+        color: #eee;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 6px;
+        padding: 7px 10px;
+        font-size: 0.82rem;
+    }
+
+    #cp-ai-provider:disabled {
+        opacity: 0.45;
     }
 
     .cp-mode-icon {
@@ -234,6 +293,44 @@
         display: flex;
         flex-direction: column;
         gap: 18px;
+    }
+
+    .cp-message.bot,
+    .cp-message.user {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .cp-retrieval-bar {
+        flex: 1 1 100%;
+        font-size: 0.72rem;
+        color: #8a8a8a;
+        line-height: 1.5;
+        padding-top: 2px;
+    }
+
+    .cp-retrieval-label {
+        color: #666;
+        margin-right: 6px;
+    }
+
+    .cp-chip {
+        display: inline-block;
+        margin: 2px 6px 2px 0;
+        padding: 2px 8px;
+        border-radius: 4px;
+        border: 1px solid rgba(143, 217, 255, 0.35);
+        color: #9fdcff;
+        text-decoration: none;
+        font-size: 0.7rem;
+    }
+
+    .cp-chip:hover {
+        border-color: #4bffa5;
+        color: #4bffa5;
     }
 
     .cp-avatar {
@@ -332,10 +429,34 @@
     }
 </style>
 
-<script>
+<script defer>
+    const AI_PROVIDER_KEY = 'cp-ai-provider-v1';
     let paletteState = { isOpen: false, mode: 'ai', selectedIndex: 0 };
-    let contextData = null;
+    let aiChunks = [];
+    let aiContextLoaded = false;
     let chatHistory = [];
+
+    function readStoredProvider() {
+        try {
+            return localStorage.getItem(AI_PROVIDER_KEY) || 'pollinations';
+        } catch (e) {
+            return 'pollinations';
+        }
+    }
+
+    function getAiProvider() {
+        const sel = document.getElementById('cp-ai-provider');
+        if (sel && sel.value) return sel.value;
+        return readStoredProvider();
+    }
+
+    function setAiProviderUi(value) {
+        const sel = document.getElementById('cp-ai-provider');
+        if (!sel) return;
+        const opt = sel.querySelector('option[value="' + value + '"]');
+        if (opt && !opt.disabled) sel.value = value;
+        else sel.value = 'pollinations';
+    }
 
     // --- Core Functions ---
     function togglePalette() {
@@ -352,9 +473,8 @@
             input.value = '';
             input.focus();
             document.body.style.overflow = 'hidden';
-            // Default to AI mode
             setMode('ai');
-            if (!contextData) loadContext();
+            if (!aiContextLoaded) loadContext();
         }
         paletteState.isOpen = !paletteState.isOpen;
     }
@@ -388,71 +508,99 @@
 
     async function loadContext() {
         try {
+            const fetchUrl = '{{ "/ai_chunks.json" | relative_url }}?v=' + Date.now();
+            const response = await fetch(fetchUrl);
+            aiChunks = await response.json();
+            if (!Array.isArray(aiChunks)) aiChunks = [];
+        } catch (e) {
+            console.error('ai_chunks load failed', e);
+            aiChunks = [];
+        }
+        aiContextLoaded = true;
+    }
+
+    async function performSearch(query) {
+        const out = document.getElementById('cp-search-results');
+        if (!out) return;
+        const q = (query || '').trim().toLowerCase();
+        if (q.length < 2) {
+            out.innerHTML = '';
+            return;
+        }
+        try {
             const response = await fetch('{{ "/search.json" | relative_url }}?v=' + Date.now());
-            const data = await response.json();
-            // Pre-process context into a string
-            contextData = "Here is Pavan's portfolio data:\n" + data.map(item =>
-                `- Title: ${item.title}\n  Type: ${item.category}\n  Tags: ${item.tags}\n  Content Sum: ${item.content.substring(0, 300)}...`
-            ).join('\n\n');
-        } catch (e) { console.error("Context load failed", e); }
+            const items = await response.json();
+            const hits = items.filter(function (it) {
+                const t = (it.title || '').toLowerCase();
+                const tg = (it.tags || '').toLowerCase();
+                const c = (it.content || '').toLowerCase();
+                return t.includes(q) || tg.includes(q) || c.includes(q);
+            }).slice(0, 8);
+            out.innerHTML = hits.map(function (it) {
+                return '<a class="cp-item cp-search-result" href="' + escapeHtml(it.url) + '"><i class="fas fa-link"></i><span>' + escapeHtml(it.title) + '</span></a>';
+            }).join('');
+        } catch (e) {
+            out.innerHTML = '';
+        }
     }
 
     // --- Event Listeners ---
     document.addEventListener('DOMContentLoaded', () => {
         const input = document.getElementById('cp-input');
+        const prov = document.getElementById('cp-ai-provider');
+        if (prov) {
+            setAiProviderUi(readStoredProvider());
+            prov.addEventListener('change', () => {
+                const v = prov.value;
+                try { localStorage.setItem(AI_PROVIDER_KEY, v); } catch (e3) { }
+                if (v !== 'webllm' && window.PortfolioAI) PortfolioAI.disposeWebLlm();
+            });
+        }
 
-        // Mode Switching & Input logic
         input.addEventListener('input', (e) => {
             const val = e.target.value;
 
             if (paletteState.mode === 'ai' && val.startsWith('/')) {
                 setMode('command');
-                input.value = ''; // Clear the /
+                input.value = '';
             } else if (paletteState.mode === 'command' && val === '' && e.inputType === 'deleteContentBackward') {
                 setMode('ai');
             }
 
             if (paletteState.mode === 'command') {
-                // Classic filter logic (Static Items)
                 const query = val.toLowerCase();
-                document.querySelectorAll('.cp-item').forEach(item => {
+                document.querySelectorAll('.cp-item:not(.cp-search-result)').forEach(item => {
                     const text = item.innerText.toLowerCase();
                     const tags = item.getAttribute('data-tags') || '';
                     item.classList.toggle('hidden', !(text.includes(query) || tags.includes(query)));
                 });
-                // Dynamic Search (Blog posts / Projects)
                 performSearch(query);
             }
         });
 
-        // Enter Key Handler
         input.addEventListener('keydown', async (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 if (paletteState.mode === 'command') {
-                    // Execute command (first visible)
                     const visible = document.querySelector('.cp-item:not(.hidden)') || document.querySelector('.cp-search-result');
                     if (visible) visible.click();
                 } else {
-                    // Send message to AI
                     handleUserMessage(input.value);
                     input.value = '';
                 }
             }
-            // Classic navigation for command mode (simplified)
             if (e.key === 'Escape') {
                 togglePalette();
             }
         });
 
-        // Global Shortcut
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                e.preventDefault(); togglePalette();
+                e.preventDefault();
+                togglePalette();
             }
         });
 
-        // Copy Email Action
         const copyEmailBtn = document.getElementById('cp-copy-email');
         if (copyEmailBtn) {
             copyEmailBtn.addEventListener('click', () => {
@@ -463,59 +611,77 @@
         }
     });
 
-    // --- AI Logic (Pollinations.ai) ---
     async function handleUserMessage(msg) {
         if (!msg.trim()) return;
+        if (!window.PortfolioAI) {
+            addUserMessage(msg);
+            addBotMessage('AI engine failed to load. Check that **assets/js/ai-engine.js** is deployed.');
+            return;
+        }
 
         addUserMessage(msg);
         const thinkingId = addThinking();
+        const thinkingRow = document.getElementById(thinkingId);
+        const thinkingTextEl = thinkingRow ? thinkingRow.querySelector('.cp-text') : null;
 
         try {
-            const response = await callPollinations(msg);
+            if (!aiContextLoaded) await loadContext();
+            const cfg = PortfolioAI.getConfig();
+            PortfolioAI.setCorpus(aiChunks);
+            var k = typeof cfg.retrievalK === 'number' ? cfg.retrievalK : 8;
+            const retrieved = PortfolioAI.retrieveTopK(msg, k);
+            const system = PortfolioAI.buildSystemPrompt(retrieved, cfg);
+            const provider = getAiProvider();
+            const historyTrim = chatHistory.slice(-10);
+            const messages = [{ role: 'system', content: system }].concat(historyTrim).concat([{ role: 'user', content: msg }]);
+
+            const onProgress = provider === 'webllm'
+                ? function (report) {
+                    if (thinkingTextEl) {
+                        const pct = Math.round(((report && report.progress) || 0) * 100);
+                        thinkingTextEl.textContent = (report && report.text ? report.text : 'Loading model') + ' (' + pct + '%)';
+                    }
+                }
+                : null;
+
+            const answer = await PortfolioAI.callProvider({ provider: provider, messages: messages, onProgress: onProgress });
+
             removeMessage(thinkingId);
-            addBotMessage(response);
+            const botEl = addBotMessage(answer);
+            renderCpRetrievalBar(botEl);
+            chatHistory.push({ role: 'user', content: msg });
+            chatHistory.push({ role: 'assistant', content: answer });
         } catch (error) {
             removeMessage(thinkingId);
-            addBotMessage("Error: " + error.message);
+            addBotMessage('**Error:** ' + error.message);
         }
     }
 
-    async function callPollinations(prompt) {
-        const url = 'https://text.pollinations.ai/';
-
-        const systemPrompt = `You are a helpful assistant for Pavan Badempet's portfolio website. 
-        Use the following JSON data as your knowledge base about Pavan: ${contextData}
-        
-        Rules:
-        1. Keep answers concise (under 3 sentences preferably).
-        2. Be professional but friendly.
-        3. If you don't know, suggest checking the Resume or Projects page.
-        4. Format with Markdown (bold, lists).`;
-
-        const messages = [
-            { role: "system", content: systemPrompt },
-            ...chatHistory,
-            { role: "user", content: prompt }
-        ];
-
-        const res = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ messages: messages, model: 'openai' })
-        });
-
-        if (!res.ok) throw new Error("Pollinations API Error");
-
-        const answer = await res.text(); // Pollinations returns raw text string
-
-        // Update history
-        chatHistory.push({ role: "user", content: prompt });
-        chatHistory.push({ role: "assistant", content: answer });
-
-        return answer;
+    function renderCpRetrievalBar(botMessageEl) {
+        if (!window.PortfolioAI || !botMessageEl) return;
+        const src = PortfolioAI.getLastSources();
+        if (!src || !src.length) return;
+        const bar = document.createElement('div');
+        bar.className = 'cp-retrieval-bar';
+        bar.setAttribute('aria-label', 'Retrieval sources');
+        var parts = ['<span class="cp-retrieval-label">Grounded with</span>'];
+        for (var i = 0; i < src.length; i++) {
+            var s = src[i];
+            var href = encodeURI(String(s.url || '#'));
+            parts.push(
+                '<a class="cp-chip" href="' +
+                    href.replace(/"/g, '%22') +
+                    '">[' +
+                    s.index +
+                    '] ' +
+                    escapeHtml(String(s.title || '')) +
+                    '</a>'
+            );
+        }
+        bar.innerHTML = parts.join('');
+        botMessageEl.appendChild(bar);
     }
 
-    // --- Chat UI Helpers ---
     function addUserMessage(text) {
         const div = document.createElement('div');
         div.className = 'cp-message user';
@@ -527,11 +693,11 @@
     function addBotMessage(markdown) {
         const div = document.createElement('div');
         div.className = 'cp-message bot';
-        // Parse markdown using marked.js
-        const html = marked.parse(markdown);
+        const html = typeof marked !== 'undefined' && marked.parse ? marked.parse(markdown) : escapeHtml(markdown);
         div.innerHTML = `<div class="cp-avatar"><i class="fas fa-robot"></i></div><div class="cp-text">${html}</div>`;
         document.getElementById('cp-chat-container').appendChild(div);
         scrollToBottom();
+        return div;
     }
 
     function addThinking() {

@@ -31,7 +31,15 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-      
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Enrich AI chunks (overlapping splits for BM25)
+        run: node scripts/enrich-ai-chunks.mjs _site/ai_chunks.json
+
       - name: Test Site (HTML Proofer)
         run: |
           gem install html-proofer

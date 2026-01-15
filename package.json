@@ -6,6 +6,7 @@
     "scripts": {
         "start": "bundle exec jekyll serve",
         "build": "bundle exec jekyll build",
+        "enrich-chunks": "node scripts/enrich-ai-chunks.mjs _site/ai_chunks.json",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {

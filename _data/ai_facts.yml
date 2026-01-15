@@ -1,0 +1,29 @@
+# Curated facts for the portfolio AI (grounding layer). Keep this short and accurate.
+# Universe Dex–style: explicit fields the model may treat as authoritative alongside retrieved chunks.
+
+facts:
+  legal_name: "Pavan Badempet"
+  role: "Data Engineer"
+  location: "Hyderabad, India"
+  contact_email: "pavan9b@gmail.com"
+  overview: >
+    Builds scalable data platforms and ETL/ELT pipelines with Python, SQL, and Spark on AWS and
+    on-prem; focuses on reliability, data quality, and performance for analytics and downstream systems.
+  stack_highlights:
+    - "Python"
+    - "Apache Spark (PySpark, Spark SQL)"
+    - "SQL"
+    - "AWS (Lambda, Step Functions, CloudWatch, S3-compatible storage)"
+    - "Snowflake-oriented pipelines"
+  employers_named:
+    - "Tata Consultancy Services (TCS)"
+  education: "B.Tech Computer Science & Engineering, Guru Nanak Institutions Technical Campus"
+  guardrails: >
+    Never invent employers, dates, metrics, or project names not present in CONTEXT or FACTS.
+    If unsure, say you are unsure and suggest Resume, Portfolio, or email.
+
+contract:
+  name: "portfolio_copilot"
+  version: "v2"
+  output: "Markdown answer with optional [n] citations matching CONTEXT indices."
+  fallback: "If CONTEXT lacks the answer, say so and suggest /resume, /portfolio, or email."
