@@ -1,5 +1,5 @@
 ---
-title: Movie Recommendation System Based on User Preferences
+title: Movie Recommendation System
 category: Content
 category_slug: f-content
 type: content
