@@ -99,16 +99,16 @@ team:
   title: "Projects"
   items:
     - name: AI Healthcare System
-      role: "Python, Pandas, FastAPI, Streamlit, Render, Neon, GCP, Docker"
-      text1: "Built automated ETL pipelines processing 250k+ records to train XGBoost classifiers; implemented comprehensive data quality checks achieving 89% prediction accuracy."
-      text2: "Architected a decoupled application with FastAPI backend and Streamlit frontend, containerized via Docker for deployment on GCP/Render, with managed PostgreSQL database on Neon."
-      text3: "Integrated a RAG using Gemini to provide context-aware queries, significantly reducing manual data entry."
+      role: "Python, FastAPI, Streamlit, Docker, Gemini Pro, FAISS, XGBoost, Render"
+      text1: "Developed a multi-disease prediction platform (Diabetes, Heart, Kidney, Liver, Lung Cancer) using XGBoost and specialized ML models, capable of analyzing complex medical data."
+      text2: "Architected a secure RAG-based medical assistant using Gemini Pro and FAISS for context-aware health queries and smart lab report analysis via computer vision."
+      text3: "Deployed microservices architecture with FastAPI backend (Render) and Streamlit frontend (Streamlit Cloud), featuring JWT auth and tenant isolation."
 
     - name: "Movie Recommendation System"
-      role: "Python, PySpark, FastAPI, Streamlit, Render, Azure"
-      text1: "Built end-to-end recommendation pipeline processing 1M+ movie records using PySpark for ETL and Cosine Similarity for efficient similarity search."
-      text2: "Deployed model via FastAPI backend and Streamlit UI, enabling real-time content-based filtering."
-      text3: ""
+      role: "Python, PySpark, FastAPI, Streamlit, SBERT (MPNet), FAISS, Render"
+      text1: "Built an advanced recommendation engine processing 33k+ movies using 768-dim MPNet embeddings and FAISS for sub-100ms vector search."
+      text2: "Implemented Maximal Marginal Relevance (MMR) for diversity and multi-factor re-ranking (Director, Franchise, Quality) to enhance user engagement."
+      text3: "Deployed fully containerized stack with async FastAPI backend on Render and premium video-background UI on Streamlit Cloud."
 
 ### Honors & Awards [ clients ]
 clients:

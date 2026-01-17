@@ -2,49 +2,74 @@
 <div id="command-palette" class="command-palette-overlay" style="display: none;">
     <div class="command-palette-modal">
         <div class="cp-header">
-            <i class="fas fa-search"></i>
-            <input type="text" id="cp-input" placeholder="Type a command or search..." autocomplete="off">
-            <span class="cp-esc">ESC</span>
-        </div>
-        <div class="cp-body">
-            <div class="cp-section">Navigation</div>
-            <a href="{{ '/resume/' | relative_url }}" class="cp-item" data-tags="resume cv experience job work">
-                <i class="fas fa-file-alt"></i>
-                <span>Go to Resume</span>
-                <span class="cp-shortcut">R</span>
-            </a>
-            <a href="{{ '/portfolio/' | relative_url }}" class="cp-item" data-tags="projects portfolio work code">
-                <i class="fas fa-layer-group"></i>
-                <span>Go to Projects</span>
-                <span class="cp-shortcut">P</span>
-            </a>
-            <a href="{{ '/contacts/' | relative_url }}" class="cp-item" data-tags="contact email phone hire">
-                <i class="fas fa-paper-plane"></i>
-                <span>Contact Me</span>
-                <span class="cp-shortcut">C</span>
-            </a>
-            <a href="{{ '/' | relative_url }}" class="cp-item" data-tags="home start landing">
-                <i class="fas fa-home"></i>
-                <span>Go Home</span>
-                <span class="cp-shortcut">H</span>
-            </a>
-
-            <!-- Search Results -->
-            <div id="cp-search-results"></div>
-
-            <div class="cp-section">Actions</div>
-            <div class="cp-item" id="cp-copy-email" data-tags="email copy mail">
-                <i class="fas fa-envelope"></i>
-                <span>Copy Email</span>
+            <div class="cp-mode-icon">
+                <i class="fas fa-sparkles" id="cp-mode-icon"></i>
             </div>
-            <a href="https://drive.google.com/file/d/1gppjKAn5s9W06uH4ajoj7Ha2H13zEPkq/view?usp=sharing" target="_blank"
-                class="cp-item" onclick="togglePalette();" data-tags="resume cv pdf download">
-                <i class="fas fa-file-pdf"></i>
-                <span>View Resume PDF</span>
-            </a>
+            <input type="text" id="cp-input" placeholder="Ask AI about Pavan... (or type / for commands)"
+                autocomplete="off">
+            <div class="cp-actions">
+                <span id="cp-status-tag" class="cp-status-tag">AI Active</span>
+                <span class="cp-esc">ESC</span>
+            </div>
+        </div>
+
+        <div class="cp-body">
+            <!-- Chat Mode Container -->
+            <div id="cp-chat-container">
+                <div class="cp-message bot">
+                    <div class="cp-avatar"><i class="fas fa-robot"></i></div>
+                    <div class="cp-text">Hello! I'm Pavan's AI Assistant. Ask me anything about his projects, skills, or
+                        experience.</div>
+                </div>
+            </div>
+
+            <!-- Command Mode Container (Hidden by default) -->
+            <div id="cp-commands-container" style="display:none;">
+                <div class="cp-section">Navigation</div>
+                <a href="{{ '/portfolio/' | relative_url }}" class="cp-item" data-tags="projects portfolio work code">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Go to Projects</span>
+                    <span class="cp-shortcut">P</span>
+                </a>
+                <a href="{{ '/resume/' | relative_url }}" class="cp-item" data-tags="resume cv experience job work">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Go to Resume</span>
+                    <span class="cp-shortcut">R</span>
+                </a>
+                <a href="{{ '/contacts/' | relative_url }}" class="cp-item" data-tags="contact email phone hire">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Contact Me</span>
+                    <span class="cp-shortcut">C</span>
+                </a>
+                <a href="{{ '/' | relative_url }}" class="cp-item" data-tags="home start landing">
+                    <i class="fas fa-home"></i>
+                    <span>Go Home</span>
+                    <span class="cp-shortcut">H</span>
+                </a>
+
+                <!-- Search Results Placeholder -->
+                <div id="cp-search-results"></div>
+
+                <div class="cp-section">Actions</div>
+                <div class="cp-item" id="cp-copy-email" data-tags="email copy mail">
+                    <i class="fas fa-envelope"></i>
+                    <span>Copy Email</span>
+                </div>
+                <a href="https://drive.google.com/file/d/1gppjKAn5s9W06uH4ajoj7Ha2H13zEPkq/view?usp=sharing"
+                    target="_blank" class="cp-item" onclick="togglePalette();" data-tags="resume cv pdf download">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>View Resume PDF</span>
+                </a>
+            </div>
+        </div>
+        <div class="cp-footer">
+            <span id="cp-model-info">Powered by Pollinations.ai (Free & Private)</span>
+            <span class="cp-hint">Type <b>/</b> to switch modes</span>
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <style>
     /* Command Palette Styles */
@@ -54,8 +79,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px);
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
         z-index: 10000;
         display: flex;
         justify-content: center;
@@ -70,16 +95,18 @@
     }
 
     .command-palette-modal {
-        width: 100%;
-        max-width: 600px;
+        width: 90%;
+        max-width: 650px;
         background: #1e1e1e;
-        /* VS Code Dark */
-        border-radius: 8px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
         overflow: hidden;
         border: 1px solid #333;
         transform: translateY(-20px);
         transition: transform 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        max-height: 80vh;
     }
 
     .command-palette-overlay.open .command-palette-modal {
@@ -92,11 +119,20 @@
         display: flex;
         align-items: center;
         gap: 15px;
+        background: #252526;
     }
 
-    .cp-header i {
-        color: #888;
+    .cp-mode-icon {
+        color: #007acc;
         font-size: 1.2em;
+        width: 24px;
+        text-align: center;
+    }
+
+    .cp-mode-icon i.fa-sparkles {
+        background: linear-gradient(45deg, #a8ff78, #78ffd6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     #cp-input {
@@ -104,18 +140,18 @@
         border: none;
         color: #fff;
         font-family: 'Roboto', sans-serif;
-        font-size: 1.2em;
-        width: 100%;
+        font-size: 1.1em;
+        flex-grow: 1;
         outline: none;
         padding: 0;
         margin: 0;
-        /* Override default input styles */
         height: auto;
     }
 
-    /* Force override conflicting input styles from main theme */
-    #cp-input:focus {
-        border-bottom: none;
+    .cp-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .cp-esc {
@@ -123,26 +159,116 @@
         color: #aaa;
         padding: 2px 6px;
         border-radius: 4px;
-        font-size: 0.8em;
+        font-size: 0.75em;
+    }
+
+    .cp-status-tag {
+        background: #238636;
+        color: #fff;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.7em;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
 
     .cp-body {
-        max-height: 400px;
+        flex-grow: 1;
         overflow-y: auto;
-        padding: 10px 0;
+        padding: 0;
+        min-height: 300px;
+        scroll-behavior: smooth;
     }
 
+    /* Chat Styles */
+    #cp-chat-container {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .cp-message {
+        display: flex;
+        gap: 15px;
+        align-items: flex-start;
+        line-height: 1.5;
+        font-size: 0.95em;
+    }
+
+    .cp-message.user {
+        flex-direction: row-reverse;
+    }
+
+    .cp-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .cp-message.bot .cp-avatar {
+        background: #238636;
+        color: white;
+    }
+
+    .cp-message.user .cp-avatar {
+        background: #444;
+        color: #ccc;
+    }
+
+    .cp-text {
+        background: #2d2d2d;
+        padding: 10px 15px;
+        border-radius: 8px;
+        color: #ddd;
+        max-width: 85%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        word-wrap: break-word;
+    }
+
+    .cp-message.bot .cp-text {
+        background: #333;
+        border-top-left-radius: 0;
+    }
+
+    .cp-message.user .cp-text {
+        background: #0e639c;
+        color: white;
+        border-top-right-radius: 0;
+    }
+
+    .cp-text p {
+        margin: 0 0 10px 0;
+    }
+
+    .cp-text p:last-child {
+        margin: 0;
+    }
+
+    .cp-text ul {
+        padding-left: 20px;
+        margin: 5px 0;
+    }
+
+    /* Command Styles */
     .cp-section {
         padding: 8px 20px;
         color: #666;
-        font-size: 0.85em;
+        font-size: 0.8em;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 600;
+        margin-top: 10px;
     }
 
     .cp-item {
-        padding: 12px 20px;
+        padding: 10px 20px;
         display: flex;
         align-items: center;
         gap: 15px;
@@ -150,16 +276,13 @@
         color: #ccc;
         text-decoration: none;
         border-left: 3px solid transparent;
-        transition: background 0.1s;
     }
 
     .cp-item:hover,
     .cp-item.selected {
         background: #2a2d2e;
         color: #fff;
-        border-left: 3px solid #007acc;
-        /* VS Code Blue */
-        text-decoration: none;
+        border-left-color: #007acc;
     }
 
     .cp-item i {
@@ -168,8 +291,7 @@
         color: #888;
     }
 
-    .cp-item:hover i,
-    .cp-item.selected i {
+    .cp-item:hover i {
         color: #fff;
     }
 
@@ -186,11 +308,59 @@
     .cp-item.hidden {
         display: none;
     }
+
+    .cp-footer {
+        padding: 8px 20px;
+        background: #252526;
+        border-top: 1px solid #333;
+        font-size: 0.8em;
+        color: #666;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .thinking-dots {
+        display: flex;
+        gap: 4px;
+        padding: 5px;
+    }
+
+    .thinking-dots span {
+        width: 6px;
+        height: 6px;
+        background: #ccc;
+        border-radius: 50%;
+        animation: bounce 1.4s infinite ease-in-out both;
+    }
+
+    .thinking-dots span:nth-child(1) {
+        animation-delay: -0.32s;
+    }
+
+    .thinking-dots span:nth-child(2) {
+        animation-delay: -0.16s;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        80%,
+        100% {
+            transform: scale(0);
+        }
+
+        40% {
+            transform: scale(1);
+        }
+    }
 </style>
 
 <script>
-    // Toggle function exposed globally for inline handlers
-    let paletteState = { isOpen: false, selectedIndex: 0 };
+    let paletteState = { isOpen: false, mode: 'ai', selectedIndex: 0 };
+    let contextData = null;
+    let chatHistory = [];
+
+    // --- Core Functions ---
     function togglePalette() {
         const palette = document.getElementById('command-palette');
         const input = document.getElementById('cp-input');
@@ -203,167 +373,103 @@
             void palette.offsetWidth;
             palette.classList.add('open');
             input.value = '';
-            document.getElementById('cp-search-results').innerHTML = '';
-            if (window.cpFilterItems) window.cpFilterItems('');
             input.focus();
             document.body.style.overflow = 'hidden';
-            paletteState.selectedIndex = 0;
-            if (window.cpUpdateSelection) window.cpUpdateSelection();
+            // Default to AI mode
+            setMode('ai');
+            if (!contextData) loadContext();
         }
         paletteState.isOpen = !paletteState.isOpen;
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const palette = document.getElementById('command-palette');
+    function setMode(mode) {
+        paletteState.mode = mode;
+        const icon = document.getElementById('cp-mode-icon');
+        const chatContainer = document.getElementById('cp-chat-container');
+        const cmdContainer = document.getElementById('cp-commands-container');
+        const status = document.getElementById('cp-status-tag');
         const input = document.getElementById('cp-input');
-        const items = document.querySelectorAll('.cp-item'); // This only selects STATIC items initially
 
-        // Search Logic (Custom Implementation)
-        let searchIndex = [];
-        const resultsContainer = document.getElementById('cp-search-results');
-
-        // Fetch Search Data
-        console.log('Command Palette: Fetching search index...');
-        // Add cache buster to force fresh load
-        fetch('{{ "/search.json" | relative_url }}?v={{ site.time | date: "%s" }}')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                searchIndex = data;
-                console.log('Search Index Loaded:', searchIndex.length, 'items');
-                if (searchIndex.length === 0) {
-                    console.warn('Search index is empty');
-                }
-            })
-            .catch(err => {
-                console.error('Search Index Failed:', err);
-                resultsContainer.innerHTML = `<div class="cp-section" style="color: #ff4b4b;">Error: Failed to load search index</div>`;
-            });
-
-        // Filter Function
-        function performSearch(query) {
-            if (!query) {
-                resultsContainer.innerHTML = '';
-                return;
-            }
-
-            if (searchIndex.length === 0) {
-                resultsContainer.innerHTML = `<div class="cp-item"><i>Searching... (Index loading or empty)</i></div>`;
-                return;
-            }
-
-            const lowerQuery = query.toLowerCase();
-            // Filter: Title, Tags, or Content match
-            const results = searchIndex.filter(item => {
-                const title = (item.title || '').toLowerCase();
-                const tags = (item.tags || '').toLowerCase();
-                const content = (item.content || '').toLowerCase();
-                return title.includes(lowerQuery) || tags.includes(lowerQuery) || content.includes(lowerQuery);
-            }).slice(0, 5); // Limit to 5
-
-            // Render
-            if (results.length > 0) {
-                const html = results.map(item => `
-                    <a href="${item.url}" class="cp-item" onclick="togglePalette();" style="flex-direction: column; align-items: flex-start; padding: 10px 15px;">
-                        <div style="display: flex; width: 100%; align-items: center; justify-content: space-between;">
-                            <div style="display: flex; align-items: center;">
-                                <i class="fas fa-search" style="margin-right: 10px;"></i>
-                                <span style="font-weight: 500;">${item.title}</span>
-                            </div>
-                            <span class="cp-shortcut" style="opacity: 0.7;">${item.type || 'Result'}</span>
-                        </div>
-                        <div style="font-size: 0.75em; opacity: 0.6; margin-left: 24px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 90%;">
-                            ${item.tags ? item.tags : ''}
-                        </div>
-                    </a>
-                `).join('');
-                // Add header if needed, or just items
-                resultsContainer.innerHTML = `<div class="cp-section">Search Results</div>` + html;
-            } else {
-                resultsContainer.innerHTML = `<div class="cp-section">No results found</div>`;
-            }
+        if (mode === 'ai') {
+            icon.className = 'fas fa-sparkles';
+            chatContainer.style.display = 'flex';
+            cmdContainer.style.display = 'none';
+            status.textContent = 'AI Active';
+            status.style.background = '#238636';
+            input.placeholder = "Ask AI about Pavan... (or type / for commands)";
+        } else {
+            icon.className = 'fas fa-search';
+            chatContainer.style.display = 'none';
+            cmdContainer.style.display = 'block';
+            status.textContent = 'CMD Mode';
+            status.style.background = '#007acc';
+            input.placeholder = "Search commands... (backspace to clear /)";
         }
+    }
 
-        // Shortcut: Ctrl+K or Cmd+K
+    async function loadContext() {
+        try {
+            const response = await fetch('{{ "/search.json" | relative_url }}?v=' + Date.now());
+            const data = await response.json();
+            // Pre-process context into a string
+            contextData = "Here is Pavan's portfolio data:\n" + data.map(item =>
+                `- Title: ${item.title}\n  Type: ${item.category}\n  Tags: ${item.tags}\n  Content Sum: ${item.content.substring(0, 300)}...`
+            ).join('\n\n');
+        } catch (e) { console.error("Context load failed", e); }
+    }
+
+    // --- Event Listeners ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const input = document.getElementById('cp-input');
+
+        // Mode Switching & Input logic
+        input.addEventListener('input', (e) => {
+            const val = e.target.value;
+
+            if (paletteState.mode === 'ai' && val.startsWith('/')) {
+                setMode('command');
+                input.value = ''; // Clear the /
+            } else if (paletteState.mode === 'command' && val === '' && e.inputType === 'deleteContentBackward') {
+                setMode('ai');
+            }
+
+            if (paletteState.mode === 'command') {
+                // Classic filter logic
+                const query = val.toLowerCase();
+                document.querySelectorAll('.cp-item').forEach(item => {
+                    const text = item.innerText.toLowerCase();
+                    const tags = item.getAttribute('data-tags') || '';
+                    item.classList.toggle('hidden', !(text.includes(query) || tags.includes(query)));
+                });
+            }
+        });
+
+        // Enter Key Handler
+        input.addEventListener('keydown', async (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (paletteState.mode === 'command') {
+                    // Execute command (first visible)
+                    const visible = document.querySelector('.cp-item:not(.hidden)');
+                    if (visible) visible.click();
+                } else {
+                    // Send message to AI
+                    handleUserMessage(input.value);
+                    input.value = '';
+                }
+            }
+            // Classic navigation for command mode (simplified)
+            if (e.key === 'Escape') {
+                togglePalette();
+            }
+        });
+
+        // Global Shortcut
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                e.preventDefault();
-                togglePalette();
-            }
-            if (e.key === 'Escape' && paletteState.isOpen) {
-                togglePalette();
-            }
-
-            if (!paletteState.isOpen) return;
-
-            // Navigation
-            if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                paletteState.selectedIndex = (paletteState.selectedIndex + 1) % getVisibleItems().length;
-                updateSelection();
-            } else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                const visible = getVisibleItems();
-                paletteState.selectedIndex = (paletteState.selectedIndex - 1 + visible.length) % visible.length;
-                updateSelection();
-            } else if (e.key === 'Enter') {
-                e.preventDefault();
-                const visible = getVisibleItems();
-                if (visible[paletteState.selectedIndex]) {
-                    visible[paletteState.selectedIndex].click();
-                }
+                e.preventDefault(); togglePalette();
             }
         });
-
-        // Close on click outside
-        palette.addEventListener('click', (e) => {
-            if (e.target === palette) togglePalette();
-        });
-
-        // Filter Logic (Modified to trigger search)
-        input.addEventListener('input', (e) => {
-            const val = e.target.value.toLowerCase();
-            filterItems(val); // Existing static filter
-            performSearch(val); // New dynamic search
-            paletteState.selectedIndex = 0;
-            updateSelection();
-        });
-
-        function filterItems(query) {
-            items.forEach(item => {
-                const text = item.innerText.toLowerCase();
-                const tags = item.getAttribute('data-tags') || '';
-                if (text.includes(query) || tags.includes(query)) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-        }
-        window.cpFilterItems = filterItems; // Expose globally
-
-        function getVisibleItems() {
-            // Select both static items AND dynamic search results that are not hidden
-            // Note: We need a fresh querySelectorAll because search results are dynamic
-            const staticItems = Array.from(items).filter(item => !item.classList.contains('hidden'));
-            const dynamicItems = Array.from(document.querySelectorAll('#cp-search-results .cp-item'));
-            return [...staticItems, ...dynamicItems];
-        }
-
-        function updateSelection() {
-            // Clear all selected classes first
-            document.querySelectorAll('.cp-item').forEach(item => item.classList.remove('selected'));
-            const visible = getVisibleItems();
-            if (visible[paletteState.selectedIndex]) {
-                visible[paletteState.selectedIndex].classList.add('selected');
-                visible[paletteState.selectedIndex].scrollIntoView({ block: 'nearest' });
-            }
-        }
-        window.cpUpdateSelection = updateSelection; // Expose globally
 
         // Copy Email Action
         const copyEmailBtn = document.getElementById('cp-copy-email');
@@ -371,9 +477,107 @@
             copyEmailBtn.addEventListener('click', () => {
                 navigator.clipboard.writeText("pavan9b@gmail.com").then(() => {
                     togglePalette();
-                    // Optional: Show a toast? relying on the existing system for now
                 });
             });
         }
     });
+
+    // --- AI Logic (Pollinations.ai) ---
+    async function handleUserMessage(msg) {
+        if (!msg.trim()) return;
+
+        addUserMessage(msg);
+        const thinkingId = addThinking();
+
+        try {
+            const response = await callPollinations(msg);
+            removeMessage(thinkingId);
+            addBotMessage(response);
+        } catch (error) {
+            removeMessage(thinkingId);
+            addBotMessage("Error: " + error.message);
+        }
+    }
+
+    async function callPollinations(prompt) {
+        const url = 'https://text.pollinations.ai/';
+
+        const systemPrompt = `You are a helpful assistant for Pavan Badempet's portfolio website. 
+        Use the following JSON data as your knowledge base about Pavan: ${contextData}
+        
+        Rules:
+        1. Keep answers concise (under 3 sentences preferably).
+        2. Be professional but friendly.
+        3. If you don't know, suggest checking the Resume or Projects page.
+        4. Format with Markdown (bold, lists).`;
+
+        const messages = [
+            { role: "system", content: systemPrompt },
+            ...chatHistory,
+            { role: "user", content: prompt }
+        ];
+
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ messages: messages, model: 'openai' })
+        });
+
+        if (!res.ok) throw new Error("Pollinations API Error");
+
+        const answer = await res.text(); // Pollinations returns raw text string
+
+        // Update history
+        chatHistory.push({ role: "user", content: prompt });
+        chatHistory.push({ role: "assistant", content: answer });
+
+        return answer;
+    }
+
+    // --- Chat UI Helpers ---
+    function addUserMessage(text) {
+        const div = document.createElement('div');
+        div.className = 'cp-message user';
+        div.innerHTML = `<div class="cp-avatar"><i class="fas fa-user"></i></div><div class="cp-text">${escapeHtml(text)}</div>`;
+        document.getElementById('cp-chat-container').appendChild(div);
+        scrollToBottom();
+    }
+
+    function addBotMessage(markdown) {
+        const div = document.createElement('div');
+        div.className = 'cp-message bot';
+        // Parse markdown using marked.js
+        const html = marked.parse(markdown);
+        div.innerHTML = `<div class="cp-avatar"><i class="fas fa-robot"></i></div><div class="cp-text">${html}</div>`;
+        document.getElementById('cp-chat-container').appendChild(div);
+        scrollToBottom();
+    }
+
+    function addThinking() {
+        const id = 'thinking-' + Date.now();
+        const div = document.createElement('div');
+        div.id = id;
+        div.className = 'cp-message bot';
+        div.innerHTML = `<div class="cp-avatar"><i class="fas fa-robot"></i></div>
+            <div class="cp-text"><div class="thinking-dots"><span></span><span></span><span></span></div></div>`;
+        document.getElementById('cp-chat-container').appendChild(div);
+        scrollToBottom();
+        return id;
+    }
+
+    function removeMessage(id) {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+    }
+
+    function scrollToBottom() {
+        const container = document.querySelector('.cp-body');
+        container.scrollTop = container.scrollHeight;
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
 </script>

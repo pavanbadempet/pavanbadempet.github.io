@@ -24,17 +24,17 @@
 
     // Load Dependencies
     // jQuery first, then Plugins, then Main
-    loadScript("{{ 'assets/js/jquery.min.js' | relative_url }}")
+    loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
         .then(function () {
             return Promise.all([
                 loadScript("{{ 'assets/js/jquery.validate.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/jquery.magnific-popup.js' | relative_url }}"),
+                loadScript("https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"),
                 loadScript("{{ 'assets/js/simpleParallax.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/jarallax.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/jarallax-video.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/jarallax-element.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/imagesloaded.pkgd.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/isotope.pkgd.js' | relative_url }}"),
+                loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"),
                 loadScript("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"),
                 loadScript("{{ 'assets/js/typed.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/rrssb.js' | relative_url }}"),

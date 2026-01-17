@@ -23,7 +23,7 @@
 		$('.lines').addClass('finish');
 		setTimeout(function () {
 			$('.lines').addClass('ready');
-		}, 2000);
+		}, 800);
 
 		/*
 			Typed Subtitle
@@ -48,7 +48,7 @@
 					showCursor: false
 				});
 			}
-		}, 1000);
+		}, 500);
 
 		/*
 			One Page Nav
@@ -285,7 +285,7 @@
 			$('.lines').addClass('no-lines');
 			setTimeout(function () {
 				location.href = "" + link;
-			}, 2500);
+			}, 800);
 		}
 		return false;
 	});
