@@ -33,6 +33,20 @@ disqus_shortname: "pavanbadempet" # read more here https://help.disqus.com/custo
 # formsubmit.io
 formsubmit_email: "pavan9b@gmail.com" # sign up on https://formsubmit.io/ and confirm your email
 
+# Command palette AI (optional backends — see cloudflare-worker/portfolio-ai/README.md)
+# Leave ai_worker_url empty to disable Worker proxy. For Ollama on GitHub Pages, set ollama_base_url to an https tunnel.
+ai_worker_url: "" # e.g. https://portfolio-ai.your-account.workers.dev
+ai_worker_model: "gpt-4o-mini"
+ollama_default_model: "llama3.2"
+# HTTPS tunnel or reverse-proxy base for Ollama (no trailing /api/chat). Required for GitHub Pages (https)
+# because http://127.0.0.1:11434 is blocked as mixed content. Examples: https://ollama.example.com or a trycloudflare URL.
+ollama_base_url: ""
+webllm_default_model: "Llama-3.2-1B-Instruct-q4f16_1-MLC"
+# RAG + generation (used by assets/js/ai-engine.js via #cp-ai-config)
+ai_retrieval_k: 8
+ai_temperature: 0.42
+ai_contract_version: "portfolio-ai-v2"
+
 # collections
 collections:
   - works
@@ -73,6 +87,8 @@ exclude:
   - Gemfile.lock
   - node_modules/
   - vendor/
+  - cloudflare-worker/
+  - scripts/
 
 sass:
   style: compressed

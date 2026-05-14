@@ -1,0 +1,28 @@
+---
+layout: null
+---
+[
+{% assign first = true %}
+{% for post in site.posts %}
+{% unless first %},{% endunless %}{% assign first = false %}
+  {
+    "id": {{ 'post-' | append: post.slug | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "title": {{ post.title | jsonify }},
+    "category": {{ post.category | default: 'Blog' | jsonify }},
+    "tags": {{ post.tags | join: ', ' | jsonify }},
+    "body": {{ post.content | strip_html | truncate: 8000 | jsonify }}
+  }
+{% endfor %}
+{% for work in site.works %}
+{% unless first %},{% endunless %}{% assign first = false %}
+  {
+    "id": {{ work.title | slugify | prepend: 'work-' | jsonify }},
+    "url": {{ '/portfolio/' | relative_url | append: '#' | append: work.title | slugify | jsonify }},
+    "title": {{ work.title | jsonify }},
+    "category": "Portfolio",
+    "tags": {{ work.tags | join: ', ' | jsonify }},
+    "body": {{ work.content | strip_html | truncate: 8000 | jsonify }}
+  }
+{% endfor %}
+]
