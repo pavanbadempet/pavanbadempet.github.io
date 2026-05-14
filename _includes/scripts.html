@@ -104,7 +104,8 @@
     })();
 </script>
 
-{% if site.google_maps_api_key != '' %}
+{% comment %} Maps JS is heavy (~65+ KiB); only load when this page actually renders #map. {% endcomment %}
+{% if site.google_maps_api_key != '' and page.layout == 'builder' and page.bg_image == 'map' %}
 <!-- Google map api -->
 <script src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_api_key }}" async defer></script>
 {% endif %}
