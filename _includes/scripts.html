@@ -11,7 +11,6 @@
         });
     }
 
-    // Async Script Loader
     function loadScript(src) {
         return new Promise(function (resolve, reject) {
             var s = document.createElement('script');
@@ -22,37 +21,73 @@
         });
     }
 
-    // Load Dependencies
-    // jQuery first, then Plugins, then Main
-    loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
-        .then(function () {
-            return Promise.all([
-                loadScript("{{ 'assets/js/jquery.validate.js' | relative_url }}"),
-                loadScript("https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"),
-                loadScript("{{ 'assets/js/simpleParallax.js' | relative_url }}"),
+    (function () {
+        var needJarallax = !!document.querySelector(
+            '.jarallax, [data-jarallax], .jarallax-video, [data-jarallax-video], [data-jarallax-element]'
+        );
+        var needSwiper = !!document.querySelector('.started-carousel, .reviews-carousel');
+        var needPortfolio = !!document.querySelector('.portfolio-items');
+        var needSearch = !!(document.getElementById('search-input') && document.getElementById('results-container'));
+        var needMermaid = !!document.querySelector('.mermaid');
+        var needSocialShare = !!document.querySelector('.social-share');
+
+        var coreAfterJquery = [
+            loadScript("https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"),
+            loadScript("{{ 'assets/js/typed.js' | relative_url }}"),
+            loadScript("https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"),
+            loadScript("{{ 'assets/js/data-particles.js' | relative_url }}")
+        ];
+
+        if (needJarallax) {
+            coreAfterJquery.push(
                 loadScript("{{ 'assets/js/jarallax.js' | relative_url }}"),
                 loadScript("{{ 'assets/js/jarallax-video.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/jarallax-element.js' | relative_url }}"),
+                loadScript("{{ 'assets/js/jarallax-element.js' | relative_url }}")
+            );
+        }
+        if (needPortfolio) {
+            coreAfterJquery.push(
                 loadScript("{{ 'assets/js/imagesloaded.pkgd.js' | relative_url }}"),
                 loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"),
-                loadScript("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"),
-                loadScript("{{ 'assets/js/typed.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/rrssb.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/grained.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/simple-jekyll-search.js' | relative_url }}"),
-                loadScript("https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"),
-                loadScript("{{ 'assets/js/data-particles.js' | relative_url }}"),
-                loadScript("https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js").then(function () {
-                    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
-                })
-            ]);
-        })
-        .then(function () {
-            loadScript("{{ 'assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}");
-        })
-        .catch(function (error) {
-            console.error('Script loading failed:', error);
-        });
+                loadScript("{{ 'assets/js/simpleParallax.js' | relative_url }}")
+            );
+        }
+        if (needSwiper) {
+            coreAfterJquery.push(loadScript("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"));
+        }
+        if (needSocialShare) {
+            coreAfterJquery.push(loadScript("{{ 'assets/js/rrssb.js' | relative_url }}"));
+        }
+
+        loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
+            .then(function () {
+                return Promise.all(coreAfterJquery);
+            })
+            .then(function () {
+                var chain = Promise.resolve();
+                if (needSearch) {
+                    chain = chain.then(function () {
+                        return loadScript("{{ 'assets/js/simple-jekyll-search.js' | relative_url }}");
+                    });
+                }
+                if (needMermaid) {
+                    chain = chain.then(function () {
+                        return loadScript("https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js").then(function () {
+                            if (typeof mermaid !== 'undefined') {
+                                mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+                            }
+                        });
+                    });
+                }
+                return chain;
+            })
+            .then(function () {
+                return loadScript("{{ 'assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}");
+            })
+            .catch(function (error) {
+                console.error('Script loading failed:', error);
+            });
+    })();
 
     // Dynamic "Miss You" Title (Recruiter Delight)
     (function () {

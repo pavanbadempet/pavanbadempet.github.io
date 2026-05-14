@@ -362,31 +362,30 @@
 		Initialize Portfolio
 	*/
 	var $container = $('.portfolio-items');
-	$container.imagesLoaded(function () {
-		$container.isotope({
-			percentPosition: true,
-			itemSelector: '.box-item'
+	if ($container.length && typeof $.fn.imagesLoaded === 'function' && typeof $.fn.isotope === 'function' && typeof simpleParallax === 'function') {
+		$container.imagesLoaded(function () {
+			$container.isotope({
+				percentPosition: true,
+				itemSelector: '.box-item'
+			});
+
+			/*
+				Portfolio items parallax
+			*/
+			var s_parallax = document.getElementsByClassName('wp-post-image');
+			new simpleParallax(s_parallax);
 		});
 
 		/*
-			Portfolio items parallax
+			Filter items on button click
 		*/
-		if ($('.portfolio-items').length) {
-			var s_parallax = document.getElementsByClassName('wp-post-image');
-			new simpleParallax(s_parallax);
-		}
-
-	});
-
-	/*
-		Filter items on button click
-	*/
-	$('.filters').on('click', '.btn-group', function () {
-		var filterValue = $(this).find('input').val();
-		$container.isotope({ filter: filterValue });
-		$('.filters .btn-group label').removeClass('glitch-effect');
-		$(this).find('label').addClass('glitch-effect');
-	});
+		$('.filters').on('click', '.btn-group', function () {
+			var filterValue = $(this).find('input').val();
+			$container.isotope({ filter: filterValue });
+			$('.filters .btn-group label').removeClass('glitch-effect');
+			$(this).find('label').addClass('glitch-effect');
+		});
+	}
 
 	/*
 		Gallery popup
@@ -608,10 +607,12 @@
 	/*
 		Social Share
 	*/
-	$('.social-share').rrssb({
-		title: $('.social-share').data('title'),
-		url: $('.social-share').data('url'),
-	});
+	if ($('.social-share').length && typeof $.fn.rrssb === 'function') {
+		$('.social-share').rrssb({
+			title: $('.social-share').data('title'),
+			url: $('.social-share').data('url'),
+		});
+	}
 
 	/*
 		Sidebar Show/Hide
@@ -635,13 +636,17 @@
 	$('.widget-title').wrapInner('<span class="widget-title-span"></span>');
 
 	/*
-		Search
+		Search (sidebar widget; skip when elements are absent)
 	*/
-	var sjs = SimpleJekyllSearch({
-		searchInput: document.getElementById('search-input'),
-		resultsContainer: document.getElementById('results-container'),
-		json: '/search.json'
-	});
+	var searchInputEl = document.getElementById('search-input');
+	var searchResultsEl = document.getElementById('results-container');
+	if (searchInputEl && searchResultsEl && typeof SimpleJekyllSearch === 'function') {
+		SimpleJekyllSearch({
+			searchInput: searchInputEl,
+			resultsContainer: searchResultsEl,
+			json: '/search.json'
+		});
+	}
 
 	/*
 		Contact Form Handler (AJAX) - Click Strategy (No Reloads)

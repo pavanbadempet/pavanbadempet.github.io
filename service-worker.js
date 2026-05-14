@@ -1,27 +1,29 @@
-const CACHE_NAME = 'pavan-portfolio-v1';
-const ASSETS_TO_CACHE = [
+const CACHE_NAME = 'pavan-portfolio-v2';
+
+// Precache only URLs that exist on the built site; failed entries no longer break install.
+const PRECACHE_URLS = [
     '/',
-    '/index.html',
     '/assets/css/style.css',
-    '/assets/css/fontawesome.css',
-    '/assets/js/jquery.min.js',
     '/assets/js/main.js'
 ];
 
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => {
-                return cache.addAll(ASSETS_TO_CACHE);
-            })
+        caches.open(CACHE_NAME).then(cache =>
+            Promise.allSettled(
+                PRECACHE_URLS.map(url =>
+                    cache.add(url).catch(() => null)
+                )
+            )
+        )
     );
+    self.skipWaiting();
 });
 
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
             .then(response => {
-                // Cache hit - return response
                 if (response) {
                     return response;
                 }
@@ -41,6 +43,6 @@ self.addEventListener('activate', event => {
                     }
                 })
             );
-        })
+        }).then(() => self.clients.claim())
     );
 });
