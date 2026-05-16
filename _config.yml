@@ -132,6 +132,8 @@ defaults:
       path: ""
       type: "posts"
     values:
+      sitemap: false
+      noindex: true
       sitemap_priority: 0.6
       sitemap_changefreq: never
       author: "Pavan Badempet"
