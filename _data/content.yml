@@ -4,7 +4,7 @@
 
 ### About [ about ]
 about:
-  image: "assets/img/pavan_badempet.png"
+  image: "assets/img/pavan_badempet.webp"
   image_alt: "Pavan Badempet - Data Engineer"
   text: "<p><b>Data Engineer</b> with 2+ years of experience building scalable ETL/ELT pipelines using Python, SQL, and Spark across AWS and on-prem environments. Solid grounding in computer science fundamentals, including data structures and algorithms, and distributed systems, applied to batch processing, data quality, and fault-tolerant pipeline design. Experience working on large-scale Spark ETL systems for FinTech and Automotive domains, with a focus on performance optimization and reliability.</p>"
 
