@@ -342,7 +342,7 @@
 	/*
 		Download CV on Mobile
 	*/
-	$('.section.about').on('click touchstart', '.btn', function () {
+	$('.section.about').on('click', '.btn', function () {
 		location.href = $(this).attr('href');
 	});
 
@@ -600,7 +600,7 @@
 	/*
 		Google Maps
 	*/
-	if ($('#map').length) {
+	if ($('#map').length && typeof google !== 'undefined' && google.maps) {
 		initMap();
 	}
 
