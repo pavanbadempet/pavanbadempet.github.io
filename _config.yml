@@ -93,4 +93,44 @@ exclude:
 sass:
   style: compressed
 
-markdown:  kramdown
+markdown: kramdown
+
+# Sitemap priorities — tells Google which pages matter most
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      sitemap: true
+  - scope:
+      path: "index.html"
+    values:
+      sitemap_priority: 1.0
+      sitemap_changefreq: weekly
+  - scope:
+      path: "resume.html"
+    values:
+      sitemap_priority: 0.9
+      sitemap_changefreq: monthly
+  - scope:
+      path: "portfolio.html"
+    values:
+      sitemap_priority: 0.9
+      sitemap_changefreq: monthly
+  - scope:
+      path: "contacts.html"
+    values:
+      sitemap_priority: 0.8
+      sitemap_changefreq: yearly
+  - scope:
+      path: ""
+      type: "works"
+    values:
+      sitemap_priority: 0.8
+      sitemap_changefreq: monthly
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      sitemap_priority: 0.6
+      sitemap_changefreq: never
