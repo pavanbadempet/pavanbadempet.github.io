@@ -29,10 +29,15 @@
     "addressRegion": "Telangana",
     "addressCountry": "IN"
   },
+  "nationality": {
+    "@type": "Country",
+    "name": "India"
+  },
   "worksFor": {
     "@type": "Organization",
     "name": "Tata Consultancy Services",
-    "url": "https://www.tcs.com"
+    "url": "https://www.tcs.com",
+    "sameAs": "https://www.wikidata.org/wiki/Q1141623"
   },
   "hasOccupation": {
     "@type": "Occupation",
@@ -60,19 +65,32 @@
     "System Architecture",
     "Big Data"
   ],
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "GitHub",
+      "value": "pavanbadempet",
+      "url": "https://github.com/pavanbadempet"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "LinkedIn",
+      "value": "pavanbadempet",
+      "url": "https://linkedin.com/in/pavanbadempet"
+    }
+  ],
   "sameAs": [
     "https://linkedin.com/in/pavanbadempet",
     "https://github.com/pavanbadempet",
     "https://twitter.com/pavanbadempet",
-    "https://pavanbadempet.github.io"
+    "https://pavanbadempet.github.io",
+    "https://www.wikidata.org/wiki/Q139819535"
   ]
 }
 </script>
 
 {% if page.url == "/" %}
 <!-- 2. WebSite Schema with SitelinksSearchBox — homepage only -->
-<!-- The SitelinksSearchBox tells Google your site has a search feature,
-     which is one of the signals that triggers sitelinks in search results -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,17 +114,36 @@
 }
 </script>
 
-<!-- 3. ItemList of site sections — directly signals the pages Google should use as sitelinks -->
+<!-- 3. ProfilePage schema — tells Google this is a person's profile -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "{{ site.url }}/#profilepage",
+  "name": "Pavan Badempet — Data Engineer Portfolio",
+  "url": "{{ site.url }}",
+  "mainEntity": {
+    "@id": "{{ site.url }}/#person"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Pavan Badempet",
+      "item": "{{ site.url }}"
+    }]
+  }
+}
+</script>
+
+<!-- 4. ItemList of site sections — signals pages Google should use as sitelinks -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "Pavan Badempet — Site Sections",
   "itemListElement": [
-    {
-      "@type": "SiteLinksSearchBox",
-      "url": "{{ site.url }}"
-    },
     {
       "@type": "ListItem",
       "position": 1,
@@ -135,6 +172,65 @@
       "url": "{{ site.url }}/contacts/"
     }
   ]
+}
+</script>
+{% endif %}
+
+{% if page.url == "/resume/" %}
+<!-- WebPage schema for Resume -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ site.url }}/resume/#webpage",
+  "name": "Resume — Pavan Badempet",
+  "description": "{{ page.description }}",
+  "url": "{{ site.url }}/resume/",
+  "about": { "@id": "{{ site.url }}/#person" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Pavan Badempet", "item": "{{ site.url }}" },
+      { "@type": "ListItem", "position": 2, "name": "Resume", "item": "{{ site.url }}/resume/" }
+    ]
+  }
+}
+</script>
+{% endif %}
+
+{% if page.url == "/portfolio/" %}
+<!-- WebPage schema for Portfolio -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "{{ site.url }}/portfolio/#webpage",
+  "name": "Portfolio — Pavan Badempet",
+  "description": "{{ page.description }}",
+  "url": "{{ site.url }}/portfolio/",
+  "author": { "@id": "{{ site.url }}/#person" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Pavan Badempet", "item": "{{ site.url }}" },
+      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "{{ site.url }}/portfolio/" }
+    ]
+  }
+}
+</script>
+{% endif %}
+
+{% if page.url == "/contacts/" %}
+<!-- WebPage schema for Contacts -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "{{ site.url }}/contacts/#webpage",
+  "name": "Contact — Pavan Badempet",
+  "description": "{{ page.description }}",
+  "url": "{{ site.url }}/contacts/",
+  "about": { "@id": "{{ site.url }}/#person" }
 }
 </script>
 {% endif %}
