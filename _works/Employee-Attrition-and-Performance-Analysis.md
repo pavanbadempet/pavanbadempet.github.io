@@ -4,6 +4,7 @@ category: Content
 category_slug: f-content
 type: content
 image: assets/img/works/eaapa.png
+description: "Data-driven employee attrition analysis using Power BI dashboards to identify turnover factors, visualize workforce trends, and generate actionable retention insights."
 button_url: https://github.com/pavanbadempet/Employee-Attrition-and-Performance-Analysis
 ---
 
