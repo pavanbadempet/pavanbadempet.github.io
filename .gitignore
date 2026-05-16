@@ -3,3 +3,8 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+_backup_*/
+.env
+.vscode/
+.kiro/
+scripts/
