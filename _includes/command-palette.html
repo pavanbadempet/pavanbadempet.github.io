@@ -3,7 +3,7 @@
     <div class="command-palette-modal">
         <div class="cp-header">
             <div class="cp-mode-icon">
-                <i class="fas fa-sparkles" id="cp-mode-icon"></i>
+                <i class="fas fa-robot" id="cp-mode-icon"></i>
             </div>
             <div class="cp-header-mid">
                 <div class="cp-title">Portfolio assistant</div>
@@ -555,9 +555,18 @@
         height: 6px;
         background: #4bffa5;
         border-radius: 50%;
-        animation: bounce 1.4s infinite ease-in-out both;
+        animation: cp-dot-pulse 1.4s infinite ease-in-out both;
         opacity: 0.6;
     }
+
+    @keyframes cp-dot-pulse {
+        0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
+        40%            { transform: scale(1); opacity: 1;   }
+    }
+
+    .thinking-dots span:nth-child(1) { animation-delay: -0.32s; }
+    .thinking-dots span:nth-child(2) { animation-delay: -0.16s; }
+    .thinking-dots span:nth-child(3) { animation-delay:  0s;    }
 </style>
 
 <script defer>
@@ -590,7 +599,7 @@
     }
 
     // --- Core Functions ---
-    function togglePalette() {
+    async function togglePalette() {
         const palette = document.getElementById('command-palette');
         const input = document.getElementById('cp-input');
         if (!palette) return;
@@ -608,7 +617,7 @@
             }
             document.body.style.overflow = 'hidden';
             setMode('ai');
-            if (!aiContextLoaded) loadContext();
+            if (!aiContextLoaded) await loadContext();
         }
         paletteState.isOpen = !paletteState.isOpen;
     }
@@ -623,7 +632,7 @@
         const sub = document.getElementById('cp-subhint');
 
         if (mode === 'ai') {
-            icon.className = 'fas fa-sparkles';
+            icon.className = 'fas fa-robot';
             chatContainer.style.display = 'flex';
             cmdContainer.style.display = 'none';
             status.textContent = 'AI Active';
@@ -644,16 +653,18 @@
     }
 
     async function loadContext() {
+        if (aiContextLoaded) return;
         try {
             const fetchUrl = '{{ "/ai_chunks.json" | relative_url }}?v=' + Date.now();
             const response = await fetch(fetchUrl);
             aiChunks = await response.json();
             if (!Array.isArray(aiChunks)) aiChunks = [];
+            aiContextLoaded = true;
         } catch (e) {
             console.error('ai_chunks load failed', e);
             aiChunks = [];
+            // don't set aiContextLoaded = true so it retries next time
         }
-        aiContextLoaded = true;
     }
 
     async function performSearch(query) {
@@ -769,6 +780,9 @@
         if (copyEmailBtn) {
             copyEmailBtn.addEventListener('click', () => {
                 navigator.clipboard.writeText("pavan9b@gmail.com").then(() => {
+                    togglePalette();
+                }).catch(err => {
+                    console.warn('Clipboard write failed', err);
                     togglePalette();
                 });
             });
@@ -917,6 +931,7 @@
 
     function scrollToBottom() {
         const container = document.querySelector('.cp-body');
+        if (!container) return;
         container.scrollTop = container.scrollHeight;
     }
 
