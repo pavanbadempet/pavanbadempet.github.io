@@ -21,13 +21,20 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
+    // Only handle GET requests; skip non-HTTP(S) schemes
+    if (event.request.method !== 'GET') return;
+    const url = event.request.url;
+    if (!url.startsWith('http')) return;
+
     event.respondWith(
         caches.match(event.request)
             .then(response => {
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
+                if (response) return response;
+                return fetch(event.request).catch(() => {
+                    // Network failed (offline, blocked, etc.) — return nothing
+                    // so the browser shows its own error rather than an unhandled rejection
+                    return new Response('', { status: 503, statusText: 'Service Unavailable' });
+                });
             })
     );
 });
