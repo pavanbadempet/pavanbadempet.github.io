@@ -4,6 +4,7 @@ category: Content
 category_slug: f-content
 type: content
 image: assets/img/works/hs.png
+description: "Production-grade AI healthcare platform using XGBoost, Gemini Pro, and FAISS for multi-disease prediction and RAG-based medical assistance. Built with FastAPI, Streamlit, and Docker."
 button_url: https://github.com/pavanbadempet/AI-Healthcare-System
 demo_url: https://ai-healthcare-system.streamlit.app
 tags: [python, machine-learning, streamlit, ai, docker, gcp]
