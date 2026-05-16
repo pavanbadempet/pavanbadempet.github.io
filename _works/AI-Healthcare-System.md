@@ -5,6 +5,7 @@ category_slug: f-content
 type: content
 image: assets/img/works/hs.png
 button_url: https://github.com/pavanbadempet/AI-Healthcare-System
+demo_url: https://ai-healthcare-system.streamlit.app
 tags: [python, machine-learning, streamlit, ai, docker, gcp]
 ---
 

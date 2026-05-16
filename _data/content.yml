@@ -76,20 +76,33 @@ skills:
         - label: "Apache Spark (PySpark, Spark SQL)"
         - label: "Pandas"
         - label: "NumPy"
+        - label: "Apache Kafka"
 
     - type: "list"
       title: "Cloud & Storage"
       items:
         - label: "AWS (Lambda, Glue, Step Functions, S3)"
         - label: "Snowflake"
-        - label: "MinIO"
+        - label: "MinIO (S3-compatible)"
+        - label: "HDFS"
+        - label: "Amazon CloudWatch"
 
     - type: "list"
-      title: "Tools"
+      title: "Orchestration & DevOps"
       items:
         - label: "AutoSys"
+        - label: "Kubernetes"
         - label: "Docker"
         - label: "Git"
+        - label: "CI/CD Pipelines"
+
+    - type: "list"
+      title: "AI / ML & APIs"
+      items:
+        - label: "XGBoost"
+        - label: "FAISS (Vector Search)"
+        - label: "SBERT / MPNet Embeddings"
+        - label: "Gemini Pro (GenAI)"
         - label: "FastAPI"
         - label: "Streamlit"
         - label: "Pytest"
@@ -114,9 +127,9 @@ team:
 clients:
   title: "Honors & Awards"
   items:
-    - image: ""
+    - image: "assets/img/clients/award-icon.png"
       name: "Prime Minister's Scholarship Scheme"
-      role: "Awarded for academic excellence during studies as part of the Prime Minister's Scholarship Scheme."
+      role: "Awarded for academic excellence during undergraduate studies (2019–2023) as part of the Prime Minister's Scholarship Scheme for Central Armed Police Forces."
   
 
 ### Contact Info [ contacts-info ]
