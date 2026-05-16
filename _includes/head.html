@@ -8,16 +8,6 @@
   <meta name="robots" content="{% if page.noindex %}noindex, nofollow{% else %}index, follow{% endif %}">
   <meta name="author" content="{{ site.author }}">
 
-  <!-- Apply saved theme BEFORE paint to prevent flash -->
-  <script>
-    (function() {
-      try {
-        var t = localStorage.getItem('theme');
-        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
-      } catch(e) {}
-    })();
-  </script>
-
   {%- seo -%}
   {%- include json-ld.html -%}
 
