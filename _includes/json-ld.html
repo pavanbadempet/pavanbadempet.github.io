@@ -1,65 +1,161 @@
-<!-- Global Person Schema (Appears on all pages as the site owner) -->
+<!-- =====================================================
+     Structured Data — helps Google understand the site
+     and generate sitelinks for "Pavan Badempet" searches
+     ===================================================== -->
+
+<!-- 1. Person Schema — rich identity signal on every page -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org/",
+  "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "{{ site.url }}/#person",
   "name": "Pavan Badempet",
+  "givenName": "Pavan",
+  "familyName": "Badempet",
   "url": "{{ site.url }}",
-  "image": "{{ site.url }}/{{ site.image }}",
-  "jobTitle": "Senior Data Engineer",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ site.url }}/assets/img/pavan_badempet.png",
+    "width": 400,
+    "height": 400
+  },
+  "jobTitle": "Data Engineer",
+  "description": "{{ site.description }}",
+  "email": "pavan9b@gmail.com",
+  "telephone": "+917989256101",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Hyderabad",
+    "addressRegion": "Telangana",
+    "addressCountry": "IN"
+  },
   "worksFor": {
     "@type": "Organization",
-    "name": "Tata Consultancy Services"
+    "name": "Tata Consultancy Services",
+    "url": "https://www.tcs.com"
   },
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Data Engineer",
+    "occupationLocation": {
+      "@type": "City",
+      "name": "Hyderabad"
+    },
+    "skills": "Python, Apache Spark, SQL, AWS, Snowflake, ETL, Data Pipelines, GenAI, MLOps"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Guru Nanak Institutions Technical Campus",
+    "url": "https://www.gnits.ac.in"
+  },
+  "knowsAbout": [
+    "Data Engineering",
+    "Apache Spark",
+    "Python",
+    "AWS",
+    "ETL Pipelines",
+    "Snowflake",
+    "GenAI",
+    "MLOps",
+    "System Architecture",
+    "Big Data"
+  ],
   "sameAs": [
     "https://linkedin.com/in/pavanbadempet",
     "https://github.com/pavanbadempet",
-    "https://twitter.com/pavanbadempet"
-  ],
-  "knowsAbout": ["Data Engineering", "Python", "Spark", "AWS", "GenAI", "System Architecture"]
+    "https://twitter.com/pavanbadempet",
+    "https://pavanbadempet.github.io"
+  ]
 }
 </script>
 
 {% if page.url == "/" %}
-<!-- WebSite Schema (Homepage Only) -->
+<!-- 2. WebSite Schema with SitelinksSearchBox — homepage only -->
+<!-- The SitelinksSearchBox tells Google your site has a search feature,
+     which is one of the signals that triggers sitelinks in search results -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org/",
+  "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "{{ site.title }}",
+  "@id": "{{ site.url }}/#website",
+  "name": "Pavan Badempet | Data Engineer",
+  "alternateName": "Pavan Badempet Portfolio",
   "url": "{{ site.url }}",
+  "description": "{{ site.description }}",
+  "author": {
+    "@id": "{{ site.url }}/#person"
+  },
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "{{ site.url }}/search.html?q={search_term_string}",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "{{ site.url }}/search.html?q={search_term_string}"
+    },
     "query-input": "required name=search_term_string"
   }
+}
+</script>
+
+<!-- 3. ItemList of site sections — directly signals the pages Google should use as sitelinks -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Pavan Badempet — Site Sections",
+  "itemListElement": [
+    {
+      "@type": "SiteLinksSearchBox",
+      "url": "{{ site.url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "url": "{{ site.url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Resume",
+      "description": "Pavan Badempet's Data Engineer resume — experience at TCS, skills in Python, Spark, AWS.",
+      "url": "{{ site.url }}/resume/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Portfolio",
+      "description": "Data engineering and AI/ML projects by Pavan Badempet.",
+      "url": "{{ site.url }}/portfolio/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Contact",
+      "description": "Get in touch with Pavan Badempet for data engineering opportunities.",
+      "url": "{{ site.url }}/contacts/"
+    }
+  ]
 }
 </script>
 {% endif %}
 
 {% if page.layout == 'post' %}
-<!-- BlogPosting Schema -->
+<!-- 4. BlogPosting Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "{{ page.title }}",
+  "headline": "{{ page.title | escape }}",
   "image": "{{ page.image | absolute_url }}",
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
   "author": {
-    "@type": "Person",
-    "name": "{{ site.author }}"
+    "@id": "{{ site.url }}/#person"
   },
   "publisher": {
-    "@type": "Organization",
-    "name": "Pavan Badempet",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ site.url }}/{{ site.image }}"
-    }
+    "@id": "{{ site.url }}/#person"
   },
-  "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}",
+  "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 | escape }}",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "{{ page.url | absolute_url }}"
@@ -68,38 +164,42 @@
 </script>
 {% endif %}
 
-{% if page.layout == 'portfolio' %}
-<!-- CreativeWork Schema (Portfolio) -->
+{% if page.layout == 'portfolio' or page.layout == 'work' %}
+<!-- 5. CreativeWork Schema (Portfolio / Work pages) -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org/",
-  "@type": "CreativeWork",
-  "name": "{{ page.title }}",
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "{{ page.title | escape }}",
   "image": "{{ page.image | absolute_url }}",
   "creator": {
-    "@type": "Person",
-    "name": "Pavan Badempet"
+    "@id": "{{ site.url }}/#person"
   },
-  "description": "{{ page.description }}"
+  "description": "{{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | escape }}",
+  "url": "{{ page.url | absolute_url }}"{% if page.button_url %},
+  "codeRepository": "{{ page.button_url }}"{% endif %}{% if page.demo_url %},
+  "installUrl": "{{ page.demo_url }}"{% endif %}
 }
 </script>
 {% endif %}
 
-<!-- Breadcrumb Schema -->
+<!-- 6. Breadcrumb Schema — on every page, helps Google understand site hierarchy -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Home",
-    "item": "{{ site.url }}"
-  }{% if page.url != "/" %},{
-    "@type": "ListItem",
-    "position": 2,
-    "name": "{{ page.title | default: 'Page' }}",
-    "item": "{{ page.url | absolute_url }}"
-  }{% endif %}]
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Pavan Badempet",
+      "item": "{{ site.url }}"
+    }{% if page.url != "/" %},{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ page.title | default: 'Page' | escape }}",
+      "item": "{{ page.url | absolute_url }}"
+    }{% endif %}
+  ]
 }
 </script>

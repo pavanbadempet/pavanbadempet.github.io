@@ -4,6 +4,7 @@ category: Content
 category_slug: f-content
 type: content
 image: assets/img/works/prabc.png
+description: "Cross-platform breast cancer risk prediction app using Random Forest on BRCA clinical data, with a Flask backend, D3.js visualizations, and mobile/desktop support via Python, Java, and Kotlin."
 button_url: https://github.com/pavanbadempet/PRABC
 ---
 

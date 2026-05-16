@@ -4,6 +4,7 @@ category: Content
 category_slug: f-content
 type: content
 image: assets/img/works/mrsbup.png
+description: "Semantic movie recommendation engine using SBERT (MPNet) 768-dim embeddings and FAISS for sub-100ms vector search, with MMR diversity and multi-factor re-ranking. Built with PySpark, FastAPI, and Streamlit."
 button_url: https://github.com/pavanbadempet/Movie-Recommendation-System
 demo_url: https://movie-recommendation-system.streamlit.app
 tags: [python, machine-learning, nlp, api]
