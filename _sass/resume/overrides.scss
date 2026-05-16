@@ -100,6 +100,40 @@
    UI/UX IMPROVEMENTS
    ========================================= */
 
+/* 12. FIX PERSONAL HERO LAYOUT — prevent h-title overlapping typed subtitle */
+/* On desktop: push title below the image, not into the center of the screen */
+@media (min-width: 1200px) {
+    .section.started.personal .started-content .h-title {
+        left: calc(50% + 20px) !important;
+        top: auto !important;
+        bottom: 60px !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        max-width: 480px !important;
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+    }
+
+    .section.started.personal .started-content .typed-subtitle,
+    .section.started.personal .started-content .typed-bread {
+        bottom: 160px !important;
+        left: calc(50% + 20px) !important;
+        font-size: 52px !important;
+        line-height: 60px !important;
+        text-align: left !important;
+    }
+}
+
+/* On tablet: keep title below typed text */
+@media (max-width: 1199px) and (min-width: 721px) {
+    .section.started.personal .started-content .h-title {
+        margin-top: 80px !important;
+        width: 280px !important;
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+    }
+}
+
 /* 13. SKILLS GRID — multi-column layout for list type */
 .section.skills .skills.list.content-box ul {
     display: grid;
