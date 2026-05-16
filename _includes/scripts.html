@@ -31,36 +31,38 @@
         var needMermaid = !!document.querySelector('.mermaid');
         var needSocialShare = !!document.querySelector('.social-share');
 
-        var coreAfterJquery = [
-            loadScript("https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"),
-            loadScript("{{ 'assets/js/typed.js' | relative_url }}"),
-            loadScript("https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"),
-            loadScript("{{ 'assets/js/data-particles.js' | relative_url }}")
-        ];
-
-        if (needJarallax) {
-            coreAfterJquery.push(
-                loadScript("{{ 'assets/js/jarallax.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/jarallax-video.js' | relative_url }}"),
-                loadScript("{{ 'assets/js/jarallax-element.js' | relative_url }}")
-            );
-        }
-        if (needPortfolio) {
-            coreAfterJquery.push(
-                loadScript("{{ 'assets/js/imagesloaded.pkgd.js' | relative_url }}"),
-                loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"),
-                loadScript("{{ 'assets/js/simpleParallax.js' | relative_url }}")
-            );
-        }
-        if (needSwiper) {
-            coreAfterJquery.push(loadScript("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"));
-        }
-        if (needSocialShare) {
-            coreAfterJquery.push(loadScript("{{ 'assets/js/rrssb.js' | relative_url }}"));
-        }
-
+        // Load jQuery first, then all jQuery-dependent scripts in parallel
         loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
             .then(function () {
+                // All scripts here run AFTER jQuery is ready
+                var coreAfterJquery = [
+                    loadScript("https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"),
+                    loadScript("{{ 'assets/js/typed.js' | relative_url }}"),
+                    loadScript("https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"),
+                    loadScript("{{ 'assets/js/data-particles.js' | relative_url }}")
+                ];
+
+                if (needJarallax) {
+                    coreAfterJquery.push(
+                        loadScript("{{ 'assets/js/jarallax.js' | relative_url }}"),
+                        loadScript("{{ 'assets/js/jarallax-video.js' | relative_url }}"),
+                        loadScript("{{ 'assets/js/jarallax-element.js' | relative_url }}")
+                    );
+                }
+                if (needPortfolio) {
+                    coreAfterJquery.push(
+                        loadScript("{{ 'assets/js/imagesloaded.pkgd.js' | relative_url }}"),
+                        loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"),
+                        loadScript("{{ 'assets/js/simpleParallax.js' | relative_url }}")
+                    );
+                }
+                if (needSwiper) {
+                    coreAfterJquery.push(loadScript("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"));
+                }
+                if (needSocialShare) {
+                    coreAfterJquery.push(loadScript("{{ 'assets/js/rrssb.js' | relative_url }}"));
+                }
+
                 return Promise.all(coreAfterJquery);
             })
             .then(function () {

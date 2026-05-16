@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pavan-portfolio-v2';
+const CACHE_NAME = 'pavan-portfolio-v3';
 
 // Precache only URLs that exist on the built site; failed entries no longer break install.
 const PRECACHE_URLS = [
