@@ -134,3 +134,5 @@ defaults:
     values:
       sitemap_priority: 0.6
       sitemap_changefreq: never
+      author: "Pavan Badempet"
+      image: "assets/img/blog/LeetCode.jpg"
