@@ -100,27 +100,31 @@
    UI/UX IMPROVEMENTS
    ========================================= */
 
-/* 12. FIX PERSONAL HERO LAYOUT — prevent h-title overlapping typed subtitle */
-/* On desktop: push title below the image, not into the center of the screen */
+/* 12. FIX PERSONAL HERO LAYOUT — h-title in center-right, typed subtitle at bottom */
+/* On desktop: description text stays center-right (next to avatar), typed text at bottom */
 @media (min-width: 1200px) {
     .section.started.personal .started-content .h-title {
-        left: calc(50% + 20px) !important;
-        top: auto !important;
-        bottom: 60px !important;
-        margin-left: 0 !important;
-        margin-top: 0 !important;
-        max-width: 480px !important;
+        left: 50% !important;
+        top: 50% !important;
+        bottom: auto !important;
+        margin-left: -85px !important;
+        margin-top: 85px !important;
+        width: 480px !important;
         font-size: 16px !important;
         line-height: 1.6 !important;
+        position: absolute !important;
+        text-align: left !important;
     }
 
     .section.started.personal .started-content .typed-subtitle,
     .section.started.personal .started-content .typed-bread {
-        bottom: 160px !important;
-        left: calc(50% + 20px) !important;
+        bottom: 50px !important;
+        left: 20% !important;
         font-size: 52px !important;
         line-height: 60px !important;
         text-align: left !important;
+        top: auto !important;
+        margin-top: 0 !important;
     }
 }
 
