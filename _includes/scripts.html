@@ -106,35 +106,7 @@
         });
     })();
 
-    // Dark/Light Theme Toggle
-    (function () {
-        var btn = document.getElementById('theme-toggle');
-        var icon = document.getElementById('theme-icon');
-        if (!btn) return;
-
-        function applyTheme(theme) {
-            if (theme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-                if (icon) { icon.className = 'fas fa-sun'; }
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-                if (icon) { icon.className = 'fas fa-moon'; }
-            }
-        }
-
-        // Set correct icon on load
-        try {
-            var saved = localStorage.getItem('theme') || 'dark';
-            applyTheme(saved);
-        } catch(e) {}
-
-        btn.addEventListener('click', function () {
-            var current = document.documentElement.getAttribute('data-theme');
-            var next = current === 'light' ? 'dark' : 'light';
-            applyTheme(next);
-            try { localStorage.setItem('theme', next); } catch(e) {}
-        });
-    })();
+    // Back to Top Button
     (function () {
         var btn = document.getElementById('back-to-top');
         if (!btn) return;
