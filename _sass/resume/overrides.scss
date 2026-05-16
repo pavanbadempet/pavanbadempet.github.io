@@ -143,7 +143,7 @@
     font-size: 18px;
     opacity: 0;
     visibility: hidden;
-    @include transition(opacity 0.3s ease, visibility 0.3s ease);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 9999;
     text-decoration: none;
 }
