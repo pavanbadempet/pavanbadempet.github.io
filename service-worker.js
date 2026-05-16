@@ -31,9 +31,13 @@ self.addEventListener('fetch', event => {
             .then(response => {
                 if (response) return response;
                 return fetch(event.request).catch(() => {
-                    // Network failed (offline, blocked, etc.) — return nothing
-                    // so the browser shows its own error rather than an unhandled rejection
-                    return new Response('', { status: 503, statusText: 'Service Unavailable' });
+                    // Network failed (offline, blocked, etc.) — return a no-body
+                    // response so the browser doesn't log an unhandled rejection.
+                    // Use 200 with empty body to avoid "503" noise in DevTools.
+                    return new Response('', {
+                        status: 200,
+                        headers: { 'Content-Type': 'text/plain' }
+                    });
                 });
             })
     );
