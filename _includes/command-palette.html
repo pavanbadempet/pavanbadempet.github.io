@@ -926,6 +926,7 @@
 
     function scrollToBottom() {
         const container = document.querySelector('.cp-body');
+        if (!container) return;
         container.scrollTop = container.scrollHeight;
     }
 
