@@ -1,9 +1,19 @@
 /* TEAM */
-  Developer: Pavan Badempet
-  Stack: Jekyll, Liquid, SCSS, JS
-  Location: Hyderabad, India
+  Developer & Designer: Pavan Badempet
+  Role: Data Engineer
+  Location: Hyderabad, Telangana, India
+  Email: pavan9b@gmail.com
+  LinkedIn: https://linkedin.com/in/pavanbadempet
+  GitHub: https://github.com/pavanbadempet
+  Site: https://pavanbadempet.github.io
 
 /* SITE */
-  Last Updated: 2025/12/28
-  Standards: HTML5, CSS3, ES6
-  Components: Custom Built
+  Last Updated: 2026/05/16
+  Language: English
+  Standards: HTML5, CSS3, ES6, JSON-LD, Schema.org
+  Components: Jekyll, SCSS, jQuery, Particles.js, typed.js
+  Hosted: GitHub Pages
+
+/* THANKS */
+  Jekyll — https://jekyllrb.com
+  GitHub Pages — https://pages.github.com
