@@ -1,0 +1,19 @@
+# Theme Settings Configuration File
+##
+### use settings.yml file for configure colors, ui, rtl, sidebar, animation options
+
+### Main Settings
+settings:
+  logo_text: "Pavan <strong>Badempet</strong>"
+  logo_hover_text: "<strong>Download Resume</strong>"
+  quick_colors: "" # select quick color schemes: "beige", "blue", "brown", "green_light", "green", "orange", "purple", "red", "yellow_light", "yellow". If empty colors taken from _sass/ryancv/settings.scss
+
+### Portfolio Filters Settings
+portfolio:
+  filters:
+    - name: "Projects"
+      slug: "f-content"
+
+    - name: "Books"
+      slug: "f-books"
+
