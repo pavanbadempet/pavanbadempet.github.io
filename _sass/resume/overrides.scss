@@ -100,34 +100,6 @@
    UI/UX IMPROVEMENTS
    ========================================= */
 
-/* 12. HERO CTA BUTTONS */
-.hero-cta {
-    display: flex;
-    gap: 16px;
-    margin-top: 28px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.hero-btn-primary {
-    background-color: $active_color !important;
-    color: $default_bg !important;
-    font-weight: 600;
-}
-
-.hero-btn-primary .lnk {
-    color: $default_bg !important;
-}
-
-.hero-btn-secondary {
-    border: 1px solid $active_color !important;
-    color: $active_color !important;
-}
-
-.hero-btn-secondary .lnk {
-    color: $active_color !important;
-}
-
 /* 13. SKILLS GRID — multi-column layout for list type */
 .section.skills .skills.list.content-box ul {
     display: grid;
@@ -211,13 +183,8 @@
     color: $default_bg !important;
 }
 
-/* 17. MOBILE RESPONSIVE — hero CTA stack on small screens */
+/* 17. MOBILE RESPONSIVE — back-to-top on small screens */
 @media (max-width: 600px) {
-    .hero-cta {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .back-to-top {
         bottom: 16px;
         right: 16px;

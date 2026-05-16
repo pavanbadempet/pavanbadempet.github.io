@@ -16,18 +16,12 @@ started:
 started-personal:
   title: "Data Engineer building scalable cloud data platforms using Python, Spark, SQL, and AWS, integrating GenAI and ML into real-world systems."
   typed:
-    - "2+ years at <strong>Tata Consultancy Services</strong>"
-    - "Spark ETL for <strong>Nomura Capital</strong> & <strong>Nissan</strong>"
-    - "AWS Lambda, Step Functions, <strong>Snowflake</strong>"
-    - "GenAI & ML in <strong>production systems</strong>"
-    - "Open to <strong>full-time & contract roles</strong>"
+    - "I build <strong>backend systems</strong>"
+    - "I design <strong>data pipelines</strong>"
+    - "I deploy <strong>cloud architectures</strong>"
+    - "I automate <strong>workflows</strong>"
+    - "I develop <strong>APIs</strong>"
   image: "assets/img/pavan.png"
-  cta:
-    text: "View My Work"
-    url: "portfolio/"
-  cta_secondary:
-    text: "Download Resume"
-    url: "https://drive.google.com/file/d/1gppjKAn5s9W06uH4ajoj7Ha2H13zEPkq/view?usp=sharing"
   
 ### Started Image
 started-image:

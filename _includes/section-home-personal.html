@@ -14,7 +14,7 @@
         <div class="vertical-center">
             <div class="started-content">
                 {% if content.image != '' %}
-                <div class="logo" role="img" aria-label="Pavan Badempet profile photo" style="background-image: url({{ content.image | relative_url }});"></div>
+                <div class="logo" style="background-image: url({{ content.image | relative_url }});"></div>
                 {% endif %}
                 {% if content.title != '' %}
                 <h1 class="h-title">
@@ -27,21 +27,6 @@
                     {% endfor %}
                 </h2>
                 <span class="typed-subtitle"></span>
-
-                {% if content.cta %}
-                <div class="hero-cta">
-                    <a href="{{ content.cta.url | relative_url }}" class="btn hover-animated hero-btn-primary" aria-label="{{ content.cta.text }}">
-                        <span class="circle"></span>
-                        <span class="lnk">{{ content.cta.text }}</span>
-                    </a>
-                    {% if content.cta_secondary %}
-                    <a href="{{ content.cta_secondary.url }}" class="btn hover-animated hero-btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="{{ content.cta_secondary.text }}">
-                        <span class="circle"></span>
-                        <span class="lnk">{{ content.cta_secondary.text }}</span>
-                    </a>
-                    {% endif %}
-                </div>
-                {% endif %}
             </div>
         </div>
     </div>
