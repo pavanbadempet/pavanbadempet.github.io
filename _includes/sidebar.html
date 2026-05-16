@@ -5,7 +5,7 @@
         <div id="search" class="widget widget_search">
             <form class="search-form" method="GET" action="{{ '/search.html' | relative_url }}"> 
                 <div class="search-form-label"> 
-                    <input type="search" class="search-field" id="search-input" placeholder="{{ ui_text.search }}" value="" /> 
+                    <input type="search" class="search-field" id="search-input" placeholder="{{ ui_text.search }}" value="" autocomplete="off" /> 
                     <input type="submit" class="search-submit" value="{{ ui_text.search }}" />
                 </div> 
                 <ul id="results-container"></ul>
