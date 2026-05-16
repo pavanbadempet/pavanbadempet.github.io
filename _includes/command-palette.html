@@ -617,7 +617,7 @@
             }
             document.body.style.overflow = 'hidden';
             setMode('ai');
-            if (!aiContextLoaded) loadContext();
+            if (!aiContextLoaded) await loadContext();
         }
         paletteState.isOpen = !paletteState.isOpen;
     }
