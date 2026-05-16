@@ -653,16 +653,18 @@
     }
 
     async function loadContext() {
+        if (aiContextLoaded) return;
         try {
             const fetchUrl = '{{ "/ai_chunks.json" | relative_url }}?v=' + Date.now();
             const response = await fetch(fetchUrl);
             aiChunks = await response.json();
             if (!Array.isArray(aiChunks)) aiChunks = [];
+            aiContextLoaded = true;
         } catch (e) {
             console.error('ai_chunks load failed', e);
             aiChunks = [];
+            // don't set aiContextLoaded = true so it retries next time
         }
-        aiContextLoaded = true;
     }
 
     async function performSearch(query) {
