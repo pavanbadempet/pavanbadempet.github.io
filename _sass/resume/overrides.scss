@@ -138,3 +138,130 @@
         font-size: 15px;
     }
 }
+
+/* 13. DARK / LIGHT MODE TOGGLE */
+
+/* Toggle button in header */
+#theme-toggle {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: $default_color;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    margin-left: 12px;
+    flex-shrink: 0;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    z-index: 10;
+}
+
+#theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: $active_color;
+    color: $active_color;
+}
+
+/* Light theme overrides — applied when <html data-theme="light"> */
+[data-theme="light"] {
+    /* Backgrounds */
+    --bg: #f5f5f5;
+    --extra-bg: #ffffff;
+    --lines: rgba(0, 0, 0, 0.08);
+
+    /* Text */
+    --color: #333333;
+    --extra-color: #555555;
+    --light-color: #111111;
+
+    background-color: #f5f5f5;
+}
+
+[data-theme="light"] body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+[data-theme="light"] .container {
+    background-color: #f5f5f5;
+}
+
+[data-theme="light"] .header,
+[data-theme="light"] .header.fixed {
+    background: rgba(245, 245, 245, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .header .top-menu ul li a,
+[data-theme="light"] .header .logo a {
+    color: #333 !important;
+}
+
+[data-theme="light"] .header .top-menu ul li.current-menu-item a,
+[data-theme="light"] .header .top-menu ul li a:hover {
+    color: #4bffa5 !important;
+}
+
+[data-theme="light"] .section {
+    background-color: #f5f5f5;
+}
+
+[data-theme="light"] .content-box {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .resume-items .resume-item {
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .resume-items .resume-item .name,
+[data-theme="light"] .resume-items .resume-item .date,
+[data-theme="light"] .section .title .title_inner {
+    color: #111;
+}
+
+[data-theme="light"] p,
+[data-theme="light"] li,
+[data-theme="light"] span,
+[data-theme="light"] .resume-items .resume-item .text {
+    color: #444;
+}
+
+[data-theme="light"] .footer {
+    background: rgba(245, 245, 245, 0.95);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .footer .copy,
+[data-theme="light"] .footer .soc a {
+    color: #555 !important;
+}
+
+[data-theme="light"] .lines .line-col {
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] #theme-toggle {
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #333;
+}
+
+[data-theme="light"] #theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .skills.list.content-box ul li {
+    border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+    color: #333;
+}
+
+[data-theme="light"] .section.started .started-content .h-title,
+[data-theme="light"] .section.started .started-content .typed-subtitle,
+[data-theme="light"] .section.started .started-content .h-subtitle {
+    color: #fff; /* keep hero text white — it's over the dark particle bg */
+}
