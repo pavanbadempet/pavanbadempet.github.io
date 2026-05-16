@@ -781,6 +781,9 @@
             copyEmailBtn.addEventListener('click', () => {
                 navigator.clipboard.writeText("pavan9b@gmail.com").then(() => {
                     togglePalette();
+                }).catch(err => {
+                    console.warn('Clipboard write failed', err);
+                    togglePalette();
                 });
             });
         }
