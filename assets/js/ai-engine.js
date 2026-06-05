@@ -429,5 +429,6 @@
         callProvider: callProvider,
         disposeWebLlm: disposeWebLlm,
         isWebGpuAvailable: isWebGpuAvailable,
+        buildContextPackage: buildContextPackage,
     };
 })(typeof window !== 'undefined' ? window : this);
