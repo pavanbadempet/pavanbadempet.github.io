@@ -243,7 +243,7 @@
     }
 
     async function callPollinations(messages, temperature) {
-        var res = await fetch('https://text.pollinations.ai/', {
+        var res = await fetch('https://text.pollinations.ai/openai', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ messages: messages, model: 'openai', temperature: temperature }),
@@ -255,11 +255,15 @@
             } catch (e0) {
                 /* ignore */
             }
+            if (res.status === 429) {
+                throw new Error('Pollinations HTTP 429: Rate limit exceeded or queue full. Consider configuring a custom AI Worker or WebLLM in _config.yml.');
+            }
             throw new Error(
                 'Pollinations HTTP ' + res.status + (errBody ? ': ' + errBody : ' (empty body; check network / ad blockers)')
             );
         }
-        return res.text();
+        var data = await res.json();
+        return (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || '';
     }
 
     async function callWorker(workerUrl, model, messages, temperature) {
