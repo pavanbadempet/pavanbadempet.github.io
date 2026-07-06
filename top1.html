@@ -16,13 +16,9 @@ permalink: /top1/
 
 <div class="right-col">
     
-    <div class="ai-search-wrapper">
+    <div class="ai-search-wrapper top1-inline-ai">
         <div class="ai-search-title">Portfolio AI Assistant</div>
-        <div class="top1-ai-search" onclick="document.dispatchEvent(new KeyboardEvent('keydown', {'key':'k', 'ctrlKey':true})); return false;">
-            <i class="fas fa-sparkles"></i>
-            <span class="placeholder">Ask anything about my experience...</span>
-            <kbd>Ctrl K</kbd>
-        </div>
+        {%- include command-palette.html -%}
     </div>
 
     <div class="metrics-grid">

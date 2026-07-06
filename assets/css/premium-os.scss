@@ -224,7 +224,7 @@ body.top1-layout::after {
   gap: 30px;
 }
 
-/* AI SEARCH BAR */
+/* AI SEARCH BAR WRAPPER */
 .ai-search-wrapper {
   background: rgba(0,0,0,0.3);
   border: 1px solid rgba(255,255,255,0.1);
@@ -233,7 +233,7 @@ body.top1-layout::after {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 25px;
+  gap: 15px;
   position: relative;
   overflow: hidden;
   transition: all 0.3s;
@@ -249,50 +249,92 @@ body.top1-layout::after {
   font-size: 28px;
   font-weight: 600;
   color: #fff;
+  margin-bottom: 10px;
 }
 
-.top1-ai-search {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.15);
-  padding: 20px 30px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* INLINE COMMAND PALETTE FOR TOP 1% */
+body.top1-layout .top1-inline-ai .command-palette-overlay {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  padding: 0 !important;
+  display: flex !important;
+  opacity: 1 !important;
+  z-index: 1 !important;
 }
 
-.top1-ai-search:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: var(--accent-color);
-  transform: scale(1.02);
+body.top1-layout .top1-inline-ai .command-palette-modal {
+  max-width: 100% !important;
+  max-height: 450px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  transform: none !important;
+  opacity: 1 !important;
 }
 
-.top1-ai-search i {
-  color: var(--accent-color);
-  font-size: 24px;
-  filter: drop-shadow(0 0 10px var(--accent-glow));
+/* Hide header and toolbar, we use the bento box title */
+body.top1-layout .top1-inline-ai .cp-header,
+body.top1-layout .top1-inline-ai .cp-ai-toolbar {
+  display: none !important;
 }
 
-.top1-ai-search span.placeholder {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  flex-grow: 1;
+/* Style the chat body */
+body.top1-layout .top1-inline-ai .cp-body {
+  padding: 0 !important;
+  min-height: 100px;
 }
 
-.top1-ai-search kbd {
-  background: rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-primary);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+/* Make messages look like glass cards */
+body.top1-layout .top1-inline-ai .cp-text {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #e2e8f0 !important;
+}
+
+body.top1-layout .top1-inline-ai .cp-message.user .cp-text {
+  background: rgba(0, 210, 255, 0.15) !important;
+  border-color: rgba(0, 210, 255, 0.3) !important;
+  color: #fff !important;
+}
+
+body.top1-layout .top1-inline-ai .cp-message.bot .cp-avatar {
+  background: rgba(0, 210, 255, 0.1) !important;
+  color: #00d2ff !important;
+  border-color: rgba(0, 210, 255, 0.3) !important;
+}
+
+/* Input area */
+body.top1-layout .top1-inline-ai .cp-footer {
+  background: transparent !important;
+  border-top: none !important;
+  padding: 10px 0 0 0 !important;
+}
+
+body.top1-layout .top1-inline-ai .cp-input-field {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  color: #fff !important;
+  font-family: var(--font-body) !important;
+  padding: 16px 20px !important;
+  border-radius: 16px !important;
+  font-size: 16px !important;
+}
+
+body.top1-layout .top1-inline-ai .cp-input-field:focus {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 0 1px rgba(0, 210, 255, 0.2) !important;
+}
+
+body.top1-layout .top1-inline-ai .cp-send {
+  background: rgba(0, 210, 255, 0.1) !important;
+  border: 1px solid rgba(0, 210, 255, 0.3) !important;
+  color: #00d2ff !important;
+  border-radius: 14px !important;
+  width: 50px !important;
 }
 
 /* METRICS GRID */
