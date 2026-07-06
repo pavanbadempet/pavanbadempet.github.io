@@ -307,6 +307,11 @@ body.top1-layout .top1-inline-ai #cp-ai-provider {
   cursor: pointer;
 }
 
+body.top1-layout .top1-inline-ai #cp-ai-provider option {
+  background: #1a1b1e !important;
+  color: #fff !important;
+}
+
 /* Style the chat body */
 body.top1-layout .top1-inline-ai .cp-body {
   padding: 0 !important;
