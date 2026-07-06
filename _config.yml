@@ -41,7 +41,7 @@ ollama_default_model: "llama3.2"
 # HTTPS tunnel or reverse-proxy base for Ollama (no trailing /api/chat). Required for GitHub Pages (https)
 # because http://127.0.0.1:11434 is blocked as mixed content. Examples: https://ollama.example.com or a trycloudflare URL.
 ollama_base_url: ""
-webllm_default_model: "Llama-3.2-1B-Instruct-q4f16_1-MLC"
+webllm_default_model: "Llama-3.2-3B-Instruct-q4f16_1-MLC"
 # RAG + generation (used by assets/js/ai-engine.js via #cp-ai-config)
 ai_retrieval_k: 8
 ai_temperature: 0.42
