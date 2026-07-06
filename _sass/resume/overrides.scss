@@ -203,7 +203,7 @@
 
 [data-theme="light"] .header .top-menu ul li.current-menu-item a,
 [data-theme="light"] .header .top-menu ul li a:hover {
-    color: #4bffa5 !important;
+    color: #00d2ff !important;
 }
 
 [data-theme="light"] .section {
@@ -264,4 +264,25 @@
 [data-theme="light"] .section.started .started-content .typed-subtitle,
 [data-theme="light"] .section.started .started-content .h-subtitle {
     color: #fff; /* keep hero text white — it's over the dark particle bg */
+}
+
+/* 14. ACCESSIBILITY: REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+    .cursor-follower {
+        display: none !important;
+    }
+    .video-bg-texture, .particles-js-canvas-el {
+        display: none !important;
+    }
 }

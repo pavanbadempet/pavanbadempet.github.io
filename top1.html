@@ -1,0 +1,23 @@
+---
+layout: top1
+permalink: /top1/
+---
+
+{% assign content = site.data.home['started-personal'] %}
+
+<h1 class="top1-hero-title">PAVAN BADEMPET.</h1>
+<div class="top1-hero-subtitle">Architecting Data & Intelligence.</div>
+
+<div class="top1-ai-search" onclick="document.dispatchEvent(new KeyboardEvent('keydown', {'key':'k', 'ctrlKey':true})); return false;">
+    <i class="fas fa-robot"></i>
+    <span class="placeholder">Ask the AI about my experience or projects...</span>
+    <kbd>Ctrl K</kbd>
+</div>
+
+<div class="top1-metrics-grid">
+    {% for item in content.typed %}
+    <div class="top1-metric-card">
+        {{ item }}
+    </div>
+    {% endfor %}
+</div>
