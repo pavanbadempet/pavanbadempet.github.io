@@ -30,18 +30,18 @@ export default {
       return new Response('Not Found', { status: 404, headers: ch });
     }
 
-    if (!env.OPENAI_API_KEY) {
+    if (!env.GROQ_API_KEY) {
       return new Response(
-        JSON.stringify({ error: { message: 'Worker missing OPENAI_API_KEY secret' } }),
+        JSON.stringify({ error: { message: 'Worker missing GROQ_API_KEY secret' } }),
         { status: 500, headers: { ...ch, 'content-type': 'application/json' } }
       );
     }
 
     const body = await request.text();
-    const upstream = await fetch('https://api.openai.com/v1/chat/completions', {
+    const upstream = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
-        Authorization: 'Bearer ' + env.OPENAI_API_KEY,
+        Authorization: 'Bearer ' + env.GROQ_API_KEY,
         'Content-Type': 'application/json',
       },
       body,
