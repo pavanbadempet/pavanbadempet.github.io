@@ -578,9 +578,9 @@
 
     function readStoredProvider() {
         try {
-            return localStorage.getItem(AI_PROVIDER_KEY) || 'webllm';
+            return localStorage.getItem(AI_PROVIDER_KEY) || '{% if site.ai_worker_url != "" %}worker{% else %}webllm{% endif %}';
         } catch (e) {
-            return 'webllm';
+            return '{% if site.ai_worker_url != "" %}worker{% else %}webllm{% endif %}';
         }
     }
 
@@ -595,7 +595,7 @@
         if (!sel) return;
         const opt = sel.querySelector('option[value="' + value + '"]');
         if (opt && !opt.disabled) sel.value = value;
-        else sel.value = 'webllm';
+        else sel.value = '{% if site.ai_worker_url != "" %}worker{% else %}webllm{% endif %}';
     }
 
     // --- Core Functions ---
