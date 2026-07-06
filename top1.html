@@ -5,19 +5,37 @@ permalink: /top1/
 
 {% assign content = site.data.home['started-personal'] %}
 
-<h1 class="top1-hero-title">PAVAN BADEMPET.</h1>
-<div class="top1-hero-subtitle">Architecting Data & Intelligence.</div>
-
-<div class="top1-ai-search" onclick="document.dispatchEvent(new KeyboardEvent('keydown', {'key':'k', 'ctrlKey':true})); return false;">
-    <i class="fas fa-robot"></i>
-    <span class="placeholder">Ask the AI about my experience or projects...</span>
-    <kbd>Ctrl K</kbd>
+<div class="bento-card profile-card">
+    <img src="{{ content.image | relative_url }}" alt="Pavan Badempet" class="profile-avatar">
+    <h1 class="profile-name">PAVAN<br>BADEMPET.</h1>
+    <div class="profile-title">Data & AI Engineer</div>
+    <div class="profile-desc">
+        {{ content.title }}
+    </div>
 </div>
 
-<div class="top1-metrics-grid">
-    {% for item in content.typed %}
-    <div class="top1-metric-card">
-        {{ item }}
+<div class="right-col">
+    
+    <div class="ai-search-wrapper">
+        <div class="ai-search-title">Portfolio AI Assistant</div>
+        <div class="top1-ai-search" onclick="document.dispatchEvent(new KeyboardEvent('keydown', {'key':'k', 'ctrlKey':true})); return false;">
+            <i class="fas fa-sparkles"></i>
+            <span class="placeholder">Ask anything about my experience...</span>
+            <kbd>Ctrl K</kbd>
+        </div>
     </div>
-    {% endfor %}
+
+    <div class="metrics-grid">
+        {% for item in content.typed %}
+        <div class="bento-card metric-card">
+            <div class="metric-icon">
+                <i class="fas fa-layer-group"></i>
+            </div>
+            <div class="metric-text">
+                {{ item }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
 </div>
