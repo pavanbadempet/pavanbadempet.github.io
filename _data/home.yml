@@ -16,11 +16,10 @@ started:
 started-personal:
   title: "Data Engineer building scalable cloud data platforms using Python, Spark, SQL, and AWS, integrating GenAI and ML into real-world systems."
   typed:
-    - "I build <strong>backend systems</strong>"
-    - "I design <strong>data pipelines</strong>"
-    - "I deploy <strong>cloud architectures</strong>"
-    - "I automate <strong>workflows</strong>"
-    - "I develop <strong>APIs</strong>"
+    - "I process <strong>Terabytes of Data</strong>"
+    - "I reduce <strong>Pipeline Latency by 30%</strong>"
+    - "I architect <strong>Serverless Data Lakes</strong>"
+    - "I deploy <strong>RAG-based AI Systems</strong>"
   image: "assets/img/pavan.webp"
   
 ### Started Image

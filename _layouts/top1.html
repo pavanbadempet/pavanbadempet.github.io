@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+{%- include head.html -%}
+
+<body class="top1-layout">
+
+  <!-- Container -->
+  <div class="top1-container">
+    
+    <header class="top1-header">
+      <div class="logo">PAVAN.</div>
+      <a href="{{ '/' | relative_url }}" class="theme-toggle-btn" aria-label="Switch to Classic View">
+        <i class="fas fa-history" style="margin-right: 8px;"></i> Classic View
+      </a>
+    </header>
+
+    <div class="top1-content">
+      {{ content }}
+    </div>
+
+  </div>
+
+  {%- include scripts.html -%}
+  
+  {%- include command-palette.html -%}
+
+</body>
+
+</html>

@@ -1,12 +1,12 @@
 <!-- Command Palette Modal -->
 <div id="command-palette" class="command-palette-overlay" style="display: none;">
-    <div class="command-palette-modal">
+    <div class="command-palette-modal" role="dialog" aria-modal="true" aria-labelledby="cp-modal-title">
         <div class="cp-header">
             <div class="cp-mode-icon">
                 <i class="fas fa-robot" id="cp-mode-icon"></i>
             </div>
             <div class="cp-header-mid">
-                <div class="cp-title">Portfolio assistant</div>
+                <div class="cp-title" id="cp-modal-title">Portfolio assistant</div>
                 <div class="cp-sub" id="cp-subhint">Ask about projects, skills, or experience</div>
             </div>
             <div class="cp-actions">

@@ -21,10 +21,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Preload critical CSS — eliminates render-blocking -->
+  {% if page.layout == 'top1' %}
+  <!-- TOP 1% Premium OS CSS -->
+  <link rel="preload" href="{{ 'assets/css/premium-os.css' | relative_url }}" as="style">
+  <link rel="stylesheet" href="{{ 'assets/css/premium-os.css' | relative_url }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap">
+  {% else %}
+  <!-- Classic Theme CSS -->
   <link rel="preload" href="{{ 'assets/css/style.css' | relative_url }}" as="style">
-
-  <!-- Critical CSS: load synchronously (above the fold) -->
   <link rel="stylesheet" href="{{ 'assets/css/style.css' | relative_url }}">
 
   <!-- Color Theme (critical — affects layout) -->
@@ -35,14 +39,14 @@
   {% endif %}
 
   <!-- Non-critical CSS: load async to avoid render-blocking -->
-  <!-- Roboto font — display=swap prevents FOIT -->
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap"
     media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap">
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap">
   </noscript>
+  {% endif %}
 
   <!-- FontAwesome — deferred, icons are not above-the-fold critical -->
   <link rel="stylesheet"
