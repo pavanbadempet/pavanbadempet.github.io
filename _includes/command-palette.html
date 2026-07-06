@@ -578,9 +578,9 @@
 
     function readStoredProvider() {
         try {
-            return localStorage.getItem(AI_PROVIDER_KEY) || 'pollinations';
+            return localStorage.getItem(AI_PROVIDER_KEY) || 'webllm';
         } catch (e) {
-            return 'pollinations';
+            return 'webllm';
         }
     }
 
@@ -595,7 +595,7 @@
         if (!sel) return;
         const opt = sel.querySelector('option[value="' + value + '"]');
         if (opt && !opt.disabled) sel.value = value;
-        else sel.value = 'pollinations';
+        else sel.value = 'webllm';
     }
 
     // --- Core Functions ---
