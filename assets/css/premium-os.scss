@@ -276,10 +276,35 @@ body.top1-layout .top1-inline-ai .command-palette-modal {
   opacity: 1 !important;
 }
 
-/* Hide header and toolbar, we use the bento box title */
-body.top1-layout .top1-inline-ai .cp-header,
-body.top1-layout .top1-inline-ai .cp-ai-toolbar {
+/* Hide header, we use the bento box title */
+body.top1-layout .top1-inline-ai .cp-header {
   display: none !important;
+}
+
+/* Style the toolbar inline */
+body.top1-layout .top1-inline-ai .cp-ai-toolbar {
+  display: flex !important;
+  background: transparent !important;
+  border-bottom: none !important;
+  padding: 0 0 15px 0 !important;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+body.top1-layout .top1-inline-ai .cp-ai-label {
+  color: var(--text-secondary) !important;
+  font-family: var(--font-body);
+}
+
+body.top1-layout .top1-inline-ai #cp-ai-provider {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+  font-family: var(--font-body) !important;
+  border-radius: 8px !important;
+  padding: 5px 10px !important;
+  font-size: 13px !important;
+  cursor: pointer;
 }
 
 /* Style the chat body */
