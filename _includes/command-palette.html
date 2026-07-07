@@ -804,6 +804,14 @@
         }
 
         addUserMessage(msg);
+        
+        // Hide existing chips immediately
+        const chipsContainer = document.getElementById('cp-agent-chips');
+        if (chipsContainer) {
+            chipsContainer.style.opacity = '0';
+            setTimeout(() => { chipsContainer.style.display = 'none'; }, 300);
+        }
+        
         const thinkingId = addThinking();
         const thinkingRow = document.getElementById(thinkingId);
         const thinkingTextEl = thinkingRow ? thinkingRow.querySelector('.cp-text') : null;
@@ -829,8 +837,21 @@
                 : null;
 
             const answer = await PortfolioAI.callProvider({ provider: provider, messages: messages, onProgress: onProgress, retrieved: retrieved });
-            const answerStr = answer == null ? '' : String(answer);
-            const trimmed = answerStr.trim();
+            let answerStr = answer == null ? '' : String(answer);
+            
+            // Extract dynamic suggestions
+            const suggestions = [];
+            const regex = /\[SUGGESTION:\s*(.*?)\]/g;
+            let match;
+            while ((match = regex.exec(answerStr)) !== null) {
+                let clean = match[1].trim();
+                // Sometimes models might leave the closing bracket off if cut short, handle basic clean up
+                if (clean.endsWith(']')) clean = clean.slice(0, -1);
+                suggestions.push(clean);
+            }
+            // Remove the suggestions from the visible string
+            answerStr = answerStr.replace(regex, '').trim();
+            const trimmed = answerStr;
 
             removeMessage(thinkingId);
             if (!trimmed) {
@@ -841,6 +862,12 @@
             }
             const botEl = addBotMessage(answerStr);
             renderCpRetrievalBar(botEl);
+            
+            // Render dynamic chips
+            if (typeof renderDynamicChips === 'function') {
+                renderDynamicChips(suggestions);
+            }
+            
             chatHistory.push({ role: 'user', content: msg });
             chatHistory.push({ role: 'assistant', content: answerStr });
         } catch (error) {

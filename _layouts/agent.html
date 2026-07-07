@@ -332,6 +332,42 @@
   {%- include scripts.html -%}
 
   <script>
+    // Global function called by command-palette.html after receiving a message
+    window.renderDynamicChips = function(suggestions) {
+        const container = document.getElementById('cp-agent-chips');
+        if (!container) return;
+        
+        container.innerHTML = ''; // clear old chips
+        
+        if (!suggestions || suggestions.length === 0) {
+            container.style.display = 'none';
+            return;
+        }
+        
+        suggestions.forEach(text => {
+            const btn = document.createElement('button');
+            btn.className = 'agent-chip';
+            btn.textContent = text;
+            btn.addEventListener('click', function() {
+                const input = document.getElementById('cp-input');
+                const sendBtn = document.getElementById('cp-send-btn');
+                if (input && sendBtn) {
+                    input.value = text;
+                    sendBtn.click();
+                    container.style.opacity = '0';
+                    setTimeout(() => container.style.display = 'none', 300);
+                }
+            });
+            container.appendChild(btn);
+        });
+        
+        container.style.display = 'flex';
+        // brief timeout to allow display:flex to apply before fading in
+        setTimeout(() => {
+            container.style.opacity = '1';
+        }, 50);
+    };
+
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
         const overlay = document.getElementById('command-palette');
@@ -339,9 +375,12 @@
           overlay.style.display = 'flex';
           overlay.classList.add('open');
           
-          // Show chips
+          // Show initial chips
           const chips = document.getElementById('cp-agent-chips');
-          if (chips) chips.style.display = 'flex';
+          if (chips) {
+              chips.style.display = 'flex';
+              chips.style.opacity = '1';
+          }
 
           // Replace default greeting
           const botMsgText = document.querySelector('.cp-message.bot .cp-text');
@@ -355,7 +394,7 @@
         }
       }, 100);
       
-      // Handle chip clicks
+      // Bind initial hardcoded chips
       document.querySelectorAll('.agent-chip').forEach(chip => {
         chip.addEventListener('click', function() {
           const input = document.getElementById('cp-input');
@@ -363,7 +402,6 @@
           if (input && sendBtn) {
             input.value = this.textContent;
             sendBtn.click();
-            // Hide chips after first message
             const chips = document.getElementById('cp-agent-chips');
             if (chips) {
                 chips.style.opacity = '0';
@@ -372,20 +410,6 @@
           }
         });
       });
-      
-      // Also hide chips on normal enter
-      const inputField = document.getElementById('cp-input');
-      if (inputField) {
-          inputField.addEventListener('keypress', function(e) {
-              if (e.key === 'Enter' && this.value.trim() !== '') {
-                  const chips = document.getElementById('cp-agent-chips');
-                  if (chips) {
-                      chips.style.opacity = '0';
-                      setTimeout(() => chips.style.display = 'none', 300);
-                  }
-              }
-          });
-      }
     });
   </script>
 </body>
