@@ -1,4 +1,4 @@
-﻿/**
+/**
 *	Layout Styles
 **/
 
@@ -681,11 +681,11 @@
 
 			.typed-subtitle,
 			.typed-bread {
-				margin-top: 0;
+				margin-top: 15px;
 				top: auto;
-				bottom: 50px;
-				left: 20%;
-				line-height: 74px;
+				bottom: auto;
+				left: 0;
+				line-height: 1.2;
 				text-align: left;
 			}
 		}
@@ -916,8 +916,10 @@
 	.section.started .started-content .typed-subtitle,
 	.section.started .started-content .typed-bread {
 		margin-top: -35px;
-		font-size: 60px;
-		line-height: 70px;
+		font-size: clamp(30px, 4vw, 60px);
+		line-height: 1.2;
+        white-space: pre-wrap; /* allow wrapping if it gets too long */
+        word-break: break-word;
 	}
 
 	.section.started.section-title .started-content .h-subtitle,
@@ -1038,10 +1040,10 @@
 	.section.started.personal .started-content .typed-subtitle,
 	.section.started.personal .started-content .typed-bread {
 		left: 0;
-		bottom: 30px;
+		bottom: auto;
 		padding-right: 50px;
 		font-size: 20px;
-		line-height: 30px;
+		line-height: 1.3;
 	}
 
 	.section.started .swiper-nav {

@@ -22,21 +22,11 @@
 			</a>
 		</div>
 
-        <!-- NEW: Theme Switcher -->
-        <div style="position: absolute; right: 80px; top: 20px; z-index: 100;">
-            <a href="{{ '/top1/' | relative_url }}" class="btn hover-animated" style="height: 36px; line-height: 32px; padding: 0 15px; font-size: 12px; border-radius: 18px; border-color: rgba(255,255,255,0.2); color: #fff;">
-                <span class="circle"></span>
-                <span class="lnk"><i class="fas fa-bolt" style="margin-right: 5px; color: #00d2ff;"></i> Top 1% View</span>
-            </a>
-        </div>
-
-
-
 		<!-- top menu -->
 		<div class="top-menu hover-masks">
 			<div class="top-menu-nav">
 				<div class="menu-topmenu-container">
-					<ul class="menu">
+					<ul class="menu" style="display: flex; align-items: center;">
 						{% for nav in navigation %}
 						{% assign nav_url = nav.url | absolute_url %}
 						<li
@@ -54,6 +44,12 @@
 							{% endif %}
 						</li>
 						{% endfor %}
+                        <li class="menu-item" style="margin-left: 15px;">
+                            <a href="{{ '/agent/' | relative_url }}" class="btn hover-animated" style="height: 36px; line-height: 32px; padding: 0 15px; font-size: 13px; border-radius: 18px; border-color: rgba(255,255,255,0.2); color: #fff; background: rgba(0,0,0,0.5);">
+                                <span class="circle"></span>
+                                <span class="lnk"><i class="fas fa-bolt" style="margin-right: 5px; color: #00d2ff;"></i> Top 1% View</span>
+                            </a>
+                        </li>
 					</ul>
 				</div>
 			</div>
