@@ -93,7 +93,7 @@
       100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
     }
 
-    /* --- NATIVE APP UI OVERRIDES --- */
+    /* --- HYPER-MINIMALIST UI OVERRIDES --- */
     
     /* Remove Overlay Restrictions */
     body.agent-layout .command-palette-overlay {
@@ -103,7 +103,6 @@
       width: 100%;
       height: 100%;
       background: transparent !important;
-      backdrop-filter: none !important;
       display: flex !important;
       justify-content: center;
       align-items: center;
@@ -112,7 +111,6 @@
       z-index: 10;
     }
 
-    /* Make the Modal a Native Flex Container */
     body.agent-layout .command-palette-modal {
       width: 100% !important;
       max-width: 100% !important;
@@ -121,8 +119,6 @@
       transform: none !important;
       opacity: 1 !important;
       background: transparent !important;
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
       border: none !important;
       box-shadow: none !important;
       border-radius: 0 !important;
@@ -145,18 +141,15 @@
       width: 100% !important;
       max-width: 800px !important;
       margin: 0 auto !important;
-      padding: 40px 0 20px 0 !important;
+      padding: 60px 0 20px 0 !important;
       overflow-y: auto !important;
-      scrollbar-width: none; /* Firefox */
-      /* Smooth fade out at the top */
-      mask-image: linear-gradient(to bottom, transparent, black 10%, black);
-      -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black);
+      scrollbar-width: none;
     }
     body.agent-layout .cp-body::-webkit-scrollbar { 
       display: none; 
     }
     
-    /* Suggestion Chips */
+    /* Minimalist Chips */
     body.agent-layout .agent-chips {
       order: 2 !important;
       width: 100% !important;
@@ -164,49 +157,53 @@
       margin: 0 auto !important;
       padding: 10px 0 20px 0 !important;
       display: flex !important;
-      justify-content: center !important;
+      justify-content: flex-start !important;
       flex-wrap: wrap !important;
-      gap: 12px !important;
+      gap: 10px !important;
       border: none !important;
       background: transparent !important;
     }
 
     body.agent-layout .agent-chip {
-      background: rgba(32, 178, 170, 0.05);
-      color: #00ffcc;
-      border: 1px solid rgba(32, 178, 170, 0.2);
-      padding: 8px 16px;
-      border-radius: 30px;
+      background: transparent !important;
+      color: #a0a0a0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 14px;
+      border-radius: 8px; /* Crisp rounded rectangle */
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 500;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 0 0 rgba(0, 255, 204, 0);
+      transition: all 0.2s ease;
+      box-shadow: none !important;
     }
 
     body.agent-layout .agent-chip:hover {
-      background: rgba(0, 255, 204, 0.15);
-      border-color: rgba(0, 255, 204, 0.8);
+      background: rgba(255, 255, 255, 0.05) !important;
+      border-color: rgba(255, 255, 255, 0.3);
       color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 255, 204, 0.2);
     }
 
-    /* Floating Premium Input Box */
+    /* Sleek Input Box */
     body.agent-layout .cp-footer {
       order: 3 !important;
       width: 100% !important;
       max-width: 800px !important;
       margin: 0 auto 40px auto !important;
-      background: rgba(25, 25, 30, 0.6) !important;
-      backdrop-filter: blur(20px) !important;
-      -webkit-backdrop-filter: blur(20px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      border-radius: 40px !important;
-      padding: 8px !important;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05) !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      border-radius: 12px !important; /* Professional crisp edge */
+      padding: 6px 6px 6px 16px !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
       display: flex !important;
       align-items: center !important;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+    
+    body.agent-layout .cp-footer:focus-within {
+      border-color: rgba(255, 255, 255, 0.4) !important;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1) !important;
     }
 
     body.agent-layout .cp-composer {
@@ -223,57 +220,92 @@
       background: transparent !important;
       border: none !important;
       color: #fff !important;
-      padding: 12px 24px !important;
-      font-size: 1.05rem !important;
+      padding: 10px 0 !important;
+      font-size: 1rem !important;
       outline: none !important;
+      font-weight: 400 !important;
     }
     
     body.agent-layout .cp-input-field::placeholder {
-      color: rgba(255, 255, 255, 0.4) !important;
+      color: rgba(255, 255, 255, 0.3) !important;
     }
 
-    /* Submit Button */
+    /* Minimalist Submit Button */
     body.agent-layout .cp-send {
-      background: rgba(0, 255, 204, 0.15) !important;
-      color: #00ffcc !important;
+      background: transparent !important;
+      color: #888 !important;
       border: none !important;
-      border-radius: 50% !important;
-      width: 44px !important;
-      height: 44px !important;
-      min-width: 44px !important;
-      margin: 0 4px !important;
+      border-radius: 8px !important;
+      width: 40px !important;
+      height: 40px !important;
+      min-width: 40px !important;
+      margin: 0 !important;
       cursor: pointer !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      transition: all 0.3s ease !important;
+      transition: all 0.2s ease !important;
     }
     
     body.agent-layout .cp-send:hover {
-      background: #00ffcc !important;
-      color: #000 !important;
-      transform: scale(1.05) !important;
-      box-shadow: 0 0 15px rgba(0,255,204,0.4) !important;
+      background: rgba(255,255,255,0.1) !important;
+      color: #fff !important;
     }
 
-    /* Beautiful Chat Bubbles */
+    /* Clean Chat Bubbles */
     body.agent-layout .cp-message {
       margin-bottom: 24px !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 12px !important;
+    }
+    
+    /* Bot Message */
+    body.agent-layout .cp-message.bot {
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
     }
     
     body.agent-layout .cp-message.bot .cp-avatar {
-      background: rgba(0, 255, 204, 0.1) !important;
-      color: #00ffcc !important;
-      border: 1px solid rgba(0, 255, 204, 0.3) !important;
-      box-shadow: 0 0 10px rgba(0, 255, 204, 0.1) !important;
+      background: transparent !important;
+      color: #fff !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 6px !important;
+      width: 32px !important;
+      height: 32px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: none !important;
+    }
+    
+    body.agent-layout .cp-message.bot .cp-text {
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      font-size: 1rem !important;
+      line-height: 1.6 !important;
+      color: #e0e0e0 !important;
+      margin-top: 4px !important;
+    }
+    
+    /* User Message */
+    body.agent-layout .cp-message.user {
+      flex-direction: row-reverse !important;
+    }
+    
+    body.agent-layout .cp-message.user .cp-avatar {
+      display: none !important;
     }
     
     body.agent-layout .cp-message.user .cp-text {
       background: rgba(255, 255, 255, 0.08) !important;
-      border: 1px solid rgba(255, 255, 255, 0.05) !important;
-      border-radius: 20px 20px 4px 20px !important;
+      border: none !important;
+      border-radius: 12px 12px 2px 12px !important;
       font-size: 1rem !important;
-      padding: 12px 18px !important;
+      padding: 10px 16px !important;
+      color: #fff !important;
     }
     
     /* Hide the floating trigger button */
