@@ -106,13 +106,16 @@ export default {
         
         // 2. Overwrite System Prompt
         if (messages.length > 0 && messages[0].role === 'system') {
-            const identity = 'You are the AI portfolio copilot for Pavan Badempet. You are powered by an advanced open-source LLM.\nCONTRACT: portfolio-ai-v2. Use CONTEXT indices [1], [2], … when citing facts about Pavan drawn from CONTEXT. If asked about Pavan and the CONTEXT/FACTS lack the answer, refuse and suggest his Resume/email. If asked about yourself (the AI), answer naturally.';
+            const identity = `You are the AI portfolio copilot for Pavan Badempet. You are powered by an advanced LLM.
+Rule 1: If the user asks about YOU (the AI), answer naturally and IGNORE the CONTEXT. Do not list sources.
+Rule 2: If the user asks about Pavan, answer using ONLY the provided CONTEXT. Cite facts using [1], [2], etc.
+Rule 3: If the CONTEXT does not contain the answer about Pavan, apologize and suggest checking his Resume or emailing him.`;
             
             if (contextChunks.length > 0) {
               const ragText = contextChunks.join('\n\n---\n\n');
-              messages[0].content = `${identity}\n\nCONTEXT (human-readable excerpts from portfolio):\n${ragText}\n\nOutput: Markdown. Be concise unless the user asks for depth. End with a **Sources:** line listing [n] titles.`;
+              messages[0].content = `${identity}\n\nCONTEXT (human-readable excerpts from portfolio):\n${ragText}\n\nOutput: Markdown. Be concise. If you used CONTEXT, end with a **Sources:** line listing [n] titles.`;
             } else {
-              messages[0].content = `${identity}\n\nOutput: Markdown. Be concise unless the user asks for depth.`;
+              messages[0].content = `${identity}\n\nOutput: Markdown. Be concise.`;
             }
         }
         
