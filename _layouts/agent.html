@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: "Pavan's AI Agent" }}</title>
+  
+  {%- include head.html -%}
+
+  <style>
+    /* Full Screen Agent Overrides */
+    body.agent-layout {
+      background-color: #0f0f11;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .agent-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background: #0f0f11;
+      z-index: 100;
+    }
+
+    .agent-header .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+    
+    .agent-header .logo span {
+      background: linear-gradient(135deg, #20b2aa, #00ffcc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .agent-header a.classic-btn {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .agent-header a.classic-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .agent-main {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Force Command Palette to be full screen and static */
+    body.agent-layout .command-palette-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      opacity: 1 !important;
+      padding: 0;
+    }
+
+    body.agent-layout .command-palette-modal {
+      width: 100%;
+      max-width: 800px;
+      height: 90%;
+      max-height: 900px;
+      transform: none !important;
+      opacity: 1 !important;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      background: #151518;
+      border-radius: 16px;
+    }
+
+    /* Hide the close button and title since it's the main page */
+    body.agent-layout .cp-close {
+      display: none;
+    }
+    
+    body.agent-layout .cp-header {
+      background: #151518;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    body.agent-layout .cp-ai-toolbar {
+      background: #151518;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Suggestion Chips */
+    .agent-chips {
+      display: flex;
+      gap: 10px;
+      padding: 10px 20px;
+      overflow-x: auto;
+      background: #151518;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .agent-chip {
+      background: rgba(32, 178, 170, 0.1);
+      color: #20b2aa;
+      border: 1px solid rgba(32, 178, 170, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .agent-chip:hover {
+      background: rgba(32, 178, 170, 0.2);
+      border-color: rgba(32, 178, 170, 0.6);
+    }
+    
+    /* Make the command trigger invisible on this layout */
+    body.agent-layout .cmd-trigger {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body class="agent-layout">
+
+  <header class="agent-header">
+    <div class="logo">PAVAN<span>.AI</span></div>
+    <a href="{{ '/classic/' | relative_url }}" class="classic-btn">
+      <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Classic View
+    </a>
+  </header>
+
+  <main class="agent-main">
+    {{ content }}
+  </main>
+
+  {%- include scripts.html -%}
+
+  <script>
+    // Force the palette open on load
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        const overlay = document.getElementById('command-palette');
+        if (overlay) {
+          overlay.style.display = 'flex';
+          overlay.classList.add('open');
+          
+          // Show chips
+          const chips = document.getElementById('cp-agent-chips');
+          if (chips) chips.style.display = 'flex';
+
+          // Replace default greeting
+          const botMsgText = document.querySelector('.cp-message.bot .cp-text');
+          if (botMsgText) {
+            botMsgText.innerHTML = "<strong>Hello! I am the AI representation of Pavan Badempet, an elite Data & AI Engineer.</strong><br><br>My sole purpose is to prove why he is the perfect fit for your team. What kind of role are you hiring for?";
+          }
+          
+          // Focus input
+          const input = document.getElementById('cp-input');
+          if (input) input.focus();
+        }
+      }, 100);
+      
+      // Handle chip clicks
+      document.querySelectorAll('.agent-chip').forEach(chip => {
+        chip.addEventListener('click', function() {
+          const input = document.getElementById('cp-input');
+          const sendBtn = document.getElementById('cp-send-btn');
+          if (input && sendBtn) {
+            input.value = this.textContent;
+            sendBtn.click();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
