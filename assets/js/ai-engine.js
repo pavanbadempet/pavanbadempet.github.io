@@ -222,6 +222,10 @@
               '\n'
             : '';
 
+        var sourceInstruction = retrieved.length > 0
+            ? '\n\nOutput: Markdown. Be concise unless the user asks for depth. End with a **Sources:** line listing [n] titles.'
+            : '\n\nOutput: Markdown. Be concise unless the user asks for depth.';
+
         return (
             'You are the portfolio copilot for Pavan Badempet (static site; answers must be grounded).\n' +
             'CONTRACT: ' +
@@ -232,7 +236,7 @@
             pkgJson +
             '\n\nCONTEXT (same sources as CONTEXT_PACKAGE_JSON.sources[*].excerpt; human-readable):\n' +
             rag +
-            '\n\nOutput: Markdown. Be concise unless the user asks for depth. End with a **Sources:** line listing [n] titles only when you used CONTEXT.'
+            sourceInstruction
         );
     }
 
