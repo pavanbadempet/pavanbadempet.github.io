@@ -265,6 +265,7 @@
             throw new Error(
                 'Pollinations HTTP ' + res.status + (errBody ? ': ' + errBody : ' (empty body; check network / ad blockers)')
             );
+        }
         var data = await res.json();
         return (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || '';
     }
@@ -402,10 +403,12 @@
      * @param {string} opts.provider
      * @param {Array<{role:string,content:string}>} opts.messages
      * @param {function(object):void} [opts.onProgress]
+     * @param {Array<object>} [opts.retrieved]
      */
     async function callProvider(opts) {
         var provider = opts.provider;
         var messages = opts.messages;
+        var retrieved = opts.retrieved;
         var cfg = getConfig();
         var onProgress = opts.onProgress;
         var temperature = inferTemperature(cfg);

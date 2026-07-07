@@ -822,7 +822,7 @@
                 }
                 : null;
 
-            const answer = await PortfolioAI.callProvider({ provider: provider, messages: messages, onProgress: onProgress });
+            const answer = await PortfolioAI.callProvider({ provider: provider, messages: messages, onProgress: onProgress, retrieved: retrieved });
             const answerStr = answer == null ? '' : String(answer);
             const trimmed = answerStr.trim();
 
