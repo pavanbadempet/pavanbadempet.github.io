@@ -681,11 +681,11 @@
 
 			.typed-subtitle,
 			.typed-bread {
-				margin-top: 15px;
+				margin-top: 0;
 				top: auto;
-				bottom: auto;
-				left: 0;
-				line-height: 1.2;
+				bottom: 50px;
+				left: 20%;
+				line-height: 74px;
 				text-align: left;
 			}
 		}
@@ -916,10 +916,8 @@
 	.section.started .started-content .typed-subtitle,
 	.section.started .started-content .typed-bread {
 		margin-top: -35px;
-		font-size: clamp(30px, 4vw, 60px);
-		line-height: 1.2;
-        white-space: pre-wrap; /* allow wrapping if it gets too long */
-        word-break: break-word;
+		font-size: clamp(24px, 3.5vw, 45px);
+		line-height: 1.3;
 	}
 
 	.section.started.section-title .started-content .h-subtitle,
@@ -1040,10 +1038,10 @@
 	.section.started.personal .started-content .typed-subtitle,
 	.section.started.personal .started-content .typed-bread {
 		left: 0;
-		bottom: auto;
+		bottom: 30px;
 		padding-right: 50px;
 		font-size: 20px;
-		line-height: 1.3;
+		line-height: 30px;
 	}
 
 	.section.started .swiper-nav {
