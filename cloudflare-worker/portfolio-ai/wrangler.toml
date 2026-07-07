@@ -6,3 +6,10 @@ compatibility_date = "2024-01-01"
 [vars]
 # Optional: lock CORS to your GitHub Pages origin (comma-separated). Default in code is *.
 # ALLOWED_ORIGIN = "https://pavanbadempet.github.io"
+
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "VECTORIZE_INDEX"
+index_name = "portfolio-index"

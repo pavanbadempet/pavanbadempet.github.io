@@ -285,6 +285,11 @@
         if (!res.ok) throw new Error('Worker HTTP ' + res.status);
         var data = await res.json();
         if (data.error && data.error.message) throw new Error(data.error.message);
+        
+        if (data.sources && Array.isArray(data.sources)) {
+            lastSources = data.sources;
+        }
+        
         return (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || '';
     }
 
