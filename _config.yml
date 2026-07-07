@@ -35,7 +35,7 @@ formsubmit_email: "pavan9b@gmail.com" # sign up on https://formsubmit.io/ and co
 
 # Command palette AI (optional backends — see cloudflare-worker/portfolio-ai/README.md)
 # Leave ai_worker_url empty to disable Worker proxy. For Ollama on GitHub Pages, set ollama_base_url to an https tunnel.
-ai_worker_url: "https://portfolio-ai.YOUR-SUBDOMAIN.workers.dev" # REPLACE YOUR-SUBDOMAIN AFTER DEPLOYING!
+ai_worker_url: "https://portfolio-ai-proxy.portfolio-ai-pavan.workers.dev"
 ai_worker_model: "llama-3.3-70b-versatile"
 ollama_default_model: "llama3.2"
 # HTTPS tunnel or reverse-proxy base for Ollama (no trailing /api/chat). Required for GitHub Pages (https)
