@@ -916,8 +916,10 @@
 	.section.started .started-content .typed-subtitle,
 	.section.started .started-content .typed-bread {
 		margin-top: -35px;
-		font-size: clamp(24px, 3.5vw, 45px);
+		font-size: clamp(24px, 4vw, 45px);
 		line-height: 1.3;
+		white-space: pre-wrap;
+		word-break: break-word;
 	}
 
 	.section.started.section-title .started-content .h-subtitle,
