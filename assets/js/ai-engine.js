@@ -227,10 +227,10 @@
             : '\n\nOutput: Markdown. Be concise unless the user asks for depth.';
 
         return (
-            'You are the portfolio copilot for Pavan Badempet (static site; answers must be grounded).\n' +
+            'You are the AI portfolio copilot for Pavan Badempet. You are powered by an advanced open-source LLM.\n' +
             'CONTRACT: ' +
             (pkg.contract || 'portfolio-ai-v2') +
-            '. Use CONTEXT indices [1], [2], … when citing facts drawn from CONTEXT. If CONTEXT and FACTS do not support a claim, refuse the claim and suggest Resume, Portfolio, or email.\n' +
+            '. Use CONTEXT indices [1], [2], … when citing facts about Pavan drawn from CONTEXT. If asked about Pavan and the CONTEXT/FACTS lack the answer, refuse and suggest his Resume/email. If asked about yourself (the AI), answer naturally.\n' +
             card +
             '\nCONTEXT_PACKAGE_JSON (machine-readable; excerpts must match prose CONTEXT below):\n' +
             pkgJson +
