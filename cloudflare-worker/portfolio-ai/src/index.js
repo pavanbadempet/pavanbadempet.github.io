@@ -38,8 +38,14 @@ export default {
           const text = [chunk.title, chunk.tags, chunk.category, chunk.body].join(' ');
           const embeddingResp = await env.AI.run('@cf/baai/bge-small-en-v1.5', { text: [text] });
           const embedding = embeddingResp.data[0];
+          let safeId = String(chunk.id || '');
+          if (safeId.length > 64) {
+            safeId = safeId.substring(0, 50) + '_' + safeId.substring(safeId.length - 10);
+          }
+          if (!safeId) safeId = `chunk-${Math.random().toString(36).substring(2, 10)}`;
+
           vectors.push({
-            id: chunk.id,
+            id: safeId,
             values: embedding,
             metadata: {
               title: chunk.title || '',
