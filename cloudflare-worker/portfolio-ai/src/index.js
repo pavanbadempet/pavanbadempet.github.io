@@ -80,26 +80,71 @@ export default {
         let contextChunks = [];
         let sources = [];
         
-        // 1. Vector RAG Retrieval
+        // 1. Vector RAG Retrieval + BM25 RRF + Re-Ranking
         if (lastUserMessage && lastUserMessage.content.length > 3) {
           const qEmbeddingResp = await env.AI.run('@cf/baai/bge-small-en-v1.5', { text: [lastUserMessage.content] });
           const qEmbedding = qEmbeddingResp.data[0];
           
-          const searchResults = await env.VECTORIZE_INDEX.query(qEmbedding, { topK: 5, returnMetadata: 'all' });
+          const searchResults = await env.VECTORIZE_INDEX.query(qEmbedding, { topK: 10, returnMetadata: 'all' });
           
-          for (let i = 0; i < searchResults.matches.length; i++) {
-            const match = searchResults.matches[i];
-            // BGE cosine similarity > 0.5 is usually good
-            if (match.score > 0.5) { 
-               const meta = match.metadata || {};
+          // Reciprocal Rank Fusion (RRF)
+          const scores = {};
+          const poolDict = {};
+          const kRRF = 60;
+          
+          searchResults.matches.forEach((m, rank) => {
+             scores[m.id] = (scores[m.id] || 0) + 1 / (kRRF + rank + 1);
+             poolDict[m.id] = m.metadata || {};
+             poolDict[m.id].id = m.id;
+          });
+          
+          const sparse = json.bm25Chunks || [];
+          sparse.forEach((m, rank) => {
+             scores[m.id] = (scores[m.id] || 0) + 1 / (kRRF + rank + 1);
+             poolDict[m.id] = m;
+          });
+          
+          let pool = Object.keys(scores)
+             .sort((a, b) => scores[b] - scores[a])
+             .map(id => poolDict[id])
+             .slice(0, 10);
+             
+          // Re-Ranking via Cloudflare AI
+          if (pool.length > 0) {
+            try {
+              const texts = pool.map(c => [c.title, c.category, c.body].join(' '));
+              const rerankResp = await env.AI.run('@cf/baai/bge-reranker-base', {
+                query: lastUserMessage.content,
+                text_0: lastUserMessage.content, // Some AI bindings use text_0/text_1 or query/texts
+                texts: texts
+              });
+              
+              // Reranker returns an array of scores, or { data: [...] } depending on the binding version
+              // According to docs, it returns { "results": [ {"score": 0.9, "index": 0}, ... ] }
+              const rerankedList = rerankResp.results || rerankResp.data || rerankResp;
+              if (Array.isArray(rerankedList)) {
+                for (const r of rerankedList) {
+                  if (r.index !== undefined && pool[r.index]) {
+                    pool[r.index].rerankScore = r.score;
+                  }
+                }
+                pool.sort((a, b) => (b.rerankScore || 0) - (a.rerankScore || 0));
+              }
+            } catch (e) {
+              console.error('Rerank failed, falling back to RRF', e);
+            }
+            
+            const finalTop5 = pool.slice(0, 5);
+            for (let i = 0; i < finalTop5.length; i++) {
+               const meta = finalTop5[i];
                sources.push({
                  index: i + 1,
-                 id: match.id,
+                 id: meta.id,
                  title: meta.title,
                  url: meta.url,
-                 score: match.score
+                 score: meta.rerankScore || scores[meta.id]
                });
-               contextChunks.push(`[${i+1}] **${meta.title}** (${meta.category}) — ${meta.url}\n${meta.body}`);
+               contextChunks.push(`[${i+1}] **${meta.title}** (${meta.category}) — ${meta.url}\n${String(meta.body).slice(0, 1500)}`);
             }
           }
         }

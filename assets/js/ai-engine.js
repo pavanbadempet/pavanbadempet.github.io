@@ -265,12 +265,11 @@
             throw new Error(
                 'Pollinations HTTP ' + res.status + (errBody ? ': ' + errBody : ' (empty body; check network / ad blockers)')
             );
-        }
         var data = await res.json();
         return (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || '';
     }
 
-    async function callWorker(workerUrl, model, messages, temperature) {
+    async function callWorker(workerUrl, model, messages, temperature, bm25Chunks) {
         var url = workerUrl.replace(/\/$/, '') + '/v1/chat/completions';
         var res = await fetch(url, {
             method: 'POST',
@@ -280,6 +279,7 @@
                 messages: messages,
                 temperature: temperature,
                 max_tokens: 1000,
+                bm25Chunks: bm25Chunks || []
             }),
         });
         if (!res.ok) throw new Error('Worker HTTP ' + res.status);
@@ -412,7 +412,7 @@
 
         if (provider === 'worker') {
             if (!cfg.workerUrl) throw new Error('Worker URL not configured (site.ai_worker_url in _config.yml).');
-            return callWorker(cfg.workerUrl, cfg.workerModel || 'gpt-4o-mini', messages, temperature);
+            return callWorker(cfg.workerUrl, cfg.workerModel || 'gpt-4o-mini', messages, temperature, retrieved);
         }
         if (provider === 'ollama') {
             return callOllama(cfg.ollamaModel || 'llama3.2', messages, temperature);
