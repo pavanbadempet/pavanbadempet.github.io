@@ -681,14 +681,13 @@
 
 			.typed-subtitle,
 			.typed-bread {
-				margin-top: 15px;
+				margin-top: 0;
 				top: auto;
-				bottom: auto;
-				left: 0;
+				bottom: 50px;
+				left: 20%;
 				line-height: 1.2;
 				text-align: left;
-				position: relative;
-				white-space: normal;
+				white-space: pre-wrap;
 				word-break: break-word;
 				font-size: clamp(30px, 4vw, 55px);
 			}
