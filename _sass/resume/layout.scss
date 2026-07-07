@@ -681,12 +681,16 @@
 
 			.typed-subtitle,
 			.typed-bread {
-				margin-top: 0;
+				margin-top: 15px;
 				top: auto;
-				bottom: 50px;
-				left: 20%;
-				line-height: 74px;
+				bottom: auto;
+				left: 0;
+				line-height: 1.2;
 				text-align: left;
+				position: relative;
+				white-space: normal;
+				word-break: break-word;
+				font-size: clamp(30px, 4vw, 55px);
 			}
 		}
 	}
