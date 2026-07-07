@@ -4,17 +4,7 @@ sitemap: false
 ---
 [
 {% assign first = true %}
-{% for post in site.posts %}
-{% unless first %},{% endunless %}{% assign first = false %}
-  {
-    "id": {{ 'post-' | append: post.slug | jsonify }},
-    "url": {{ post.url | relative_url | jsonify }},
-    "title": {{ post.title | jsonify }},
-    "category": {{ post.category | default: 'Blog' | jsonify }},
-    "tags": {{ post.tags | join: ', ' | jsonify }},
-    "body": {{ post.content | strip_html | truncate: 8000 | jsonify }}
-  }
-{% endfor %}
+
 {% for work in site.works %}
 {% unless first %},{% endunless %}{% assign first = false %}
   {
