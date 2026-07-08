@@ -441,5 +441,6 @@
         callProvider: callProvider,
         disposeWebLlm: disposeWebLlm,
         isWebGpuAvailable: isWebGpuAvailable,
+        getOllamaChatUrl: getOllamaChatUrl,
     };
 })(typeof window !== 'undefined' ? window : this);

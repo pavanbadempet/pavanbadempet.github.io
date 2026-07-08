@@ -8,3 +8,5 @@ _backup_*/
 .vscode/
 .kiro/
 scripts/
+node_modules/
+coverage/
