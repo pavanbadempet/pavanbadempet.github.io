@@ -687,7 +687,6 @@
 				$btn.prop('disabled', false);
 			},
 			error: function (err) {
-				console.log('Form submission error:', err);
 				alert('Sorry, there was an error sending your message. Please try again or email me directly.');
 				if (originalText) $btn.find('.lnk').text(originalText);
 				$btn.prop('disabled', false);
