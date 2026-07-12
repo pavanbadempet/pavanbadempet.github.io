@@ -1,4 +1,4 @@
-﻿/**
+/**
 *	Basic Styles
 **/
 
@@ -367,18 +367,19 @@ h6 {
 	margin-top: 30px;
 	margin-bottom: 30px;
 	color: #FFFFFF;
+	letter-spacing: -0.5px;
 }
 
 h1 {
-	font-size: 34px;
+	font-size: 36px;
 }
 
 h2 {
-	font-size: 30px;
+	font-size: 32px;
 }
 
 h3 {
-	font-size: 26px;
+	font-size: 28px;
 }
 
 h4 {
@@ -397,6 +398,8 @@ p {
 	font-size: $default_size;
 	padding: 0;
 	margin: 30px 0;
+	line-height: 1.7;
+	color: rgba(255, 255, 255, 0.85);
 }
 
 strong {

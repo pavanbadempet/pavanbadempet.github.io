@@ -103,12 +103,29 @@ team:
       text1: "Developed a multi-disease prediction platform (Diabetes, Heart, Kidney, Liver, Lung Cancer) using XGBoost and specialized ML models, capable of analyzing complex medical data."
       text2: "Architected a secure RAG-based medical assistant using Gemini Pro and FAISS for context-aware health queries and smart lab report analysis via computer vision."
       text3: "Deployed microservices architecture with FastAPI backend (Render) and Streamlit frontend (Streamlit Cloud), featuring JWT auth and tenant isolation."
+      architecture_diagram: |
+        graph TD
+          U[User Interface<br>Streamlit Cloud] -->|REST API| F[FastAPI Backend<br>Render]
+          F -->|XGBoost| M[Disease Models]
+          F -->|RAG| R[FAISS Vector Store]
+          R -->|Context| G[Gemini Pro]
+          F -->|Auth| A[JWT & JWT-refresh]
+          classDef aws fill:#1e1e1e,stroke:#4bffa5,stroke-width:2px;
+          class U,F,M,R,G,A aws;
 
     - name: "Movie Recommendation System"
       role: "Python, PySpark, FastAPI, Streamlit, SBERT (MPNet), FAISS, Render"
       text1: "Built an advanced recommendation engine processing 33k+ movies using 768-dim MPNet embeddings and FAISS for sub-100ms vector search."
       text2: "Implemented Maximal Marginal Relevance (MMR) for diversity and multi-factor re-ranking (Director, Franchise, Quality) to enhance user engagement."
       text3: "Deployed fully containerized stack with async FastAPI backend on Render and premium video-background UI on Streamlit Cloud."
+      architecture_diagram: |
+        graph TD
+          UI[Web UI<br>Streamlit] -->|Search Query| API[FastAPI<br>Render]
+          API -->|SBERT MPNet| E[Embeddings]
+          E -->|Sub-100ms Search| V[FAISS Index]
+          V -->|MMR Re-ranking| API
+          classDef modern fill:#1e1e1e,stroke:#4bffa5,stroke-width:2px;
+          class UI,API,E,V modern;
 
 ### Honors & Awards [ clients ]
 clients:

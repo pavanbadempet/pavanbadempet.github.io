@@ -29,6 +29,14 @@
                             <li class="text-left">{{item.text3}}</li>
                             {% endif %}
                         </ul>
+                        {% if item.architecture_diagram %}
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                            <div style="font-size: 12px; color: #4bffa5; margin-bottom: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Architecture</div>
+                            <pre class="mermaid">
+{{ item.architecture_diagram }}
+                            </pre>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
