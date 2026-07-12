@@ -104,14 +104,34 @@ team:
       text2: "Architected a secure RAG-based medical assistant using Gemini Pro and FAISS for context-aware health queries and smart lab report analysis via computer vision."
       text3: "Deployed microservices architecture with FastAPI backend (Render) and Streamlit frontend (Streamlit Cloud), featuring JWT auth and tenant isolation."
       architecture_diagram: |
-        graph TD
-          U[User Interface<br>Streamlit Cloud] -->|REST API| F[FastAPI Backend<br>Render]
-          F -->|XGBoost| M[Disease Models]
-          F -->|RAG| R[FAISS Vector Store]
-          R -->|Context| G[Gemini Pro]
-          F -->|Auth| A[JWT & JWT-refresh]
+        graph TB
+          subgraph Client["CLIENT SURFACE"]
+            FE["Vite 8 SPA · React 19"]
+          end
+          subgraph Gateway["API GATEWAY"]
+            MW["8-Layer Middleware Stack"]
+            ROUTERS["REST API Routers"]
+          end
+          subgraph Service["INTELLIGENCE"]
+            AGENT["LangGraph Supervisor"]
+            CORE["Core AI Provider (Ollama → Gemini)"]
+          end
+          subgraph DataEngine["MLOPS LAKEHOUSE"]
+            AIRFLOW["Apache Airflow"]
+            SPARK["PySpark & Delta Lake"]
+          end
+          subgraph Data["DATA LAYER"]
+            DB[(PostgreSQL/SQLite)]
+            VS[(turbovec SIMD Index)]
+            ML[(5 ML Classifiers)]
+          end
+          Client --> Gateway
+          Gateway --> Service
+          Service --> Data
+          DataEngine --> Data
+          Service -.-> DataEngine
           classDef aws fill:#1e1e1e,stroke:#4bffa5,stroke-width:2px;
-          class U,F,M,R,G,A aws;
+          class Client,Gateway,Service,DataEngine,Data aws;
 
     - name: "Movie Recommendation System"
       role: "Python, PySpark, FastAPI, Streamlit, SBERT (MPNet), FAISS, Render"
@@ -119,13 +139,39 @@ team:
       text2: "Implemented Maximal Marginal Relevance (MMR) for diversity and multi-factor re-ranking (Director, Franchise, Quality) to enhance user engagement."
       text3: "Deployed fully containerized stack with async FastAPI backend on Render and premium video-background UI on Streamlit Cloud."
       architecture_diagram: |
-        graph TD
-          UI[Web UI<br>Streamlit] -->|Search Query| API[FastAPI<br>Render]
-          API -->|SBERT MPNet| E[Embeddings]
-          E -->|Sub-100ms Search| V[FAISS Index]
-          V -->|MMR Re-ranking| API
+        graph TB
+          subgraph Serving["Serving Path"]
+            U[UserRequest] --> API[FastAPI]
+            API --> TD[TierDetector]
+            TD -->|GPU| T1["Tier1: Full Ensemble"]
+            TD -->|No GPU| T2["Tier2: ONNX CPU"]
+            TD -->|Low RAM| T3["Tier3: FAISS"]
+            T1 --> RP[RetrievalPipeline]
+            T2 --> RP
+            T3 --> RP
+            RP --> RK[RankingPipeline]
+            RK --> Resp[Response]
+          end
+          subgraph Retrieval["Retrieval Sources"]
+            FAISS[FAISS ANN Index] --> RP
+          end
+          subgraph Ranking["6 Ensemble Models"]
+            RK --> LGC[LightGCN]
+            RK --> SAS[SASRec]
+            RK --> KAN2[KAN]
+          end
+          subgraph DataPipeline["Data Pipeline"]
+            ETL[ETL Jobs] --> Bronze[Bronze]
+            Bronze --> Silver[Silver]
+            Silver --> Gold[Delta Lake Gold]
+            Gold --> MT[Model Training]
+            MT --> Artifacts[Serving Artifacts]
+          end
+          DataPipeline --> Artifacts
+          Artifacts --> Retrieval
+          Retrieval --> Serving
           classDef modern fill:#1e1e1e,stroke:#4bffa5,stroke-width:2px;
-          class UI,API,E,V modern;
+          class Serving,Retrieval,Ranking,DataPipeline modern;
 
 ### Honors & Awards [ clients ]
 clients:
