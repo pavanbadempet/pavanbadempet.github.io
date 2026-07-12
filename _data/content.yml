@@ -4,9 +4,9 @@
 
 ### About [ about ]
 about:
-  image: "assets/img/pavan_badempet.webp"
+  image: "assets/img/pavan_badempet.png"
   image_alt: "Pavan Badempet - Data Engineer"
-  text: "<p><b>Data Engineer</b> with 2+ years of experience building scalable ETL/ELT pipelines using Python, SQL, and Spark across AWS and on-prem environments. Solid grounding in computer science fundamentals, including data structures and algorithms, and distributed systems, applied to batch processing, data quality, and fault-tolerant pipeline design. Experience working on large-scale Spark ETL systems for FinTech and Automotive domains, with a focus on performance optimization and reliability.</p>"
+  text: "<p>Pavan Badempet is a Data Engineer based in Hyderabad, India, specializing in production-grade, scalable data pipelines. With expertise in PySpark, Python, SQL, and AWS, he builds high-performance data lakehouses that power critical business decisions in capital markets and automotive sectors. He also integrates modern AI and LLMs into enterprise architectures.</p>"
 
   list:
 
