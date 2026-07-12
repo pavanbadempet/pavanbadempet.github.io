@@ -16,7 +16,15 @@
             <div class="team-col">
                 <div class="team-item content-box">
                     <div class="desc">
-                        <div class="name">{{ item.name }}</div>
+                        <div class="name" style="display: flex; align-items: center; justify-content: space-between;">
+                            {{ item.name }}
+                            {% if item.health_url %}
+                            <span class="api-status" data-url="{{ item.health_url }}" style="font-size: 11px; padding: 4px 8px; border-radius: 12px; background: rgba(255,255,255,0.1); display: flex; align-items: center; gap: 6px;">
+                                <span class="status-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #f5a623; display: inline-block;"></span>
+                                <span class="status-text">Pinging...</span>
+                            </span>
+                            {% endif %}
+                        </div>
                         <div class="category">{{ item.role }}</div>
                         <ul>
                             {% if item.text1 != '' %}
@@ -45,3 +53,37 @@
 
     </div>
 </div>
+
+<!-- Telemetry Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const statuses = document.querySelectorAll('.api-status');
+    statuses.forEach(statusEl => {
+        const url = statusEl.getAttribute('data-url');
+        if (!url) return;
+        
+        fetch(url, { method: 'GET', mode: 'cors' })
+            .then(res => {
+                const dot = statusEl.querySelector('.status-dot');
+                const text = statusEl.querySelector('.status-text');
+                if(res.ok) {
+                    dot.style.background = '#4bffa5'; // Green
+                    dot.style.boxShadow = '0 0 8px #4bffa5';
+                    text.innerText = 'System Online';
+                    text.style.color = '#4bffa5';
+                } else {
+                    dot.style.background = '#ff4b4b'; // Red
+                    text.innerText = 'Degraded';
+                    text.style.color = '#ff4b4b';
+                }
+            })
+            .catch(err => {
+                const dot = statusEl.querySelector('.status-dot');
+                const text = statusEl.querySelector('.status-text');
+                dot.style.background = '#ff4b4b'; // Red
+                text.innerText = 'Offline';
+                text.style.color = '#ff4b4b';
+            });
+    });
+});
+</script>

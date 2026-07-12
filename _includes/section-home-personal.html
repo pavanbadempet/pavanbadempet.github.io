@@ -4,10 +4,34 @@
 <div class="section started personal" id="section-started">
 
     <!-- background -->
-    <div class="video-bg">
+    <div class="video-bg" id="vanta-bg" style="position: absolute; width: 100%; height: 100%; z-index: 1;">
         <div class="video-bg-mask"></div>
-        <div class="video-bg-texture" id="grained_container"></div>
     </div>
+    
+    <script>
+        // Wait for Vanta and Three to load, then initialize
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                if(window.VANTA) {
+                    VANTA.NET({
+                      el: "#vanta-bg",
+                      mouseControls: true,
+                      touchControls: true,
+                      gyroControls: false,
+                      minHeight: 200.00,
+                      minWidth: 200.00,
+                      scale: 1.00,
+                      scaleMobile: 1.00,
+                      color: 0x4bffa5, // Green branding
+                      backgroundColor: 0x101010, // Dark background
+                      points: 12.00,
+                      maxDistance: 22.00,
+                      spacing: 16.00
+                    });
+                }
+            }, 1500); // Slight delay to ensure scripts are loaded
+        });
+    </script>
 
     <!-- started content -->
     <div class="centrize full-width">

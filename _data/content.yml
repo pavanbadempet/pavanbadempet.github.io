@@ -135,6 +135,7 @@ team:
 
     - name: "Movie Recommendation System"
       role: "Python, PySpark, FastAPI, Streamlit, SBERT (MPNet), FAISS, Render"
+      health_url: "https://movie-recs-api-5qvy.onrender.com/health"
       text1: "Built an advanced recommendation engine processing 33k+ movies using 768-dim MPNet embeddings and FAISS for sub-100ms vector search."
       text2: "Implemented Maximal Marginal Relevance (MMR) for diversity and multi-factor re-ranking (Director, Franchise, Quality) to enhance user engagement."
       text3: "Deployed fully containerized stack with async FastAPI backend on Render and premium video-background UI on Streamlit Cloud."
