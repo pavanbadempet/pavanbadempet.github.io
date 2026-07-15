@@ -1002,24 +1002,24 @@
         if (!container) return;
         
         if (el) {
-            // Stagger slightly to allow browser layout calculation
+            // Stagger slightly (100ms) to allow browser layout calculation (including chip rendering)
             setTimeout(() => {
-                const maxScrollTop = container.scrollHeight - container.clientHeight;
                 const targetScrollTop = el.offsetTop - 20; // 20px offset from the top
                 
-                // Only scroll to the top of the message if the message is too long to fit in the viewport
-                if (maxScrollTop > targetScrollTop && container.scrollTop > targetScrollTop) {
+                // If the bot message element is taller than the viewport, scroll to its top
+                if (el.clientHeight > container.clientHeight) {
                     container.scrollTo({
                         top: targetScrollTop,
                         behavior: 'smooth'
                     });
                 } else {
+                    // Otherwise, scroll to the bottom of the container
                     container.scrollTo({
                         top: container.scrollHeight,
                         behavior: 'smooth'
                     });
                 }
-            }, 50);
+            }, 100);
         } else {
             container.scrollTo({
                 top: container.scrollHeight,
