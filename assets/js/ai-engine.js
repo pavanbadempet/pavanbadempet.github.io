@@ -243,10 +243,12 @@
             (cfg.githubLink ? 'CRITICAL: If the user asks for Pavan\'s GitHub, provide this exact link: [GitHub](' + cfg.githubLink + ').\n' : '') +
             (cfg.linkedinLink ? 'CRITICAL: If the user asks for Pavan\'s LinkedIn, provide this exact link: [LinkedIn](' + cfg.linkedinLink + ').\n' : '') +
             card +
-            '\nCONTEXT_PACKAGE_JSON (machine-readable; excerpts must match prose CONTEXT below):\n' +
+            '\n<context_package_json>\n' +
             pkgJson +
-            '\n\nCONTEXT (same sources as CONTEXT_PACKAGE_JSON.sources[*].excerpt; human-readable):\n' +
+            '\n</context_package_json>\n' +
+            '\n<context>\n' +
             rag +
+            '\n</context>\n' +
             sourceInstruction
         );
     }
