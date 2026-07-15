@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  {% if page.layout == 'top1' %}
+  {% if page.layout == 'top1' or page.layout == 'agent' %}
   <!-- TOP 1% Premium OS CSS -->
   <link rel="preload" href="{{ 'assets/css/premium-os.css' | relative_url }}" as="style">
   <link rel="stylesheet" href="{{ 'assets/css/premium-os.css' | relative_url }}">

@@ -144,6 +144,7 @@
       padding: 60px 0 20px 0 !important;
       overflow-y: auto !important;
       scrollbar-width: none;
+      min-height: 0 !important; /* Fix scrolling in flex container */
     }
     body.agent-layout .cp-body::-webkit-scrollbar { 
       display: none; 
@@ -288,6 +289,26 @@
       line-height: 1.6 !important;
       color: #e0e0e0 !important;
       margin-top: 4px !important;
+    }
+
+    /* Override blockquotes for bot messages in agent layout */
+    body.agent-layout .cp-message.bot .cp-text blockquote {
+      margin: 16px 0 !important;
+      padding: 14px 18px !important;
+      background: rgba(75, 255, 165, 0.05) !important;
+      border: 1px solid rgba(75, 255, 165, 0.2) !important;
+      border-radius: 8px !important;
+      border-left: 3px solid #4bffa5 !important;
+      color: #4bffa5 !important;
+      font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+      font-size: 0.95em !important;
+      font-style: normal !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    }
+    
+    body.agent-layout .cp-message.bot .cp-text blockquote:hover {
+      background: rgba(75, 255, 165, 0.1) !important;
+      border-color: rgba(75, 255, 165, 0.4) !important;
     }
     
     /* User Message */
