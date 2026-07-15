@@ -231,6 +231,8 @@
             'CONTRACT: ' +
             (pkg.contract || 'portfolio-ai-v2') +
             '. Use CONTEXT indices [1], [2], … when citing facts about Pavan drawn from CONTEXT. If asked about Pavan and the CONTEXT/FACTS lack the answer, refuse and suggest his Resume/email. If asked about yourself (the AI), answer naturally.\n' +
+            (cfg.email ? 'CRITICAL: If the user asks to email, contact, or hire Pavan, you MUST provide this exact markdown link: [Email Pavan](mailto:' + cfg.email + '?subject=Inquiry%20from%20Portfolio). Do not make up an email.\n' : '') +
+            (cfg.calendlyLink ? 'CRITICAL: If the user asks to schedule a call, book a meeting, or interview Pavan, you MUST provide this exact markdown link: [Schedule a Call](' + cfg.calendlyLink + '). Do not make up a scheduling link.\n' : '') +
             card +
             '\nCONTEXT_PACKAGE_JSON (machine-readable; excerpts must match prose CONTEXT below):\n' +
             pkgJson +
