@@ -166,22 +166,29 @@
     }
 
     body.agent-layout .agent-chip {
-      background: transparent !important;
-      color: #a0a0a0;
+      background: rgba(255, 255, 255, 0.03) !important;
+      color: #b0b0b0;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 8px 14px;
-      border-radius: 8px; /* Crisp rounded rectangle */
-      font-size: 0.85rem;
-      font-weight: 500;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+      font-size: 0.9rem;
+      font-weight: 400;
+      line-height: 1.5;
+      text-align: left;
       cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: none !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+      width: 100%; /* Make them full width of the container but look like nice cards */
+      margin-bottom: 8px;
     }
 
     body.agent-layout .agent-chip:hover {
-      background: rgba(255, 255, 255, 0.05) !important;
-      border-color: rgba(255, 255, 255, 0.3);
-      color: #fff;
+      background: rgba(75, 255, 165, 0.08) !important;
+      border-color: rgba(75, 255, 165, 0.5);
+      color: #4bffa5;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(75, 255, 165, 0.15) !important;
     }
 
     /* Sleek Input Box */
