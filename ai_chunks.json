@@ -16,4 +16,62 @@ sitemap: false
     "body": {{ work.content | strip_html | truncate: 8000 | jsonify }}
   }
 {% endfor %}
+
+{% assign content = site.data.content %}
+
+{% if content.resume.experience.items %}
+{% for exp in content.resume.experience.items %}
+{% unless first %},{% endunless %}{% assign first = false %}
+  {
+    "id": {{ exp.name | slugify | prepend: 'exp-' | jsonify }},
+    "url": {{ '/resume/' | relative_url | jsonify }},
+    "title": {{ exp.name | jsonify }},
+    "category": "Experience",
+    "tags": "experience, job, work, tcs, nomura, nissan, data engineer",
+    "body": {{ exp.text1 | append: ' ' | append: exp.text2 | append: ' ' | append: exp.text3 | append: ' ' | append: exp.text4 | append: ' ' | append: exp.text5 | append: ' ' | append: exp.text6 | append: ' ' | append: exp.text7 | strip_html | jsonify }}
+  }
+{% endfor %}
+{% endif %}
+
+{% if content.resume.education.items %}
+{% for edu in content.resume.education.items %}
+{% unless first %},{% endunless %}{% assign first = false %}
+  {
+    "id": {{ edu.college | slugify | prepend: 'edu-' | jsonify }},
+    "url": {{ '/resume/' | relative_url | jsonify }},
+    "title": "Education at Guru Nanak",
+    "category": "Education",
+    "tags": "education, college, university, btech, cse, gpa",
+    "body": {{ edu.college | append: ' ' | append: edu.degree | append: ' ' | append: edu.major | append: ' ' | append: edu.macgpa | append: ' ' | append: edu.macoursework | strip_html | jsonify }}
+  }
+{% endfor %}
+{% endif %}
+
+{% if content.services.items %}
+{% for srv in content.services.items %}
+{% unless first %},{% endunless %}{% assign first = false %}
+  {
+    "id": {{ srv.name | slugify | prepend: 'service-' | jsonify }},
+    "url": {{ '/resume/' | relative_url | jsonify }},
+    "title": {{ srv.name | jsonify }},
+    "category": "Service",
+    "tags": "services, skills, what pavan does",
+    "body": {{ srv.text | strip_html | jsonify }}
+  }
+{% endfor %}
+{% endif %}
+
+{% if content.skills.columns %}
+{% for col in content.skills.columns %}
+{% unless first %},{% endunless %}{% assign first = false %}
+  {
+    "id": {{ col.title | slugify | prepend: 'skills-' | jsonify }},
+    "url": {{ '/resume/' | relative_url | jsonify }},
+    "title": {{ col.title | jsonify }},
+    "category": "Skills",
+    "tags": "skills, stack, programming, languages, tools",
+    "body": "Pavan's skills in {{ col.title }}: {% for item in col.items %}{{ item.label }}{% unless forloop.last %}, {% endunless %}{% endfor %}"
+  }
+{% endfor %}
+{% endif %}
 ]
