@@ -34,10 +34,9 @@
   </div>
 
   {%- include scripts.html -%}
-  <!-- AI Chat Bubble Trigger -->
-  <a href="#" class="cmd-trigger ai-chat-bubble"
-    onclick="document.dispatchEvent(new KeyboardEvent('keydown', {'key':'k', 'ctrlKey':true})); return false;"
-    title="Ask AI Agent (Ctrl+K)">
+  <!-- AI Chat Bubble Trigger (Redirects directly to Agent View) -->
+  <a href="{{ '/agent/' | relative_url }}" class="cmd-trigger ai-chat-bubble"
+    title="Switch to Agent View">
     <i class="fas fa-terminal"></i>
     <span class="ai-bubble-label">Agent View</span>
   </a>
