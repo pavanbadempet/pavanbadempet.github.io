@@ -829,6 +829,13 @@
             return;
         }
 
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'ai_chat_message', {
+                'event_category': 'engagement',
+                'event_label': 'AI Agent Chat'
+            });
+        }
+
         addUserMessage(msg);
         
         // Hide existing chips immediately
