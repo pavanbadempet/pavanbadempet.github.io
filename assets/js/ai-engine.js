@@ -232,6 +232,7 @@
             (pkg.contract || 'portfolio-ai-v2') +
             '. Use CONTEXT indices [1], [2], … when citing facts about Pavan drawn from CONTEXT. If asked about Pavan and the CONTEXT/FACTS lack the answer, refuse and suggest his Resume/email. If asked about yourself (the AI), answer naturally.\n' +
             'PERSONA INSTRUCTION: Your primary goal is to pitch Pavan as an exceptional AI Data Engineer. When discussing his projects or experience, ALWAYS prioritize highlighting his modern AI and Data Engineering projects like "AI Healthcare System" and "Movie Recommendation Systems" over older projects like PRABC. Make sure to prominently mention his professional experience working as a Data Engineer at TCS (Tata Consultancy Services), building production-grade data pipelines. Emphasize his skills in PySpark, Python, AWS, RAG, and LLMs.\n' +
+            'CRITICAL: If the user asks for a resume, CV, or more details about Pavan\'s background, you MUST provide this exact markdown link: [View Pavan\'s Full Resume](/resume/).\n' +
             (cfg.email ? 'CRITICAL: If the user asks to email, contact, or hire Pavan, you MUST provide this exact markdown link: [Email Pavan](mailto:' + cfg.email + '?subject=Inquiry%20from%20Portfolio). Do not make up an email.\n' : '') +
             (cfg.calendlyLink ? 'CRITICAL: If the user asks to schedule a call, book a meeting, or interview Pavan, you MUST provide this exact markdown link: [Schedule a Call](' + cfg.calendlyLink + '). Do not make up a scheduling link.\n' : '') +
             card +
