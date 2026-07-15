@@ -3,7 +3,7 @@
     <div class="command-palette-modal" role="dialog" aria-modal="true" aria-labelledby="cp-modal-title">
         <div class="cp-header">
             <div class="cp-mode-icon">
-                <i class="fas fa-robot" id="cp-mode-icon"></i>
+                <i class="fas fa-brain" id="cp-mode-icon"></i>
             </div>
             <div class="cp-header-mid">
                 <div class="cp-title" id="cp-modal-title">Portfolio assistant</div>
@@ -35,7 +35,7 @@
             <!-- Chat Mode Container -->
             <div id="cp-chat-container">
                 <div class="cp-message bot">
-                    <div class="cp-avatar"><i class="fas fa-robot"></i></div>
+                    <div class="cp-avatar"><i class="fas fa-brain"></i></div>
                     <div class="cp-text">Hello! I'm Pavan's AI Assistant. Ask me anything about his projects, skills, or
                         experience.</div>
                 </div>
@@ -686,7 +686,7 @@
         const sub = document.getElementById('cp-subhint');
 
         if (mode === 'ai') {
-            icon.className = 'fas fa-robot';
+            icon.className = 'fas fa-brain';
             chatContainer.style.display = 'flex';
             cmdContainer.style.display = 'none';
             status.textContent = 'AI Active';
@@ -1014,7 +1014,7 @@
             }
         }
 
-        div.innerHTML = `<div class="cp-avatar"><i class="fas fa-robot"></i></div><div class="cp-text">${html}</div>`;
+        div.innerHTML = `<div class="cp-avatar"><i class="fas fa-brain"></i></div><div class="cp-text">${html}</div>`;
         document.getElementById('cp-chat-container').appendChild(div);
         scrollToBottom(div);
         return div;
@@ -1025,7 +1025,7 @@
         const div = document.createElement('div');
         div.id = id;
         div.className = 'cp-message bot';
-        div.innerHTML = `<div class="cp-avatar"><i class="fas fa-robot"></i></div>
+        div.innerHTML = `<div class="cp-avatar"><i class="fas fa-brain"></i></div>
             <div class="cp-text"><div class="thinking-dots"><span></span><span></span><span></span></div></div>`;
         document.getElementById('cp-chat-container').appendChild(div);
         scrollToBottom();
