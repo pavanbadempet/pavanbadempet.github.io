@@ -27,3 +27,21 @@ A sophisticated recommendation engine leveraging **SBERT (MPNet)** and **FAISS**
 *   **Smart Re-ranking:** Multi-factor logic (Director, Franchise, Era, Quality) to refine recommendations.
 *   **MMR Diversity:** Balances relevance with diversity to prevent repetitive suggestions.
 *   **Rich Media UI:** Premium dark-mode interface with trailers and poster integration via TMDB.
+
+### Recommendation Pipeline
+<div class="mermaid" style="background: transparent; padding: 10px; border-radius: 8px;">
+graph TD
+    User([User]) -->|Input Movie Query| UI[Streamlit UI]
+    UI -->|Query String| API[FastAPI Gateway]
+    
+    subgraph Pipelines [Data & Recommendation Pipelines]
+        API -->|Vectorize Text| SBERT[SBERT MPNet Embedder]
+        SBERT -->|768-dim Embeddings| FAISS[(FAISS Index)]
+        FAISS -->|Top K Candidates| MMR[MMR Diversity Filter]
+        MMR -->|Diverse Matches| ReRank[Multi-Factor Re-ranking]
+        ReRank -->|Refined Suggestions| TMDB[TMDB Metadata Integration]
+    end
+
+    TMDB -->|Posters & Trailers| API
+    API -->|Result Cards| UI
+</div>

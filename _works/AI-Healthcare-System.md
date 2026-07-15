@@ -25,3 +25,21 @@ A production-grade healthcare platform that combines **Machine Learning** for di
 *   **RAG-Based Medical Assistant:** Uses Gemini Pro and FAISS to provide context-aware responses grounded in medical data, minimizing hallucinations.
 *   **Smart Lab Report Analyzer:** Utilizes Gemini Vision to extract and analyze data from PDF/Image lab reports automatically.
 *   **Secure Architecture:** Microservices design with tenant isolation and secure session management.
+
+### System Architecture
+<div class="mermaid" style="background: transparent; padding: 10px; border-radius: 8px;">
+graph TD
+    User([User / Patient]) -->|Vitals & Queries| App[Streamlit App]
+    App -->|API Request| Backend[FastAPI Backend]
+    
+    subgraph Engine [AI & Analytics Engine]
+        Backend -->|Extract Lab Reports| GeminiVision[Gemini Vision API]
+        Backend -->|Run Symptoms Classifier| XGBoost[XGBoost ML Models]
+        Backend -->|Semantic Search| FAISS[(FAISS Vector DB)]
+        FAISS -->|Retrieve Context| GeminiPro[Gemini Pro RAG]
+    end
+
+    XGBoost -->|Diagnostic Prediction| Backend
+    GeminiPro -->|Grounded Medical Assist| Backend
+    Backend -->|Response Payload| App
+</div>
