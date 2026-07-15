@@ -976,7 +976,7 @@
         const html = typeof marked !== 'undefined' && marked.parse ? marked.parse(markdown) : escapeHtml(markdown);
         div.innerHTML = `<div class="cp-avatar"><i class="fas fa-robot"></i></div><div class="cp-text">${html}</div>`;
         document.getElementById('cp-chat-container').appendChild(div);
-        scrollToBottom();
+        scrollToBottom(div);
         return div;
     }
 
@@ -997,10 +997,35 @@
         if (el) el.remove();
     }
 
-    function scrollToBottom() {
+    function scrollToBottom(el) {
         const container = document.querySelector('.cp-body');
         if (!container) return;
-        container.scrollTop = container.scrollHeight;
+        
+        if (el) {
+            // Stagger slightly to allow browser layout calculation
+            setTimeout(() => {
+                const maxScrollTop = container.scrollHeight - container.clientHeight;
+                const targetScrollTop = el.offsetTop - 20; // 20px offset from the top
+                
+                // Only scroll to the top of the message if the message is too long to fit in the viewport
+                if (maxScrollTop > targetScrollTop && container.scrollTop > targetScrollTop) {
+                    container.scrollTo({
+                        top: targetScrollTop,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    container.scrollTo({
+                        top: container.scrollHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 50);
+        } else {
+            container.scrollTo({
+                top: container.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
     }
 
     function escapeHtml(text) {
