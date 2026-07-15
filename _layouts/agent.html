@@ -355,6 +355,7 @@
   </header>
 
   <main class="agent-main">
+    <canvas id="matrix-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: 0.08;"></canvas>
     <div class="ambient-orb"></div>
     {{ content }}
   </main>
@@ -397,6 +398,53 @@
             container.style.opacity = '1';
         }, 50);
     };
+
+    // Subtle Binary Matrix Rain background (Data Engineering aesthetic)
+    (function() {
+      const canvas = document.getElementById('matrix-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+      
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const alphabet = "01";
+      const fontSize = 16;
+      const columns = width / fontSize;
+      const rainDrops = [];
+
+      for (let x = 0; x < columns; x++) {
+        rainDrops[x] = Math.random() * -100; // staggered entry
+      }
+
+      function draw() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, width, height);
+
+        ctx.fillStyle = 'rgba(75, 255, 165, 0.35)'; // match theme color but transparent
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < rainDrops.length; i++) {
+          const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+          const x = i * fontSize;
+          const y = rainDrops[i] * fontSize;
+          
+          if (y > 0) {
+            ctx.fillText(text, x, y);
+          }
+
+          if (y > height && Math.random() > 0.985) {
+            rainDrops[i] = 0;
+          }
+          rainDrops[i]++;
+        }
+      }
+      setInterval(draw, 33);
+    })();
 
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
