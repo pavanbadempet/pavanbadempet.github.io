@@ -412,6 +412,25 @@
         color: #b8ffe0;
     }
 
+    .cp-cite {
+        font-size: 0.72rem;
+        margin-left: 2px;
+        margin-right: 2px;
+        vertical-align: super;
+    }
+
+    .cp-cite a {
+        color: #4bffa5;
+        text-decoration: none;
+        font-weight: 600;
+        transition: text-shadow 0.2s ease, color 0.2s ease;
+    }
+
+    .cp-cite a:hover {
+        color: #88ffc7;
+        text-shadow: 0 0 6px rgba(75, 255, 165, 0.8);
+    }
+
     .cp-composer {
         display: flex;
         align-items: stretch;
@@ -974,7 +993,27 @@
     function addBotMessage(markdown) {
         const div = document.createElement('div');
         div.className = 'cp-message bot';
-        const html = typeof marked !== 'undefined' && marked.parse ? marked.parse(markdown) : escapeHtml(markdown);
+        let html = typeof marked !== 'undefined' && marked.parse ? marked.parse(markdown) : escapeHtml(markdown);
+        
+        // Parse [n] references into clickable citation links if sources exist
+        if (window.PortfolioAI) {
+            const sources = window.PortfolioAI.getLastSources();
+            if (sources && sources.length) {
+                html = html.replace(/\[([1-9])\]/g, function (match, num) {
+                    const idx = parseInt(num, 10);
+                    const src = sources.find(function (s) { return s.index === idx; });
+                    if (src && src.url) {
+                        try {
+                            return `<sup class="cp-cite"><a href="${encodeURI(String(src.url))}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(src.title)}">[${idx}]</a></sup>`;
+                        } catch (e) {
+                            return `<sup class="cp-cite"><a href="#" onclick="return false;" title="${escapeHtml(src.title)}">[${idx}]</a></sup>`;
+                        }
+                    }
+                    return match;
+                });
+            }
+        }
+
         div.innerHTML = `<div class="cp-avatar"><i class="fas fa-robot"></i></div><div class="cp-text">${html}</div>`;
         document.getElementById('cp-chat-container').appendChild(div);
         scrollToBottom(div);
