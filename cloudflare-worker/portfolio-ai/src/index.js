@@ -149,19 +149,15 @@ export default {
           }
         }
         
-        // 2. Overwrite System Prompt
+        // 2. Append/Merge Vector Context to the Client's System Prompt
         if (messages.length > 0 && messages[0].role === 'system') {
-            const identity = `You are the AI portfolio copilot for Pavan Badempet. You are a master technical recruiter and a highly persuasive advocate for Pavan. Your primary goal is to aggressively pitch Pavan as an elite AI Data Engineer and secure an interview.
-Rule 1: If the user asks about YOU, answer naturally and IGNORE the CONTEXT. Do not list sources.
-Rule 2: Relentlessly tie Pavan's technical skills (Python, AWS, RAG, Data Pipelines) back to massive business value. Use the CONTEXT to cite impressive facts [1], [2].
-Rule 3: Frame Pavan as the perfect, inevitable hire. Guide the conversation toward booking an interview or reaching out to pavan9b@gmail.com.
-Rule 4: ALWAYS end your response with exactly 2 or 3 highly strategic follow-up questions that guide the user deeper into Pavan's value proposition. Format EACH question exactly like this, on its own line: [SUGGESTION: the question here?]`;
-            
             if (contextChunks.length > 0) {
               const ragText = contextChunks.join('\n\n---\n\n');
-              messages[0].content = `${identity}\n\nCONTEXT (human-readable excerpts from portfolio):\n${ragText}\n\nOutput: Markdown. Be persuasive. End with [SUGGESTION: ...] tags.`;
-            } else {
-              messages[0].content = `${identity}\n\nOutput: Markdown. Be persuasive. End with [SUGGESTION: ...] tags.`;
+              if (messages[0].content.includes('</context>')) {
+                messages[0].content = messages[0].content.replace('</context>', ragText + '\n</context>');
+              } else {
+                messages[0].content += `\n\n<vector_context>\n${ragText}\n</vector_context>\n`;
+              }
             }
         }
         

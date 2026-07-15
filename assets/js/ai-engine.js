@@ -251,9 +251,10 @@
               '\n'
             : '';
 
-        var sourceInstruction = retrieved.length > 0
-            ? '\n\nOutput: Markdown. Be concise unless the user asks for depth. End with a **Sources:** line listing [n] titles.'
-            : '\n\nOutput: Markdown. Be concise unless the user asks for depth.';
+        var sourceInstruction = '\n\nOutput: Markdown. Be concise unless the user asks for depth. ' +
+            'ALWAYS end your response with exactly 2 or 3 highly strategic follow-up questions for the recruiter. ' +
+            'Format EACH follow-up question exactly like this on its own new line at the very end of your response: [SUGGESTION: the question here?]. ' +
+            (retrieved.length > 0 ? 'End with a **Sources:** line listing [n] titles before the suggestions.' : '');
 
         return (
             'You are the AI portfolio copilot for Pavan Badempet. You are powered by an advanced open-source LLM.\n' +
