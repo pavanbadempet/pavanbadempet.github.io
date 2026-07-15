@@ -53,8 +53,37 @@
         var k1 = 1.2;
         var b = 0.75;
         var docs = chunks.map(function (chunk) {
-            var text = [chunk.title, chunk.tags, chunk.category, chunk.body].join(' \n ');
-            var tf = termFreqMap(text);
+            var tfBody = termFreqMap(chunk.body || '');
+            var tfTitle = termFreqMap(chunk.title || '');
+            var tfTags = termFreqMap(chunk.tags || '');
+            var tfCategory = termFreqMap(chunk.category || '');
+            
+            var tf = {};
+            // Title match is boosted 3x
+            for (var k in tfTitle) {
+                if (Object.prototype.hasOwnProperty.call(tfTitle, k)) {
+                    tf[k] = (tf[k] || 0) + tfTitle[k] * 3.0;
+                }
+            }
+            // Tags match is boosted 2x
+            for (var k in tfTags) {
+                if (Object.prototype.hasOwnProperty.call(tfTags, k)) {
+                    tf[k] = (tf[k] || 0) + tfTags[k] * 2.0;
+                }
+            }
+            // Category match is boosted 1.5x
+            for (var k in tfCategory) {
+                if (Object.prototype.hasOwnProperty.call(tfCategory, k)) {
+                    tf[k] = (tf[k] || 0) + tfCategory[k] * 1.5;
+                }
+            }
+            // Body match is standard 1x
+            for (var k in tfBody) {
+                if (Object.prototype.hasOwnProperty.call(tfBody, k)) {
+                    tf[k] = (tf[k] || 0) + tfBody[k];
+                }
+            }
+
             var dl = 0;
             for (var k in tf) {
                 if (Object.prototype.hasOwnProperty.call(tf, k)) dl += tf[k];
