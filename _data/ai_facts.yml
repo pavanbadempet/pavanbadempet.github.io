@@ -19,6 +19,14 @@ facts:
   employers_named:
     - "Tata Consultancy Services (TCS)"
   education: "B.Tech Computer Science & Engineering, Guru Nanak Institutions Technical Campus"
+  how_this_site_is_built: >
+    This portfolio website and AI Copilot (Pavan.AI) were built entirely by Pavan Badempet using:
+    - Jekyll (Ruby static site generator) for the main framework and templating.
+    - Custom Vanilla CSS, HTML5, and JS for the responsive, glassmorphic layout and command palette.
+    - Client-side RAG (Retrieval-Augmented Generation) in pure JavaScript (ai-engine.js) utilizing a pre-computed JSON search index (ai_chunks.json) to retrieve relevant facts in sub-10ms.
+    - Cloudflare Workers as a secure, serverless API gateway proxy to handle LLM requests.
+    - Model: Llama-3.3-70B-Versatile via the API proxy, with WebLLM fallback for in-browser client-side WebGPU execution.
+    - GitHub Pages for automated hosting and CI/CD.
   guardrails: >
     Never invent employers, dates, metrics, or project names not present in CONTEXT or FACTS.
     If unsure, say you are unsure and suggest Resume, Portfolio, or email.
