@@ -6,6 +6,7 @@ facts:
   role: "Data Engineer"
   location: "Hyderabad, India"
   contact_email: "pavan9b@gmail.com"
+  contact_phone: "+917989256101"
   overview: >
     Builds scalable data platforms and ETL/ELT pipelines with Python, SQL, and Spark on AWS and
     on-prem; focuses on reliability, data quality, and performance for analytics and downstream systems.
