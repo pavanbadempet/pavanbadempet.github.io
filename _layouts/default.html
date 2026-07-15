@@ -95,6 +95,51 @@
 
   {%- include command-palette.html -%}
 
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const bubble = document.querySelector('.ai-chat-bubble');
+          if (bubble) {
+              bubble.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  const href = this.getAttribute('href');
+                  
+                  // Get exact coordinates of the button
+                  const rect = this.getBoundingClientRect();
+                  const centerX = rect.left + rect.width / 2;
+                  const centerY = rect.top + rect.height / 2;
+                  
+                  // Create expanding ripple overlay
+                  const ripple = document.createElement('div');
+                  ripple.style.position = 'fixed';
+                  ripple.style.top = (centerY - 30) + 'px';
+                  ripple.style.left = (centerX - 30) + 'px';
+                  ripple.style.width = '60px';
+                  ripple.style.height = '60px';
+                  ripple.style.borderRadius = '50%';
+                  ripple.style.background = '#050505'; // Match background color of agent view
+                  ripple.style.zIndex = '9999999';
+                  ripple.style.transform = 'scale(1)';
+                  ripple.style.transformOrigin = 'center';
+                  ripple.style.transition = 'transform 0.65s cubic-bezier(0.7, 0, 0.3, 1)';
+                  ripple.style.pointerEvents = 'none';
+                  document.body.appendChild(ripple);
+                  
+                  // Calculate max scale to cover the screen diagonals
+                  const maxDim = Math.max(window.innerWidth, window.innerHeight);
+                  const scaleVal = (maxDim / 30) * 1.5; 
+                  
+                  // Force reflow
+                  ripple.offsetHeight;
+                  
+                  ripple.style.transform = `scale(${scaleVal})`;
+                  
+                  // Navigate to the next page when full screen is covered
+                  setTimeout(() => {
+                      window.location.href = href;
+                  }, 600);
+              });
+          }
+      });
+  </script>
 </body>
-
 </html>
