@@ -25,7 +25,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 12px 30px; /* Reduced vertical padding from 20px to 12px */
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       background: transparent;
       z-index: 100;
@@ -141,10 +141,14 @@
       width: 100% !important;
       max-width: 800px !important;
       margin: 0 auto !important;
-      padding: 15px 0 !important; /* Reduced top padding from 60px to reclaim empty space */
+      padding: 0 !important; /* Removed padding to pull first message to the top */
       overflow-y: auto !important;
       scrollbar-width: none;
       min-height: 0 !important; /* Fix scrolling in flex container */
+    }
+    
+    body.agent-layout #cp-chat-container {
+      padding: 10px 0 !important; /* Reclaimed padding space inside chat */
     }
     body.agent-layout .cp-body::-webkit-scrollbar { 
       display: none; 
