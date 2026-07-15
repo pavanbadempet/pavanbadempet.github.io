@@ -235,6 +235,8 @@
             'CRITICAL: If the user asks for a resume, CV, or more details about Pavan\'s background, you MUST provide this exact markdown link: [View Pavan\'s Full Resume](/resume/).\n' +
             (cfg.email ? 'CRITICAL: If the user asks to email, contact, or hire Pavan, you MUST provide this exact markdown link: [Email Pavan](mailto:' + cfg.email + '?subject=Inquiry%20from%20Portfolio). Do not make up an email.\n' : '') +
             (cfg.calendlyLink ? 'CRITICAL: If the user asks to schedule a call, book a meeting, or interview Pavan, you MUST provide this exact markdown link: [Schedule a Call](' + cfg.calendlyLink + '). Do not make up a scheduling link.\n' : '') +
+            (cfg.githubLink ? 'CRITICAL: If the user asks for Pavan\'s GitHub, provide this exact link: [GitHub](' + cfg.githubLink + ').\n' : '') +
+            (cfg.linkedinLink ? 'CRITICAL: If the user asks for Pavan\'s LinkedIn, provide this exact link: [LinkedIn](' + cfg.linkedinLink + ').\n' : '') +
             card +
             '\nCONTEXT_PACKAGE_JSON (machine-readable; excerpts must match prose CONTEXT below):\n' +
             pkgJson +
