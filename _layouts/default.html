@@ -37,7 +37,7 @@
   <!-- AI Chat Bubble Trigger (Redirects directly to Agent View) -->
   <a href="{{ '/agent/' | relative_url }}" class="cmd-trigger ai-chat-bubble"
     title="Switch to Agent View">
-    <i class="fas fa-terminal"></i>
+    <span class="ai-bubble-icon">AI</span>
     <span class="ai-bubble-label">Agent View</span>
   </a>
   <style>
@@ -63,8 +63,12 @@
           box-sizing: border-box;
           white-space: nowrap;
       }
-      .ai-chat-bubble i {
-          transition: transform 0.3s ease;
+      .ai-bubble-icon {
+          font-weight: 900;
+          font-size: 1.1rem;
+          letter-spacing: -0.03em;
+          font-family: 'Space Grotesk', 'Inter', sans-serif;
+          transition: opacity 0.15s ease;
       }
       .ai-bubble-label {
           max-width: 0;
@@ -88,6 +92,20 @@
           opacity: 1;
           margin-left: 10px;
       }
+
+      /* Seamless Expanding State for the Button itself */
+      .ai-chat-bubble.expanding {
+          transform: scale(80) !important;
+          background: #050505 !important;
+          transition: transform 0.65s cubic-bezier(0.65, 0, 0.35, 1) !important;
+          z-index: 9999999 !important;
+          box-shadow: none !important;
+      }
+      .ai-chat-bubble.expanding .ai-bubble-icon,
+      .ai-chat-bubble.expanding .ai-bubble-label {
+          opacity: 0 !important;
+          transition: opacity 0.1s ease !important;
+      }
   </style>
 
   <!-- Back to Top -->
@@ -103,40 +121,13 @@
                   e.preventDefault();
                   const href = this.getAttribute('href');
                   
-                  // Get exact coordinates of the button
-                  const rect = this.getBoundingClientRect();
-                  const centerX = rect.left + rect.width / 2;
-                  const centerY = rect.top + rect.height / 2;
-                  
-                  // Create expanding ripple overlay
-                  const ripple = document.createElement('div');
-                  ripple.style.position = 'fixed';
-                  ripple.style.top = (centerY - 30) + 'px';
-                  ripple.style.left = (centerX - 30) + 'px';
-                  ripple.style.width = '60px';
-                  ripple.style.height = '60px';
-                  ripple.style.borderRadius = '50%';
-                  ripple.style.background = '#050505'; // Match background color of agent view
-                  ripple.style.zIndex = '9999999';
-                  ripple.style.transform = 'scale(1)';
-                  ripple.style.transformOrigin = 'center';
-                  ripple.style.transition = 'transform 0.65s cubic-bezier(0.7, 0, 0.3, 1)';
-                  ripple.style.pointerEvents = 'none';
-                  document.body.appendChild(ripple);
-                  
-                  // Calculate max scale to cover the screen diagonals
-                  const maxDim = Math.max(window.innerWidth, window.innerHeight);
-                  const scaleVal = (maxDim / 30) * 1.5; 
-                  
-                  // Force reflow
-                  ripple.offsetHeight;
-                  
-                  ripple.style.transform = `scale(${scaleVal})`;
+                  // Expand the button itself
+                  this.classList.add('expanding');
                   
                   // Navigate to the next page when full screen is covered
                   setTimeout(() => {
                       window.location.href = href;
-                  }, 600);
+                  }, 580);
               });
           }
       });
