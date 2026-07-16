@@ -37,16 +37,21 @@
   <!-- AI Chat Bubble Trigger (Redirects directly to Agent View) -->
   <a href="{{ '/agent/' | relative_url }}" class="cmd-trigger ai-chat-bubble"
     title="Switch to Agent View">
-    <span class="ai-bubble-icon">AI</span>
+    <span class="ai-bubble-icon">
+      <svg viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 14px; display: block;">
+        <path d="M6 24L17 4H20L31 24" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 17H25" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M43 4V24" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+    </span>
     <span class="ai-bubble-label">Agent View</span>
   </a>
   <style>
-      @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap');
-
       .ai-chat-bubble {
           position: fixed;
-          bottom: 30px;
-          right: 30px;
+          bottom: 30px !important;
+          right: 30px !important;
+          left: auto !important; /* Force override left position from cmd-trigger */
           background: #4bffa5;
           color: #101010;
           width: 60px;
@@ -64,12 +69,11 @@
           white-space: nowrap;
       }
       .ai-bubble-icon {
-          font-weight: 700;
-          font-size: 1.05rem;
-          letter-spacing: -0.03em;
-          font-family: 'Syncopate', sans-serif; /* Wide premium tech logo font */
-          transition: opacity 0.15s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           flex-shrink: 0;
+          transition: opacity 0.15s ease;
       }
       .ai-bubble-label {
           max-width: 0;
@@ -94,6 +98,23 @@
           max-width: 100px;
           opacity: 1;
           margin-left: 10px;
+      }
+
+      /* Offset Back-to-Top Button so it doesn't overlap */
+      #back-to-top {
+          right: 105px !important;
+          transition: all 0.3s ease;
+      }
+
+      @media (max-width: 720px) {
+          .ai-chat-bubble {
+              bottom: 20px !important;
+              right: 20px !important;
+              left: auto !important;
+          }
+          #back-to-top {
+              right: 90px !important;
+          }
       }
 
       /* Seamless Expanding State for the Button itself */
