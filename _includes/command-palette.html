@@ -858,6 +858,47 @@
             });
         }
 
+        // Intercept simple greetings & meta queries for an instant, clean, citation-free greeting
+        const cleanMsg = msg.trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g,"");
+        const words = cleanMsg.split(/\s+/);
+        const greetingWords = ['hi', 'hello', 'hey', 'yo', 'sup', 'hola', 'greetings', 'morning', 'afternoon', 'evening', 'test'];
+        const helperQueries = ['who are you', 'what can you do', 'help', 'about you', 'who is this'];
+        
+        const isGreeting = words.length <= 2 && words.some(w => greetingWords.includes(w));
+        const isHelper = helperQueries.includes(cleanMsg);
+
+        if (isGreeting || isHelper) {
+            addUserMessage(msg);
+            
+            // Hide existing chips immediately
+            const chipsContainer = document.getElementById('cp-agent-chips');
+            if (chipsContainer) {
+                chipsContainer.style.opacity = '0';
+                setTimeout(() => { chipsContainer.style.display = 'none'; }, 300);
+            }
+
+            const thinkingId = addThinking();
+            setTimeout(() => {
+                removeMessage(thinkingId);
+                const greetingText = "Hello! I am Pavan's AI Copilot. I'm here to help you evaluate Pavan's qualifications as a Data & AI Engineer.\n\nWhat would you like to explore today? Feel free to ask about:\n- **TCS Experience:** His PySpark production pipelines.\n- **AI Projects:** His Movie Recommendation system or AI Healthcare agent.\n- **Links:** Type 'resume' to view his CV, or 'email' to get in touch.";
+                addBotMessage(greetingText);
+                
+                // Show dynamic chips
+                if (typeof renderDynamicChips === 'function') {
+                    renderDynamicChips([
+                        "Tell me about his AWS Data Pipelines",
+                        "What AI systems has he built?",
+                        "How was this Copilot built?"
+                    ]);
+                }
+                
+                // Save history
+                chatHistory.push({ role: 'user', content: msg });
+                chatHistory.push({ role: 'assistant', content: greetingText });
+            }, 350);
+            return;
+        }
+
         addUserMessage(msg);
         
         // Hide existing chips immediately
