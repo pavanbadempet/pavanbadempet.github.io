@@ -35,7 +35,7 @@
 
   {%- include scripts.html -%}
   <!-- AI Chat Bubble Trigger (Redirects directly to Agent View) -->
-  <a href="{{ '/agent/' | relative_url }}" class="cmd-trigger ai-chat-bubble"
+  <a href="{{ '/agent/' | relative_url }}{% if page.layout == 'home' %}?from=home{% endif %}" class="cmd-trigger ai-chat-bubble"
     title="Switch to Agent View">
     <span class="ai-bubble-icon">
       <svg viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 14px; display: block;">
@@ -100,19 +100,29 @@
           margin-left: 10px;
       }
 
-      /* Offset Back-to-Top Button so it doesn't overlap */
+      /* Offset Back-to-Top Button so it doesn't overlap on standard subpages */
       #back-to-top {
           right: 105px !important;
           transition: all 0.3s ease;
       }
 
+      /* Home page layout overrides to clear vertical socials */
+      body.home .ai-chat-bubble {
+          right: 100px !important;
+      }
+      body.home #back-to-top {
+          right: 175px !important;
+      }
+
       @media (max-width: 720px) {
-          .ai-chat-bubble {
+          .ai-chat-bubble,
+          body.home .ai-chat-bubble {
               bottom: 20px !important;
               right: 20px !important;
               left: auto !important;
           }
-          #back-to-top {
+          #back-to-top,
+          body.home #back-to-top {
               right: 90px !important;
           }
       }

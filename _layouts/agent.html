@@ -490,6 +490,10 @@
       // Seamless Transition Entry Animation
       const transOverlay = document.getElementById('transition-overlay');
       if (transOverlay) {
+        // Adjust collapse origin if coming from home layout (button was shifted left to clear socials)
+        if (window.location.search.includes('from=home') && window.innerWidth > 720) {
+          transOverlay.style.right = '100px';
+        }
         // Force repaint
         transOverlay.offsetHeight;
         transOverlay.style.transform = 'scale(0)';
