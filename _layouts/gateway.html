@@ -169,41 +169,70 @@
     }
     
     @media (max-width: 768px) {
+      .gateway-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        height: 100dvh;
+      }
+      .gateway-side {
+        position: relative !important;
+        width: 100% !important;
+        height: 50% !important;
+        padding: 24px 20px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        clip-path: none !important;
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
       .classic-side {
-        padding-left: 20px;
-        align-items: center;
+        padding-bottom: 36px !important;
+        background: #0a0e17;
+        background-image: radial-gradient(circle at 50% 40%, rgba(0, 102, 255, 0.2) 0%, transparent 70%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
       .agent-side {
-        padding-right: 20px;
-        align-items: center;
-        /* Horizontal split on mobile */
-        clip-path: polygon(0 55%, 100% 45%, 100% 100%, 0 100%);
+        padding-top: 36px !important;
+        background: #0a1411;
+        background-image: radial-gradient(circle at 50% 60%, rgba(0, 255, 204, 0.2) 0%, transparent 70%);
       }
-      .classic-side .gateway-content {
-        transform: translateY(-20px);
-        text-align: center;
+      .gateway-content {
+        max-width: 320px !important;
+        transform: none !important;
+        text-align: center !important;
       }
+      .classic-side .gateway-content,
       .agent-side .gateway-content {
-        transform: translateY(20px);
-        text-align: center;
+        transform: none !important;
+        text-align: center !important;
+      }
+      .gateway-title {
+        font-size: clamp(1.85rem, 5.5vw, 2.3rem);
+        line-height: 1.15;
+        margin-bottom: 0.5rem;
+      }
+      .gateway-desc {
+        font-size: clamp(0.85rem, 3.2vw, 0.98rem);
+        line-height: 1.45;
+        opacity: 0.75;
       }
       .laser-divider {
-        clip-path: polygon(0 calc(55% - 1px), 100% calc(45% - 1px), 100% calc(45% + 1px), 0 calc(55% + 1px));
+        display: none;
       }
-      /* Hover states for mobile */
-      .classic-side:hover ~ .agent-side {
-        clip-path: polygon(0 65%, 100% 55%, 100% 100%, 0 100%);
+      .gateway-badge {
+        padding: 8px 18px;
+        font-size: 0.85rem;
+        background: rgba(12, 16, 24, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
       }
-      .classic-side:hover ~ .laser-divider {
-        clip-path: polygon(0 calc(65% - 1px), 100% calc(55% - 1px), 100% calc(55% + 1px), 0 calc(65% + 1px));
+      .classic-side:active {
+        background-image: radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.35) 0%, transparent 70%);
       }
-      .agent-side:hover {
-        clip-path: polygon(0 45%, 100% 35%, 100% 100%, 0 100%);
+      .agent-side:active {
+        background-image: radial-gradient(circle at 50% 50%, rgba(0, 255, 204, 0.35) 0%, transparent 70%);
       }
-      .agent-side:hover ~ .laser-divider {
-        clip-path: polygon(0 calc(45% - 1px), 100% calc(35% - 1px), 100% calc(35% + 1px), 0 calc(45% + 1px));
-      }
-      .gateway-title { font-size: 3rem; }
     }
   </style>
 </head>
