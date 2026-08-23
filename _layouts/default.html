@@ -50,7 +50,7 @@
       .ai-chat-bubble {
           position: fixed;
           bottom: 30px !important;
-          right: 30px !important;
+          right: 100px !important; /* Uniform across ALL pages on desktop to clear vertical socials */
           left: auto !important; /* Force override left position from cmd-trigger */
           background: #4bffa5;
           color: #101010;
@@ -100,30 +100,20 @@
           margin-left: 10px;
       }
 
-      /* Offset Back-to-Top Button so it doesn't overlap on standard subpages */
+      /* Uniform Back-to-Top Button across ALL pages (sits cleanly to the left of the AI bubble) */
       #back-to-top {
-          right: 105px !important;
+          right: 175px !important;
           transition: all 0.3s ease;
       }
 
-      /* Home page layout overrides to clear vertical socials */
-      body.home .ai-chat-bubble {
-          right: 100px !important;
-      }
-      body.home #back-to-top {
-          right: 175px !important;
-      }
-
       @media (max-width: 720px) {
-          .ai-chat-bubble,
-          body.home .ai-chat-bubble {
+          .ai-chat-bubble {
               bottom: 20px !important;
               right: 20px !important;
               left: auto !important;
           }
-          #back-to-top,
-          body.home #back-to-top {
-              right: 90px !important;
+          #back-to-top {
+              right: 85px !important;
           }
       }
 
