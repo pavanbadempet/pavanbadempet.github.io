@@ -15,6 +15,7 @@
       margin: 0;
       padding: 0;
       height: 100vh;
+      height: 100dvh;
       overflow: hidden;
       font-family: 'Inter', sans-serif;
       display: flex;
@@ -25,16 +26,19 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 30px; /* Reduced vertical padding from 20px to 12px */
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      background: transparent;
+      padding: max(10px, env(safe-area-inset-top)) 24px 10px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(5, 5, 5, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       z-index: 100;
+      flex-shrink: 0;
     }
 
     .agent-header .logo {
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       font-weight: 800;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.04em;
     }
     
     .agent-header .logo span {
@@ -44,30 +48,33 @@
     }
 
     .agent-header a.classic-btn {
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.75);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      padding: 8px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 20px;
-      transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.03);
+      transition: all 0.25s ease;
+      background: rgba(255, 255, 255, 0.04);
       backdrop-filter: blur(10px);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .agent-header a.classic-btn:hover {
       color: #fff;
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(75, 255, 165, 0.4);
     }
 
     .agent-main {
       flex: 1;
+      min-height: 0;
       position: relative;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
       overflow: hidden;
     }
 
@@ -97,23 +104,25 @@
     
     /* Remove Overlay Restrictions */
     body.agent-layout .command-palette-overlay {
-      position: absolute;
+      position: relative !important;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100% !important;
+      height: 100% !important;
+      flex: 1 !important;
+      min-height: 0 !important;
       background: transparent !important;
       display: flex !important;
       justify-content: center;
-      align-items: center;
+      align-items: stretch;
       opacity: 1 !important;
-      padding: 0;
+      padding: 0 !important;
       z-index: 10;
     }
 
     body.agent-layout .command-palette-modal {
       width: 100% !important;
-      max-width: 100% !important;
+      max-width: 840px !important;
       height: 100% !important;
       max-height: 100% !important;
       transform: none !important;
@@ -125,6 +134,8 @@
       display: flex !important;
       flex-direction: column !important;
       padding: 0 20px;
+      box-sizing: border-box !important;
+      margin: 0 auto;
     }
 
     /* Hide Clutter */
@@ -141,68 +152,68 @@
       width: 100% !important;
       max-width: 800px !important;
       margin: 0 auto !important;
-      padding: 0 !important; /* Removed padding to pull first message to the top */
+      padding: 16px 0 10px 0 !important;
       overflow-y: auto !important;
       scrollbar-width: none;
-      min-height: 0 !important; /* Fix scrolling in flex container */
+      min-height: 0 !important;
+      -webkit-overflow-scrolling: touch;
     }
     
     body.agent-layout #cp-chat-container {
-      padding: 10px 0 !important; /* Reclaimed padding space inside chat */
+      padding: 4px 0 !important;
     }
     body.agent-layout .cp-body::-webkit-scrollbar { 
       display: none; 
     }
     
-    /* Minimalist Chips */
+    /* Dynamic Chips Container */
     body.agent-layout .agent-chips {
       order: 2 !important;
       width: 100% !important;
       max-width: 800px !important;
       margin: 0 auto !important;
-      padding: 5px 0 10px 0 !important; /* Reduced padding to tighten layout */
+      padding: 4px 0 10px 0 !important;
       display: flex !important;
-      flex-direction: row !important; /* Horizontal layout */
-      flex-wrap: nowrap !important; /* Keep cards in one row */
-      overflow-x: auto !important; /* Enable swipe/scroll */
-      gap: 12px !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      gap: 10px !important;
       border: none !important;
       background: transparent !important;
-      scrollbar-width: none; /* Hide scrollbar Firefox */
+      scrollbar-width: none;
     }
 
     body.agent-layout .agent-chips::-webkit-scrollbar {
-      display: none; /* Hide scrollbar Chrome/Safari */
+      display: none;
     }
 
     body.agent-layout .agent-chip {
-      background: rgba(255, 255, 255, 0.05) !important;
-      color: #d0d0d0;
-      border: 1px solid rgba(75, 255, 165, 0.2);
-      border-left: 3px solid rgba(75, 255, 165, 0.5);
-      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.04) !important;
+      color: #e0e0e0;
+      border: 1px solid rgba(75, 255, 165, 0.25);
+      border-left: 3px solid #4bffa5;
+      padding: 10px 16px;
       border-radius: 12px;
       font-family: 'Space Grotesk', 'Inter', sans-serif !important;
-      font-size: 0.82rem;
-      font-weight: 400;
+      font-size: 0.84rem;
+      font-weight: 500;
       line-height: 1.4;
       text-align: left;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-      width: 260px !important; /* Fixed width card */
-      flex-shrink: 0 !important; /* Prevent squishing */
-      margin-bottom: 0 !important;
-      white-space: normal !important; /* Wrap text inside card */
+      flex: 1 1 calc(50% - 10px);
+      min-width: 220px;
+      box-sizing: border-box !important;
+      white-space: normal !important;
     }
 
     body.agent-layout .agent-chip:hover {
-      background: rgba(75, 255, 165, 0.08) !important;
-      border-color: rgba(75, 255, 165, 0.5);
+      background: rgba(75, 255, 165, 0.1) !important;
+      border-color: rgba(75, 255, 165, 0.6);
       border-left-color: #4bffa5 !important;
       color: #4bffa5;
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(75, 255, 165, 0.15) !important;
+      box-shadow: 0 6px 20px rgba(75, 255, 165, 0.18) !important;
     }
 
     /* Sleek Input Box */
@@ -210,22 +221,23 @@
       order: 3 !important;
       width: 100% !important;
       max-width: 800px !important;
-      margin: 0 auto 20px auto !important; /* Reduced bottom margin from 40px to tighten layout */
-      background: rgba(255, 255, 255, 0.03) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.15) !important;
-      border-radius: 12px !important; /* Professional crisp edge */
-      padding: 6px 6px 6px 16px !important;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
+      margin: 0 auto 16px auto !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.16) !important;
+      border-radius: 14px !important;
+      padding: 6px 8px 6px 16px !important;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.3) !important;
       display: flex !important;
       align-items: center !important;
+      box-sizing: border-box !important;
       transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
     }
     
     body.agent-layout .cp-footer:focus-within {
-      border-color: rgba(255, 255, 255, 0.4) !important;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1) !important;
+      border-color: rgba(75, 255, 165, 0.5) !important;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.4), 0 0 0 1px rgba(75, 255, 165, 0.2) !important;
     }
 
     body.agent-layout .cp-composer {
@@ -235,6 +247,7 @@
       border: none !important;
       margin: 0 !important;
       padding: 0 !important;
+      align-items: center !important;
     }
 
     body.agent-layout .cp-input-field {
@@ -242,25 +255,26 @@
       background: transparent !important;
       border: none !important;
       color: #fff !important;
-      padding: 10px 0 !important;
-      font-size: 1rem !important;
+      padding: 8px 0 !important;
+      font-size: 16px !important; /* Prevents auto-zoom on iOS */
       outline: none !important;
       font-weight: 400 !important;
     }
     
     body.agent-layout .cp-input-field::placeholder {
-      color: rgba(255, 255, 255, 0.3) !important;
+      color: rgba(255, 255, 255, 0.35) !important;
+      font-size: 0.95rem;
     }
 
     /* Minimalist Submit Button */
     body.agent-layout .cp-send {
       background: transparent !important;
-      color: #888 !important;
+      color: rgba(255, 255, 255, 0.6) !important;
       border: none !important;
-      border-radius: 8px !important;
-      width: 40px !important;
-      height: 40px !important;
-      min-width: 40px !important;
+      border-radius: 10px !important;
+      width: 38px !important;
+      height: 38px !important;
+      min-width: 38px !important;
       margin: 0 !important;
       cursor: pointer !important;
       display: flex !important;
@@ -270,13 +284,13 @@
     }
     
     body.agent-layout .cp-send:hover {
-      background: rgba(255,255,255,0.1) !important;
-      color: #fff !important;
+      background: rgba(75, 255, 165, 0.15) !important;
+      color: #4bffa5 !important;
     }
 
     /* Clean Chat Bubbles */
     body.agent-layout .cp-message {
-      margin-bottom: 24px !important;
+      margin-bottom: 20px !important;
       display: flex !important;
       align-items: flex-start !important;
       gap: 12px !important;
@@ -290,49 +304,29 @@
     }
     
     body.agent-layout .cp-message.bot .cp-avatar {
-      background: linear-gradient(135deg, rgba(75, 255, 165, 0.08), rgba(0, 255, 204, 0.15)) !important;
+      background: linear-gradient(135deg, rgba(75, 255, 165, 0.1), rgba(0, 255, 204, 0.2)) !important;
       color: #4bffa5 !important;
-      border: 1px solid rgba(75, 255, 165, 0.3) !important;
-      border-radius: 50% !important; /* Premium circular design */
-      width: 36px !important;
-      height: 36px !important;
+      border: 1px solid rgba(75, 255, 165, 0.35) !important;
+      border-radius: 50% !important;
+      width: 34px !important;
+      height: 34px !important;
+      min-width: 34px !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      box-shadow: 0 0 12px rgba(75, 255, 165, 0.2) !important;
-      transition: all 0.3s ease;
+      box-shadow: 0 0 14px rgba(75, 255, 165, 0.25) !important;
+      margin-top: 2px !important;
     }
     
     body.agent-layout .cp-message.bot .cp-text {
       background: transparent !important;
       border: none !important;
       padding: 0 !important;
-      font-size: 1rem !important;
-      line-height: 1.6 !important;
-      color: #e0e0e0 !important;
-      margin-top: 4px !important;
+      font-size: 0.98rem !important;
+      line-height: 1.65 !important;
+      color: #e2e8f0 !important;
     }
 
-    /* Override blockquotes for bot messages in agent layout */
-    body.agent-layout .cp-message.bot .cp-text blockquote {
-      margin: 16px 0 !important;
-      padding: 14px 18px !important;
-      background: rgba(75, 255, 165, 0.05) !important;
-      border: 1px solid rgba(75, 255, 165, 0.2) !important;
-      border-radius: 8px !important;
-      border-left: 3px solid #4bffa5 !important;
-      color: #4bffa5 !important;
-      font-family: 'Space Grotesk', 'Inter', sans-serif !important;
-      font-size: 0.95em !important;
-      font-style: normal !important;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-    }
-    
-    body.agent-layout .cp-message.bot .cp-text blockquote:hover {
-      background: rgba(75, 255, 165, 0.1) !important;
-      border-color: rgba(75, 255, 165, 0.4) !important;
-    }
-    
     /* User Message */
     body.agent-layout .cp-message.user {
       flex-direction: row-reverse !important;
@@ -344,11 +338,12 @@
     
     body.agent-layout .cp-message.user .cp-text {
       background: rgba(255, 255, 255, 0.08) !important;
-      border: none !important;
-      border-radius: 12px 12px 2px 12px !important;
-      font-size: 1rem !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: 14px 14px 2px 14px !important;
+      font-size: 0.95rem !important;
       padding: 10px 16px !important;
       color: #fff !important;
+      max-width: 85% !important;
     }
     
     /* Hide the floating trigger button */
@@ -372,7 +367,70 @@
       transition: transform 0.65s cubic-bezier(0.1, 0.9, 0.2, 1);
       pointer-events: none;
     }
-    @media (max-width: 720px) {
+
+    /* ========================================================
+       MOBILE DEDICATED RESPONSIVENESS (< 768px)
+       ======================================================== */
+    @media (max-width: 768px) {
+      .agent-header {
+        padding: max(8px, env(safe-area-inset-top)) 14px 8px 14px !important;
+      }
+      .agent-header .logo {
+        font-size: 1.15rem !important;
+      }
+      .agent-header a.classic-btn {
+        font-size: 0.76rem !important;
+        padding: 5px 10px !important;
+      }
+      body.agent-layout .command-palette-modal {
+        padding: 0 12px !important;
+      }
+      body.agent-layout .cp-body {
+        padding: 12px 0 6px 0 !important;
+      }
+      body.agent-layout .cp-message.bot .cp-text {
+        font-size: 0.92rem !important;
+        line-height: 1.55 !important;
+      }
+      body.agent-layout .agent-chips {
+        flex-direction: column !important; /* Clean full-width vertical stack */
+        gap: 7px !important;
+        padding: 4px 0 8px 0 !important;
+      }
+      body.agent-layout .agent-chip {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        padding: 10px 14px !important;
+        font-size: 0.83rem !important;
+        border-radius: 10px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        box-sizing: border-box !important;
+      }
+      body.agent-layout .agent-chip::after {
+        content: "→";
+        font-size: 0.95rem;
+        color: #4bffa5;
+        opacity: 0.8;
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      body.agent-layout .cp-footer {
+        margin: 0 auto max(8px, env(safe-area-inset-bottom)) auto !important;
+        padding: 4px 6px 4px 12px !important;
+        border-radius: 12px !important;
+      }
+      body.agent-layout .cp-input-field {
+        font-size: 16px !important; /* Prevent iOS zoom */
+        padding: 8px 0 !important;
+      }
+      body.agent-layout .cp-send {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+      }
       #transition-overlay {
         bottom: 20px;
         right: 20px;
