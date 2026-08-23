@@ -20,3 +20,51 @@
     </div>
     <div class="clear"></div>
 </footer>
+
+<style>
+@media (max-width: 768px) {
+    body.home footer.footer,
+    footer.footer {
+        position: static !important;
+        display: block !important;
+        padding: 30px 16px 80px 16px !important;
+        text-align: center !important;
+        background: transparent !important;
+        height: auto !important;
+        width: 100% !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+    }
+    body.home footer.footer .follow-label,
+    footer.footer .follow-label {
+        display: none !important;
+    }
+    body.home footer.footer .soc-box,
+    footer.footer .soc-box {
+        position: static !important;
+        float: none !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 10px auto 0 auto !important;
+    }
+    body.home footer.footer .soc,
+    footer.footer .soc {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 18px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        float: none !important;
+    }
+    body.home footer.footer .soc a,
+    footer.footer .soc a {
+        display: inline-flex !important;
+        margin: 0 !important;
+        font-size: 1.3rem !important;
+        color: rgba(255, 255, 255, 0.75) !important;
+    }
+}
+</style>
