@@ -65,13 +65,6 @@ export default {
 
     // --- CHAT ENDPOINT ---
     if (url.pathname === '/v1/chat/completions' && request.method === 'POST') {
-      if (!env.GROQ_API_KEY) {
-        return new Response(
-          JSON.stringify({ error: { message: 'Worker missing GROQ_API_KEY secret' } }),
-          { status: 500, headers: { ...ch, 'content-type': 'application/json' } }
-        );
-      }
-
       try {
         const json = await request.json();
         const messages = json.messages || [];
@@ -161,30 +154,94 @@ export default {
             }
         }
         
-        // 3. Call Groq
-        const upstreamReq = {
-           model: json.model || 'llama-3.3-70b-versatile',
-           messages: messages,
-           temperature: json.temperature || 0.4,
-           max_tokens: json.max_tokens || 1000
+        let responseContent = '';
+        let upstreamSuccess = false;
+
+        // 3. Try Groq if GROQ_API_KEY is configured
+        if (env.GROQ_API_KEY) {
+          try {
+            const upstreamReq = {
+              model: json.model || 'llama-3.3-70b-versatile',
+              messages: messages,
+              temperature: json.temperature || 0.4,
+              max_tokens: json.max_tokens || 1000
+            };
+            
+            const upstream = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                Authorization: 'Bearer ' + env.GROQ_API_KEY,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(upstreamReq),
+            });
+            
+            if (upstream.ok) {
+              const data = await upstream.json();
+              if (data.choices && data.choices[0] && data.choices[0].message) {
+                responseContent = data.choices[0].message.content;
+                upstreamSuccess = true;
+              }
+            } else {
+              console.warn('Groq returned non-200:', upstream.status);
+            }
+          } catch (groqErr) {
+            console.error('Groq fetch error, falling back to Workers AI:', groqErr);
+          }
+        }
+
+        // 4. Native Cloudflare Workers AI Fallback (Zero external keys required, 100% reliable)
+        let lastError = '';
+        if (!upstreamSuccess && env.AI) {
+          const cfModels = [
+            '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
+            '@cf/meta/llama-3.2-3b-instruct',
+            '@cf/meta/llama-3.2-1b-instruct',
+            '@cf/meta/llama-3-8b-instruct',
+            '@cf/mistral/mistral-7b-instruct-v0.2',
+            '@cf/qwen/qwen2.5-7b-instruct'
+          ];
+          
+          for (const m of cfModels) {
+            try {
+              const aiResp = await env.AI.run(m, {
+                messages: messages,
+                max_tokens: 1000,
+                temperature: json.temperature || 0.4
+              });
+              responseContent = aiResp.response || (typeof aiResp === 'string' ? aiResp : '');
+              if (responseContent) {
+                upstreamSuccess = true;
+                break;
+              }
+            } catch (aiErr) {
+              lastError = aiErr.message || String(aiErr);
+              console.error(`Workers AI model ${m} failed:`, aiErr);
+            }
+          }
+        }
+
+        if (!upstreamSuccess) {
+          return new Response(JSON.stringify({ error: { message: 'Inference backend error: ' + (lastError || 'No provider succeeded') } }), {
+            status: 502,
+            headers: { ...ch, 'content-type': 'application/json' }
+          });
+        }
+
+        const responseData = {
+          choices: [
+            {
+              message: {
+                role: 'assistant',
+                content: responseContent
+              }
+            }
+          ],
+          sources: sources
         };
-        
-        const upstream = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-          method: 'POST',
-          headers: {
-            Authorization: 'Bearer ' + env.GROQ_API_KEY,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(upstreamReq),
-        });
-        
-        const responseData = await upstream.json();
-        
-        // 4. Inject Vector Sources into payload
-        responseData.sources = sources;
-        
+
         return new Response(JSON.stringify(responseData), {
-          status: upstream.status,
+          status: 200,
           headers: {
             ...ch,
             'content-type': 'application/json',

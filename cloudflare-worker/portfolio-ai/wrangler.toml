@@ -1,6 +1,7 @@
 name = "portfolio-ai-proxy"
 main = "src/index.js"
 compatibility_date = "2024-01-01"
+account_id = "a3d9da240fb4ec7ed70f2b56b261c272"
 
 # Set secret in Cloudflare: wrangler secret put OPENAI_API_KEY
 [vars]
