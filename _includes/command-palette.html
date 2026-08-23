@@ -115,6 +115,7 @@
         "aiFacts": {% if site.data.ai_facts %}{{ site.data.ai_facts | jsonify }}{% else %}null{% endif %}
     }
 </script>
+<script src="{{ '/assets/js/wasm-bridge.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/ai-engine.js' | relative_url }}" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
 

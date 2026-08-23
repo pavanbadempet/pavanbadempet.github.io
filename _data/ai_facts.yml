@@ -31,8 +31,10 @@ facts:
     This portfolio website and AI Copilot (Pavan.AI) were built entirely by Pavan Badempet using:
     - Jekyll (Ruby static site generator) for framework and templating.
     - Custom Vanilla CSS, HTML5, and JS for the responsive, glassmorphic layout and command palette.
-    - Client-side RAG (Retrieval-Augmented Generation) in pure JavaScript (ai-engine.js) querying pre-computed JSON search index (ai_chunks.json) for sub-10ms context retrieval.
+    - In-Browser Rust WebAssembly (Wasm) Engine (rust_wasm_engine.wasm) for sub-millisecond vector math, Okapi BM25 scoring, and BPE token budgeting.
+    - Client-side RAG (Retrieval-Augmented Generation) in pure JavaScript & Wasm (ai-engine.js) querying pre-computed JSON search index (ai_chunks.json) for sub-10ms context retrieval.
     - Cloudflare Workers as a secure, serverless API gateway proxy with Vectorize vector embeddings.
+    - Bun runtime for ultra-fast automation, testing, and Cloudflare Vectorize pipeline ingestion.
     - Model: Llama-3.3-70B on Cloudflare Workers AI with fallback.
     - GitHub Pages for automated hosting and CI/CD.
   guardrails: >

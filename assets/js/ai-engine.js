@@ -110,7 +110,7 @@
         return Math.log((N - dfTerm + 0.5) / (dfTerm + 0.5) + 1);
     }
 
-    function scoreBm25(index, queryTerms) {
+    function scoreBm25(index, queryTerms, rawQuery) {
         var docs = index.docs;
         var N = index.N;
         var df = index.df;
@@ -118,6 +118,8 @@
         var k1 = index.k1;
         var b = index.b;
         var scores = [];
+        var wasm = global.RustWasmEngine && global.RustWasmEngine.isReady ? global.RustWasmEngine : null;
+
         for (var i = 0; i < docs.length; i++) {
             var d = docs[i];
             var s = 0;
@@ -126,10 +128,22 @@
                 var f = d.tf[q] || 0;
                 if (!f) continue;
                 var dfq = df[q] || 1;
-                var idfq = idf(N, dfq);
-                var denom = f + k1 * (1 - b + (b * d.dl) / avgdl);
-                s += (idfq * (f * (k1 + 1))) / denom;
+                
+                if (wasm) {
+                    s += wasm.bm25Score(f, d.dl, avgdl, N, dfq);
+                } else {
+                    var idfq = idf(N, dfq);
+                    var denom = f + k1 * (1 - b + (b * d.dl) / avgdl);
+                    s += (idfq * (f * (k1 + 1))) / denom;
+                }
             }
+
+            // Rust fuzzy text score boost if available
+            if (wasm && rawQuery && d.chunk.body) {
+                var fuzzyBonus = wasm.fastTextScore(rawQuery, d.chunk.title + ' ' + d.chunk.body);
+                s += fuzzyBonus * 0.5;
+            }
+
             scores.push({ chunk: d.chunk, score: s });
         }
         scores.sort(function (a, b) {
@@ -166,7 +180,7 @@
             return [];
         }
 
-        var scored = scoreBm25(bm25Index, terms);
+        var scored = scoreBm25(bm25Index, terms, raw);
         var positive = scored.filter(function (x) {
             return x.score > 1e-6;
         });

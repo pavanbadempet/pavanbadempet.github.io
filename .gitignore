@@ -7,4 +7,6 @@ _backup_*/
 .env
 .vscode/
 .kiro/
-scripts/
+node_modules/
+rust-wasm-engine/target/
+target/

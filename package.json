@@ -7,7 +7,12 @@
         "start": "bundle exec jekyll serve",
         "build": "bundle exec jekyll build",
         "enrich-chunks": "node scripts/enrich-ai-chunks.mjs _site/ai_chunks.json",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "wasm:build": "cargo build --manifest-path rust-wasm-engine/Cargo.toml --target wasm32-unknown-unknown --release && cp rust-wasm-engine/target/wasm32-unknown-unknown/release/rust_wasm_engine.wasm assets/wasm/rust_wasm_engine.wasm",
+        "wasm:test": "bun test tests/wasm_benchmark.test.ts",
+        "worker:deploy": "bunx wrangler deploy --config cloudflare-worker/portfolio-ai/wrangler.toml",
+        "worker:ingest": "bun run scripts/ingest-vectorize.ts",
+        "worker:test": "bun test tests/worker.test.ts",
+        "test": "bun test"
     },
     "repository": {
         "type": "git",

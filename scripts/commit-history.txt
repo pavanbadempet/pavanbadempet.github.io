@@ -1,0 +1,722 @@
+﻿fd3861d62a6d905774ff12a2e360294ada1df652|2021-12-24|Initial commit
+a0bbe31edac004a82298b7ee49da6262e3a49ff0|2021-12-24|updated
+bac2137d0475cdb44813df81c30369e4ff3e7f2a|2021-12-24|[ImgBot] Optimize images
+4340b0544e4f455e20056ed52104765d33f21d2d|2021-12-25|Update _config.yml
+6331e8e9f178c065c962b55008b6658662e79a7a|2021-12-25|Update home.yml
+2410df041de7c9d88602099a28ceac07dd5457c8|2021-12-25|Update home.yml
+44a341df2865ec2947a89cdabce7fa4e87089494|2021-12-25|Update settings.yml
+4075e27a3a822689bd46aa476689d2ab00b5cc7c|2021-12-25|Update home.yml
+6203ae533089ab3099eff9591bac9aea8fdb0913|2021-12-25|Update home.yml
+1dbec5d95bc27baaebf7b7bc790ec2cd3472a775|2021-12-25|Update Gemfile.lock
+b55e3b14e7e90b158911c24270bb4cf2d7fe57ac|2021-12-25|Update favicon.ico
+e2029811ad5a4eb8f2d5dd8d1a34457c9acecd66|2021-12-25|Update favicon.ico
+ac42e326f3e7d3f48d844b89259299383355ee0e|2021-12-25|Update favicon.ico
+ad45016d95585640c18c18311107b3d3932a503c|2021-12-25|Update favicon.ico
+bb01178715bb9ce87d8900de922fe96bc55af0c2|2021-12-25|Update navigation.yml
+5dcac270579b36014eba3ef8b8c8aac01b8984cb|2021-12-25|Update navigation.yml
+f1efc641816deec90b9a34a4763ae373f1b20540|2021-12-25|Update navigation.yml
+e00bab732968a3471364c6c9f73ae87e410502e2|2021-12-25|Update navigation.yml
+30b0266f09ad6e991c05a401fad047ade1b3cce3|2021-12-25|Update navigation.yml
+cfcbd9cb1b421237d0cb5bbcb23a4be2de73b3ce|2021-12-25|Update content.yml
+230a6b8d6c940d8b0a910fed88bf17b404c64f5f|2021-12-25|Update content.yml
+0442f06bc2a536009fccce89e899ab4178e9b321|2021-12-25|Update content.yml
+777cfb92e16c4d9333278a35ef8787f99bb9079c|2021-12-25|Update
+9f22def6bc169dca652a14068724c9803ab07475|2021-12-25|Update content.yml
+e7321ba4078356f2c3f39a83e47cd520f1f04ce6|2021-12-25|Update content.yml
+518d0f1951ac5383ad0d90d69255e60ebb4aca87|2021-12-25|Update content.yml
+8c8bafcc5cb207b330a5e632494a91d61c10d43d|2021-12-25|Update content.yml
+7cc3366aaa7a0d83abbfa0156a8be512c927e7cf|2021-12-25|Update content.yml
+fe537723f996e7529a9782ead25157ba6c00a0f4|2021-12-25|Update content.yml
+39a1ea2cffc33f76c154d23802c1c2fffcf89c00|2021-12-25|Update content.yml
+fdda6723bbe7eab3dee3645f88160d9c91a4ac90|2021-12-25|Update content.yml
+3a319a60a0b52f363e640cd140b01b7c867ce92d|2021-12-25|Update content.yml
+9257329ffe5559108b5fe62239d32a3a7f516878|2021-12-25|Update content.yml
+2f31b3e3ff41d4fda0960d84fac9c40201375e67|2021-12-25|Update content.yml
+d8c927b47db3653db2b65f27d0a1a08e38d79c37|2021-12-25|Update footer.yml
+bb5bba2ed8914a6fa7d625ef7910ce5fb7fd9589|2021-12-25|Update footer.yml
+af2d83093a32b5573c0c70f3c5ae5958a9cbcbed|2021-12-25|Update man.jpg
+662735d607837976b1a63f1709700a3f4281c633|2021-12-25|Update man.jpg
+b4eb564391e7da38ff0277afeb2c36f3743ea0aa|2021-12-25|Update
+95cb0696dee73fecdaa31471bebcdda6de1d8fab|2021-12-25|Update cardboard-box.md
+e39acb3a2c12037b7b132ddc232c930b9a9b022c|2021-12-25|New
+0e5d847328598704a6398c426c8b890a981547f0|2021-12-26|Update work3.png
+1917ec01867cc958d966840d480095366e803f2a|2021-12-26|Update work3.png
+93c299b156bed32a1c3db7ce02cd069db1dc8859|2021-12-26|Update cardboard-box.md
+c12647f3a31c589ad9ac491a284df88afaf01db3|2021-12-26|Update cardboard-box.md
+470e999cdec06cc40d6389cded904e656a5aa240|2021-12-26|Update work3.png
+e1a271ee7c6b5141f9a077cd40766d722a56fee3|2021-12-26|Update work3.png
+7c395ed4e178af24fdba8f24c14c1ab75b0f53b7|2021-12-26|Update work3.png
+267294e46d16bb519c1c7edbfa597144f2d790b8|2021-12-26|Update work3.png
+f9d6257c634d1987ece8f8ec8ce2d03b0dba901a|2021-12-26|new
+a9a0c68ce6ed86489a2cb8f224948ad9fdd21061|2021-12-26|Update coffee-cup-in-hand.md
+6fb82583f927856d345dee3fe99b25f6720ffe29|2021-12-26|Update work2.png
+bb63d38b1f7dbc4b39bcd7836b06971402ef7243|2021-12-26|new
+3069e77b4c3a86529cb9be03b94f1d5cc93bd3d5|2021-12-26|New
+3df85a3fd9e709dd412c9c483e0346a5be8f0848|2021-12-26|New
+7a09ecbc78a651b333cbd9caec98e087b7784dd1|2021-12-26|Update minimal-poster-frame.md
+9bff8358aad5dddadb1721dff32ee722a2d15aaf|2021-12-26|New
+9e7a7c0c12cd39d0d4a0ec77f87b75d257cf5d12|2021-12-26|Remove
+82e5a5edd3ddc6c3f4c4d70f2acdc5b5fbf5fb30|2021-12-26|Change
+28769619abc45134d362991ec06edaa03e7e707e|2021-12-26|Change
+cdb74aef72dcc9a8d7dda27efbecc0c8897bf564|2021-12-26|Update marta-veludo-beautiful-poster.md
+79b2ff3591a58374ecd95e148dcbb6fe2b806eb0|2021-12-26|Update content.yml
+7448dcdaac6c52e0b19dabadef0d207e4f80ec8d|2021-12-26|Update settings.yml
+3ff044eb4b97533d4055267f85076e880052e0ac|2021-12-26|Update settings.yml
+83a3256f6ab4b29216eeecb10c38c5900997c003|2021-12-26|Update settings.yml
+a6af50972da926daadff6c58802a9b7788361867|2021-12-26|Update settings.yml
+342436b1b00afa2086fdccb2ea247fc27ce32fa8|2021-12-26|Changes
+084e1fb40731ffd0f10e74473095831b411dee88|2022-01-01|Update content.yml
+d2a3a4cef679c391dd145e74d5990e9fede6a9cc|2022-01-01|Update content.yml
+7810249a73035c6bd794735931fb6acce56caa66|2022-01-09|Update content.yml
+67d79ff0eb5fa85faacbcd38f7c5bb272bbe20ec|2022-01-10|Update minimal-poster-frame.md
+dceaacf33f15782ca7be32bbadd78eb4d198d654|2022-01-10|Update home.yml
+0eab4cc10eaa1b497201950dde4efba1e7be11dd|2022-01-14|Update
+72f5ed29c55139e2aa521068ad141ba134595885|2022-01-14|Update amore-mio-three-cups.md
+45e0c2d6468db70a88789387fc0604b37ddbcd73|2022-01-14|Update cardboard-box.md
+eabb83c73c4c1cbf49db229d624eeb2e1c7a8a94|2022-01-14|Update social-website.md
+03e6da2f407930c94c9c9d909b61a9950fcab4e6|2022-01-14|Update amore-mio-three-cups.md
+2d2443263afa128b6e8bd6fdfa424df93ea425e5|2022-03-19|Update footer.yml
+366c97ae9cb3797b0e7cb17c36b242a6932dfa04|2022-03-19|Update portfolio.html
+cb90c60fc82325ba30eb6a57efa87789d68c6ee1|2022-03-19|Update portfolio.html
+201a3d75e088f43ee70a1daa95e82869c31b832f|2022-03-19|Updated
+cf58776c0f636914a621347c5575e661022312fc|2022-06-18|Update section-testimonials.html
+1d15cc68da465b69697051fc1ba6573a10aab7dd|2022-06-18|Update layout.scss
+181b129074a29aae1ba452ef100e46a165312d77|2022-06-18|Update layout.scss
+136e8b178ce0300d863b584b492600dcd8b2ded8|2022-06-18|Update layout.scss
+0e7fe2d972ce68405ab9a84c243ee3d0d5ac075f|2022-06-18|Update layout.scss
+0acba2b0eca396d946005139ca8456b483166c7a|2022-06-18|Update section-clients.html
+b459e07baf9448c8dadb3538ddb277d883e62008|2022-06-18|Changes
+d3fff9e33c0787daa3d7de0fe6d52b0da46b1a54|2022-06-18|Update section-text.html
+0c57e329f6cc409881463dda41f098cfa891a763|2022-06-18|Update content.yml
+273ffc6a0dca6d098b81288eb6af9f05812f7b4f|2022-06-18|Update section-team.html
+4728582d678a81e2d29df66b9b41e2d6f773b2a5|2022-06-18|Update section-team.html
+3ebe388d2ce703e208e9ca5dd9c595093d9ace75|2022-06-18|Update content.yml
+a69140744569d573df64bcac991fd9777a1fe8d4|2022-06-18|Update content.yml
+3abf4522cad8ff7b26d0ad56fe9a4ac97a40955a|2022-10-30|Update content.yml
+30e9fa1924c8cd2f6914261b8e96f39ddae626e7|2023-01-24|Create .nojekyll
+fc1a59d0c3499e630cff64fee77afc1ccfd0fb9e|2023-03-25|Update home.html
+8a8c99d085bb463a1cb14ab31fa342632715c7ce|2023-03-25|Update index.html
+a9ec6e052d28c9f7c2db36424be1c797e3ce9c89|2023-03-25|Update home.html
+b886871ccc413df3ad404f8858f7625224d332e9|2023-03-25|Revamp
+50be54a6524ccdcbb6c7a4d7b47cf67adcbdcca0|2023-03-25|Res
+c12b2030325226a117e8aef6c3ba38c921deb285|2023-03-25|Restore
+175aef0fd2be1741cc6c7c4a9756657ac9ad291f|2023-03-25|Merge branch 'imgbot'
+6a79c544c55143974e216b5ddff93305fc06d133|2023-03-25|[ImgBot] Optimize images
+09ab58d2e2bd5376600893f861cfeac34aa14542|2023-03-30|Bump tzinfo from 1.2.9 to 1.2.10
+051c1d80becf080f8f169772af06dbe6e3f62a25|2023-04-05|Update content.yml
+66c9c15c35111b579f61333cfa05a924babb44ad|2023-04-05|Update content.yml
+d74aa92dbff001e18cc738721a61952974f6f98d|2024-01-29|Changes
+6e792ded929261251e7a15d1709dfc246017d9e6|2024-03-01|Update home.yml
+4d81601603ccdbfe6661fff810c0acd080c419f5|2024-03-01|Update content.yml
+b24b71d7af9d445ece1b9669c8d3a5f03f525e81|2024-03-01|Update content.yml
+79ff9b84091b0a6efd203299d3654e9c420c78dc|2024-03-01|Update content.yml
+08efebbac093c106e86b1db8651247e4db7fd52e|2024-03-01|Update content.yml
+ee8a6bd2532c0079ffdbfb95686c474c74cd9917|2024-03-01|Update content.yml
+b422a2a3252588d7bf24370d387915a61a948532|2024-03-01|Update content.yml
+f9c0e29f6f939ec49639692ed9186f2a20f4c3e2|2024-03-02|Update content.yml
+f7a652664e1313dd144b74d561559e9b737eeb5e|2024-03-17|Update content.yml
+6b57fdddad7ef08a49179f78718b02d33fc44944|2024-03-17|Update content.yml
+c34e76b29505cdf197674382bc40f98efdbdc6c6|2024-03-17|Update content.yml
+6d2f943826cf576c597d157c667d34f538ef6576|2024-03-19|Update content.yml
+82d7739d182170c5e041a00211cb6306e286a75a|2024-03-19|Adding Projects
+0fd66e08e619de73bad2e31dde0553139fcf3a01|2024-03-19|Update coffee-cup-in-hand.md
+f3b21d89d8071e7e48746ee1b8e2743a6de29737|2024-03-19|Rename
+51aa89b424739f43413f7cf0a78c0424c85618f4|2024-03-19|Rename
+7a92f64f76cb958c4bc27b58128b2821c9556d5c|2024-03-19|Rename
+d0b24d44a8f28dbc1b2b6d9fa0690f4bc17320f8|2024-03-19|Update Uman.md
+86677b93668749610faf672438aa57f30e4c649e|2024-03-20|Update _config.yml
+ee20428345112b29ccef6760bf1358eed7fccaf3|2024-03-23|Update _config.yml
+60b1814a79866700e8cc8f0dcea638aee0565246|2024-03-23|Update _config.yml
+60884a3b742549b56372defb0edd47a843f9d87a|2024-03-24|Update A Healthcare System using Machine Learning Techniques for Disease Prediction with Chatbot Assistance.md
+3167b29593a9e1a972ceea94310c2c92acf8aaed|2024-03-25|Update A Healthcare System using Machine Learning Techniques for Disease Prediction with Chatbot Assistance.md
+4e99658c144d0b52eeb8854a8723ecdda7001803|2024-03-25|Update Martin Ford.md
+c75a943a4e4c5d339f6141836ed4420fd3102705|2024-03-25|Update Martin Ford.md
+6a92f840cab8aaae0add53fea1ac41ab00c4f8be|2024-03-26|Update Martin Ford.md
+b62e0de149c3e0ba6d0eac7fc406b1b330350242|2024-03-26|Merge pull request #4 from pavanbadempet/imgbot
+04a4544678d6c88f543c8ede592a66619b6086ef|2024-03-26|Update Martin Ford.md
+ad169da4090b99e0a92c007d220087db1a4f41a7|2024-03-26|Merge branch 'main' of https://github.com/pavanbadempet/pavanbadempet.github.io
+e6f5e08eea26daf96e82cfd640f1e0a99e593fe5|2024-03-26|Update Martin Ford.md
+1ebdc4278a3ae54260c2f3f20e94aaae9cf796c8|2024-03-26|Update Martin Ford.md
+f71e6c925f688962709a78497589875643ee3c52|2024-03-26|Update Martin Ford.md
+a7234c8c3779524c25a3e1f2ea07abb957b90b69|2024-03-26|Merge pull request #3 from pavanbadempet/dependabot/bundler/tzinfo-1.2.10
+4b72e2c1e1b398c8e9f82d6a19a2f02e4628749a|2024-03-25|Update Martin Ford.md
+0d15ae5b4f95a2d16046ff69186871214c0b0279|2024-03-26|Restyled by prettier-markdown
+30bf6f9ecf2dba085b06fc22ab702cdf1209ca08|2024-03-26|Update minimal-poster-frame.md
+c1d997954fcba3aa39e27c928869069596833ddc|2024-03-26|Restyled by prettier-markdown
+712b864212c4100307dd47906b109ac3b3ee8cad|2024-03-26|Update Martin Ford.md
+9852258482b9287f086009882aeafbfb39943358|2024-03-26|Create minimal-poster-frame.md
+1bca97fb554a6190a07b28c1b20a0d3f5581a782|2024-03-26|Update Martin Ford.md
+272aa4f134d0cb5026427f5f9b09c8646532b57b|2024-03-26|Update Martin Ford.md
+4abcfc0509478be1e62f7e4865a767beeca029ec|2024-03-26|Update Martin Ford.md
+22e503ec08c4b230974e185d9133a07151075109|2024-03-26|Revert "Update A Healthcare System using Machine Learning Techniques for Disease Prediction with Chatbot Assistance.md"
+0ef0861bf4b7e8ccb749f6d653804648da7f545b|2024-03-26|Merge pull request #9 from pavanbadempet/restyled/New
+acc0ace73a6fcc58f3c6eccda6c8b7611f0c23e9|2024-03-26|Merge pull request #8 from pavanbadempet/New
+8dfbcffa4836fa997a22aee03f7341e50bc0aa4a|2024-03-26|Merge branch 'main' into restyled/imgbot
+85b0c6bd7211f397ebeed65294493a7a632ea3ff|2024-03-26|Merge pull request #10 from pavanbadempet/restyled/imgbot
+86a90ea40782985cd97d7d1bbe24dde9e96dd273|2024-03-26|Revert "Update A Healthcare System using Machine Learning Techniques for Disease Prediction with Chatbot Assistance.md"
+bc5ee26d60cd957404bc70b6eb4648e446b55c51|2024-03-26|Revert "Update _config.yml"
+0079a22829c9893f1c00933d1547946de7881a17|2024-03-26|Revert "Update _config.yml"
+e6afe1cba8c78172ea517943224204ec61e7aca4|2024-03-26|Major
+f88dcb5a06bdae6b34392eeded5774bf4e522080|2024-03-26|Revert "Update A Healthcare System using Machine Learning Techniques for Disease Prediction with Chatbot Assistance.md"
+484cb8f9e2c630076b2dd682f728a02c98758624|2024-03-26|Merge pull request #12 from pavanbadempet/Redo
+bee906c91a2f6627333d9858099bd0c78ec13410|2024-03-26|Revert "[ImgBot] Optimize images"
+7702840206ce6c3fe7e30c6c42f94f35cda30667|2024-03-26|Merge pull request #14 from pavanbadempet/revert-2-imgbot
+a6598b3bdd6c5ea7ad647b295bb286bef90406b5|2024-03-26|Revert "Bump tzinfo from 1.2.9 to 1.2.10"
+7353b1553adb30c6f97998afd096cca73df6e9c8|2024-03-26|Merge pull request #15 from pavanbadempet/revert-3-dependabot/bundler/tzinfo-1.2.10
+ec17fb1b2f90906c00edbb54c0a9d574efb65efc|2024-03-26|Revert "Imgbot"
+58be5ff8d49d35db6f67b480512d7c482e32141f|2024-03-26|Merge pull request #16 from pavanbadempet/revert-4-imgbot
+83fec7e21982e045a2c297208e978f186e5beb42|2024-03-26|Revert
+d9f6df68f8f10856f58172599afaaa817e184379|2024-03-26|Update 1d Music.md
+52fa37d350a51268bdc53653404d80cc303c32a1|2024-03-26|Create PRABC copy.md
+0ab0f5768dd8b56dde06edf1ec9795f4423e2cba|2024-03-26|Update PRABC copy.md
+9695b11bc27adbc7b2a6727ead4b9950c42d9add|2024-03-26|Update PRABC copy.md
+a57e155d6e2e15ecc04c6051265391e7c6f469d5|2024-03-26|Update Martin Ford.md
+cd9578153f87f5c5dc9cb3fbac706800aeb6fa8a|2024-03-26|Update Martin Ford.md
+7e8064972dc1c342bb7319e086f2d237707bacab|2024-03-26|Update Martin Ford.md
+e6dcd9eab9b3436dd2bfebb6f5c81596f0d46264|2024-03-26|Revert "Update Martin Ford.md"
+926885b39df091b01e72c46eb350d79bb05111de|2024-03-26|Update A Healthcare System using Machine Learning Techniques for Disease Prediction with Chatbot Assistance.md
+af5c1ef182c1aeeccfd23f8962d442e7dfa4f96f|2024-03-26|Revert "Update A Healthcare System using Machine Learning Techniques for Disease Prediction with Chatbot Assistance.md"
+5e93d3470ead229e99c2ed56c513afde2f12f049|2024-03-26|Merge pull request #17 from pavanbadempet/Oldesr
+926469c51c3486e306d1baf77afccad5c6694586|2024-03-26|Revert "Revert "Update A Healthcare System using Machine Learning Techniques ΓÇª"
+c02135c1f7d3b22c853ba73d30bce7f536942123|2024-03-26|Merge pull request #19 from pavanbadempet/revert-17-Oldesr
+07719cb3d6cbd6f98f2f08a026e2680c6fe427dc|2024-03-26|Restyled by prettier-markdown
+ade57d6bb6fc0fe324eb4cbf3c6d53f5d9c86fbf|2024-03-26|Revert "Revert "Imgbot""
+ffd04b2807c117ca1bcfa871e67393bac563fd71|2024-03-26|Merge pull request #21 from pavanbadempet/revert-16-revert-4-imgbot
+ee77bd4ff21d18b5c4f672a95f58ba4f721250cb|2024-03-26|Restyled by prettier-yaml
+966af35464584c31e2ab82a95116cc80c5a1837b|2024-03-26|Restyled by whitespace
+3a7d0acdf7f489d0c06175a548c666240fbec1a2|2024-03-26|Revert "Revert "Revert "Imgbot"""
+a53955582de89e08dc6da87cb35fd08e5131da94|2024-03-26|Merge pull request #23 from pavanbadempet/revert-21-revert-16-revert-4-imgbot
+2ca1bdc5059ba2eda957f822d9f5b2c44fd65369|2024-03-26|Revert "Revert "Revert "Revert "Imgbot""""
+31416a0878b4e34db1fc8ea0843b0411437e8422|2024-03-26|Revert "Revert "Bump tzinfo from 1.2.9 to 1.2.10""
+b1afb7c5f6c41bf7345cec654ed1c87e04e17c69|2024-03-26|Merge pull request #25 from pavanbadempet/revert-15-revert-3-dependabot/bundler/tzinfo-1.2.10
+3e0b65bac831660e65c34c6e2928ff162ac572e7|2024-03-26|Revert "Revert "[ImgBot] Optimize images""
+df138fe51182c12682bd09e086b52da33936734b|2024-03-26|Merge pull request #26 from pavanbadempet/revert-14-revert-2-imgbot
+f99c53f0a7c6b5a2bdbcf0f9df0821066da67eb8|2024-03-26|Revert "Restyle Update Martin Ford.md"
+b549f24ccca28d43e9bee7211d2fd4f93d0db2eb|2024-03-26|Merge pull request #28 from pavanbadempet/revert-9-restyled/New
+bfacdb92cdf5bd1ca57609793aaa4548acf8aafd|2024-03-26|Restyled by prettier-markdown
+80434664095d5245b3e726ef067727b01fd6a77c|2024-03-26|Merge pull request #29 from pavanbadempet/revert-23-revert-21-revert-16-revert-4-imgbot
+ed0adec91b2a468acf96600058d331ea5e9fd626|2024-03-26|Restyled by prettier-yaml
+0e91d3d0a93794d27f7e855705d3336ac667ea7e|2024-03-26|Restyled by whitespace
+fa60961441010d022767739ee3cc2fda0c643ae1|2024-03-26|Merge pull request #22 from pavanbadempet/restyled/revert-16-revert-4-imgbot
+c957db7056d6bd61a04452563cb62645cd9e28b4|2024-03-26|Merge pull request #20 from pavanbadempet/restyled/revert-17-Oldesr
+f28807a6fa69ab9ee763d671cbba5ad808705b91|2024-03-26|Merge branch 'main' into New
+cad90dcc6eebb0f1a4c48e04022a1bbcebfb6cff|2024-03-26|Merge pull request #30 from pavanbadempet/New
+4ef85af062e8b0e68117a4ff7b9ce35a6b6f21b3|2024-03-26|Merge pull request #32 from pavanbadempet/restyled/revert-23-revert-21-revert-16-revert-4-imgbot
+37696e30982ab0970adeb77dc1674a688acf3c16|2024-03-26|Merge branch 'main' into restyled/revert-9-restyled/New
+298883583bbddb36d7b402a6c76546b5a8aff102|2024-03-26|Merge pull request #33 from pavanbadempet/restyled/revert-9-restyled/New
+e9f3dc7e5d062f79a344f5acbff0d7de01f318d1|2024-03-26|Revert "Revert "Revert "[ImgBot] Optimize images"""
+56c333ecfb3abf6b36473d0ed789b0eb31554b17|2024-03-26|Merge pull request #34 from pavanbadempet/revert-26-revert-14-revert-2-imgbot
+38e135a6efd9ef481eb2e04cc816cce48d1d5d9a|2024-03-26|Revert "Revert "Revert "Bump tzinfo from 1.2.9 to 1.2.10"""
+a5d93eceb5f9ace8ee7ba2c37861b59a1eecbef0|2024-03-26|Merge pull request #36 from pavanbadempet/revert-25-revert-15-revert-3-dependabot/bundler/tzinfo-1.2.10
+fbef2e0899e55cf389b98f9b9cdb5ef1d9fbc833|2024-03-26|Revert "Revert "[ImgBot] Optimize images""
+7abf3aba2c577946e7a264287e400f250294bb56|2024-03-26|Merge pull request #37 from pavanbadempet/revert-14-revert-2-imgbot
+a46d42ce30b3670770f494aeb4a86f75f73b9615|2024-03-26|Revert "Revert "Bump tzinfo from 1.2.9 to 1.2.10""
+692e6967ae596792e5fd4a681552515396a37ab1|2024-03-26|Merge pull request #39 from pavanbadempet/revert-15-revert-3-dependabot/bundler/tzinfo-1.2.10
+67192ac0869595c50e0409da3e899442ed8f5191|2024-03-26|Reverting
+2e6a39530ffecac7e9b0d9b4154452c89ff27961|2024-03-26|Rename
+bc89ae3321143b7645b6544300845059112f2cf7|2024-03-26|Rename
+15a96780795eaea6a6d037513d3987bc5230649f|2024-03-26|Rename
+5398de6b44628cef57918690b6ab00bb0bc772d1|2024-03-27|Photo
+a8c85c319fe05b377d321607b3f115c15daa79bc|2024-03-27|image
+fbfdadc83cd0d49d767382bf7b268b25159a12ac|2024-03-28|Update content.yml
+b56b3c12aac072ff545a636d616b5623b746b21d|2024-03-28|Update content.yml
+b13160481fccaf1254d5239d04baaa549694c988|2024-03-28|Update content.yml
+1fe7259e93840ee114e1f1b4813a7313d4c20881|2024-03-28|Update content.yml
+b9d9c8155c923ab9b2dabfe36b7d4a89bbfa1416|2024-03-28|Update content.yml
+9404f354c6296ed1e68f4f88800c746cfc8070d3|2024-03-28|Update content.yml
+2d01342dae1584e17a7d2bd842818d8f4a26852d|2024-03-28|Update content.yml
+5eecb99788b7343c56d952841f1e58e5b097de52|2024-03-28|Update content.yml
+eddd751830ad19fc7bd923ca6403eeb651ae57e6|2024-03-28|Update content.yml
+086fc1a754b85b6f3b074adc73a96d6066b7eee0|2024-03-28|Update content.yml
+06021e11642af5aaeb3dedac626bfcbfa2df511f|2024-03-28|Update content.yml
+41d2e9f636118c743072ee4e1d0f5d0b33895ac6|2024-03-28|Update content.yml
+4511759946c4c0e05b518ed12c17534a37ebafcb|2024-03-28|Update content.yml
+9f138e56b3310fa11fdb5041cc1ef7c4f89fefa2|2024-03-28|Update content.yml
+c34c1fcb96c74c5f6833a63005fbb5649343733a|2024-03-29|Update content.yml
+96dfed0be0474ca1cc41251d1b7637f3760fec92|2024-03-29|Update content.yml
+07f554a2969b387d00d5dcc7c5e5927a66f675da|2024-03-29|Update content.yml
+28ee079a7692e90905a3fe71decddb8aba28c50a|2024-03-30|Update content.yml
+91e00d377c801455cd5bb8b85e4b332d17c87b6b|2024-03-30|Update content.yml
+b02f1f9ba408fd5fb0619f5498d7a35b9dc9d7be|2024-03-30|Update content.yml
+5debc59b95f7fdd1878d840b107ba2e8f20d2c03|2024-03-30|Update content.yml
+8db716dc024e586896a75edf53bf912fc54ffae7|2024-03-30|Update content.yml
+8d9c20125f8a730d42131e7d11038b6ea18d0c27|2024-03-31|Update content.yml
+dc4b40f0c3a05ebd72923049f07a87b34779fae7|2024-03-31|Update content.yml
+a2d509993a7a844dbacb3598cb3245e1ce310e4f|2024-03-31|Update content.yml
+fd61bf644db944fbb9835508a2703305f04956f6|2024-03-31|Update content.yml
+e51aedba77232e85f5731cfd2c5d408c8daf9f76|2024-04-01|Update content.yml
+ab29f7b137c7a60d1c1059f29634eab598df688d|2024-04-01|Update content.yml
+8b081f814ae6e3b8dac5b9617b9d84695792fcb4|2024-04-01|Update settings.yml
+a9d224503cd3730321d3328c8230a06bb0ae35be|2024-04-02|Update
+a666102d0973f3a83a5785556a59d03dd548f9ca|2024-04-02|Redo
+55e3a3e13a27c847ffcd36272c1833ef2762fe63|2024-04-02|Update settings.yml
+fb80f2722210170a1695ecb64190c5ee0a114419|2024-04-03|Update content.yml
+836d04bc22cac91d4b447b3819cbd6a769554278|2024-04-03|Update MartinFord.md
+c92fee32cbe17e33da61e678f94b899d6171751a|2024-04-04|Update MartinFord.md
+5a9e6fc61866b893422952aac3ac6d979025d7bf|2024-04-04|Update MartinFord.md
+507b87bcac4f4aff1bd59fcfe3a8c901a9d99782|2024-04-05|Update MartinFord.md
+d1bcbd7690e22def9284226604ad622bb6f16931|2024-04-05|Update MartinFord.md
+284a483e00fee8a144527138e3dd34b5a37b73e8|2024-04-06|Update Dating-App.md
+e3625951aebd09f92b6713d2a1346025cf25ed37|2024-04-06|Key Features
+8f593c14ba7081ddd09fc81c1ea5501cd3a01151|2024-04-06|Update Dating-App.md
+df1a838367fcfbcead650c03062c839894c18cb3|2024-04-06|Update Employee-Attrition-and-Performance-Analysis.md
+c8795a690634f226cbf4e6b8ed3042fe96dc9aa2|2024-04-06|Update Employee-Attrition-and-Performance-Analysis.md
+7f5a13a1b8f6df625cff7f338afaf0ad36454184|2024-04-06|Update Employee-Attrition-and-Performance-Analysis.md
+d89558c758854d6d7dc5d67fc6ec9ff766700303|2024-04-06|Update A-Healthcare-System-using-Machine-Learning-Techniques-for-Disease-Prediction-with-Chatbot-Assistance.md
+2b8d63b9be8e2fce21755f03e373152e1c428086|2024-04-06|Update 1DMusic.md
+99319424e25e3f0c758a66352648f6bde8f22754|2024-04-06|Update PRABC.md
+c7c297dd331db812b5aaaa5e0d1fce0209f9f2a9|2024-04-06|Update PRABC.md
+f8463ebfea13ecd6adf9f4b16cefcd39057a7ebe|2024-04-06|Update PRABC.md
+f00cb13a39fd1a088db492d93efe36996775a3ef|2024-04-06|Update Movie-Recommendation-System-based-on-User-Preferences.md
+2a37f3083ef2d8780e828c7af4c1d9ee4be65f26|2024-04-06|Update Employee-Attrition-and-Performance-Analysis.md
+ecfbc1fa9e9df0be98a6be3b48205bf0b7c8ca96|2024-04-06|Update MartinFord.md
+e1358e19d9ffaa514c3c2252a96ae77dfe2530bb|2024-04-06|Rename
+95468eec7fa01ff8184c5ac6da7d98b6924d8f56|2024-04-07|Update Martin-Ford.md
+636c4548027b727d88fc5dd2b33800e755cbd662|2024-04-07|Update Dating-App.md
+15860b7e746b5ca4252d514da96a045e6679131d|2024-04-07|Update PRABC.md
+6ca8c3f557e355110c7c3954ef410f0143cca123|2024-04-07|Update PRABC.md
+63aca3edde5784a15ba1dd73767261f667b26c6f|2024-04-07|Update PRABC.md
+483adfc935437c1f4e82b3ed1b717f108e5745a4|2024-04-08|Update PRABC.md
+9062c8ffe30c90f46a2df7da173b9a5816f5e0ec|2024-04-08|Update Movie-Recommendation-System-based-on-User-Preferences.md
+63e386fb163756dd50c7c0bc9d714c9d67987862|2024-04-08|Update Employee-Attrition-and-Performance-Analysis.md
+6a130d8ab3a8e2e9c2f052a4f1390f093b54d0b7|2024-04-08|Update Dating-App.md
+296c189dd286e7cc733026c0b579428fa53cc00f|2024-04-08|Update A-Healthcare-System-using-Machine-Learning-Techniques-for-Disease-Prediction-with-Chatbot-Assistance.md
+8a0264baf51b8fa7f49bc86da5e3b0dcbfa23f32|2024-04-08|Update 1DMusic.md
+7654182744b99a95199d97e846fa64326ea7f020|2024-04-08|Update Martin-Ford.md
+9e92e872aeecdf72918633cabe8b9b889a6914eb|2024-04-08|Update Martin-Ford.md
+50a08eec9f91f7ccf5190697ad6c0144a7256fed|2024-04-08|Update home.yml
+28f48e879b3fe5339a0cce3cedab2a2a2356b301|2024-04-08|Update home.yml
+e1a88abd3071453215260e50e4ff8a4f6f09a50e|2024-04-08|Update content.yml
+20caa22c053602d073786894f6736014a2ee743d|2024-04-08|Update content.yml
+5946a80903f393c6eebca997d3caf47c5fcd3f3c|2024-04-09|Update Martin-Ford.md
+3ed70b9be7b983fe0e56f0c6c708a71988bccb85|2024-04-09|Updated
+b4ba97a4eb812fdfaa36c5b2147677e185b6057a|2024-04-09|Revert
+123c197338e7421b00adb3d2eecb472e09b5074e|2024-04-09|Update content.yml
+00cd4b7aba99cf791f0e763e3d76bda57e024622|2024-04-09|Update content.yml
+2c7a48509a6e678487a04b8aa24b1f80821bf467|2024-04-09|Update Martin-Ford.md
+cbd237a7bc5577bcb85062cb5302dd2018e074f1|2024-04-10|Update 1DMusic.md
+136e10b0f4ba9d4fa3e4e2021c0a2dbecfcbb19b|2024-04-10|Update A-Healthcare-System-using-Machine-Learning-Techniques-for-Disease-Prediction-with-Chatbot-Assistance.md
+e49339cb321fa7d2994cb4b0b2dfdda9475619ab|2024-04-10|Update Dating-App.md
+cc31f472523c6e94c411a064f9f0feda26801429|2024-04-10|Update Employee-Attrition-and-Performance-Analysis.md
+cef6858c6767039a61ab7064e5dd5d3c729f7fc1|2024-04-10|Update Martin-Ford.md
+5364646826ab1fa87f757e47da993129921dbc60|2024-04-10|Update Movie-Recommendation-System-based-on-User-Preferences.md
+d22422f82592d02d6e75c55de1f04775c305a3f1|2024-04-11|Update Movie-Recommendation-System-based-on-User-Preferences.md
+0cb1ec14b36b6aa85adbd13ce2adf64678c90801|2024-04-11|Update 1DMusic.md
+3073261ad4610e193646506e5e87f024a086a75f|2024-04-11|Update A-Healthcare-System-using-Machine-Learning-Techniques-for-Disease-Prediction-with-Chatbot-Assistance.md
+8555b83c6c1e4ce929ccf61cf41f5c58fcd50aad|2024-04-11|Update Dating-App.md
+8566af6e28242768c9b1a0c432bb9189b24b577a|2024-04-11|Updated
+8a6ca434e0af27975a98b46078248ac785aa2df2|2024-04-11|Update 1DMusic.md
+7309ee942194618d506efe57d80f99d5cdce1e59|2024-04-11|Update Movie-Recommendation-System-based-on-User-Preferences.md
+0c8bd6b8bf818e95f18217ed12086a3770dc05d3|2024-04-11|Update PRABC.md
+b8a4cb248b9972d520d72c0fb820ecfd23ad1b91|2024-04-12|Update navigation.yml
+9faa4c03d7b67c59e9898e8d0383da59ffd10563|2024-04-12|Blog
+58b48134c76411c972ba33d208221bbdb3412fdc|2024-04-12|Update 2024-04-12-402 Remove K Digits.md
+bdf8bbcd84b0c5c6de97a84505ce2e5a1b0f922f|2024-04-12|Create 2020-06-15-by-spite-what.md
+52c43f0fdc69fab1f94f20325f9e789f3bbcbf32|2024-04-12|Update 2024-04-12-402 Remove K Digits.md
+3f51102bd080f35a6f59e019677d46a8f0df1b8e|2024-04-12|Update post.html
+5073269eb14125f76dbe4a0489ee6f07e5bdd9f5|2024-04-12|Update 2024-04-12-402 Remove K Digits.md
+49d975737d6b564428b7a39543e2642cc3e99ccc|2024-04-12|Update 2024-04-12-402 Remove K Digits.md
+32f8a9cdb2cee78feb8843930afc5454d1e8929b|2024-04-12|Update post.html
+69a6c40db54417904cf498d44d89712bd36850ff|2024-04-12|Update post.html
+863458bd3664cde9447a19c29b38e0a1dd60aa00|2024-04-13|Update post.html
+77e50859efa28b3d91544a753eb60d6794085e4c|2024-04-13|Update post.html
+7ae594a3e2f4ae39134317aebc2a8877eea7ddac|2024-04-13|Update post.html
+3156b4189ec27e8dc1a64f925f49e72f0ef6ca86|2024-04-13|Update post.html
+9b8602490f0fbc64313e2dffc38103091cb80194|2024-04-13|Update post.html
+2e0166c8899a813318ef1d2e97d268fc58183113|2024-04-13|Update post.html
+d3d21dbf98b358d2b45a4dbf370e16fac85b3c95|2024-04-13|Update post.html
+7da0798a8848474eb911d15e234fe592b6f546f7|2024-04-13|Update post.html
+5b5ac70f850391fc2143d6c265e54f18541926f9|2024-04-13|Update post.html
+83c394cfd4c5e8e5328ae180075375a87b68aab9|2024-04-13|Update post.html
+45b8788639a3be5b47825f3a967f772adacf763b|2024-04-13|Update post.html
+3e29926b39e2aa42b9480e3e9decfc5dae347fdc|2024-04-13|Update 2024-04-12-402 Remove K Digits.md
+06e5eac0db0bf3931909844e9fb218228defafa8|2024-04-14|Delete 2020-06-15-by-spite-what.md
+56316734bdc840022a4acf8b5013f1c957ad2e5d|2024-04-14|Update 2024-04-12-402 Remove K Digits.md
+f2b05e25a3a76238b5a4d8504939400af714376e|2024-04-14|Update 2024-04-12-402 Remove K Digits.md
+a26e8c95c6b16532f3cceac144e6856d5336a280|2024-04-14|Update 2024-04-12-402 Remove K Digits.md
+2e24c588b515fa1a20a51044a0fbae4e2ed63fb5|2024-04-14|Update 2024-04-12-402 Remove K Digits.md
+b721632aaef818b09b84641280f90f0d98a8b5d5|2024-04-14|Update 2024-04-12-402 Remove K Digits.md
+06234f55fdf7aa88152d9b6c3e809d0880e9716b|2024-04-14|Update 2024-04-12-402 Remove K Digits.md
+87e6565ee59c65a2d52259ae62005ef154b02590|2024-04-15|Update 2024-04-12-402 Remove K Digits.md
+2a33e4c3b12ea8530e8ec088172963d0e6af9579|2024-04-15|Solution
+0525f55328d3c2fe0638e89d52bf8385b32c1054|2024-04-15|Formatting
+bc11d0c71038cce92e72a18e152f66dfc34755e8|2024-04-15|Revert
+df93d774da2817cb159847e9ffafd1fcc0d74e73|2024-04-15|Rename
+1229500820bd6952f744c15a104f0bd213b5b561|2024-04-15|Rename
+8fa65bd9ad48ca2249b4ca445f5bc5f01cc52eb3|2024-04-15|Update 2024-04-12 402 Remove K Digits.md
+7632a7fe58117029de5daced012b3a38b824696d|2024-04-15|Update 2024-03-30 2176 Count Equal and Divisible Pairs in an Array.md
+8d21a849025f1d9e862c5046925abfca84393484|2024-04-15|Rename
+47b957e5494b41be0cb67dbbb9570759e7aeff7e|2024-04-15|Create 2024-04-12-402-Remove-K-Digits copy.md
+45dbc61e27860d1a3b28e12db435353bd100033f|2024-04-15|Create 2024-03-30-2176-Count-Equal-and-Divisible-Pairs-in-an-Array copy.md
+b1365eb17c8944712dba3ccbdbdc85760a0c8091|2024-04-16|New Post
+505567a2b214a3d8da392501eeeb22773ad109cf|2024-04-16|New Post
+d6745b01ed8d1cc4a163ca2254f8061c3677e062|2024-04-16|Link
+a0f9dfccbf86ea1b2afdb30db814239a9f74de3f|2024-04-16|Update content.yml
+02377a66279fbb08a216961cbad3724a2cefbf7e|2024-04-16|Update content.yml
+64e33e7a97b54a3cb6a969b4f32cdc7e998192d4|2024-04-16|Update content.yml
+bd066f2f7ce4dae7760b09af18c1e4068361d7c8|2024-04-16|Update content.yml
+e96fe41fde07f49221ea60af8c7c880d2d2980bb|2024-04-16|Update
+45b760308d6cbc34abccdaa3c8a79940caa94d05|2024-04-16|Update content.yml
+50c493afc9f7715b14979c9205c1b2b0a9acd776|2024-04-16|Update content.yml
+16e0c09e831655ab6225b1a4f44b24d203e403b9|2024-04-16|Updated
+d5754203c5d6aa072f0acdab4a22d45d36e6a85e|2024-04-16|Update section-resume.html
+e666e1ba269a6103b8e65ceaa12710d7ba6b93b0|2024-04-16|Update section-resume.html
+0d0aafaee8a183111aa6e7aa94c298f762631903|2024-04-16|Update content.yml
+06052ce4827e8f292201ce66e68e20ba7e3280f2|2024-04-16|Update content.yml
+b4014ef0773d3d7dcaa57cb5b212ea089d26bb1b|2024-04-16|Update content.yml
+430d6916fe666e528c8757ffa34be249fe86fc4d|2024-04-16|Update content.yml
+8fefa893d86b85f0b42f50a145f1cf12fb796035|2024-04-16|Update content.yml
+f9e9a86ff6248c83ff85c24e56440deda786b3d8|2024-04-16|Update content.yml
+b69b7b2be9326db9d8a8d1f29842512173774765|2024-04-16|Update content.yml
+31c68cc85d3e97b57b8cab2b1bbe16649bcc56f5|2024-04-16|Update section-resume.html
+718b986063f8b200d314e810b1dc283aa6d43490|2024-04-16|Update
+4c71d31e6f2d3821ffdc55b20620f10141430718|2024-04-16|Update content.yml
+8749bba8ee462367dec9bce436ace73f4fa33ced|2024-04-16|Update content.yml
+6eb14092f0895bad20981f4603f0b7a7bad1da99|2024-04-16|Update content.yml
+d55cbb9c7cab6001dbfc96cb512ae6bc280f2b2e|2024-04-16|Updated
+7d27daf72deb6fda029faa87857526f7790a850a|2024-04-16|Update section-resume.html
+6d153fed6412bb38cba8a30189da0391462289da|2024-04-16|Update content.yml
+bca5a2bc997d55fc253d86effc8207c8cc4a4fca|2024-04-16|Update content.yml
+c757b393f621965509d8a941e3b7d5e250123142|2024-04-16|Update content.yml
+acd842894dc23bcd4ebac2aab55b1323b154de62|2024-04-16|Update content.yml
+341306e25d3a9bf0526e27cf9646c84eb834abed|2024-04-16|Update content.yml
+a7dccd612f93f3fb42b8521a5872b8055fff5dc4|2024-04-16|Update content.yml
+93c050924531bd46b575aaf88d03a9b88d6ddcc4|2024-04-16|Update
+1794f1e96101529c7d31b3838df7b11a2c66f2e2|2024-04-16|Update
+36bd8041eaf1729a44807ac6a7eeaf74760a3b94|2024-04-16|Update content.yml
+dbaccb3680bda435811909680cac7772b0fce8da|2024-04-16|Alignment
+7f6ceecb8f2e4a45ff4044ab1b73dad7f691ef43|2024-04-17|Update
+325fb3cf142aba76db4a2fd9f6b8e0e48eba6290|2024-04-17|Update content.yml
+ebdad590ea1a4465bf919b584995b29f971e8684|2024-04-17|Update section-volunteering.html
+a0852399c3cb678f73f66422adcaf65f4e68a591|2024-04-17|Update
+d2a42391f5201450c470b6287731c5aaa68cc689|2024-04-17|Update section-team.html
+b43adb39ac7cad7940e43b71c54be549ba3719b5|2024-04-17|Update section-team.html
+401ffdeb8657a56187ea4f694c4fef4ad5b30e35|2024-04-17|Update section-team.html
+0b324c3053e9f59ee763e2db4a10141624ac9cc4|2024-04-17|Update content.yml
+0b489e162bb694e77050268792d0c51284003ac4|2024-04-17|Update content.yml
+a129abfa0366dbe195d50c497440d300c1ab3408|2024-04-17|Update content.yml
+2dffca632fdf5b1525e430bf894c43e86ecdfd16|2024-04-17|Update content.yml
+a34e3f8119bc7c6e2196b3ffa288daefc7a1ffb0|2024-04-17|Update content.yml
+d31ec1e9276d113ac9528d05b7a74e2b9274ac8d|2024-04-18|Update content.yml
+64312459b502998e97b965a1df3bb706c82cbd75|2024-04-18|Update content.yml
+b8eb4faba140bd8e8941a6259c368bfd49e30d3b|2024-04-18|Update content.yml
+858bc68bb8497a353fb3f2ea1e2f735d1f8e0096|2024-04-19|Update content.yml
+1782f1ccfc9cfda3e34504c9f6e4ddb89f3e2b44|2024-04-19|Update content.yml
+622003f3ac75e562c775ba4f5b7ed89174f4bdcc|2024-04-19|Update content.yml
+ebb3155cce19212da54cab3e2bac5feb530e0852|2024-04-19|Update content.yml
+c1e0f32e259f54b13b2fa7ebe5a168b2c23d8a52|2024-04-20|Create 2024-03-30-819-Most-Common-Word.md
+1a0ea16594c17496b0bbeff82efc7bc79b398dd8|2024-04-20|Update 2024-03-30-819-Most-Common-Word.md
+21265c7854a10aff417f71675a423ec7f48308e7|2024-04-20|Create 2024-03-30-819-Most-Common-Word copy.md
+654ed65debb8026b9ed582631e1f5bc41d8016fe|2024-04-20|New
+ee65461a6f14ae95b9cd902224956f8522cab772|2024-04-20|Rename
+7649d97ae8fabfe6f25d7f9d7dbaf8f3ec9a3984|2024-04-20|Rename
+929d9f4ffb56cc944581e02b93fa10f7360260c0|2024-04-21|Update 2024-03-30-2176-Count-Equal-and-Divisible-Pairs-in-an-Array.md
+ab49781ee8c4ce7cc719ee99d2235c4ec4ab03a1|2024-04-21|Update 2024-04-09-2309-Greatest-English-Letter-in-Upper-and-Lower-Case.md
+b100039b7e55bfe8468f540bb2df8723c7d273a8|2024-04-21|Update 2024-04-09-2441-Largest-Positive-Integer-That-Exists-With-Its-Negative.md
+ccbf4d965743cf26c0d04fd75283574b0adec577|2024-04-21|Update 2024-04-10-819-Most-Common-Word.md
+b9645873fa3aea03e8bfa1a4784f3002a961bad4|2024-04-21|Update 2024-04-12-402-Remove-K-Digits.md
+dacefc733bd2b5d84e7d2540ba9471382b27b1a4|2024-04-21|Update 2024-04-13-551-Student-Attendance-Record-I.md
+9fdf6c4a571feaba979598cd309a5386b49e8195|2024-04-22|Update 2024-03-30-2176-Count-Equal-and-Divisible-Pairs-in-an-Array.md
+e1ac926e6073ddd9f13821088ee117baf4daece9|2024-04-22|Update 2024-04-12-402-Remove-K-Digits.md
+07c6a3bbcb83b3191d31705ef56705c264564d87|2024-04-22|Create 2024-03-30-2176-Count-Equal-and-Divisible-Pairs-in-an-Array copy.md
+dba4c6951d748f7fbe872217a7db5a4365c6d8dc|2024-04-22|Rename
+de150a9cc068bdaa2bf8e82a7772c8accd1ef1bf|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
+21eb6218c9711bc67b4b813fb17d91452d00bae5|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
+32183e61d5061cafb5d6c987fea61348a71a408e|2024-04-22|Merge pull request #48 from pavanbadempet/Test
+ec216b2a2e757ca65b4e88058bc02737d5cb3c87|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
+ed5dbfc028928185b40a99eac1368dda5f66ef63|2024-04-22|Merge pull request #50 from pavanbadempet/Test
+520480f5c53ced9fd4c4f61e0d35724c68747c0d|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
+1d2692bda9a48347446138b888985e2411309397|2024-04-22|Merge branch 'main' of https://github.com/pavanbadempet/pavanbadempet.github.io
+c7b002ae120d8c107523392544894f348b9c0596|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
+aa02738afd816ceb68103bfc1b0cac12505f304c|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
+b2d871d0887551628f33bf9266936f07b6384cfb|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
+8563206d39586b7e7be1cdb76402e5149c1c8b53|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
+569b5364973b154f83bb8da747b9a4ef122f76e1|2024-04-22|Style
+90aa27faaddfde7fae9e0af804bef6d36f8f78d0|2024-04-22|Update basic.scss
+69f5782e9def4097ed8f9ac95c4f7e675e7bcf5f|2024-04-22|Update
+f14c28f64971176069379c7a8f0cddc44cdb8b18|2024-04-22|Update layout.scss
+d292b2997c48dd0a2c8168f2f15e706372978cf4|2024-04-22|Update basic.scss
+c3cccc2774d4d08dbf69db0aa6356fd7122ced05|2024-04-22|Update
+0326250cae4a0bfc555d9d7d405db194213e78f7|2024-04-22|Update basic.scss
+2aeb5702e418a3dd1973ce256e11efa93c59cf76|2024-04-22|Update basic.scss
+cd194b37874b13e13f8ad23123c127928f15b2f4|2024-04-22|Revert "Update"
+b673e1b89c9e69208cbd14df727bfd1fe7022cf5|2024-04-22|Update basic.scss
+9be480e21dcb5515134759a9095d0a2c3ba4cf8f|2024-04-22|Update basic.scss
+392f564343bc299efb98fc8f60966f8b54b71d51|2024-04-23|Create 2024-03-30-2176-Count-Equal-and-Divisible-Pairs-in-an-Array copy.md
+bf0f117b776d922c7fb85a660f417da7b54aab8c|2024-04-23|Update 2024-03-30-2176-Count-Equal-and-Divisible-Pairs-in-an-Array copy.md
+e570581d93032d4e07aafa3450ede7cbc7759f1e|2024-04-23|Rename
+2c04ee4d1caac92641e4567df8050227cdce5295|2024-04-24|New
+adf6d0c8bbcba85e02899edc7ffeaf7967362c51|2024-04-24|Update 2024-04-19-2570-1859-Sorting-the-Sentence.md
+bcdc05d36f1dfe71e8280d5dfb10b350eca59b04|2024-04-25|Create 2024-04-19-2570-1859-Sorting-the-Sentence copy.md
+546b23af646d5f82f480ba507bb22735edee654e|2024-04-26|Update 2024-04-19-2570-1859-Sorting-the-Sentence copy.md
+af40207f31101495abefe158378682aee9c88994|2024-04-26|Update 2024-04-19-2570-1859-Sorting-the-Sentence copy.md
+937a0d3130a8c5f028962968a141b23b84528280|2024-04-26|Update 2024-04-19-2570-1859-Sorting-the-Sentence copy.md
+63d8985390cc7e5b8bfe20a9db5fe8b0d0e2b998|2024-04-26|New
+0ddcdeb1c1ae57dbe94945c3b3a7ecefffd071b0|2024-04-27|Rename
+b32d90204b4ba00c6c0a7a9868a6c7cfba12eb14|2024-04-27|Create 2024-04-20-748-Shortest-Completing-Word copy.md
+8ae7474d61bc244e6f114f8d0fa646f397926370|2024-04-27|Update 2024-04-20-748-Shortest-Completing-Word copy.md
+15bb7dab29f72ef6af84aaf4d74d174b6772fa3b|2024-04-27|Update 2024-04-20-748-Shortest-Completing-Word copy.md
+6f75adaac1cc66dc54541ee25159248c617ab92b|2024-04-27|New
+b238a87b7ec3b4f9f20eacb3888d5bba3b2916b6|2024-04-28|Create 2024-04-21-3121-Count-the-Number-of-Special-Characters-II copy.md
+ceb0ea6587e876d13ff58d26fbdf98dc56e4ff70|2024-04-28|Update 2024-04-21-3121-Count-the-Number-of-Special-Characters-II copy.md
+6adde2142eb2c30921f1c725de9c19156bcd7c3f|2024-04-28|Add
+9e1bbe192bf9f059f3e8d0b816f998d87a27c8fa|2024-04-28|New
+e49a124f0ba8ee97664e80c034690aca995c51e7|2024-04-29|Create 2024-04-21-3120-Count-the-Number-of-Special-Characters-I copy.md
+a15a1a3a725baa4440c27351a246b351b791c5f1|2024-04-29|Update 2024-04-21-3120-Count-the-Number-of-Special-Characters-I copy.md
+f57410663262687150c00ec68e8f3af9b2b2cfcd|2024-04-29|Update 2024-04-21-3120-Count-the-Number-of-Special-Characters-I copy.md
+e58aaf2d9c11e7824c0cdfb24343fca7db709d75|2024-04-29|New
+fab56f1b03bde5ca12c2e20c8a9d7d7a99b3b46c|2024-04-30|Create 2024-04-22-1935-Maximum-Number-of Words-You-Can-Type copy.md
+ab8d26db40b171f42841b566e5ebe32a6aafa454|2024-04-30|Update 2024-04-22-1935-Maximum-Number-of Words-You-Can-Type copy.md
+01f0c25290f4bf952ed79186be473bdd7c08b542|2024-04-30|Update 2024-04-22-1935-Maximum-Number-of Words-You-Can-Type copy.md
+ac0e6987d2d37aa8e6662d91cb403f1ae169f42c|2024-04-30|New
+65798a45f6578f5c9ebf2ee610f68bdd2e2790be|2024-05-01|Create 2024-04-27-707-Design-Linked-List copy.md
+b90c2c2fc94db37d9d759b4a7f0fa49bf819ee0d|2024-05-01|New
+6545954c251691f4ea73259e22563c327711dcd3|2024-05-04|Create 2024-04-28-3131-Find-the-Integer-Added-to-Array-I copy.md
+7c36b2f9148ddd9a6e7e74bda6f72a789af08c11|2024-05-06|Update 2024-04-28-3131-Find-the-Integer-Added-to-Array-I copy.md
+7cc3d152f4a422e6ad3b1cd92b08fb61e92af274|2024-05-06|New
+4022bb5afdf08c11dbcea831787173fcd0853f94|2024-05-06|Update 2024-04-28-3132. Find the Integer Added to Array II.md
+2de65fe25b81f6e5b082e3dcff06445552efaa8c|2024-05-06|Update 2024-04-28-3132. Find the Integer Added to Array II.md
+4ea195d3801d107887f52e6c6a75c627a66503e3|2024-05-06|New
+ea078699ed3bf15f9b378032dcc2f30a403353d7|2024-08-17|Update home.yml
+4d89153eb7a82e5e2eb9153200075c062c64f6aa|2024-09-18|Update
+02698d4d3c54d45c4fe29c73b43dc90c7f4cd347|2024-10-01|Update home.yml
+3c57d8aef49ae45bed072be5628cc072a5859eb6|2025-04-11|Update
+8a2d189862f02781f34fd375db8975090d6b7386|2025-07-01|Update content.yml
+7897acfc649c78944b6a339052a54b4cd278b5de|2025-07-01|Changes
+93af2c7db66f03d62ce7b3392c8167db24025dc7|2025-07-01|Update section-resume.html
+59f1c0738de2fcb07f3252a8527c62855457f581|2025-07-01|Update section-resume.html
+ae542de60e8cc777c045dfd40e0683bce3cd74b4|2025-11-22|Major Update
+6be21d644fef031310a15a166448daed7abfb587|2025-11-23|Remove empty services and pricing sections from resume pages
+d1bc09f6faff2abf0051b76cb78f0ecbae7d3faa|2025-11-23|Fix: Reduce top cover height on inner pages by excluding section-title from JS height calculation
+3965286f55b7b92feffe7390e351e87cda5523d5|2025-11-24|Fix: Reduce bullet point spacing and improve alignment in resume section
+adad5e7dad9b8bee17a60fe81e8915d2b4357d9e|2025-11-24|Fix: Apply bullet point spacing fix to Projects section and clean up HTML
+5ac866d2999704b1f6a295c6c7258f90a79b2ef6|2025-11-24|Fix: Force bullet point spacing in Projects section with !important
+d6d35b695a636a1e97724b70136636100bf8b65a|2025-11-24|Refactor: Remove DOB and style profile links with glow effect
+cc0e74a8703591f1f267cc24d71d4879fba8f2f4|2025-11-24|Fix: Force removal of underline and set correct color for profile links
+a800e7e548ffd84b0f0733e8cda330007aa9eea6|2025-11-24|Fix: Apply footer link styling (no underline, glow effect)
+0d11f0a8907578ee739735af1d63f53858c2831b|2025-12-19|feat: Implement SEO enhancements, modularize site includes, and update content sections.
+8445fecec50566faea542513f7edca91156f9472|2025-12-19|Update
+b221ce7e2b204c92149bcb9c8c66f41af9fd876f|2025-12-19|Update Ins
+c2037ccfbb09237dde5907ea11296a6bbac30856|2025-12-19|Update
+c0502184fda1a8eddc58e941849a64eab065f52d|2025-12-21|Remove Python build scripts and templates
+6803381c2d94fa17d447b1674e587456f206f63e|2025-12-21|feat: Add modular homepage sections and common includes, and update resume and portfolio page descriptions.
+ddaa837c078b3ff8b6dede4711c4d87fa3dc6f62|2025-12-21|feat: Add About and Clients sections, a new portfolio layout with filtering, and JSON-LD structured data.
+6e672357afdae4fbb2eb8c4d9f284fd38647db93|2025-12-21|feat: Add portfolio layout with filtering and various media type support, along with new head and scripts includes.
+36a47809d28048859bfd41b8e5a2b54386f7c506|2025-12-21|feat: Add client-side JavaScript for animations, sliders, parallax effects, and interactive UI components.
+5fecb11a18973e0029de8316eded00e4a29625d7|2025-12-21|feat: add `_includes/scripts.html` to include various JavaScript plugins and utilities.
+e9129b7af33e676e6ea52efc35b466903a477c7d|2025-12-21|feat: Introduce service worker for PWA capabilities and implement async script loading.
+77b5a7e1857566c4615a84e22be3d5681620e9b5|2025-12-21|feat: Implement Konami Code easter egg, add home page content data, and centralize script loading for PWA and other functionalities.
+00ef162957d846e26b70b264e49ba6146b184abb|2025-12-21|feat: Add system architecture diagrams, a persistent status bar, and dynamic home page content.
+285accba47d7694d216ce26897dae9ea7eb78562|2025-12-21|feat: Add new resume section include for experience and education, and update resume page sections.
+bb59ae1d34d0c1f1a44d0ea7733688d11a85e590|2025-12-21|feat: Add initial home page and content configurations for the personal website.
+20ec875579295846b37a6df8f780f3191f3f01b5|2025-12-21|feat: Add default Jekyll layout with core structure and component includes.
+ebee3e8783b829059c460b635e2379e6c4a8b546|2025-12-21|feat: Add initial site structure, PWA support, async script loading, and various UI/UX components.
+9004b9a476430bc46adf4e158007799bace2b829|2025-12-21|feat: Add GitHub Actions workflow for Jekyll site deployment to GitHub Pages.
+b3e79528c4a89a6ae0c064a6b0abdccd30cf0074|2025-12-21|chore: Delete Gemfile.lock.
+6650568d4ee4342d64b9e12f84feaa92943e1dfd|2025-12-25|feat: Add personal portfolio content data and a new HTML template for displaying projects.
+55fb6d2fb6daad05314dfbd1b7cd0c20127dfb24|2025-12-25|feat: Introduce portfolio feature, including a new layout, settings, and several project entries.
+2f580054c204f80b5e4d39c89843d0005e59645c|2025-12-25|feat: add new contact form section using Formsubmit.co
+3f0cd1d3244d15bf1bc8286c8f3058dce6b602de|2025-12-25|feat: Add detailed resume content, update site description, and refine resume page sections.
+6b3f1350c78c64902611b5d51c5fb5d029d69032|2025-12-25|feat: Introduce new head, header, JSON-LD includes, portfolio layout, and update site metadata.
+85c1b64a933c884912fcede5aa4fa22bfd00084f|2025-12-25|feat: Initialize site structure with header, head, and settings configuration files.
+f1e15b907ab70205c379071fa71732de697a5797|2025-12-26|feat: Introduce `head.html` with global meta, styling, and Mermaid.js, and remove 'clients' section from resume page.
+e8098d757e5dd22a461f261185b55695431954a6|2025-12-26|feat: add head include file with meta tags, font and CSS links, Mermaid.js integration, and custom resume styles.
+ea6dbf99e421e0f80ec13543da741e0759f333a6|2025-12-26|feat: Add head.html include with meta tags, styles, fonts, Mermaid.js, and custom resume CSS.
+3d9ee4de454a3af5f4331c6be2e1c6499c178f36|2025-12-26|feat: Introduce `_includes/head.html` for global metadata, styles, and scripts.
+4be3f4b2fec524234b5200b362714f7c0829c84c|2025-12-26|feat: Add `head.html` include with meta tags, SEO, fonts, styles, Mermaid.js, and custom resume spacing.
+7fb0a9c03ad071db258b1fe6ed32ec7a24acddde|2025-12-26|feat: Add `head.html` to centralize site metadata, styles, scripts, and custom resume spacing.
+da9a2dc1e05f27cc1b804733200042a317f38b98|2025-12-26|feat: Add `_includes/head.html` for site metadata, styling, Mermaid.js integration, and custom resume layout adjustments.
+e415aa451d6b03bc8d8fcfca731d44ecdb2109df|2025-12-26|feat: Introduce `_includes/head.html` to manage document head, including meta tags, styles, Mermaid.js, and custom resume/menu CSS.
+e2a0ab5c31cad3a7305f11db09546dd032a8ea05|2025-12-26|feat: Add `head.html` to centralize document metadata, stylesheets, Mermaid.js, and custom resume spacing/menu hover effects.
+5fb3190d3e4ccf80aeefff63c78a201f7e10f927|2025-12-26|feat: add head.html with meta tags, CSS/font loading, Mermaid.js integration, and custom resume/menu styling.
+51d40584cc06358131ed6d46dece284aa55a0850|2025-12-26|feat: Create `_includes/head.html` to manage meta tags, load assets, integrate Mermaid.js, and apply custom resume layout and menu hover styling.
+79a33453a27a16005e72de6377e6f0f875b3f99a|2025-12-26|feat: Add site header and head includes for core layout, navigation, and resume styling.
+bf8df60a255439801d521b698349b4d1b634e8c8|2025-12-26|feat: Implement `_includes/head.html` with core meta, asset loading, Mermaid.js, and custom resume/menu styling.
+1f9e5013fbec2088906a9f8e52da33a2f5086143|2025-12-26|feat: Add `_includes/head.html` for meta tags, stylesheets, scripts, custom resume layout, and dynamic menu hover effect.
+ba1b35f3de3ca0a13acf8576122d3658d6fc0394|2025-12-26|feat: Add `_includes/head.html` to manage meta tags, load essential assets, and apply custom styling for resume layout and interactive typography effects.
+a1c591f1809224a3bd78bda8b6a3bd8f2e734e49|2025-12-26|feat: add new header component with dynamic navigation and logo
+a5e180d384a532daf533580602dd1766220de846|2025-12-26|feat: Create `_includes/head.html` with essential meta, font, CSS, Mermaid.js, and custom resume/menu styles.
+d59b2d653772b572a447b306003f9521dc67a721|2025-12-27|feat: Add `head.html` to centralize document head with metadata, styles, Mermaid.js, and custom resume layout/animation CSS.
+0797e04614b02659dacfa5171da85a24b5b7ad10|2025-12-27|feat: Add `head.html` include with core meta, styles, Mermaid.js integration, custom resume layout, and font animation.
+0b0e12507a8cc7dd45df256da89b2bac581458c8|2025-12-27|feat: Add `main.js` to implement core UI interactions and dynamic functionalities.
+d95455d1243bde04f9d41e6f3900ac0efb25d1c2|2025-12-27|feat: Introduce head.html for meta tags, asset loading, Mermaid.js integration, and custom resume/font animation styling.
+7363289b4e98b71fc558272d8501b3bff166914d|2025-12-27|feat: add main JavaScript file to implement interactive UI elements, animations, and page functionality.
+278fd9ed5210b9c12035a766ebc193201e5d0b83|2025-12-27|feat: Introduce `scripts.html` to enable PWA service worker registration, asynchronous script loading, and dynamic page title functionality.
+b5e98451ec9a664bc5b043791bcd52d4eb55788d|2025-12-27|feat: Introduce new Jekyll site includes, layouts, and GitHub Actions workflow.
+ae45adc79d90bfb30c40e7469233d68870e9fd6b|2025-12-27|feat: Introduce reusable head partial with SEO, Mermaid.js, and custom styling for resume and menu animations.
+72ccfba49dc767a75514b69df16633049ede29b5|2025-12-27|feat: add main JavaScript file to implement interactive UI components and effects.
+80fe2c516fcf14c859b8fd1295c31300cfdf21bd|2025-12-27|feat: Introduce head.html for site metadata, styling, Mermaid.js, and custom resume/menu presentation.
+116d9cae3ee29dfb4927f310e5ebf69307862faa|2025-12-27|feat: Introduce `_includes/head.html` to centralize meta tags, SEO, Mermaid.js integration, and custom styling for resume layout and menu hover effects.
+83cd01fb0cc5b666f2463105ab54458e6c4e1fd9|2025-12-27|feat: add head include with site metadata, styles, scripts, and custom resume spacing.
+e5833669fdec01a7c86cd52c28a0a6e2d23b419e|2025-12-27|feat: add `head.html` to consolidate metadata, load assets, and introduce 'Quantum Flux' menu animation with resume layout improvements.
+dee784a7c6e3d8e5c05550745c25a3e9a9cfb16a|2025-12-27|feat: introduce `_includes/head.html` for centralized meta, font loading, CSS, Mermaid.js integration, and custom resume styling.
+b3ae78ae14bab2b7ab18cbf872e011a51e2b4fed|2025-12-27|feat: Implement head.html to centralize meta tags, load fonts and styles, integrate Mermaid.js, and apply custom resume and menu hover CSS.
+65837f494d9c18fc865d8997467149f3e8287a67|2025-12-27|feat: Add main JavaScript file to implement core website functionality and interactive elements.
+0e375b74f374c9ce6477ec1b22e15918d41c6b6a|2025-12-27|feat: Add main JavaScript file for website interactivity and features.
+e03117c014a78b84fe1e1385d2c38969f0c98bee|2025-12-27|feat: Add new contact form section with Formsubmit.co integration.
+ebe2f29cc03796559f97eb7930646af547a3bdad|2025-12-27|feat: Implement core website interactivity and UI effects with main JavaScript file.
+11c88729cb5ff38fb3bdc4ac3373702c5ab518eb|2025-12-27|feat: Add contact form section and implement core site interactivity with a new main.js file.
+ac1c78716215ddc965888f7910b1407762a0cb97|2025-12-27|feat: Introduce `_includes/head.html` for comprehensive site metadata, styling, and a new favicon.
+fcadbee2c601055a4ff50e2c15669939beabb244|2025-12-27|Cleanup unused template files
+34bf1d22cc5840e7de0a0abbda8298bca15936e8|2025-12-27|feat: Add initial website structure including core layout styles, particle script, and HTML head/scripts includes.
+26776b0700f35b2f95deec52da6f0f9fbe0d0286|2025-12-27|feat: Add JSON mode to display portfolio data as raw JSON with syntax highlighting.
+4bc654932e8c18fc1451f16b5e99284c821e370e|2025-12-27|feat: Add JSON mode functionality with dynamic content scraping and syntax highlighting.
+f0065b1596587b767a3b1c8802808a265adefa24|2025-12-27|feat: Add core layout includes for head, header, and scripts, including custom resume styling and a new menu hover effect.
+e628be3b6addbc013736c041e7a5bed9e3b7a50a|2025-12-27|feat: Introduce command palette trigger in header and enhance site head with improved styling, fonts, SEO, and Mermaid.js integration.
+5feb1a3814829511378b04add61772488fd76a28|2025-12-27|feat: Add command palette trigger styling and home page content configuration.
+3fddc2ac6e94d6aacfdb60cc99632eb5d909dd01|2025-12-27|feat: Introduce `head.html` and `header.html` to centralize site metadata, load diverse fonts, and implement custom resume and 'Quantum Flux' menu styling.
+33d473948d26201fa1e7366820f4d07864666bfe|2025-12-27|feat: Add command palette trigger styling, integrate new fonts and CSS, and refine resume layout spacing.
+926a39552673bc30848cf9a3edf5a0041c4c395f|2025-12-27|feat: Add base header component and default page layout.
+685ced72bd9e5b81573d02ca1857f16b60e8778f|2025-12-27|feat: add styling for command palette trigger, including base, hover, and mobile responsive styles.
+6e21bb698bd81229fd40540794b6e70fb7861ab6|2025-12-27|feat: Add styles for a fixed command palette trigger with hover effects and mobile adjustments.
+2e73509fa415ac99a8518e4b28677d91c222647b|2025-12-27|feat: add styles for a fixed-position command palette trigger with hover effects and mobile adjustments.
+27d3c98e7ec7b555573e69398121f8cdd04ef8c5|2025-12-27|feat: Add initial site head, comprehensive styling, fonts, Mermaid.js, and custom resume layout with Quantum Flux menu.
+2d5a8479eb660220749a661a10856d336601eeb1|2025-12-27|feat: introduce command palette for site navigation, actions, and theme selection.
+48985a21fe98e271da58efa7c43b55b52ee1d096|2025-12-27|feat: Add foundational head, script loading, and SASS styling settings.
+e348daa0c579d27dc1519390b199ea4ee68cea27|2025-12-27|feat: Implement a command palette modal for quick site navigation and actions.
+4fbe034442e42271a71e17060efe61ef034afa94|2025-12-27|feat: add interactive command palette for site navigation and actions
+2ce471743e53a884765571a515dfd4ef142be610|2025-12-27|feat: Introduce a command palette for quick navigation, actions, and site search.
+a24edc1be64fd1bbc9bcdd82a4ea658277970cca|2025-12-27|feat: Add a command palette UI component with navigation, actions, and search functionality.
+eefcdb6d36fe3334ee2cc8ecb133d405a1515d14|2025-12-27|feat: introduce a command palette UI with search functionality for posts and portfolio items.
+f4d3d537f820b69c458399dbeb6e36d33cd934bc|2025-12-27|feat: Add command palette UI and its associated search index data.
+98ff561fd706fae8dd146b619f968aecccceb451|2025-12-27|refactor: use Liquid variable for `type` assignment in `search.json`
+1eebff7ae1ad03664a4394e0f9c6b79b6407e48b|2025-12-27|style: Remove unnecessary newlines and whitespace in search.json generation.
+f3b0889cde805dde53e242b8448a0fdffd5ce62c|2025-12-27|feat: add a command palette component with navigation, actions, and search functionality.
+0b6d0d374f316d7e788ca995ec34a8935009fe71|2025-12-27|Fix search.json syntax and ensure valid index
+08cacdcb6367ad122ef4fdb779b9bd08bdb0f372|2025-12-27|Add cache busting to search index fetch
+3f5240dd430d947ab4f5584e6f184f2ec930d758|2025-12-27|Fix search.json encoding (Remove BOM)
+b39dae06ac79b4aa34c718a9072e30014828bda0|2025-12-27|Show tags in search results for better context
+c6e7856d8ea24c4096bba946c175514c7d7832c0|2025-12-27|Enable full-text search by indexing content field
+8c33801b15353cdd2c214d0dba43a736a98cdbac|2025-12-27|Enable page generation for Portfolio Works (Fix 404s)
+489d4e67fd9aec11aeaf98243a0be6fbe3769f7e|2025-12-27|Implement deep linking for portfolio search results
+18ec0df3b205df74fd5222d2b25b8f7fde7a62ad|2025-12-27|Fix layout overlap on 404 page by adding spacing to subtitle
+34ff7721990ca8b33b4ae838d50a855b06b7b6c5|2025-12-27|Increase 404 header height to fix title overlap
+aef0452f7c17472bce1ce16471dab959ebe11b8d|2025-12-27|Fix 404 layout overlap using flexbox and relative positioning
+7b99cc1187e56777315b817d4677427d4548a4bf|2025-12-27|Fix 404 syntax error and apply flexbox layout fix
+a2be07d3ebcc1a29d3e7099cb6e1a0e2bad2a0c8|2025-12-27|Fix 404 layout overlap by disabling CSS table layout and absolute positioning
+222f5f0a9fecff7cda37164edf41bf31c40224d4|2025-12-27|Refactor 404 page to use dedicated error layout with robust flexbox structure
+52811d8722fe3b5c0640937b6958d9197c2b45b1|2025-12-27|Update 404.html to use error layout
+6aaf3d90dae8971195c9d65a46c6a2258da7b099|2025-12-27|Increase bottom separation between 404 title and subtitle
+bb2cb075e9cb1a5613086d9764cc26f74c5f8cb3|2025-12-28|Update 404 subtitle text to be more appropriate
+d3b07f8e480d50712324cfbb0461c21151185823|2025-12-28|Update 404.html subtitle to 'Pipeline Failure' theme
+702a9a254d0bdbcf2632310015ba221983dc19e3|2025-12-28|Implement Interactive Knowledge Graph for Resume Skills
+91c820493edd8d710f89208ecad8cc930ce66a45|2025-12-28|Refine Knowledge Graph visualization: stabilization, hierarchy, and spacing
+dad746b83dcdede0afcd571e2c0b84b6223a4400|2025-12-28|Scale up Knowledge Graph significantly for better readability and impact
+75f481db466523453c12c8f31673d0c5e9d43868|2025-12-28|Fix JavaScript ReferenceError in Knowledge Graph script
+7dd66fc841a4f7cd3983b4e5cfe4f5638924c58c|2025-12-28|Revert skills section to original list style
+0999adc1bf05b0d0306a3d2b04126a87378243a8|2025-12-28|Implement SQL-like terminal filter for Portfolio page
+d4dff71415d6aef52185a2f1fff3e9a44aae1f8c|2025-12-28|Enable granular SQL filtering by adding tags to portfolio works and layout
+ec2c2dfcbb08297f019a92f8551a810dd99fc2e4|2025-12-28|Fix bugs: Remove SQL terminal artifact, consolidate contact form logic
+e797ecf4458c7134edb824096457e8b682c10ec3|2025-12-28|Fix bugs: Remove console logs, fix command palette navigation
+e909f6dbe441df6a84eca33ba46b3ce593fbe5eb|2025-12-28|feat: add `_includes/head.html` to centralize meta tags, styles, scripts, fonts, and custom resume/menu styling.
+5694c1b3fcc0489e61c03f02d8afa9fa59a6dca9|2025-12-28|Docs: Add README and CHANGELOG for v1.0.0 release
+06c5706ea0025e83496470b305f218fc9a5dd999|2025-12-28|Community: Add GitHub issue templates, PR template, and Dependabot config
+59888e8c441f71b853c6569ca0e7c0f6e023f019|2025-12-28|Docs: Add MIT LICENSE
+d65ccad1a77b8b2cb51d5fdddd74d7df7b1fe5b2|2025-12-28|Refactor: Remove theme branding references (Cvio -> custom)
+1a25e5529892c1e203f2de6c2b1f3620ff84ad69|2025-12-28|Meta: Establish project authorship and remove template language
+eb829bae58eb911b34a6b588d4f9f02812463dfc|2025-12-28|Copy: Adjust wording to be more neutral
+6d10d2ea234d7fd0b4315ff2e685b1c89163dbc1|2025-12-28|feat: Add main SCSS file importing custom styles for initial structure.
+def1f4aab09b3f3fa3197d8c7f125c64fb4e5439|2025-12-28|feat: Add main SCSS file and import core CVIO styles.
+e4bfd99650ed948a1e5d3aef44c22a4f82214b74|2025-12-28|Fix: Correct style.scss front matter
+89c89f0b0547df7f37867573bdf2483416c8dc09|2025-12-28|feat: Add `style.scss` to import core CVIO styles.
+75ffb98dce98358e02a6b6e5bddaec7005045f15|2025-12-28|Back
+2a18292010ed47b8ba00670b5a666ced459301fa|2025-12-28|New
+606997ad7c5194b4caf5687b17f41f4474a68afc|2025-12-28|feat: Add `style.scss` to import core CVIO styling modules.
+27cc769c961aa66d5b7633102fb4b8c7380c036d|2025-12-28|feat: Create main style.scss with core CVIO imports.
+86825e6275553e049dcff77a2545b6609c84d553|2025-12-28|New
+285bd7a4a2c8f04e29e78578367d26c58eb2d639|2025-12-28|feat: Add main SCSS file and configure formatting exclusions for Prettier and VSCode.
+f08a1a2df93c10afb0171dc4828e4a37b910129e|2025-12-28|feat: Add SCSS-based styling for basic elements, layout, and settings.
+855ee018a76192cf39a49b7168ab250fa584b14d|2025-12-28|feat: Introduce personal home section, live GitHub stats widget, and base SCSS imports.
+c13a5385624ce7841313af47ea3acb02dd87fa6c|2025-12-28|feat: Add new sections for system architecture, personal home, and an ETL pipeline animation.
+a796b7c84d3dac754a274e709e51730ecd0c3a0d|2025-12-28|feat: add architecture section to resume page
+0e49b352f14dad7c044bb630a86bded29bb241c3|2025-12-28|feat: Implement foundational website elements, including head, main JS, SCSS imports, and a new architecture section with Mermaid diagrams.
+1990753b79c92a89ce79d02b8be8020114cc734e|2025-12-28|docs: Remove 'architecture' from resume page sections.
+e2160c49b72a325421aa6b352e57fb5b7f3c25b6|2025-12-28|feat: Add home page content configuration and personal profile image.
+b4e2257c37625b169181387f829dd907b1b5c5fb|2025-12-28|feat: add personal portfolio content and interactive skills knowledge graph
+268dd020fa9cd2d3282595d415e47493799be0f0|2025-12-28|chore: Optimize images and update job title to Data Engineer
+b249428bfe98a2b070dfddc36dea78d5f9e17de4|2025-12-29|docs: Refine content for professionalism and accuracy
+4555468901d7b6fdc1baded1f5a174e4ab40501e|2025-12-29|feat: introduce skills knowledge graph section, add comprehensive content data, and update profile image reference in config.
+c7ca57e82583dff97fd422663e3b80ef052ebc16|2025-12-29|feat: Add basic SCSS styles for the resume, including typography, layout, forms, and animations.
+40efb5a901855ca90be6f218d9fbbeb0303b409f|2025-12-29|feat: Add critical spacing overrides for resume sections and implement a new 'Quantum Flux' menu hover animation.
+e9749e2ad4197d056851f8a03f3241bff51c9c84|2025-12-29|feat: Add footer configuration including social links and contact information.
+35bcab530509de17501cf19e4a40f341137a187c|2025-12-29|feat: Add `_sass/resume/layout.scss` to define core layout styles for various resume sections and responsiveness.
+1db88b6a8f7c1d4f6ecdd1bc917b3875d0349406|2025-12-29|feat: Add comprehensive layout styles for the resume theme.
+3255047f3a9398a4ccfc809e7bd88f28766ca376|2025-12-29|feat: Add comprehensive resume layout styles including header, sections, and responsive adjustments.
+aec35deead746b75b2f9d6a9321bf594ba88889b|2025-12-29|feat: add new `post.html` layout for displaying individual blog articles.
+2f7272be6fde7331f37badbe3cfe5f063a981f8b|2025-12-29|Remove Scroll Indicator
+b84b1939bcb3a073c1c1ace1fade4c2c71785281|2025-12-29|Update cover
+58a6f2c8a29ee7913643c03d96baea40f137a8d2|2025-12-29|Cover Dynamic
+1ee92e920b7b2db8f1ec5220a23c3ed424ea678c|2025-12-29|feat: Introduce new archive and blog layouts, a global head include, and an interactive skills graph, along with a config image update.
+6d9f92524a5ab283317df57142d422516abb508e|2025-12-29|feat: Add structured head and script includes for site assets and PWA, removing `animate.css` from service worker cache.
+cdf837a5e399f6625fb31cb860d8805bf7f38fb4|2025-12-30|feat: Implement interactive UI features and refine resume layout styling.
+cc310fd7c056f1d58c151415fa70b805390d031b|2025-12-30|feat: Add initial content and footer configuration files.
+05bb23b025f5e529ae8838a0ddfe733590901984|2026-01-11|Updated
+3229b0c8fb4e0114a574d04ebf09c46439e89954|2026-01-11|Updated Portfolio
+ea73971d15d8a39581c35eb0b7f496b482f5b580|2026-01-11|Patches
+9a27d319f3f9929380a8a132052edaf15012413e|2026-01-18|feat: Add new AI Healthcare and Movie Recommendation projects, update personal portfolio content, and introduce supporting scripts and assets.
+7de468cf7706888e72aefb9df3486ca67d9bce4f|2026-01-18|feat: add AI Healthcare and Movie Recommendation system project details and implement command palette UI
+1a9175fe3b0e4a6a55696d20f869db7a7346c2f4|2026-05-14|Performance Optimization
+208931886aa46efaf6462991254f3d5daa2c5d61|2026-05-14|Update
+c84ab3c54806924d4c6db379986b45a7bf445189|2026-05-15|feat: BM25 RAG copilot, optional Worker/Ollama/WebLLM, HTTPS Ollama URL, CI chunk enrich
+6609c31a7c4b372d56b8e5ab5a87a079db1011fe|2026-05-15|Fix AI chat UX: retrieval guard, composer layout, darker scrollbars
+7bea5d3b8e6085512dbc195635296e6c7588110d|2026-05-16|UI/UX improvements: hero CTA, skills expansion, nav, accessibility, back-to-top
+d56ce6b5ee32fe58504fda7ec03fb999402d3dda|2026-05-16|Revert home page changes: restore original typed lines and remove hero CTA buttons
+56aeeb05e2f4f279867e7716ee5446bfddd0ebb0|2026-05-16|Fix
+15e257eba41a36f9bdd5f6788aeae9f8abfbda21|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+f2e84716a408261e87e138862aa07199f66ef86e|2026-05-16|Fix SCSS build error: replace @include transition with plain CSS transition property
+a41faad58fad0c5fe3298aa0bb9de114ab81070b|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+cd2dc40300396cae99ab3459ec3d749d4cb1e4f3|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+5a9ffbba2ee87ec31f455f11e89fb79033d64da8|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+716d6649ee75c9fce5a625b339a05a6a060ad47f|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+63de1f7d894af23c6bfa35fec93a844be8769c62|2026-05-16|Restore visual layout to last working state (7de468c) ΓÇö keep AI chatbot files intact
+f614f20a0615e1a185ca15842f3f4c69d3e0e2a0|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+1e8c57c68f1c79c15754e57c7913913daf19a3fc|2026-05-16|Fix script load order: move jQuery plugins inside .then() so $ exists when they execute; bump SW cache to v3
+a745e0958e8c7e770627f28f63d47ab41184a432|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+687912d6166f60633d69d7654043e39176535ef5|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+f81231cdb3e66f044f713f8b1d8cff58be04aa4c|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+a93f47360f284b44322bc6ca8ecb9b0344b2f672|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+593b4063832b92200e878fc849ac3cc8f3f4ef12|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+682be3606b8bd1d64f2d7008f700bf2ec5b5566c|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+baac065d7fc831779ce649c90fe4d338e39dfec0|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+49968c3691b0abce70cfc345f2e247c60a7c7408|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+38acfadcb6471a8e54e6757a7f056802cb94b864|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+0c809fafa36bb37d3fc28233eb6c282e69ba4564|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+c8a4fac0c736c13ffb4f827be082f2e85ce27be7|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+8a6f903f4b3cc9a7a26ffd5bc966a6820614d832|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+bc8ad07726c3d3ee0b099a9d4b17d36bcd263929|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+5bb807660b5a0dbbc04c8bcbfec0384ba62240e2|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+4dcde32b1ee0b038f52471b9138ac9de0fd1d0b6|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+cdfe29eda14ff42951eb4a4526ccdf98f2acf73f|2026-05-16|Fix SW 503 noise: return 200 empty on network failure; bump cache to v4
+b78f09f102c19cab9350f4f98e67c30267ff53c7|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+d4b5e95b5be160aab6bf2d1ee417d2a47b4f7a27|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+45700824620ed4d91665f6c72ca6195fd78bc2a2|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+e30688555a3d035300ad0549c83d287bb25dd3c7|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+8c3ebeefca34d16765911442d42c3bc05d0d41e4|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+5994d5539aa8a4fc096783ca1e8e43ff4ee9b280|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+209efec5b7e459611c4be40d4a8db4f9b4c6c380|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+f17faed18d4f6bf022de45e4d654674884501a88|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+f6d3ce6c682172af4e28c0f87294393c057cc416|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+b662480dc73fa260f98b243141cd5d5084d020a6|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+75de3f9db87dcb046087345aee6f673e13022ec6|2026-05-16|SEO: update humans.txt with full contact info, exclude search.json from sitemap
+645724d3cde31974ff79bd3fcdb5fe57b43233f3|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+4198054adc09c77cc2421f1c91ab050292ab0e34|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+97791090aed0c5eaa4a1dbea0f0cfa4074dfc962|2026-05-16|SEO perf: defer all non-critical CSS (FontAwesome, fonts, animate, swiper), remove duplicate canonical/hreflang, exclude ai_chunks.json from sitemap, add sitemap priorities, fix contacts description
+0f29c506bd18780b891a180399a69c148e25a386|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+8937ccfbe77872bda8b3cc84e9666716d3194216|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+d9a21d1f0fb15cb1684c67b4ef5a33f800823249|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+91a8bbc3c733da53a8077605f5412be03b059877|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+fb26a5d6e9d23e73eb29f675d5d42851a45baaa9|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+19f92514c87cbb5e5234c4984920d368f1c528ca|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+a24aa7ed68c3afe4b5ba84130a3d27119d1a52dd|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+eeef93ec5a9ce882e41201e7765bbe03f65f3152|2026-05-16|Fully hide blog: noindex all posts and blog index, remove from sitemap
+be36831c962692663e799097b740116f7d5991db|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+d05b802859c4d03b42e3626b37fb7d34023461af|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+5e078211214e2665f1f73030b545fefb35557bc0|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+46dcccdd94ee1f755a604176aed21e7cd567f0f9|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+ce63d1447c93600004e0e9ca1d121b46abd67a5c|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+f4739030c503681d9e5dc40c4f19b76242932e67|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+544ba83fdcc980922fbdfaceb59b0c87d7370b87|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+b3357764ba36b86c4bb9a1685183af9a2bba5d9f|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+ce8b7bbdb9871b08781551b005a6c1367748e2c8|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+24d1f4a026ed12f26c75908e9b37ffc35f13ca65|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+952d6d25bf17afb3b58c551ed0f0b81b638e0cba|2026-05-16|Auto-save: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')

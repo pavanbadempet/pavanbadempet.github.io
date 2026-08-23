@@ -1,0 +1,21 @@
+{
+  "name": "portfolio-ai-worker",
+  "version": "2.0.0",
+  "description": "Cloudflare Workers AI Proxy & Vector Search for Pavan Badempet Portfolio",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "bun test ../../tests/worker.test.ts",
+    "ingest": "bun run ../../scripts/ingest-vectorize.ts"
+  },
+  "keywords": [
+    "cloudflare-workers",
+    "workers-ai",
+    "vectorize",
+    "rag",
+    "bun"
+  ],
+  "author": "Pavan Badempet <pavan9b@gmail.com>",
+  "license": "MIT"
+}
