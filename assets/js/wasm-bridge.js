@@ -8,7 +8,6 @@
   class RustWasmEngine {
     constructor() {
       this.wasm = null;
-      this.memory = null;
       this.isReady = false;
       this.encoder = new TextEncoder();
       this.initPromise = this.init();
@@ -17,11 +16,10 @@
     async init() {
       try {
         const wasmUrl = (global.site_url || '') + '/assets/wasm/rust_wasm_engine.wasm';
-        let response;
         let bytes;
 
         if (typeof fetch === 'function') {
-          response = await fetch(wasmUrl);
+          const response = await fetch(wasmUrl);
           if (response.ok) {
             bytes = await response.arrayBuffer();
           }
@@ -40,12 +38,10 @@
 
         const wasmModule = await WebAssembly.instantiate(bytes, {});
         this.wasm = wasmModule.instance.exports;
-        this.memory = this.wasm.memory;
         this.isReady = true;
-        console.log('[Rust Wasm Engine] Initialized successfully. High-speed computation active.');
         return true;
       } catch (err) {
-        console.warn('[Rust Wasm Engine] Failed to initialize Wasm engine:', err);
+        console.warn('[Rust Wasm Engine] Failed to initialize Wasm engine, using fallback:', err);
         return false;
       }
     }
@@ -55,7 +51,6 @@
      */
     cosineSimilarity(vecA, vecB) {
       if (!this.isReady || !this.wasm) {
-        // Fallback in JS
         let dot = 0, nA = 0, nB = 0;
         for (let i = 0; i < vecA.length; i++) {
           dot += vecA[i] * vecB[i];
@@ -66,24 +61,28 @@
         return denom > 1e-8 ? dot / denom : 0;
       }
 
-      const len = Math.min(vecA.length, vecB.length);
-      const byteSize = len * 4;
+      try {
+        const len = Math.min(vecA.length, vecB.length);
+        const byteSize = len * 4;
 
-      const ptrA = this.wasm.wasm_alloc(byteSize);
-      const ptrB = this.wasm.wasm_alloc(byteSize);
+        const ptrA = this.wasm.wasm_alloc(byteSize);
+        const ptrB = this.wasm.wasm_alloc(byteSize);
 
-      const memA = new Float32Array(this.memory.buffer, ptrA, len);
-      const memB = new Float32Array(this.memory.buffer, ptrB, len);
+        const memA = new Float32Array(this.wasm.memory.buffer, ptrA, len);
+        const memB = new Float32Array(this.wasm.memory.buffer, ptrB, len);
 
-      memA.set(vecA.subarray(0, len));
-      memB.set(vecB.subarray(0, len));
+        memA.set(vecA.subarray(0, len));
+        memB.set(vecB.subarray(0, len));
 
-      const score = this.wasm.cosine_similarity(ptrA, ptrB, len);
+        const score = this.wasm.cosine_similarity(ptrA, ptrB, len);
 
-      this.wasm.wasm_dealloc(ptrA, byteSize);
-      this.wasm.wasm_dealloc(ptrB, byteSize);
+        this.wasm.wasm_dealloc(ptrA, byteSize);
+        this.wasm.wasm_dealloc(ptrB, byteSize);
 
-      return score;
+        return score;
+      } catch (e) {
+        return 0;
+      }
     }
 
     /**
@@ -92,7 +91,6 @@
     fastTextScore(query, text) {
       if (!query || !text) return 0;
       if (!this.isReady || !this.wasm) {
-        // Fallback in JS
         const q = query.toLowerCase();
         const t = text.toLowerCase();
         if (t.includes(q)) return 1.0;
@@ -101,21 +99,29 @@
         return words.length ? matches / words.length : 0;
       }
 
-      const queryBytes = this.encoder.encode(query);
-      const textBytes = this.encoder.encode(text);
+      try {
+        // Limit string size to prevent large allocations in tight loops
+        const safeQuery = query.slice(0, 128);
+        const safeText = text.slice(0, 512);
 
-      const queryPtr = this.wasm.wasm_alloc(queryBytes.length);
-      const textPtr = this.wasm.wasm_alloc(textBytes.length);
+        const queryBytes = this.encoder.encode(safeQuery);
+        const textBytes = this.encoder.encode(safeText);
 
-      new Uint8Array(this.memory.buffer, queryPtr, queryBytes.length).set(queryBytes);
-      new Uint8Array(this.memory.buffer, textPtr, textBytes.length).set(textBytes);
+        const queryPtr = this.wasm.wasm_alloc(queryBytes.length);
+        const textPtr = this.wasm.wasm_alloc(textBytes.length);
 
-      const score = this.wasm.fast_text_score(queryPtr, queryBytes.length, textPtr, textBytes.length);
+        new Uint8Array(this.wasm.memory.buffer, queryPtr, queryBytes.length).set(queryBytes);
+        new Uint8Array(this.wasm.memory.buffer, textPtr, textBytes.length).set(textBytes);
 
-      this.wasm.wasm_dealloc(queryPtr, queryBytes.length);
-      this.wasm.wasm_dealloc(textPtr, textBytes.length);
+        const score = this.wasm.fast_text_score(queryPtr, queryBytes.length, textPtr, textBytes.length);
 
-      return score;
+        this.wasm.wasm_dealloc(queryPtr, queryBytes.length);
+        this.wasm.wasm_dealloc(textPtr, textBytes.length);
+
+        return score;
+      } catch (e) {
+        return 0;
+      }
     }
 
     /**
@@ -127,14 +133,18 @@
         return Math.ceil(text.length / 4);
       }
 
-      const textBytes = this.encoder.encode(text);
-      const textPtr = this.wasm.wasm_alloc(textBytes.length);
+      try {
+        const textBytes = this.encoder.encode(text);
+        const textPtr = this.wasm.wasm_alloc(textBytes.length);
 
-      new Uint8Array(this.memory.buffer, textPtr, textBytes.length).set(textBytes);
-      const count = this.wasm.estimate_tokens(textPtr, textBytes.length);
-      this.wasm.wasm_dealloc(textPtr, textBytes.length);
+        new Uint8Array(this.wasm.memory.buffer, textPtr, textBytes.length).set(textBytes);
+        const count = this.wasm.estimate_tokens(textPtr, textBytes.length);
+        this.wasm.wasm_dealloc(textPtr, textBytes.length);
 
-      return count;
+        return count;
+      } catch (e) {
+        return Math.ceil(text.length / 4);
+      }
     }
 
     /**
@@ -147,7 +157,14 @@
         const normDocLen = avgDocLen > 0 ? docLen / avgDocLen : 1;
         return idf * ((docTf * (k1 + 1)) / (docTf + k1 * (1 - b + b * normDocLen)));
       }
-      return this.wasm.bm25_term_score(docTf, docLen, avgDocLen, totalDocs, docFreq);
+      try {
+        return this.wasm.bm25_term_score(docTf, docLen, avgDocLen, totalDocs, docFreq);
+      } catch (e) {
+        const idf = Math.log(1 + (totalDocs - docFreq + 0.5) / (docFreq + 0.5));
+        const k1 = 1.2, b = 0.75;
+        const normDocLen = avgDocLen > 0 ? docLen / avgDocLen : 1;
+        return idf * ((docTf * (k1 + 1)) / (docTf + k1 * (1 - b + b * normDocLen)));
+      }
     }
   }
 

@@ -1,66 +1,85 @@
 /**
- * Interactive Data Particles for Data Engineer Portfolio
- * Creates a network graph effect with nodes and connections.
+ * Ultra-Fast, Battery-Optimized Data Particles for Data Engineer Portfolio
+ * Uses squared Euclidean distances, passive throttled mouse tracking, and IntersectionObserver.
  */
-
 (function () {
-    const canvas = document.createElement('canvas');
-    const container = document.getElementById('section-started') || document.getElementById('section-post');
+    'use strict';
 
-    // If container doesn't exist, exit
+    const container = document.getElementById('section-started') || document.getElementById('section-post');
     if (!container) return;
 
-    // Insert canvas as the first child
+    const canvas = document.createElement('canvas');
     canvas.id = 'data-particles-bg';
     canvas.style.position = 'absolute';
     canvas.style.top = '0';
     canvas.style.left = '0';
     canvas.style.width = '100%';
     canvas.style.height = '100%';
-    canvas.style.zIndex = '0'; // Behind content but in front of base background
+    canvas.style.zIndex = '0';
     canvas.style.opacity = '1';
-    canvas.style.pointerEvents = 'none'; // Allow clicking through to text
+    canvas.style.pointerEvents = 'none';
 
-    // Insert before the existing video-bg or simple prepend
+    // Remove or hide any conflicting video-bg
     const videoBg = container.querySelector('.video-bg');
     if (videoBg) {
-        // Hide original video-bg but keep it in DOM just in case
         videoBg.style.display = 'none';
         container.insertBefore(canvas, videoBg);
     } else {
         container.prepend(canvas);
     }
 
-    const ctx = canvas.getContext('2d');
-    let width, height;
+    const ctx = canvas.getContext('2d', { alpha: true });
+    if (!ctx) return;
+
+    let width = 0, height = 0;
     let particles = [];
+    let isVisible = true;
+    let animId = null;
 
     // Configuration
+    const isMobile = window.innerWidth < 768;
     const config = {
-        particleCount: window.innerWidth < 768 ? 40 : 80, // Fewer on mobile
-        connectionDistance: 150,
-        mouseDistance: 200,
-        particleColor: 'rgba(75, 255, 165, 0.7)', // Data Green/Teal
-        lineColor: 'rgba(75, 255, 165, 0.2)',
-        particleSpeed: 0.5,
-        mouseRepelForce: 3
+        particleCount: isMobile ? 35 : 65,
+        connectionDistance: 130,
+        connectionDistanceSq: 130 * 130,
+        mouseDistance: 160,
+        mouseDistanceSq: 160 * 160,
+        particleColor: 'rgba(75, 255, 165, 0.65)',
+        lineColorPrefix: 'rgba(75, 255, 165, ',
+        particleSpeed: isMobile ? 0.3 : 0.45,
+        mouseRepelForce: 2.5
     };
 
-    // Mouse setup
+    // Cached Mouse Coordinates & Canvas Offset
+    let canvasRect = { left: 0, top: 0 };
     let mouse = { x: -9999, y: -9999 };
+    let targetMouse = { x: -9999, y: -9999 };
+    let mouseActive = false;
 
-    // Track mouse over the container specifically? Or window?
-    // Window is better for full screen effect
+    function updateCanvasRect() {
+        if (!container) return;
+        const rect = container.getBoundingClientRect();
+        canvasRect.left = rect.left + window.scrollX;
+        canvasRect.top = rect.top + window.scrollY;
+    }
+
+    window.addEventListener('scroll', updateCanvasRect, { passive: true });
+    window.addEventListener('resize', () => {
+        resize();
+        updateCanvasRect();
+    }, { passive: true });
+
     window.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-    });
+        targetMouse.x = e.pageX - canvasRect.left;
+        targetMouse.y = e.pageY - canvasRect.top;
+        mouseActive = true;
+    }, { passive: true });
 
-    window.addEventListener('mouseleave', () => {
-        mouse.x = -9999;
-        mouse.y = -9999;
-    });
+    document.addEventListener('mouseleave', () => {
+        targetMouse.x = -9999;
+        targetMouse.y = -9999;
+        mouseActive = false;
+    }, { passive: true });
 
     class Particle {
         constructor() {
@@ -68,109 +87,132 @@
         }
 
         init() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
+            this.x = Math.random() * (width || window.innerWidth);
+            this.y = Math.random() * (height || window.innerHeight);
             this.vx = (Math.random() - 0.5) * config.particleSpeed;
             this.vy = (Math.random() - 0.5) * config.particleSpeed;
-            this.size = Math.random() * 2 + 1;
+            this.size = Math.random() * 1.5 + 1.0;
         }
 
         update() {
-            // Basic movement
             this.x += this.vx;
             this.y += this.vy;
 
             // Bounce off edges
-            if (this.x < 0 || this.x > width) this.vx *= -1;
-            if (this.y < 0 || this.y > height) this.vy *= -1;
+            if (this.x < 0) { this.x = 0; this.vx = Math.abs(this.vx); }
+            else if (this.x > width) { this.x = width; this.vx = -Math.abs(this.vx); }
 
-            // Mouse interaction (Repel/Attract)
-            const dx = mouse.x - this.x;
-            const dy = mouse.y - this.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (this.y < 0) { this.y = 0; this.vy = Math.abs(this.vy); }
+            else if (this.y > height) { this.y = height; this.vy = -Math.abs(this.vy); }
 
-            if (distance < config.mouseDistance) {
-                // Calculate repulsion angle
-                const forceDirectionX = dx / distance;
-                const forceDirectionY = dy / distance;
-                const force = (config.mouseDistance - distance) / config.mouseDistance;
-                const directionX = forceDirectionX * force * config.mouseRepelForce;
-                const directionY = forceDirectionY * force * config.mouseRepelForce;
+            // Mouse interaction
+            if (mouseActive) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const distSq = dx * dx + dy * dy;
 
-                // Move away from mouse
-                this.x -= directionX;
-                this.y -= directionY;
+                if (distSq < config.mouseDistanceSq && distSq > 1) {
+                    const dist = Math.sqrt(distSq);
+                    const force = (config.mouseDistance - dist) / config.mouseDistance;
+                    const forceX = (dx / dist) * force * config.mouseRepelForce;
+                    const forceY = (dy / dist) * force * config.mouseRepelForce;
+
+                    this.x -= forceX;
+                    this.y -= forceY;
+                }
             }
         }
 
         draw() {
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.arc(this.x, this.y, this.size, 0, 6.28318530718); // Math.PI * 2
             ctx.fillStyle = config.particleColor;
             ctx.fill();
         }
     }
 
-    function init() {
-        resize();
-        createParticles();
-        animate();
-    }
-
     function resize() {
-        width = canvas.width = container.offsetWidth;
-        height = canvas.height = container.offsetHeight;
+        if (!container) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = container.offsetWidth;
+        height = container.offsetHeight;
 
-        // Re-adjust particle count on huge resizes
-        const newCount = window.innerWidth < 768 ? 40 : 80;
-        if (particles.length !== newCount) {
-            createParticles(); // Reset if screen category changes significantly
-        }
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+
+        createParticles();
     }
 
     function createParticles() {
         particles = [];
-        // Recalculate count based on current width
-        const count = window.innerWidth < 768 ? 40 : 100;
+        const count = isMobile ? 35 : 65;
         for (let i = 0; i < count; i++) {
             particles.push(new Particle());
         }
     }
 
     function animate() {
+        if (!isVisible) {
+            animId = null;
+            return;
+        }
+
         ctx.clearRect(0, 0, width, height);
 
-        // Draw edges first (so they are behind nodes)
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
+        // Smooth mouse lerp
+        if (mouseActive) {
+            mouse.x += (targetMouse.x - mouse.x) * 0.2;
+            mouse.y += (targetMouse.y - mouse.y) * 0.2;
+        }
 
-                if (distance < config.connectionDistance) {
+        const len = particles.length;
+
+        // Draw connections with squared distance checks
+        for (let i = 0; i < len; i++) {
+            const p1 = particles[i];
+            for (let j = i + 1; j < len; j++) {
+                const p2 = particles[j];
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const distSq = dx * dx + dy * dy;
+
+                if (distSq < config.connectionDistanceSq) {
+                    const alpha = (1 - (distSq / config.connectionDistanceSq)) * 0.25;
                     ctx.beginPath();
-                    ctx.strokeStyle = config.lineColor;
-                    ctx.lineWidth = 1 - (distance / config.connectionDistance);
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = config.lineColorPrefix + alpha.toFixed(3) + ')';
+                    ctx.lineWidth = 0.8;
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
                     ctx.stroke();
                 }
             }
         }
 
-        // Draw particles
-        particles.forEach(p => {
-            p.update();
-            p.draw();
-        });
+        // Update and draw particles
+        for (let i = 0; i < len; i++) {
+            particles[i].update();
+            particles[i].draw();
+        }
 
-        requestAnimationFrame(animate);
+        animId = requestAnimationFrame(animate);
     }
 
-    // Handle Resize
-    window.addEventListener('resize', resize);
+    // Pause rendering when out of viewport to save 100% CPU/GPU
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isVisible = entry.isIntersecting;
+                if (isVisible && !animId) {
+                    animId = requestAnimationFrame(animate);
+                }
+            });
+        }, { threshold: 0.05 });
+        observer.observe(container);
+    }
 
-    // Start
-    init();
-
+    // Initial setup
+    updateCanvasRect();
+    resize();
+    animId = requestAnimationFrame(animate);
 })();
