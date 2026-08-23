@@ -8,27 +8,36 @@ facts:
   contact_email: "pavan9b@gmail.com"
   contact_phone: "+917989256101"
   overview: >
-    Builds scalable data platforms and ETL/ELT pipelines with Python, SQL, and Spark on AWS and
-    on-prem; focuses on reliability, data quality, and performance for analytics and downstream systems.
+    Data Engineer with 3 years of experience building high-throughput distributed ETL data pipelines,
+    Medallion Lakehouse platforms, and on-prem/cloud infrastructure across BFSI (Nomura Capital) and
+    Automotive (Nissan) domains. Proficient in Python, SQL and PySpark performance tuning, dimensional
+    modeling, workflow orchestration using Airflow and AutoSys, and data platform modernization with
+    Databricks, AWS and Gen AI Integrated Development.
+  domains:
+    - "BFSI (Nomura Capital: 1B+ records/month, 200K+ queries/day, Apache Iceberg Medallion Lakehouse)"
+    - "Automotive (Nissan: 100K+ events daily, AWS Lambda, Step Functions, EventBridge, Streamlit)"
   stack_highlights:
-    - "Python"
-    - "Apache Spark (PySpark, Spark SQL)"
-    - "SQL"
-    - "AWS (Lambda, Step Functions, CloudWatch, S3-compatible storage)"
-    - "Snowflake-oriented pipelines"
+    - "Languages: Python, Java, Scala, SQL"
+    - "Big Data: Apache Spark, PySpark, Spark SQL, Databricks, Unity Catalog, Structured Streaming, Apache Iceberg, Delta Lake, Medallion Architecture, Dremio, MinIO, HDFS"
+    - "Modeling: Dimensional Modeling (SCD Type 2, Star Schema), CDC, Schema Evolution, Data Quality"
+    - "Cloud & Tools: AWS (S3, Lambda, Step Functions, EventBridge, SNS), Apache Airflow, AutoSys, Docker, Git, GitHub Actions, PostgreSQL, SQL Server, FastAPI, Streamlit"
   employers_named:
-    - "Tata Consultancy Services (TCS)"
-  education: "B.Tech Computer Science & Engineering, Guru Nanak Institutions Technical Campus"
+    - "Tata Consultancy Services (TCS) - Nov 2023 to Present"
+  featured_projects:
+    - "AI Healthcare System (Python, PySpark, Databricks, Delta Lake, Airflow, PostgreSQL, Docker, RAG)"
+    - "AI Recommendation Engine (Python, PySpark, Databricks, Structured Streaming, Delta Lake, Airflow, FastAPI)"
+  education: "Bachelor of Technology in Computer Science & Engineering (CGPA 8.2/10, Minor in AI/ML CGPA 8.6/10), Guru Nanak Institutions Technical Campus. Prime Minister’s Scholarship (PMSS)."
   how_this_site_is_built: >
     This portfolio website and AI Copilot (Pavan.AI) were built entirely by Pavan Badempet using:
-    - Jekyll (Ruby static site generator) for the main framework and templating.
+    - Jekyll (Ruby static site generator) for framework and templating.
     - Custom Vanilla CSS, HTML5, and JS for the responsive, glassmorphic layout and command palette.
-    - Client-side RAG (Retrieval-Augmented Generation) in pure JavaScript (ai-engine.js) utilizing a pre-computed JSON search index (ai_chunks.json) to retrieve relevant facts in sub-10ms.
-    - Cloudflare Workers as a secure, serverless API gateway proxy to handle LLM requests.
-    - Model: Llama-3.3-70B-Versatile via the API proxy, with WebLLM fallback for in-browser client-side WebGPU execution.
+    - Client-side RAG (Retrieval-Augmented Generation) in pure JavaScript (ai-engine.js) querying pre-computed JSON search index (ai_chunks.json) for sub-10ms context retrieval.
+    - Cloudflare Workers as a secure, serverless API gateway proxy with Vectorize vector embeddings.
+    - Model: Llama-3.3-70B on Cloudflare Workers AI with fallback.
     - GitHub Pages for automated hosting and CI/CD.
   guardrails: >
-    Never invent employers, dates, metrics, or project names not present in CONTEXT or FACTS.
+    Never invent tools, employers, dates, metrics, or services not present on Pavan's resume.
+    Pavan's AWS stack is specifically: S3, Lambda, Step Functions, EventBridge, and SNS (do NOT mention AWS Glue or other unlisted services).
     If unsure, say you are unsure and suggest Resume, Portfolio, or email.
 
 contract:

@@ -1,32 +1,28 @@
 ---
-title: Movie Recommendation System
+title: AI Recommendation Engine
 category: Content
 category_slug: f-content
 type: content
 image: assets/img/works/mrsbup.png
-description: "Semantic movie recommendation engine using SBERT (MPNet) 768-dim embeddings and FAISS for sub-100ms vector search, with MMR diversity and multi-factor re-ranking. Built with PySpark, FastAPI, and Streamlit."
+description: "Batch and real-time ingestion flows with PySpark & Structured Streaming on Databricks for 20M+ records, Delta Lake checkpointing, and FastAPI vector retrieval."
 button_url: https://github.com/pavanbadempet/Movie-Recommendation-System
 demo_url: https://movie-recommendation-system.streamlit.app
-tags: [python, machine-learning, nlp, api]
+tags: [python, pyspark, databricks, structured-streaming, delta-lake, airflow, fastapi]
 ---
 
-**Movie Recommendation System Based on SBERT & FAISS**
+**AI Recommendation Engine | Python, PySpark, Databricks, Structured Streaming, Delta Lake, Airflow, FastAPI**
 
-A sophisticated recommendation engine leveraging **SBERT (MPNet)** and **FAISS** for high-performance vector search. The system balances relevance with diversity using **Maximal Marginal Relevance (MMR)** and enhances user engagement through multi-factor re-ranking (Director, Franchise, Quality).
+A scalable, high-throughput recommendation platform handling millions of records with real-time streaming and fast vector similarity search.
 
 ### Tech Stack
-*   **Language:** Python, PySpark
-*   **AI/ML:** SBERT (all-mpnet-base-v2), FAISS (Facebook AI Similarity Search)
-*   **Backend:** FastAPI (Async)
-*   **Frontend:** Streamlit (Video Backgrounds)
-*   **Infrastructure:** Render (Backend), Streamlit Cloud (Frontend), Docker
+*   **Big Data & Streaming:** Python, PySpark, Spark SQL, Databricks, Structured Streaming, Delta Lake
+*   **Vector Search & Serving:** FastAPI, pgvector / FAISS, SBERT
+*   **Orchestration & CI/CD:** Apache Airflow, GitHub Actions, Docker
 
-### Key Features
-*   **Advanced Vector Search:** 768-dimensional embeddings using MPNet for deep semantic understanding.
-*   **Blazing Fast Retrieval:** Sub-100ms nearest neighbor lookups using FAISS.
-*   **Smart Re-ranking:** Multi-factor logic (Director, Franchise, Era, Quality) to refine recommendations.
-*   **MMR Diversity:** Balances relevance with diversity to prevent repetitive suggestions.
-*   **Rich Media UI:** Premium dark-mode interface with trailers and poster integration via TMDB.
+### Key Highlights & Results
+*   **High-Volume Ingestion & Streaming:** Engineered batch and real-time ingestion flows using PySpark, SQL, and Structured Streaming on Databricks for 20M+ records, enforcing data quality checks, Delta Lake checkpointing, and incremental loading.
+*   **Sub-50ms Vector Retrieval:** Built a low-latency serving API using FastAPI and vector retrieval engine with pgvector/FAISS indexing for candidate matching, enabling sub-50ms lookups across 100K+ items.
+*   **Automated Pipeline Operations:** Integrated automated validation and pipeline scheduling via Apache Airflow and GitHub Actions.
 
 ### Recommendation Pipeline
 <div class="mermaid" style="background: transparent; padding: 10px; border-radius: 8px;">

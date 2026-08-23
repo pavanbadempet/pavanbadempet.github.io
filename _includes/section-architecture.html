@@ -8,37 +8,36 @@
         </div>
 
         <div class="desc">
-            <p><strong>Nissan Data Platform (Event-Driven Ingestion)</strong></p>
-            <p>Designed to handle high velocity IoT data streams.</p>
+            <p><strong>Nomura Capital (Medallion Lakehouse Architecture)</strong></p>
+            <p>Batch ETL platform processing 1B+ records/month with Apache Iceberg and Spark.</p>
             <div class="mermaid">
                 graph LR
-                A[IoT Sensors] -->|JSON Stream| B(AWS API Gateway)
-                B -->|Trigger| C{AWS Lambda}
-                C -->|Raw Data| D[(S3 Data Lake)]
-                C -->|Transform| E[Snowflake DW]
-                E -->|BI Dashboards| F[Streamlit App]
+                A[20+ Source Systems] -->|AutoSys Trigger| B[PySpark Ingestion]
+                B -->|Raw Batch| C[(Bronze Iceberg)]
+                C -->|Spark SQL + AQE| D[(Silver Cleaned)]
+                D -->|Star Schema MERGE| E[(Gold Dimensional)]
+                E -->|MinIO on K8s| F[200K+ Daily Queries]
 
                 style A fill:#333,stroke:#fff,stroke-width:2px
-                style C fill:#f90,stroke:#333,stroke-width:2px,color:black
+                style B fill:#f90,stroke:#333,stroke-width:2px,color:black
                 style E fill:#0cc,stroke:#333,stroke-width:2px,color:black
             </div>
 
             <br><br>
 
-            <p><strong>Medical Diagnostic System (Microservices)</strong></p>
-            <p>Containerized ML inference engine with high availability.</p>
+            <p><strong>Nissan Cloud Platform (Event-Driven Ingestion)</strong></p>
+            <p>Serverless architecture capturing 100K+ daily events with schema validation.</p>
             <div class="mermaid">
-                graph TD
-                User[Patient/Doctor] -->|Request| LB[Load Balancer]
-                LB -->|Route| App[Streamlit Frontend]
-                App -->|API Call| API[FastAPI Gateway]
-                API -->|Inference| Model1[Liver Model]
-                API -->|Inference| Model2[Diabetes Model]
-                API -->|Chat| GPT[OpenAI Wrapper]
+                graph LR
+                A[EventBridge] -->|Trigger| B[AWS Lambda]
+                B -->|State Execution| C[AWS Step Functions]
+                C -->|Raw Ingestion| D[(AWS S3)]
+                C -->|Validation & Alerting| E[AWS SNS]
+                D -->|Operations Monitoring| F[Streamlit Dashboard]
 
-                style User fill:#333,stroke:#fff,stroke-width:2px
-                style LB fill:#0f0,stroke:#333,stroke-width:2px,color:black
-                style API fill:#0cf,stroke:#333,stroke-width:2px,color:black
+                style A fill:#333,stroke:#fff,stroke-width:2px
+                style B fill:#f90,stroke:#333,stroke-width:2px,color:black
+                style C fill:#0cf,stroke:#333,stroke-width:2px,color:black
             </div>
         </div>
         <div class="clear"></div>

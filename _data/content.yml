@@ -6,12 +6,12 @@
 about:
   image: "assets/img/pavan_badempet.png"
   image_alt: "Pavan Badempet - Data Engineer"
-  text: "<p>Pavan Badempet is a Data Engineer based in Hyderabad, India, specializing in production-grade, scalable data pipelines. With expertise in PySpark, Python, SQL, and AWS, he builds high-performance data lakehouses that power critical business decisions in capital markets and automotive sectors. He also integrates modern AI and LLMs into enterprise architectures.</p>"
+  text: "<p>Data Engineer with 3 years of experience building high-throughput distributed ETL data pipelines, Medallion Lakehouse platforms, and on-prem/cloud infrastructure across BFSI (Nomura Capital) and Automotive (Nissan) domains. Proficient in Python, SQL and PySpark performance tuning, dimensional modeling, workflow orchestration using Airflow and AutoSys, and data platform modernization with Databricks, AWS and Gen AI Integrated Development.</p>"
 
   list:
 
     - label: "Address"
-      value: "Hyderabad, TS"
+      value: "Hyderabad, India"
 
     - label: "Phone"
       value: "<a href='tel:+917989256101'>+91 7989256101</a>"
@@ -20,7 +20,7 @@ about:
       value: "<a href='mailto:pavan9b@gmail.com'>pavan9b@gmail.com</a>"
     
     - label: "LinkedIn"
-      value: "<a href='https://linkedin.com/in/pavanbadempet/'>pavanbadempet</a>"
+      value: "<a href='https://linkedin.com/in/pavanbadempet'>pavanbadempet</a>"
 
     - label: "GitHub"
       value: "<a href='https://github.com/pavanbadempet'>pavanbadempet</a>"
@@ -36,34 +36,29 @@ resume:
     items:
       - year: "Nov 2023 – Present"
         name: "Data Engineer - Tata Consultancy Services"
-        text1: "<b>Nomura Capital:</b> Engineered and maintained large-scale Spark ETL pipelines using Spark SQL and complex analytical SQL queries for capital markets datasets (trades, reference, risk, and valuation feeds), involving multi-way joins and window functions to support downstream reporting and risk analytics."
-        text2: "Analyzed Spark execution metrics to improve execution time by 30% through broadcast joins, partition pruning, predicate pushdown, and optimized star schema joins between fact and dimension tables."
-        text3: "Orchestrated Spark workflows using AutoSys, managing dependency chains, reruns, and recovery logic, improving batch completion reliability and reducing manual intervention by 25%."
-        text4: "Executed migration of Spark workloads from YARN to Kubernetes, transitioning storage from HDFS to MinIO (S3-compatible), resolving Spark connector and storage compatibility issues."
-        text5: "<b>Nissan:</b> Architected daily batch pipelines using AWS Lambda and Step Functions, while developing a Streamlit interface for ad-hoc file ingestion and idempotent re-runs for business users."
-        text6: "Implemented schema validation, data quality checks, and incremental batch processing with idempotent re-runs, preparing curated datasets for Snowflake Data Warehouse ingestion and reducing manual effort by 60%."
-        text7: "Improved pipeline reliability via retries, implementing comprehensive monitoring and alerting using CloudWatch with automated notifications for pipeline failures, data freshness, and quality issues, reducing MTTR by 30%."
-
-      - year: "Mar 2023 – Apr 2023"
-        name: "Data Analytics Intern - TCS iON"
-        text1: "Implemented an ensemble-based attrition prediction model, achieving 86% accuracy on validation data."
-        text2: "Designed a lightweight FastAPI service to expose the model for real-time inference and testing."
+        text1: "<b>Nomura Capital:</b> Architected scalable batch extraction and transformation jobs using Spark and Spark SQL inside an Apache Iceberg Medallion Lakehouse at Nomura Capital, handling 1B+ records per month and serving 200K+ analytical queries daily."
+        text2: "Optimized distributed computation via Adaptive Query Execution, broadcast joins, dynamic partition pruning, caching, and shuffle tuning, reducing SLA-bound runtime by 30%."
+        text3: "Migrated workloads from legacy YARN and HDFS to Kubernetes with MinIO object storage, resolving dependency isolation challenges and lowering infrastructure spend by 25%."
+        text4: "Spearheaded automation of orchestration schedules and deployment configurations, maintaining 99.9% on-time completion rate across 50+ recurring batch runs."
+        text5: "Diagnosed failures via executor logs and DAG execution plans, constructed automated retries, fallback recovery handlers, and operational runbooks, cutting Mean Time to Recovery (MTTR) by 30%."
+        text6: "<b>Nissan:</b> Developed event-driven cloud capture solutions leveraging AWS Lambda, Step Functions, and EventBridge at Nissan, handling 100K+ events daily with idempotent delivery and schema validation via a Streamlit dashboard."
+        text7: "Established programmatic quality validation rules and version-controlled table evolution handlers across 20+ source systems, improving output reliability to 99.5% for downstream consumers."
 
   education:
     title: "Education"
     items:
       - year: "Aug 2019 – Sep 2023"
-        college: "<b>College:</b> Guru Nanak Institutions Technical Campus"
-        degree: "<b>Degree:</b> Bachelor of Technology in Computer Science & Engineering"
-        major: "<b>Minor:</b> AI/ML"
-        macgpa: "<b>Grade:</b> 8.2 CGPA (First Class with Distinction)"
-        macoursework: "<b>Scholarships:</b> Prime Minister’s Scholarship 2019-2023"
+        college: "<b>Institution:</b> Guru Nanak Institutions Technical Campus"
+        degree: "<b>Degree:</b> Bachelor of Technology in Computer Science and Engineering"
+        major: "<b>Minor:</b> AI/ML | <b>Grade:</b> CGPA 8.2/10 (First Class with Distinction)"
+        macgpa: "<b>Minor Grade:</b> CGPA 8.6/10"
+        macoursework: "<b>Scholarship:</b> Prime Minister’s Scholarship (PMSS)"
 
 ### Skills [ skills ]
 skills:
   columns:
     - type: "list"
-      title: "Programming Languages"
+      title: "Languages"
       items:
         - label: "Python"
         - label: "SQL"
@@ -71,117 +66,83 @@ skills:
         - label: "Java"
 
     - type: "list"
-      title: "Data Processing"
+      title: "Big Data & Lakehouse"
       items:
         - label: "Apache Spark (PySpark, Spark SQL)"
-        - label: "Pandas"
-        - label: "NumPy"
+        - label: "Databricks & Unity Catalog"
+        - label: "Structured Streaming"
+        - label: "Apache Iceberg & Delta Lake"
+        - label: "Medallion Architecture"
+        - label: "Dremio, MinIO, HDFS"
 
     - type: "list"
-      title: "Cloud & Storage"
+      title: "Modeling & Quality"
       items:
-        - label: "AWS (Lambda, Glue, Step Functions, S3)"
-        - label: "Snowflake"
-        - label: "MinIO"
+        - label: "Dimensional Modeling (SCD Type 2, Star Schema)"
+        - label: "CDC & Schema Evolution"
+        - label: "Data Quality & Validation"
 
     - type: "list"
-      title: "Tools"
+      title: "Cloud & Tools"
       items:
-        - label: "AutoSys"
-        - label: "Docker"
-        - label: "Git"
-        - label: "FastAPI"
-        - label: "Streamlit"
-        - label: "Pytest"
+        - label: "AWS (S3, Lambda, Step Functions, EventBridge, SNS)"
+        - label: "Apache Airflow & AutoSys"
+        - label: "Docker & Git / GitHub Actions"
+        - label: "PostgreSQL & SQL Server"
+        - label: "FastAPI & Streamlit"
 
 ### Projects [ team ]
 team:
   title: "Projects"
   items:
-    - name: AI Healthcare System
-      role: "Python, FastAPI, Streamlit, Docker, Gemini Pro, FAISS, XGBoost, Render"
-      text1: "Developed a multi-disease prediction platform (Diabetes, Heart, Kidney, Liver, Lung Cancer) using XGBoost and specialized ML models, capable of analyzing complex medical data."
-      text2: "Architected a secure RAG-based medical assistant using Gemini Pro and FAISS for context-aware health queries and smart lab report analysis via computer vision."
-      text3: "Deployed microservices architecture with FastAPI backend (Render) and Streamlit frontend (Streamlit Cloud), featuring JWT auth and tenant isolation."
+    - name: "AI Healthcare System"
+      role: "Python, PySpark, Databricks, Delta Lake, Airflow, PostgreSQL, Docker, RAG"
+      text1: "Designed ETL workflows handling 500K+ healthcare records using Delta Lake Medallion Architecture and SCD Type 2 modeling, optimizing partitioned storage and MERGE operations to reduce runtime by 40%."
+      text2: "Delivered FastAPI endpoints and PostgreSQL indexing to lower analytical query latency by 35%, containerized workloads with Docker and scheduled jobs using Airflow DAGs."
+      text3: "Implemented a Retrieval Augmented Generation pipeline integrating Cloudflare AI embeddings with a local vector cache, compressing context payload size by 80% and achieving sub-100ms response times."
       architecture_diagram: |
         graph TB
-          subgraph Client["CLIENT SURFACE"]
-            FE["Vite 8 SPA · React 19"]
+          subgraph Ingestion["INGESTION & LAKEHOUSE"]
+            SRC["500K+ Healthcare Records"] --> SPARK["PySpark ETL Jobs"]
+            SPARK --> DELTA["Delta Lake (Medallion Architecture)"]
+            DELTA --> SCD["SCD Type 2 Dimensions"]
           end
-          subgraph Gateway["API GATEWAY"]
-            MW["8-Layer Middleware Stack"]
-            ROUTERS["REST API Routers"]
+          subgraph Serving["SERVING & RAG API"]
+            DELTA --> DB[(PostgreSQL Indexed)]
+            DB --> API["FastAPI Backend (Docker)"]
+            API --> RAG["RAG Pipeline (Cloudflare AI + Vector Cache)"]
+            RAG --> UI["Streamlit Dashboard"]
           end
-          subgraph Service["INTELLIGENCE"]
-            AGENT["LangGraph Supervisor"]
-            CORE["Core AI Provider (Ollama → Gemini)"]
-          end
-          subgraph DataEngine["MLOPS LAKEHOUSE"]
-            AIRFLOW["Apache Airflow"]
-            SPARK["PySpark & Delta Lake"]
-          end
-          subgraph Data["DATA LAYER"]
-            DB[(PostgreSQL/SQLite)]
-            VS[(turbovec SIMD Index)]
-            ML[(5 ML Classifiers)]
-          end
-          Client --> Gateway
-          Gateway --> Service
-          Service --> Data
-          DataEngine --> Data
-          Service -.-> DataEngine
-          classDef aws fill:#1e1e1e,stroke:#4bffa5,stroke-width:2px;
-          class Client,Gateway,Service,DataEngine,Data aws;
-
-    - name: "Movie Recommendation System"
-      role: "Python, PySpark, FastAPI, Streamlit, SBERT (MPNet), FAISS, Render"
-      health_url: "https://movie-recs-api-5qvy.onrender.com/health"
-      text1: "Built an advanced recommendation engine processing 33k+ movies using 768-dim MPNet embeddings and FAISS for sub-100ms vector search."
-      text2: "Implemented Maximal Marginal Relevance (MMR) for diversity and multi-factor re-ranking (Director, Franchise, Quality) to enhance user engagement."
-      text3: "Deployed fully containerized stack with async FastAPI backend on Render and premium video-background UI on Streamlit Cloud."
-      architecture_diagram: |
-        graph TB
-          subgraph Serving["Serving Path"]
-            U[UserRequest] --> API[FastAPI]
-            API --> TD[TierDetector]
-            TD -->|GPU| T1["Tier1: Full Ensemble"]
-            TD -->|No GPU| T2["Tier2: ONNX CPU"]
-            TD -->|Low RAM| T3["Tier3: FAISS"]
-            T1 --> RP[RetrievalPipeline]
-            T2 --> RP
-            T3 --> RP
-            RP --> RK[RankingPipeline]
-            RK --> Resp[Response]
-          end
-          subgraph Retrieval["Retrieval Sources"]
-            FAISS[FAISS ANN Index] --> RP
-          end
-          subgraph Ranking["6 Ensemble Models"]
-            RK --> LGC[LightGCN]
-            RK --> SAS[SASRec]
-            RK --> KAN2[KAN]
-          end
-          subgraph DataPipeline["Data Pipeline"]
-            ETL[ETL Jobs] --> Bronze[Bronze]
-            Bronze --> Silver[Silver]
-            Silver --> Gold[Delta Lake Gold]
-            Gold --> MT[Model Training]
-            MT --> Artifacts[Serving Artifacts]
-          end
-          DataPipeline --> Artifacts
-          Artifacts --> Retrieval
-          Retrieval --> Serving
           classDef modern fill:#1e1e1e,stroke:#4bffa5,stroke-width:2px;
-          class Serving,Retrieval,Ranking,DataPipeline modern;
+          class SRC,SPARK,DELTA,SCD,DB,API,RAG,UI modern;
+
+    - name: "AI Recommendation Engine"
+      role: "Python, PySpark, Databricks, Structured Streaming, Delta Lake, Airflow, FastAPI"
+      health_url: "https://movie-recs-api-5qvy.onrender.com/health"
+      text1: "Engineered batch and real-time ingestion flows using PySpark, SQL, Structured Streaming on Databricks for 20M+ records, enforcing data quality checks, Delta Lake checkpointing, and incremental loading."
+      text2: "Built a low-latency serving API using FastAPI and vector retrieval engine with pgvector/FAISS indexing for candidate matching, enabling sub-50ms lookups across 100K+ items and automated scheduling by GitHub Actions."
+      architecture_diagram: |
+        graph TB
+          subgraph DataPlatform["DATABRICKS STREAMING ENGINE"]
+            STREAM["20M+ Event Stream"] --> SPARK["PySpark Structured Streaming"]
+            SPARK --> CHECKPOINT["Delta Lake Checkpointing"]
+            CHECKPOINT --> DELTA["Delta Lake Gold Store"]
+          end
+          subgraph VectorEngine["VECTOR RETRIEVAL & SERVING"]
+            DELTA --> FAISS["FAISS & pgvector Index (100K+ Items)"]
+            FAISS --> API["FastAPI Serving API (<50ms)"]
+            API --> GHA["Automated GitHub Actions Scheduling"]
+          end
+          classDef modern fill:#1e1e1e,stroke:#4bffa5,stroke-width:2px;
+          class STREAM,SPARK,CHECKPOINT,DELTA,FAISS,API,GHA modern;
 
 ### Honors & Awards [ clients ]
 clients:
   title: "Honors & Awards"
   items:
     - image: ""
-      name: "Prime Minister's Scholarship Scheme"
-      role: "Awarded for academic excellence during studies as part of the Prime Minister's Scholarship Scheme."
-  
+      name: "Prime Minister's Scholarship Scheme (PMSS)"
+      role: "Awarded scholarship for academic excellence throughout Bachelor of Technology studies (2019 – 2023)."
 
 ### Contact Info [ contacts-info ]
 contacts_info:
@@ -197,28 +158,28 @@ contacts_info:
 
     - label: "Address"
       icon: "fas fa-map-marker-alt"
-      value: "Hyderabad, TS"
+      value: "Hyderabad, India"
     
     - label: "Open to"
       icon: "fas fa-user-tie"
-      value: "I am open to opportunities for full-time positions, contract work, and freelance engagements."
+      value: "I am open to opportunities for full-time Data Engineer positions and technical discussions."
 
 ### Services [ services ]
 services:
   title: "What I Do"
   items:
-    - name: "Data Pipeline Architecture"
-      text: "Designing and implementing scalable ETL/ELT workflows using Apache Spark, AWS Glue, and Lambda to process terabytes of data efficiently."
+    - name: "Distributed Data Pipelines"
+      text: "Architecting scalable batch extraction and transformation jobs using Spark, Spark SQL, and Databricks inside Apache Iceberg and Delta Lake Medallion Lakehouses."
       icon: "fas fa-network-wired"
 
-    - name: "Cloud Data Platforms"
-      text: "Designing secure, serverless data lakes and warehouses on AWS (S3, Redshift, Athena) and Azure, ensuring high availability and cost optimization."
+    - name: "Cloud & Event-Driven Workflows"
+      text: "Developing event-driven serverless ingestion solutions using AWS Lambda, Step Functions, EventBridge, and SNS, handling 100K+ events daily with idempotent delivery."
       icon: "fas fa-cloud"
 
-    - name: "Big Data Processing"
-      text: "Optimizing complex SQL queries and Spark jobs for finding patterns in massive datasets, reducing processing time and improving data quality."
+    - name: "Spark Performance Tuning"
+      text: "Optimizing distributed computation via Adaptive Query Execution, broadcast joins, dynamic partition pruning, caching, and shuffle tuning, reducing runtime by 30%."
       icon: "fas fa-database"
 
-    - name: "MLOps & AI Integration"
-      text: "Deploying machine learning models and GenAI agents into production environments using Docker, FastAPI, and CI/CD pipelines."
-      icon: "fas fa-robot"
+    - name: "GenAI & Vector Lakehouse Integration"
+      text: "Deploying RAG pipelines, vector retrieval engines (FAISS, pgvector), and low-latency serving APIs using FastAPI, Docker, and Apache Airflow orchestration."
+      icon: "fas fa-brain"

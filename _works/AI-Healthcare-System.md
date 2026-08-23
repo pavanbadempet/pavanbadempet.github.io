@@ -4,27 +4,26 @@ category: Content
 category_slug: f-content
 type: content
 image: assets/img/works/hs.png
-description: "Production-grade AI healthcare platform using XGBoost, Gemini Pro, and FAISS for multi-disease prediction and RAG-based medical assistance. Built with FastAPI, Streamlit, and Docker."
+description: "ETL workflows handling 500K+ healthcare records using Delta Lake Medallion Architecture and SCD Type 2 modeling, with FastAPI, PostgreSQL, Airflow, Docker, and RAG."
 button_url: https://github.com/pavanbadempet/AI-Healthcare-System
 demo_url: https://ai-healthcare-system.streamlit.app
-tags: [python, machine-learning, streamlit, ai, docker, gcp]
+tags: [python, pyspark, databricks, delta-lake, airflow, postgresql, docker, rag]
 ---
 
-**AI Healthcare System: AI-Powered Medical Insights**
+**AI Healthcare System | Python, PySpark, Databricks, Delta Lake, Airflow, PostgreSQL, Docker, RAG**
 
-A production-grade healthcare platform that combines **Machine Learning** for disease prediction with **Generative AI** for intelligent medical assistance. Built with a modern microservices architecture, the system provides preliminary health assessments for multiple conditions while maintaining strict data privacy.
+A production-grade healthcare data platform designed for scalable ETL processing, dimensional modeling, and low-latency clinical retrieval.
 
 ### Tech Stack
-*   **AI/ML:** XGBoost, Gemini Pro (GenAI), Gemini Vision, FAISS (Vector DB)
-*   **Backend:** FastAPI, Python, JWT Auth
-*   **Frontend:** Streamlit
-*   **Infrastructure:** Docker, Render (Backend), Streamlit Cloud (Frontend)
+*   **Big Data & Lakehouse:** PySpark, Databricks, Delta Lake (Medallion Architecture), SCD Type 2
+*   **Orchestration & Database:** Apache Airflow, PostgreSQL
+*   **Backend & Containerization:** FastAPI, Docker
+*   **GenAI / Search:** RAG pipeline, Cloudflare AI embeddings, Local Vector Cache
 
-### Key Features
-*   **Multi-Disease Prediction:** Specialized models for Diabetes, Heart Disease, Liver Disease, Kidney Disease, and Lung Cancer.
-*   **RAG-Based Medical Assistant:** Uses Gemini Pro and FAISS to provide context-aware responses grounded in medical data, minimizing hallucinations.
-*   **Smart Lab Report Analyzer:** Utilizes Gemini Vision to extract and analyze data from PDF/Image lab reports automatically.
-*   **Secure Architecture:** Microservices design with tenant isolation and secure session management.
+### Key Highlights & Results
+*   **Lakehouse ETL & Modeling:** Designed ETL workflows handling 500K+ healthcare records using Delta Lake Medallion Architecture and SCD Type 2 modeling, optimizing partitioned storage and MERGE operations to reduce runtime by 40%.
+*   **High-Performance Serving:** Delivered FastAPI endpoints and PostgreSQL indexing to lower analytical query latency by 35%, containerized workloads with Docker, and scheduled jobs using Airflow DAGs.
+*   **Optimized RAG Architecture:** Implemented a Retrieval Augmented Generation pipeline integrating Cloudflare AI embeddings with a local vector cache, compressing context payload size by 80% and achieving sub-100ms response times.
 
 ### System Architecture
 <div class="mermaid" style="background: transparent; padding: 10px; border-radius: 8px;">
