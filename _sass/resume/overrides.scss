@@ -587,14 +587,12 @@
 
     /* Portfolio / Works Grid Mobile */
     .filter-menu {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
+        display: block !important;
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch;
         gap: 8px !important;
         scrollbar-width: none !important;
-        padding-bottom: 8px !important;
+        padding: 12px 14px !important;
         margin-bottom: 20px !important;
     }
 
@@ -602,15 +600,31 @@
         display: none !important;
     }
 
-    .filter-menu .f_btn {
+    .filter-menu .filters {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+        width: max-content !important;
+    }
+
+    .filter-menu .btn-group {
         flex-shrink: 0 !important;
+        margin: 0 !important;
+        display: inline-flex !important;
+    }
+
+    .filter-menu .btn-group label {
+        display: inline-flex !important;
+        align-items: center !important;
         padding: 6px 14px !important;
         font-size: 0.82rem !important;
         border-radius: 20px !important;
         border: 1px solid rgba(255, 255, 255, 0.12) !important;
         background: rgba(255, 255, 255, 0.04) !important;
-        display: inline-block !important;
-        margin: 0 !important;
+        white-space: nowrap !important;
+        color: #d0d0d0 !important;
+        cursor: pointer !important;
     }
 
     .box-items .box-item {
@@ -624,6 +638,62 @@
         aspect-ratio: 16 / 9 !important;
         object-fit: cover !important;
         border-radius: 8px !important;
+    }
+
+    /* Popup Box Modal Mobile */
+    .popup-box {
+        padding: 20px 14px !important;
+        max-width: 94vw !important;
+        margin: 15px auto !important;
+        border-radius: 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    .popup-box .image {
+        height: 180px !important;
+        border-radius: 8px !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+
+    .popup-box .desc h4 {
+        font-size: 1.15rem !important;
+        margin: 12px 0 8px 0 !important;
+    }
+
+    /* Blog & Markdown Typography Mobile */
+    .single-post-text {
+        font-size: 0.94rem !important;
+        line-height: 1.65 !important;
+    }
+
+    .single-post-text pre,
+    .single-post-text code {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        font-size: 0.84rem !important;
+        box-sizing: border-box !important;
+    }
+
+    .single-post-text table {
+        display: block !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .single-post-text img {
+        max-width: 100% !important;
+        height: auto !important;
+        border-radius: 8px !important;
+    }
+
+    .social-share {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        align-items: center !important;
     }
 
     /* Architecture Diagrams (Mermaid) Mobile */
