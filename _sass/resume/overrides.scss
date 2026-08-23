@@ -388,11 +388,19 @@
         opacity: 1 !important;
     }
 
-    /* Hero / Started Section */
+    /* Hero / Started Section Mobile (Flex Column Stacking to Eliminate Collisions) */
+    .section.started.personal,
     .section.started {
-        padding: 85px 16px 20px 16px !important;
-        min-height: auto !important;
         height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        padding: 85px 16px 40px 16px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
     }
 
     .section.started.section-title {
@@ -400,52 +408,106 @@
         padding-top: 85px !important;
     }
 
+    .section.started .centrize,
+    .section.started .vertical-center {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .section.started.personal .started-content,
     .section.started .started-content {
         position: relative !important;
-        left: 0 !important;
-        top: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 440px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
         transform: none !important;
-        padding: 10px 0 !important;
     }
 
-    .section.started .started-content .h-title {
+    /* 1. Centered Rounded Graphic / Avatar at the top */
+    .section.started.personal .started-content .logo,
+    .section.started .started-content .logo {
         position: relative !important;
-        left: 0 !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        font-size: clamp(1.45rem, 5vw, 1.85rem) !important;
-        line-height: 1.35 !important;
-        padding-right: 0 !important;
-        margin-bottom: 12px !important;
-    }
-
-    .section.started .started-content .h-subtitle,
-    .section.started .started-content .typed-subtitle,
-    .section.started .started-content .typed-bread {
-        position: relative !important;
-        left: 0 !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        margin-top: 0 !important;
-        padding-right: 0 !important;
-        font-size: clamp(1.05rem, 3.8vw, 1.35rem) !important;
-        line-height: 1.45 !important;
-        min-height: 48px;
-    }
-
-    .section.started .started-content .logo,
-    .section.started.personal .started-content .logo {
-        position: relative !important;
-        top: 0 !important;
-        left: 0 !important;
+        top: auto !important;
+        left: auto !important;
         right: auto !important;
         bottom: auto !important;
         margin: 0 auto 20px auto !important;
-        width: min(85vw, 280px) !important;
-        height: min(75vw, 240px) !important;
+        width: min(65vw, 220px) !important;
+        height: min(65vw, 220px) !important;
+        border-radius: 50% !important;
+        -webkit-clip-path: none !important;
+        clip-path: none !important;
+        border: 3px solid $active_color !important;
+        background-size: cover !important;
+        background-position: center !important;
+        box-shadow: 0 0 25px rgba(75, 255, 165, 0.35) !important;
+        flex-shrink: 0 !important;
         display: block !important;
-        -webkit-clip-path: polygon(25% 0, 100% 25%, 80% 100%, 0 85%) !important;
-        clip-path: polygon(25% 0, 100% 25%, 80% 100%, 0 85%) !important;
+    }
+
+    /* 2. Bio Title cleanly below avatar */
+    .section.started.personal .started-content .h-title,
+    .section.started .started-content .h-title {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 16px 0 !important;
+        padding: 0 !important;
+        font-size: 0.92rem !important;
+        line-height: 1.6 !important;
+        color: #d0d0d0 !important;
+        text-align: center !important;
+        font-weight: 400 !important;
+    }
+
+    /* 3. Hide raw un-typed paragraphs to prevent layout jank */
+    .section.started .started-content .h-subtitle.typing-subtitle,
+    .section.started.personal .started-content .h-subtitle.typing-subtitle {
+        display: none !important;
+    }
+
+    /* 4. Typed Subtitle cleanly below Title */
+    .section.started.personal .started-content .typed-subtitle,
+    .section.started .started-content .typed-subtitle,
+    .section.started .started-content .typed-bread {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        display: block !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        font-size: 1.3rem !important;
+        line-height: 1.4 !important;
+        min-height: 38px !important;
+        text-align: center !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+    }
+
+    .section.started .started-content .typed-subtitle strong,
+    .section.started.personal .started-content .typed-subtitle strong {
+        color: $active_color !important;
     }
 
     .section.started .mouse_btn {
@@ -745,25 +807,73 @@
         box-sizing: border-box !important;
     }
 
-    /* Footer Mobile */
+    /* Footer & Socials Mobile (Strict Overrides for Home & All Subpages) */
+    body.home .footer,
+    .home .footer,
     .footer {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        height: auto !important;
         padding: 25px 16px !important;
+        text-align: center !important;
+        background: transparent !important;
+        display: block !important;
+    }
+
+    body.home .footer .follow-label,
+    .home .footer .follow-label,
+    .footer .follow-label,
+    .follow-label {
+        display: none !important;
+    }
+
+    body.home .footer .copy,
+    .home .footer .copy,
+    .footer .copy {
+        float: none !important;
+        display: block !important;
+        font-size: 0.82rem !important;
+        margin-bottom: 12px !important;
         text-align: center !important;
     }
 
-    .footer .copy {
+    body.home .footer .soc-box,
+    .home .footer .soc-box,
+    .footer .soc-box {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
         float: none !important;
-        font-size: 0.82rem !important;
-        margin-bottom: 12px !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 auto !important;
     }
 
+    body.home .footer .soc,
+    .home .footer .soc,
     .footer .soc {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 18px !important;
+        justify-content: center !important;
+        align-items: center !important;
         float: none !important;
     }
 
+    body.home .footer .soc a,
+    .home .footer .soc a,
     .footer .soc a {
-        font-size: 1.1rem !important;
-        margin: 0 8px !important;
+        display: inline-flex !important;
+        margin: 0 !important;
+        font-size: 1.25rem !important;
+        color: rgba(255, 255, 255, 0.7) !important;
     }
 
     /* Floating Agent Bubble on Mobile */
