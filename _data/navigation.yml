@@ -22,6 +22,11 @@ main:
     parent: 0
   
   
+  # Interactive Story / Pitch
+  - title: "Interview Pitch"
+    url: "intro.html"
+    parent: 0
+
   # Contacts
   - title: "Contacts"
     url: "contacts/"
