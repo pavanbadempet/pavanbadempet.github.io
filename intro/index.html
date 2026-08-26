@@ -1,0 +1,2240 @@
+---
+layout: null
+permalink: /intro/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pavan Badempet — Data Engineering Story & Architecture Walkthrough</title>
+  <meta name="description" content="Interactive, scroll-driven interview presentation & architecture walkthrough for Pavan Badempet — Data Engineer with 3 years of experience in PySpark, Databricks, Iceberg, Delta Lake, AWS, and GenAI.">
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & RESET
+       ========================================================================== */
+    :root {
+      --bg-dark: #07090e;
+      --bg-card: rgba(16, 22, 34, 0.75);
+      --bg-card-hover: rgba(22, 30, 46, 0.9);
+      --bg-glass: rgba(255, 255, 255, 0.03);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(56, 189, 248, 0.3);
+      
+      --accent-cyan: #38bdf8;
+      --accent-emerald: #10b981;
+      --accent-mint: #4bffa5;
+      --accent-purple: #a855f7;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'Fira Code', monospace;
+
+      --hud-height: 64px;
+      --notes-height: 90px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      line-height: 1.6;
+      background: radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.04) 0%, transparent 40%),
+                  radial-gradient(circle at 85% 85%, rgba(75, 255, 165, 0.03) 0%, transparent 40%),
+                  var(--bg-dark);
+      overflow-x: hidden;
+    }
+
+    /* Selection & Scrollbar */
+    ::selection {
+      background: rgba(56, 189, 248, 0.3);
+      color: #fff;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-cyan);
+    }
+
+    /* Ambient Background Canvas */
+    #ambient-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+    }
+
+    /* ==========================================================================
+       TOP PRESENTER HUD (STICKY HEADER)
+       ========================================================================== */
+    .presenter-hud {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--hud-height);
+      background: rgba(7, 9, 14, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+
+    .hud-left {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .hud-logo {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .hud-logo span {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-mint));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hud-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 100px;
+      color: var(--accent-cyan);
+    }
+
+    .hud-act-indicator {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-left: 1px solid var(--border-color);
+      padding-left: 1.25rem;
+      transition: color 0.3s;
+    }
+    .hud-act-indicator strong {
+      color: #fff;
+    }
+
+    .hud-center {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hud-timer {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.35rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s;
+    }
+    .hud-timer:hover {
+      border-color: var(--accent-cyan);
+    }
+    .hud-timer.pulse {
+      border-color: var(--accent-mint);
+      box-shadow: 0 0 12px rgba(75, 255, 165, 0.2);
+    }
+    .timer-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-mint);
+      display: inline-block;
+      animation: pulseDot 2s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hud-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hud-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .hud-btn:hover, .hud-btn.active {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--accent-cyan);
+      color: #fff;
+    }
+    .hud-btn kbd {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      background: rgba(0,0,0,0.4);
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--accent-cyan);
+    }
+
+    .scroll-progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-mint), var(--accent-purple));
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+
+    /* ==========================================================================
+       SIDE CHAPTER RAIL NAVIGATION
+       ========================================================================== */
+    .chapter-rail {
+      position: fixed;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      z-index: 900;
+    }
+
+    .rail-dot {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .rail-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      background: rgba(16, 22, 34, 0.9);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    .rail-dot:hover .rail-label {
+      opacity: 1;
+      transform: translateX(0);
+      color: #fff;
+    }
+
+    .dot-circle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--border-color);
+      background: var(--bg-dark);
+      transition: all 0.3s;
+    }
+
+    .rail-dot.active .dot-circle {
+      border-color: var(--accent-cyan);
+      background: var(--accent-mint);
+      transform: scale(1.4);
+      box-shadow: 0 0 10px var(--accent-mint);
+    }
+    .rail-dot.active .rail-label {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--accent-cyan);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    /* ==========================================================================
+       CONTAINER & PRESENTATION SECTIONS (SCROLLYTELLING)
+       ========================================================================== */
+    .story-container {
+      position: relative;
+      z-index: 10;
+      padding-top: var(--hud-height);
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-left: 2rem;
+      padding-right: 4rem;
+    }
+
+    .story-act {
+      min-height: calc(100vh - var(--hud-height));
+      padding: 5rem 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    /* Act Badge */
+    .act-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-mint);
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+      width: fit-content;
+    }
+
+    .act-title {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      max-width: 900px;
+    }
+
+    .act-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin-bottom: 3rem;
+      font-weight: 400;
+    }
+
+    /* High-contrast text highlights */
+    .hl-cyan { color: var(--accent-cyan); font-weight: 600; }
+    .hl-mint { color: var(--accent-mint); font-weight: 600; }
+    .hl-purple { color: var(--accent-purple); font-weight: 600; }
+    .hl-amber { color: var(--accent-amber); font-weight: 600; }
+
+    /* ==========================================================================
+       ACT 1: HERO & IDENTITY
+       ========================================================================== */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-name {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-role {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--accent-cyan);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-summary-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-summary-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-mint));
+    }
+
+    .hero-summary-text {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .domain-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+    }
+    .domain-pill {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .domain-pill i { color: var(--accent-cyan); }
+
+    /* Interactive Orbit Box */
+    .hero-card-widget {
+      background: linear-gradient(145deg, rgba(22, 30, 46, 0.7), rgba(11, 16, 26, 0.9));
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 20px;
+      padding: 2.25rem;
+      position: relative;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7), 0 0 30px rgba(56, 189, 248, 0.08);
+    }
+
+    .widget-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .widget-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent-mint);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .experience-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .exp-number {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+    .exp-label {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    .stack-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+    .stack-item:hover {
+      background: rgba(56, 189, 248, 0.08);
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+    .stack-item-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+    .stack-item-sub {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    /* ==========================================================================
+       METRIC CARDS & GRIDS (SCROLL ANIMATED)
+       ========================================================================== */
+    .metrics-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .metrics-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .metric-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.6);
+    }
+
+    .metric-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .icon-cyan { background: rgba(56, 189, 248, 0.12); color: var(--accent-cyan); }
+    .icon-mint { background: rgba(75, 255, 165, 0.12); color: var(--accent-mint); }
+    .icon-purple { background: rgba(168, 85, 247, 0.12); color: var(--accent-purple); }
+    .icon-amber { background: rgba(245, 158, 11, 0.12); color: var(--accent-amber); }
+
+    .metric-number {
+      font-family: var(--font-heading);
+      font-size: 3.25rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .metric-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       ARCHITECTURE FLOW BOXES & DIAGRAMS
+       ========================================================================== */
+    .arch-flow-container {
+      background: linear-gradient(180deg, rgba(16, 22, 34, 0.9) 0%, rgba(10, 14, 22, 0.95) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.25rem;
+      margin-top: 1.5rem;
+      position: relative;
+    }
+
+    .arch-flow-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .arch-flow-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .arch-flow-title i { color: var(--accent-cyan); }
+
+    .pipeline-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      position: relative;
+    }
+
+    .pipeline-step {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem;
+      position: relative;
+      transition: all 0.25s;
+    }
+    .pipeline-step:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    .step-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+    .tag-bronze { color: #f97316; }
+    .tag-silver { color: #cbd5e1; }
+    .tag-gold { color: #eab308; }
+    .tag-serving { color: var(--accent-mint); }
+
+    .step-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-details {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .step-arrow {
+      position: absolute;
+      right: -0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-cyan);
+      font-size: 0.65rem;
+    }
+
+    /* ==========================================================================
+       ACT 3: SPARK TUNING COMPARISON CARDS
+       ========================================================================== */
+    .tuning-breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .tuning-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: all 0.25s;
+    }
+    .tuning-card:hover {
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
+    }
+
+    .tuning-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .tuning-header i {
+      font-size: 1.25rem;
+      color: var(--accent-cyan);
+    }
+    .tuning-header h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .tuning-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .tuning-list li {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.5;
+    }
+    .tuning-list li i {
+      color: var(--accent-mint);
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    /* ==========================================================================
+       ACT 5: PROJECT SHOWCASES
+       ========================================================================== */
+    .project-deck-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .project-glass-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .project-glass-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-4px);
+      box-shadow: 0 25px 50px -15px rgba(0,0,0,0.7);
+    }
+
+    .project-top-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-purple);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .project-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .p-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+    }
+
+    .project-bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .project-bullet-list li {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      line-height: 1.55;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+    .project-bullet-list li i {
+      color: var(--accent-cyan);
+      font-size: 0.8rem;
+      margin-top: 0.35rem;
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .p-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .p-btn-primary {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+    .p-btn-primary:hover {
+      background: var(--accent-cyan);
+      color: #000;
+    }
+    .p-btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+    .p-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       ACT 6: SKILLS & EDUCATION
+       ========================================================================== */
+    .skills-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .skill-cat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: all 0.25s;
+    }
+    .skill-cat-card:hover {
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
+    }
+
+    .skill-cat-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .skill-cat-title i { color: var(--accent-cyan); font-size: 0.95rem; }
+
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-chip {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: #e2e8f0;
+      transition: all 0.2s;
+    }
+    .skill-chip:hover {
+      border-color: var(--accent-mint);
+      color: var(--accent-mint);
+      background: rgba(75, 255, 165, 0.05);
+    }
+
+    .education-card {
+      background: linear-gradient(135deg, rgba(22, 30, 46, 0.8), rgba(12, 17, 27, 0.9));
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 20px;
+      padding: 2.25rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .edu-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .edu-college {
+      color: #94a3b8;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .edu-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .edu-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--accent-amber);
+      font-weight: 600;
+    }
+
+    .scholarship-box {
+      text-align: right;
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 12px;
+      padding: 1.25rem 1.75rem;
+    }
+    .scholarship-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-amber);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+    .scholarship-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       ACT 7: INTERACTIVE Q&A DEEP DIVE HUB
+       ========================================================================== */
+    .qa-topics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .qa-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.75rem;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .qa-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-4px);
+      background: var(--bg-card-hover);
+      box-shadow: 0 20px 40px -10px rgba(56, 189, 248, 0.15);
+    }
+
+    .qa-icon {
+      font-size: 1.5rem;
+      color: var(--accent-cyan);
+      margin-bottom: 1rem;
+    }
+
+    .qa-topic-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .qa-topic-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .qa-click-prompt {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-mint);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* ==========================================================================
+       PRESENTER NOTES BOTTOM BAR (TOGGLEABLE)
+       ========================================================================== */
+    .presenter-notes-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      min-height: var(--notes-height);
+      background: rgba(10, 14, 22, 0.95);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(56, 189, 248, 0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2.5rem;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 -20px 50px rgba(0,0,0,0.8);
+    }
+    .presenter-notes-bar.visible {
+      transform: translateY(0);
+    }
+
+    .notes-content {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 1050px;
+    }
+
+    .notes-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-amber);
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .notes-text {
+      font-size: 0.95rem;
+      color: #f1f5f9;
+      line-height: 1.5;
+    }
+    .notes-text strong {
+      color: var(--accent-cyan);
+    }
+
+    .notes-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      transition: color 0.2s;
+    }
+    .notes-close:hover { color: #fff; }
+
+    /* ==========================================================================
+       MODAL DRAWER FOR ARCHITECTURE DEEP DIVES
+       ========================================================================== */
+    .deepdive-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .deepdive-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-box {
+      background: #0d131f;
+      border: 1px solid var(--accent-cyan);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 960px;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 40px rgba(56, 189, 248, 0.15);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .modal-close-btn:hover {
+      background: var(--accent-rose);
+      color: #fff;
+      border-color: var(--accent-rose);
+    }
+
+    .modal-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-mint);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-body {
+      color: #cbd5e1;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .modal-body h4 {
+      font-family: var(--font-heading);
+      color: var(--accent-cyan);
+      margin: 1.5rem 0 0.75rem 0;
+      font-size: 1.2rem;
+    }
+
+    .modal-code-block {
+      background: #070a10;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #38bdf8;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE & SCREEENSHARE OPTIMIZATION
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-layout, .project-deck-grid, .tuning-breakdown-grid {
+        grid-template-columns: 1fr;
+      }
+      .metrics-grid-3, .skills-matrix-grid, .qa-topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pipeline-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .step-arrow { display: none; }
+      .education-card { grid-template-columns: 1fr; }
+      .scholarship-box { text-align: left; }
+    }
+
+    @media (max-width: 768px) {
+      .story-container { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .metrics-grid-3, .metrics-grid-2, .skills-matrix-grid, .qa-topics-grid {
+        grid-template-columns: 1fr;
+      }
+      .pipeline-steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .chapter-rail { display: none; }
+      .act-title { font-size: 2.25rem; }
+      .hero-name { font-size: 2.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Particle Flow Background Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- ==========================================================================
+       TOP PRESENTER HUD
+       ========================================================================== -->
+  <header class="presenter-hud">
+    <div class="hud-left">
+      <a href="index.html" class="hud-logo">
+        <i class="fas fa-terminal"></i>
+        <span>Pavan Badempet</span>
+      </a>
+      <span class="hud-tag">Data Engineer</span>
+      <div class="hud-act-indicator" id="hud-act-name">
+        ACT <strong>01</strong> // IDENTITY & ELEVATOR PITCH
+      </div>
+    </div>
+
+    <div class="hud-center">
+      <div class="hud-timer" id="timer-btn" title="Click to Pause / Reset Speaking Timer">
+        <span class="timer-dot"></span>
+        <span id="timer-display">00:00</span>
+      </div>
+    </div>
+
+    <div class="hud-right">
+      <button class="hud-btn" id="toggle-notes-btn" title="Toggle Presenter Cue Notes (N)">
+        <i class="fas fa-sticky-note"></i> Notes <kbd>N</kbd>
+      </button>
+      <button class="hud-btn" id="toggle-fs-btn" title="Toggle Fullscreen for Screen Sharing (F)">
+        <i class="fas fa-expand"></i> <kbd>F</kbd>
+      </button>
+      <a href="https://drive.google.com/file/d/1gppjKAn5s9W06uH4ajoj7Ha2H13zEPkq/view?usp=sharing" target="_blank" class="hud-btn" title="Open 1-Page Resume PDF">
+        <i class="fas fa-file-pdf"></i> Resume
+      </a>
+    </div>
+
+    <div class="scroll-progress-bar" id="progress-bar"></div>
+  </header>
+
+  <!-- ==========================================================================
+       SIDE CHAPTER RAIL (QUICK JUMP)
+       ========================================================================== -->
+  <nav class="chapter-rail" id="chapter-rail">
+    <a href="#act-1" class="rail-dot active" data-act="1">
+      <span class="rail-label">01. Identity & Pitch</span>
+      <span class="dot-circle"></span>
+    </a>
+    <a href="#act-2" class="rail-dot" data-act="2">
+      <span class="rail-label">02. Nomura (1B+ Lakehouse)</span>
+      <span class="dot-circle"></span>
+    </a>
+    <a href="#act-3" class="rail-dot" data-act="3">
+      <span class="rail-label">03. Spark Tuning (-30% SLA)</span>
+      <span class="dot-circle"></span>
+    </a>
+    <a href="#act-4" class="rail-dot" data-act="4">
+      <span class="rail-label">04. Nissan (AWS Serverless)</span>
+      <span class="dot-circle"></span>
+    </a>
+    <a href="#act-5" class="rail-dot" data-act="5">
+      <span class="rail-label">05. AI & Lakehouse Projects</span>
+      <span class="dot-circle"></span>
+    </a>
+    <a href="#act-6" class="rail-dot" data-act="6">
+      <span class="rail-label">06. Skills & Education</span>
+      <span class="dot-circle"></span>
+    </a>
+    <a href="#act-7" class="rail-dot" data-act="7">
+      <span class="rail-label">07. Interactive Q&A Hub</span>
+      <span class="dot-circle"></span>
+    </a>
+  </nav>
+
+  <!-- ==========================================================================
+       MAIN STORYTELLING CONTAINER
+       ========================================================================== -->
+  <main class="story-container">
+
+    <!-- ======================================================================
+         ACT 1: IDENTITY & ELEVATOR PITCH
+         ====================================================================== -->
+    <section class="story-act" id="act-1" data-act-title="ACT 01 // IDENTITY & ELEVATOR PITCH" data-speaker-notes="<strong>30s Hook:</strong> Introduce yourself clearly: 3 years of experience as a Data Engineer at TCS building distributed Lakehouses & cloud pipelines across BFSI (Nomura Capital) and Automotive (Nissan). Core strengths: PySpark tuning, AWS, and GenAI lakehouse integration.">
+      <div class="hero-layout">
+        <div class="hero-text-col">
+          <div class="act-badge"><i class="fas fa-code-branch"></i> Data Engineer // Portfolio Story</div>
+          <h1 class="hero-name">Pavan Badempet</h1>
+          <div class="hero-role">
+            <i class="fas fa-layer-group"></i>
+            <span>Python, PySpark & SQL Specialist</span>
+          </div>
+
+          <div class="hero-summary-box">
+            <p class="hero-summary-text">
+              Data Engineer with <strong>3 years of experience</strong> at <span class="hl-cyan">Tata Consultancy Services</span> building high-throughput distributed ETL pipelines, Medallion Lakehouse platforms, and on-prem/cloud infrastructure across <span class="hl-mint">BFSI (Nomura Capital)</span> and <span class="hl-purple">Automotive (Nissan)</span> domains.
+            </p>
+            <div class="domain-pills">
+              <span class="domain-pill"><i class="fas fa-landmark"></i> BFSI: Nomura Capital</span>
+              <span class="domain-pill"><i class="fas fa-car"></i> Automotive: Nissan</span>
+              <span class="domain-pill"><i class="fas fa-fire"></i> Apache Spark / Databricks</span>
+              <span class="domain-pill"><i class="fas fa-cloud"></i> AWS Serverless</span>
+              <span class="domain-pill"><i class="fas fa-brain"></i> GenAI & Vector RAG</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-widget-col">
+          <div class="hero-card-widget">
+            <div class="widget-header">
+              <span class="widget-title"><i class="fas fa-bolt"></i> Core Profile</span>
+              <span class="hud-tag"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</span>
+            </div>
+
+            <div class="experience-stat">
+              <span class="exp-number">3+</span>
+              <span class="exp-label">Years of Distributed Lakehouse & Cloud Engineering Experience</span>
+            </div>
+
+            <div class="stack-grid">
+              <div class="stack-item">
+                <div class="stack-item-name">Distributed ETL</div>
+                <div class="stack-item-sub">PySpark, Spark SQL, Databricks</div>
+              </div>
+              <div class="stack-item">
+                <div class="stack-item-name">Lakehouse Tables</div>
+                <div class="stack-item-sub">Delta Lake, Apache Iceberg</div>
+              </div>
+              <div class="stack-item">
+                <div class="stack-item-name">Cloud Systems</div>
+                <div class="stack-item-sub">AWS Lambda, Step Fn, EventBridge</div>
+              </div>
+              <div class="stack-item">
+                <div class="stack-item-name">AI & Serving</div>
+                <div class="stack-item-sub">FastAPI, FAISS, Docker, RAG</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ACT 2: NOMURA CAPITAL — ENTERPRISE SCALE
+         ====================================================================== -->
+    <section class="story-act" id="act-2" data-act-title="ACT 02 // NOMURA CAPITAL (BFSI SCALE)" data-speaker-notes="<strong>Nomura Lakehouse:</strong> Highlight enterprise throughput: 1B+ records/month transformed in an Iceberg Medallion Lakehouse serving 200K+ daily analytical queries with a 99.9% on-time SLA across 50+ batch runs.">
+      <div class="act-badge"><i class="fas fa-landmark"></i> Tata Consultancy Services // Client Engagement</div>
+      <h2 class="act-title">Nomura Capital: High-Throughput Iceberg Medallion Lakehouse</h2>
+      <p class="act-subtitle">
+        Architected scalable batch extraction and transformation jobs using <span class="hl-cyan">Spark</span> and <span class="hl-cyan">Spark SQL</span> inside an <span class="hl-mint">Apache Iceberg Medallion Lakehouse</span> powering mission-critical financial analytics.
+      </p>
+
+      <!-- Key Impact Metrics -->
+      <div class="metrics-grid-3">
+        <div class="metric-card">
+          <div class="metric-icon icon-cyan"><i class="fas fa-database"></i></div>
+          <div class="metric-number hl-cyan counter" data-target="1" data-suffix="B+">1B+</div>
+          <div class="metric-title">Monthly Records Processed</div>
+          <div class="metric-desc">High-volume batch pipelines processing distributed capital markets data into structured Lakehouse tables.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon icon-mint"><i class="fas fa-chart-line"></i></div>
+          <div class="metric-number hl-mint counter" data-target="200" data-suffix="K+">200K+</div>
+          <div class="metric-title">Daily Analytical Queries</div>
+          <div class="metric-desc">Low-latency analytical queries served to downstream risk and reporting dashboards with zero bottlenecking.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon icon-purple"><i class="fas fa-check-double"></i></div>
+          <div class="metric-number hl-purple counter" data-target="99.9" data-suffix="%" data-decimals="1">99.9%</div>
+          <div class="metric-title">On-Time Pipeline SLA</div>
+          <div class="metric-desc">Maintained strict completion rates across 50+ recurring automated batch jobs orchestrated via Airflow & AutoSys.</div>
+        </div>
+      </div>
+
+      <!-- Medallion Architecture Flow Diagram -->
+      <div class="arch-flow-container">
+        <div class="arch-flow-header">
+          <div class="arch-flow-title">
+            <i class="fas fa-project-diagram"></i>
+            <span>Apache Iceberg Medallion Architecture Flow (Nomura Capital)</span>
+          </div>
+          <span class="hud-tag">Batch & Lakehouse Engine</span>
+        </div>
+
+        <div class="pipeline-steps-grid">
+          <div class="pipeline-step">
+            <span class="step-tag tag-bronze">BRONZE LAYER</span>
+            <div class="step-name">Raw Ingestion</div>
+            <div class="step-details">High-throughput raw data feeds ingested into partitioned Iceberg tables with audit metadata.</div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+
+          <div class="pipeline-step">
+            <span class="step-tag tag-silver">SILVER LAYER</span>
+            <div class="step-name">Cleanse & Transform</div>
+            <div class="step-details">PySpark cleaning, schema validation, deduplication, and SCD Type 2 dimension management.</div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+
+          <div class="pipeline-step">
+            <span class="step-tag tag-gold">GOLD LAYER</span>
+            <div class="step-name">Curated Aggregates</div>
+            <div class="step-details">Business dimensional models & financial rollups optimized for sub-second analytical reporting.</div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+
+          <div class="pipeline-step">
+            <span class="step-tag tag-serving">SERVING & QUERY</span>
+            <div class="step-name">200K+ Queries/Day</div>
+            <div class="step-details">High-concurrency query execution layer serving analysts and risk management systems.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ACT 3: SPARK TUNING & INFRASTRUCTURE MODERNIZATION
+         ====================================================================== -->
+    <section class="story-act" id="act-3" data-act-title="ACT 03 // PERFORMANCE & COST OPTIMIZATION" data-speaker-notes="<strong>Performance Engineering:</strong> Walk through your 30% Spark runtime reduction (AQE, broadcast joins, dynamic partition pruning, shuffle tuning), 25% infra cost savings (migrating YARN/HDFS to K8s + MinIO), and 30% MTTR reduction.">
+      <div class="act-badge"><i class="fas fa-tachometer-alt"></i> Performance Engineering // Reliability & Cost</div>
+      <h2 class="act-title">Spark Performance Tuning & Kubernetes Modernization</h2>
+      <p class="act-subtitle">
+        Slashing SLA runtimes by <span class="hl-mint">30%</span> and cutting infrastructure spend by <span class="hl-cyan">25%</span> through deep distributed engine optimization and cloud-native migration.
+      </p>
+
+      <div class="metrics-grid-3">
+        <div class="metric-card">
+          <div class="metric-icon icon-mint"><i class="fas fa-stopwatch"></i></div>
+          <div class="metric-number hl-mint counter" data-target="30" data-suffix="%" data-prefix="-">-30%</div>
+          <div class="metric-title">SLA Runtime Reduction</div>
+          <div class="metric-desc">Achieved via Adaptive Query Execution (AQE), broadcast joins, dynamic partition pruning, caching & shuffle tuning.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon icon-cyan"><i class="fas fa-coins"></i></div>
+          <div class="metric-number hl-cyan counter" data-target="25" data-suffix="%" data-prefix="-">-25%</div>
+          <div class="metric-title">Infra Cost Reduction</div>
+          <div class="metric-desc">Migrated legacy YARN & HDFS workloads to Kubernetes with MinIO object storage, ensuring clean dependency isolation.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon icon-amber"><i class="fas fa-tools"></i></div>
+          <div class="metric-number hl-amber counter" data-target="30" data-suffix="%" data-prefix="-">-30%</div>
+          <div class="metric-title">Mean Time to Recovery (MTTR)</div>
+          <div class="metric-desc">Diagnosed failures via DAG execution plans & executor logs; constructed automated retries and operational runbooks.</div>
+        </div>
+      </div>
+
+      <!-- Spark Tuning & K8s Breakdown -->
+      <div class="tuning-breakdown-grid">
+        <div class="tuning-card">
+          <div class="tuning-header">
+            <i class="fas fa-microchip"></i>
+            <h4>Spark Distributed Engine Optimizations</h4>
+          </div>
+          <ul class="tuning-list">
+            <li><i class="fas fa-check-circle"></i> <strong>Adaptive Query Execution (AQE):</strong> Dynamically coalescing shuffle partitions and converting sort-merge joins to broadcast hash joins at runtime.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Broadcast Join Strategy:</strong> Broadcasting dimension lookups to eliminate expensive wide transformations and data shuffles.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Dynamic Partition Pruning (DPP):</strong> Skipping non-matching partition scans on Iceberg/Delta tables to minimize I/O overhead.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Shuffle & Memory Tuning:</strong> Reconfigured executor memory overhead, spark.sql.shuffle.partitions, and off-heap storage.</li>
+          </ul>
+        </div>
+
+        <div class="tuning-card">
+          <div class="tuning-header">
+            <i class="fas fa-dharmachakra"></i>
+            <h4>Workload Migration & Resilience Engineering</h4>
+          </div>
+          <ul class="tuning-list">
+            <li><i class="fas fa-check-circle"></i> <strong>Kubernetes + MinIO Migration:</strong> Decoupled compute from storage, replacing monolithic on-prem YARN/HDFS clusters.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Dependency Isolation:</strong> Containerized Spark driver and executor environments preventing library clashes across jobs.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Automated Failure Recovery:</strong> Built DAG-level retry mechanisms and circuit breakers for transient network/disk failures.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Operational Runbooks:</strong> Standardized executor log debugging guides, cutting incident resolution time by 30%.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ACT 4: NISSAN — CLOUD & EVENT-DRIVEN
+         ====================================================================== -->
+    <section class="story-act" id="act-4" data-act-title="ACT 04 // NISSAN (EVENT-DRIVEN CLOUD)" data-speaker-notes="<strong>Nissan Cloud Capture:</strong> Explain serverless event-driven ingestion with AWS Lambda, Step Functions & EventBridge handling 100K+ events daily with idempotent delivery and schema validation across 20+ sources.">
+      <div class="act-badge"><i class="fas fa-car"></i> Tata Consultancy Services // Client Engagement</div>
+      <h2 class="act-title">Nissan: Event-Driven Cloud Capture & Data Governance</h2>
+      <p class="act-subtitle">
+        Engineered serverless cloud ingestion leveraging <span class="hl-cyan">AWS Lambda, Step Functions, and EventBridge</span> handling <span class="hl-mint">100K+ events daily</span> with idempotent delivery and schema validation.
+      </p>
+
+      <div class="metrics-grid-2">
+        <div class="metric-card">
+          <div class="metric-icon icon-mint"><i class="fas fa-bolt"></i></div>
+          <div class="metric-number hl-mint counter" data-target="100" data-suffix="K+">100K+</div>
+          <div class="metric-title">Daily Events Captured</div>
+          <div class="metric-desc">High-frequency automotive telemetry and transactional events captured with zero message loss and idempotent processing.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon icon-purple"><i class="fas fa-shield-alt"></i></div>
+          <div class="metric-number hl-purple counter" data-target="99.5" data-suffix="%" data-decimals="1">99.5%</div>
+          <div class="metric-title">Output Reliability</div>
+          <div class="metric-desc">Established programmatic data quality validation rules and version-controlled schema evolution across 20+ source systems.</div>
+        </div>
+      </div>
+
+      <!-- Serverless Cloud Architecture Flow -->
+      <div class="arch-flow-container">
+        <div class="arch-flow-header">
+          <div class="arch-flow-title">
+            <i class="fas fa-cloud"></i>
+            <span>Serverless Event-Driven Architecture (Nissan)</span>
+          </div>
+          <span class="hud-tag">AWS Cloud Native</span>
+        </div>
+
+        <div class="pipeline-steps-grid">
+          <div class="pipeline-step">
+            <span class="step-tag tag-bronze">20+ SOURCES</span>
+            <div class="step-name">Event Ingestion</div>
+            <div class="step-details">Automotive systems emit events into Amazon EventBridge & SNS topic queues.</div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+
+          <div class="pipeline-step">
+            <span class="step-tag tag-silver">ORCHESTRATION</span>
+            <div class="step-name">Step Functions & Lambda</div>
+            <div class="step-details">Serverless state machines trigger idempotent Lambda functions for payload extraction.</div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+
+          <div class="pipeline-step">
+            <span class="step-tag tag-gold">GOVERNANCE</span>
+            <div class="step-name">Schema Validation</div>
+            <div class="step-details">Programmatic schema evolution handlers and quality check gates ensure 99.5% clean data.</div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+
+          <div class="pipeline-step">
+            <span class="step-tag tag-serving">MONITORING</span>
+            <div class="step-name">Streamlit Dashboard</div>
+            <div class="step-details">Interactive validation dashboard for operational monitoring and downstream consumer delivery.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ACT 5: PRODUCTION LAKEHOUSE & GENAI PROJECTS
+         ====================================================================== -->
+    <section class="story-act" id="act-5" data-act-title="ACT 05 // AI LAKEHOUSE PROJECTS" data-speaker-notes="<strong>Production Projects:</strong> Detail your AI Healthcare System (Delta Lake Medallion, SCD Type 2, -40% runtime, RAG cache <100ms) and AI Recommendation Engine (20M+ records Databricks streaming, FAISS <50ms lookups).">
+      <div class="act-badge"><i class="fas fa-layer-group"></i> Production Systems // Big Data & GenAI</div>
+      <h2 class="act-title">End-to-End Lakehouses & Vector Retrieval Engines</h2>
+      <p class="act-subtitle">
+        Applying Lakehouse principles, <span class="hl-cyan">SCD Type 2 dimensional modeling</span>, and <span class="hl-mint">low-latency vector retrieval</span> to real-world AI platforms.
+      </p>
+
+      <div class="project-deck-grid">
+        <!-- Project 1: Healthcare -->
+        <div class="project-glass-card">
+          <div>
+            <div class="project-top-tag"><i class="fas fa-heartbeat"></i> Healthcare Lakehouse & RAG</div>
+            <h3 class="project-title">AI Healthcare System</h3>
+            <div class="project-tech-tags">
+              <span class="p-tag">Python</span>
+              <span class="p-tag">PySpark</span>
+              <span class="p-tag">Databricks</span>
+              <span class="p-tag">Delta Lake</span>
+              <span class="p-tag">Airflow</span>
+              <span class="p-tag">PostgreSQL</span>
+              <span class="p-tag">Docker</span>
+              <span class="p-tag">RAG</span>
+            </div>
+
+            <ul class="project-bullet-list">
+              <li><i class="fas fa-chevron-right"></i> <strong>500K+ Healthcare Records:</strong> Designed ETL pipelines using Delta Lake Medallion Architecture and SCD Type 2 modeling, optimizing partitioned storage and MERGE operations to <span class="hl-mint">reduce runtime by 40%</span>.</li>
+              <li><i class="fas fa-chevron-right"></i> <strong>FastAPI Serving:</strong> Delivered containerized FastAPI endpoints and PostgreSQL indexing to <span class="hl-cyan">lower analytical query latency by 35%</span>, scheduled via Airflow DAGs.</li>
+              <li><i class="fas fa-chevron-right"></i> <strong>Sub-100ms Vector RAG:</strong> Implemented RAG pipeline integrating Cloudflare AI embeddings with a local vector cache, compressing context payload size by 80% and achieving <span class="hl-purple">sub-100ms response times</span>.</li>
+            </ul>
+          </div>
+
+          <div class="project-actions">
+            <button class="p-btn p-btn-primary" onclick="openDeepDive('healthcare')">
+              <i class="fas fa-search-plus"></i> View Architecture
+            </button>
+            <a href="https://github.com/pavanbadempet/AI-Healthcare-System" target="_blank" class="p-btn p-btn-secondary">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: Recommendation Engine -->
+        <div class="project-glass-card">
+          <div>
+            <div class="project-top-tag"><i class="fas fa-stream"></i> Streaming Engine & Vector Search</div>
+            <h3 class="project-title">AI Recommendation Engine</h3>
+            <div class="project-tech-tags">
+              <span class="p-tag">Python</span>
+              <span class="p-tag">PySpark</span>
+              <span class="p-tag">Databricks</span>
+              <span class="p-tag">Structured Streaming</span>
+              <span class="p-tag">Delta Lake</span>
+              <span class="p-tag">Airflow</span>
+              <span class="p-tag">FastAPI</span>
+            </div>
+
+            <ul class="project-bullet-list">
+              <li><i class="fas fa-chevron-right"></i> <strong>20M+ Records Ingestion:</strong> Engineered batch and real-time ingestion flows using PySpark, SQL, and Structured Streaming on Databricks with <span class="hl-cyan">Delta Lake checkpointing and incremental loading</span>.</li>
+              <li><i class="fas fa-chevron-right"></i> <strong>Sub-50ms Candidate Matching:</strong> Built a low-latency serving API using FastAPI and vector retrieval engine with <span class="hl-mint">pgvector/FAISS indexing</span> across 100K+ items.</li>
+              <li><i class="fas fa-chevron-right"></i> <strong>Automated Operations:</strong> Enforced data quality checks and automated scheduling via Apache Airflow and GitHub Actions CI/CD.</li>
+            </ul>
+          </div>
+
+          <div class="project-actions">
+            <button class="p-btn p-btn-primary" onclick="openDeepDive('recommendation')">
+              <i class="fas fa-search-plus"></i> View Architecture
+            </button>
+            <a href="https://github.com/pavanbadempet/Movie-Recommendation-System" target="_blank" class="p-btn p-btn-secondary">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ACT 6: SKILLS ARSENAL & EDUCATION
+         ====================================================================== -->
+    <section class="story-act" id="act-6" data-act-title="ACT 06 // SKILLS & EDUCATION" data-speaker-notes="<strong>Credentials:</strong> Summarize your toolkit across Languages, Big Data, Modeling, and Cloud. Highlight your B.Tech in CSE (8.2 CGPA Distinction, 8.6 AI/ML Minor) and the Prime Minister's Scholarship (PMSS).">
+      <div class="act-badge"><i class="fas fa-graduation-cap"></i> Technical Matrix & Academic Honors</div>
+      <h2 class="act-title">Technical Arsenal & Academic Foundation</h2>
+      <p class="act-subtitle">
+        Comprehensive technical skill matrix directly grounded in enterprise engineering and academic distinction.
+      </p>
+
+      <!-- Skills Matrix -->
+      <div class="skills-matrix-grid">
+        <div class="skill-cat-card">
+          <div class="skill-cat-title"><i class="fas fa-code"></i> Languages</div>
+          <div class="skill-chips">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">SQL</span>
+            <span class="skill-chip">Scala</span>
+            <span class="skill-chip">Java</span>
+          </div>
+        </div>
+
+        <div class="skill-cat-card">
+          <div class="skill-cat-title"><i class="fas fa-cubes"></i> Big Data & Lakehouse</div>
+          <div class="skill-chips">
+            <span class="skill-chip">Apache Spark</span>
+            <span class="skill-chip">PySpark</span>
+            <span class="skill-chip">Spark SQL</span>
+            <span class="skill-chip">Databricks</span>
+            <span class="skill-chip">Unity Catalog</span>
+            <span class="skill-chip">Structured Streaming</span>
+            <span class="skill-chip">Apache Iceberg</span>
+            <span class="skill-chip">Delta Lake</span>
+            <span class="skill-chip">Medallion Arch</span>
+            <span class="skill-chip">MinIO / HDFS</span>
+          </div>
+        </div>
+
+        <div class="skill-cat-card">
+          <div class="skill-cat-title"><i class="fas fa-sitemap"></i> Modeling & Quality</div>
+          <div class="skill-chips">
+            <span class="skill-chip">Dimensional Modeling</span>
+            <span class="skill-chip">SCD Type 2</span>
+            <span class="skill-chip">Star Schema</span>
+            <span class="skill-chip">CDC Pipelines</span>
+            <span class="skill-chip">Schema Evolution</span>
+            <span class="skill-chip">Data Quality Rules</span>
+          </div>
+        </div>
+
+        <div class="skill-cat-card">
+          <div class="skill-cat-title"><i class="fas fa-cloud"></i> Cloud & Tooling</div>
+          <div class="skill-chips">
+            <span class="skill-chip">AWS (S3, Lambda)</span>
+            <span class="skill-chip">Step Functions</span>
+            <span class="skill-chip">EventBridge / SNS</span>
+            <span class="skill-chip">Apache Airflow</span>
+            <span class="skill-chip">AutoSys</span>
+            <span class="skill-chip">Docker</span>
+            <span class="skill-chip">GitHub Actions</span>
+            <span class="skill-chip">PostgreSQL</span>
+            <span class="skill-chip">FastAPI / Streamlit</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education & Scholarship Card -->
+      <div class="education-card">
+        <div>
+          <div class="act-badge" style="border-color: rgba(245, 158, 11, 0.4); color: var(--accent-amber);"><i class="fas fa-university"></i> Bachelor of Technology (2019 – 2023)</div>
+          <h3 class="edu-title">Guru Nanak Institutions Technical Campus</h3>
+          <p class="edu-college">Computer Science and Engineering • Hyderabad, India</p>
+          <div class="edu-stats">
+            <span class="edu-badge"><i class="fas fa-award"></i> Major CGPA: 8.2 / 10.0 (First Class with Distinction)</span>
+            <span class="edu-badge"><i class="fas fa-brain"></i> Minor in AI/ML: 8.6 / 10.0</span>
+          </div>
+        </div>
+
+        <div class="scholarship-box">
+          <div class="scholarship-tag"><i class="fas fa-medal"></i> Prestigious Award</div>
+          <div class="scholarship-name">Prime Minister's Scholarship Scheme (PMSS)</div>
+          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.25rem;">Awarded for academic excellence throughout B.Tech</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ACT 7: INTERACTIVE Q&A DEEP-DIVE HUB
+         ====================================================================== -->
+    <section class="story-act" id="act-7" data-act-title="ACT 07 // INTERACTIVE Q&A HUB" data-speaker-notes="<strong>Q&A Mode:</strong> When the interviewer asks deep-dive questions, click any of these cards to bring up the full architecture breakdown, trade-offs, and implementation nuances.">
+      <div class="act-badge"><i class="fas fa-comments"></i> Technical Discussion // Q&A Launchpad</div>
+      <h2 class="act-title">Ready for Technical Drilldown</h2>
+      <p class="act-subtitle">
+        Click any topic below to pull up detailed architectural blueprints, trade-offs, and code-level decision rationale.
+      </p>
+
+      <div class="qa-topics-grid">
+        <div class="qa-card" onclick="openDeepDive('spark-tuning')">
+          <div class="qa-icon"><i class="fas fa-tachometer-alt"></i></div>
+          <h4 class="qa-topic-title">Spark Tuning & AQE</h4>
+          <p class="qa-topic-desc">How broadcast joins, dynamic partition pruning, and shuffle partitions cut SLA runtime by 30%.</p>
+          <div class="qa-click-prompt"><i class="fas fa-arrow-right"></i> Open Architecture Blueprint</div>
+        </div>
+
+        <div class="qa-card" onclick="openDeepDive('k8s-migration')">
+          <div class="qa-icon"><i class="fas fa-dharmachakra"></i></div>
+          <h4 class="qa-topic-title">YARN to K8s + MinIO</h4>
+          <p class="qa-topic-desc">Decoupling compute and storage, resolving dependency isolation, and saving 25% infra spend.</p>
+          <div class="qa-click-prompt"><i class="fas fa-arrow-right"></i> Open Migration Details</div>
+        </div>
+
+        <div class="qa-card" onclick="openDeepDive('aws-serverless')">
+          <div class="qa-icon"><i class="fas fa-bolt"></i></div>
+          <h4 class="qa-topic-title">AWS Serverless Ingestion</h4>
+          <p class="qa-topic-desc">100K+ daily events via Lambda, Step Functions, and EventBridge with idempotent delivery.</p>
+          <div class="qa-click-prompt"><i class="fas fa-arrow-right"></i> Open Cloud Blueprint</div>
+        </div>
+
+        <div class="qa-card" onclick="openDeepDive('medallion-scd2')">
+          <div class="qa-icon"><i class="fas fa-database"></i></div>
+          <h4 class="qa-topic-title">Medallion & SCD Type 2</h4>
+          <p class="qa-topic-desc">Delta/Iceberg Bronze-Silver-Gold design, CDC handlers, and MERGE optimization.</p>
+          <div class="qa-click-prompt"><i class="fas fa-arrow-right"></i> Open Lakehouse Blueprint</div>
+        </div>
+
+        <div class="qa-card" onclick="openDeepDive('rag-vector')">
+          <div class="qa-icon"><i class="fas fa-brain"></i></div>
+          <h4 class="qa-topic-title">GenAI & Vector Caching</h4>
+          <p class="qa-topic-desc">Sub-100ms RAG retrieval using Cloudflare AI embeddings, FAISS indexing, and payload compression.</p>
+          <div class="qa-click-prompt"><i class="fas fa-arrow-right"></i> Open Vector Blueprint</div>
+        </div>
+
+        <div class="qa-card" onclick="openDeepDive('reliability-mttr')">
+          <div class="qa-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4 class="qa-topic-title">Resilience & 30% MTTR Cut</h4>
+          <p class="qa-topic-desc">Automated retries, fallback recovery handlers, executor log diagnostics, and operational runbooks.</p>
+          <div class="qa-click-prompt"><i class="fas fa-arrow-right"></i> Open Reliability Blueprint</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       PRESENTER NOTES BOTTOM BAR
+       ========================================================================== -->
+  <div class="presenter-notes-bar" id="presenter-notes-bar">
+    <div class="notes-content">
+      <span class="notes-badge"><i class="fas fa-microphone"></i> TALKING POINTS</span>
+      <div class="notes-text" id="notes-text-target">
+        Introduce yourself: 3 years of experience as a Data Engineer at TCS building distributed Lakehouses & cloud pipelines across Nomura Capital and Nissan.
+      </div>
+    </div>
+    <button class="notes-close" id="notes-close-btn" title="Hide Notes Bar"><i class="fas fa-times"></i></button>
+  </div>
+
+  <!-- ==========================================================================
+       INTERACTIVE DEEP DIVE MODAL DRAWER
+       ========================================================================== -->
+  <div class="deepdive-modal" id="deepdive-modal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeDeepDive()"><i class="fas fa-times"></i></button>
+      <div class="modal-tag" id="modal-tag">ARCHITECTURE DEEP DIVE</div>
+      <h3 class="modal-title" id="modal-title">System Blueprint</h3>
+      <div class="modal-body" id="modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: SCROLL OBSERVER, TIMER, KEYBOARD NAV & MODALS
+       ========================================================================== -->
+  <script>
+    // --------------------------------------------------------------------------
+    // 1. Data Store for Deep Dive Modals (100% Resume Accurate)
+    // --------------------------------------------------------------------------
+    const DEEP_DIVE_CONTENT = {
+      'spark-tuning': {
+        tag: 'PERFORMANCE OPTIMIZATION // NOMURA CAPITAL',
+        title: 'Distributed Spark Performance Tuning (-30% SLA Runtime)',
+        body: `
+          <p>At <strong>Nomura Capital</strong>, batch ETL jobs processed over <strong>1B+ records per month</strong>. Long-running jobs were exceeding operational SLA windows due to data skew and wide shuffle bottlenecks.</p>
+          <h4>Optimization Strategies Applied:</h4>
+          <ul>
+            <li><strong>Adaptive Query Execution (AQE):</strong> Enabled dynamically coalescing shuffle partitions (<code>spark.sql.adaptive.coalescePartitions.enabled = true</code>) to prevent thousands of small partition tasks, and converted sort-merge joins into broadcast hash joins at execution time when post-filter data size dropped below threshold.</li>
+            <li><strong>Broadcast Join Strategy:</strong> Explicitly broadcasted lookup and dimension tables (< 100MB) using <code>broadcast(df)</code>, avoiding cluster-wide network shuffling.</li>
+            <li><strong>Dynamic Partition Pruning (DPP):</strong> Avoided reading unnecessary partitions from Apache Iceberg tables by pushing predicates directly into the scan plan.</li>
+            <li><strong>Shuffle & Memory Configuration:</strong> Tuned <code>spark.sql.shuffle.partitions</code> to align with executor core multiples, eliminating spilling to disk.</li>
+          </ul>
+          <div class="modal-code-block">
+// Sample AQE & Broadcast Join Configuration
+spark.conf.set("spark.sql.adaptive.enabled", "true")
+spark.conf.set("spark.sql.adaptive.coalescePartitions.enabled", "true")
+spark.conf.set("spark.sql.adaptive.skewJoin.enabled", "true")
+spark.conf.set("spark.sql.autoBroadcastJoinThreshold", 104857600) // 100MB
+          </div>
+          <h4>Business Impact:</h4>
+          <p>Reduced SLA-bound runtime by <strong>30%</strong> across critical daily batch runs, ensuring 100% compliance with morning risk reporting deadlines.</p>
+        `
+      },
+      'k8s-migration': {
+        tag: 'INFRASTRUCTURE MODERNIZATION // NOMURA CAPITAL',
+        title: 'Legacy YARN & HDFS to Kubernetes with MinIO (-25% Cost)',
+        body: `
+          <p>Migrated legacy monolithic Spark workloads from on-prem YARN/HDFS clusters to a modern, containerized Kubernetes architecture utilizing <strong>MinIO object storage</strong> for S3-compatible Lakehouse operations.</p>
+          <h4>Key Engineering Challenges Solved:</h4>
+          <ul>
+            <li><strong>Dependency Isolation:</strong> Packaged Python, PySpark, and custom C-extensions into versioned Docker container images, eliminating library conflicts across multi-tenant teams.</li>
+            <li><strong>Decoupled Compute & Storage:</strong> Swapped HDFS for MinIO object storage, allowing compute pods to autoscale dynamically during peak batch hours and scale to zero at off-peak times.</li>
+            <li><strong>Resource Quotas & Pod Scheduling:</strong> Implemented Kubernetes resource limits and requests to ensure fair cluster scheduling.</li>
+          </ul>
+          <h4>Business Impact:</h4>
+          <p>Lowered infrastructure spend by <strong>25%</strong> while boosting deployment velocity and operational isolation.</p>
+        `
+      },
+      'aws-serverless': {
+        tag: 'EVENT-DRIVEN ARCHITECTURE // NISSAN',
+        title: 'AWS Serverless Ingestion & Schema Governance (100K+ Daily Events)',
+        body: `
+          <p>Developed an event-driven cloud ingestion platform at <strong>Nissan</strong> to capture high-throughput telemetry and operational records across 20+ disparate source systems.</p>
+          <h4>Architecture Breakdown:</h4>
+          <ul>
+            <li><strong>Amazon EventBridge & SNS:</strong> Decoupled event producers with routing rules directing traffic into AWS Step Functions.</li>
+            <li><strong>AWS Lambda & Step Functions:</strong> Handled payload parsing, schema validation, and idempotent delivery into S3 data lake storage.</li>
+            <li><strong>Data Quality Validation Rules:</strong> Programmatic schema evolution handlers ensured backward compatibility across table schema changes.</li>
+            <li><strong>Streamlit Dashboard:</strong> Delivered real-time operational monitoring for ingestion metrics and error dead-letter queues.</li>
+          </ul>
+          <h4>Business Impact:</h4>
+          <p>Handled <strong>100K+ events daily</strong> with <strong>99.5% output reliability</strong> for downstream consumption.</p>
+        `
+      },
+      'healthcare': {
+        tag: 'LAKEHOUSE & RAG PROJECT // AI HEALTHCARE SYSTEM',
+        title: 'AI Healthcare Lakehouse & Sub-100ms RAG Pipeline',
+        body: `
+          <p>A production-grade healthcare data platform designed for scalable ETL processing, dimensional modeling, and low-latency clinical retrieval.</p>
+          <h4>Key Technical Achievements:</h4>
+          <ul>
+            <li><strong>500K+ Healthcare Records:</strong> Delta Lake Medallion Architecture with SCD Type 2 dimension tracking; optimized partitioned storage and MERGE operations to <strong>reduce runtime by 40%</strong>.</li>
+            <li><strong>FastAPI Backend:</strong> Containerized with Docker and scheduled via Apache Airflow DAGs; optimized PostgreSQL indexing to <strong>lower query latency by 35%</strong>.</li>
+            <li><strong>Optimized RAG Architecture:</strong> Integrated Cloudflare AI embeddings with a local vector cache, compressing context payload size by 80% and achieving <strong>sub-100ms response times</strong>.</li>
+          </ul>
+        `
+      },
+      'recommendation': {
+        tag: 'STREAMING & VECTOR RETRIEVAL // RECOMMENDATION ENGINE',
+        title: 'Databricks Structured Streaming & Sub-50ms Candidate Matching',
+        body: `
+          <p>A high-throughput recommendation platform handling 20M+ records with real-time streaming and fast vector similarity search.</p>
+          <h4>Key Technical Achievements:</h4>
+          <ul>
+            <li><strong>20M+ Event Stream:</strong> Engineered batch and real-time ingestion flows using PySpark, SQL, and Structured Streaming on Databricks with Delta Lake checkpointing and incremental loading.</li>
+            <li><strong>Sub-50ms Vector Retrieval:</strong> Built low-latency serving API using FastAPI and vector retrieval engine with pgvector/FAISS indexing across 100K+ items.</li>
+            <li><strong>Automated CI/CD:</strong> Scheduled continuous ingestion and data quality assertions using Apache Airflow and GitHub Actions.</li>
+          </ul>
+        `
+      },
+      'medallion-scd2': {
+        tag: 'LAKEHOUSE ARCHITECTURE // DATA MODELING',
+        title: 'Medallion Architecture & SCD Type 2 Dimensional Modeling',
+        body: `
+          <p>Designed Bronze, Silver, and Gold Lakehouse layers across Iceberg and Delta Lake tables to preserve auditability while maintaining ultra-fast analytical performance.</p>
+          <h4>Implementation Highlights:</h4>
+          <ul>
+            <li><strong>Bronze:</strong> Append-only raw ingestion with timestamp and ingestion batch IDs.</li>
+            <li><strong>Silver (SCD Type 2):</strong> Track historical dimension changes using <code>effective_start_date</code>, <code>effective_end_date</code>, and <code>is_current</code> flags with optimized Delta/Iceberg MERGE statements.</li>
+            <li><strong>Gold:</strong> Pre-aggregated star schema facts and dimensional rollups for analytical queries.</li>
+          </ul>
+        `
+      },
+      'rag-vector': {
+        tag: 'AI PLATFORMS // VECTOR SEARCH',
+        title: 'GenAI, Embeddings & Vector Lakehouse Integration',
+        body: `
+          <p>Bridging traditional distributed data pipelines with modern GenAI and vector search architectures.</p>
+          <h4>Technical Highlights:</h4>
+          <ul>
+            <li>Built vector caching layers using FAISS and pgvector for sub-50ms similarity search across 100K+ embeddings.</li>
+            <li>Integrated Cloudflare AI embeddings with context compression algorithms, achieving an 80% payload reduction.</li>
+            <li>Served via high-performance asynchronous FastAPI endpoints containerized in Docker.</li>
+          </ul>
+        `
+      },
+      'reliability-mttr': {
+        tag: 'SRE & RELIABILITY // MTTR REDUCTION',
+        title: 'Resilience Engineering & 30% MTTR Reduction',
+        body: `
+          <p>Engineered comprehensive failure recovery and operational diagnostics across 50+ batch data pipelines.</p>
+          <h4>Key Practices:</h4>
+          <ul>
+            <li><strong>DAG Execution Plan Debugging:</strong> Standardized root-cause analysis workflows using Spark executor memory dumps and DAG stages.</li>
+            <li><strong>Automated Retries:</strong> Exponential backoff retry logic for transient database locks and network hiccups.</li>
+            <li><strong>Standardized Runbooks:</strong> Clear operational escalation playbooks cutting Mean Time to Recovery by 30%.</li>
+          </ul>
+        `
+      }
+    };
+
+    // --------------------------------------------------------------------------
+    // 2. Presenter Timer Logic
+    // --------------------------------------------------------------------------
+    let timerSeconds = 0;
+    let timerInterval = null;
+    let isTimerRunning = true;
+    const timerDisplay = document.getElementById('timer-display');
+    const timerBtn = document.getElementById('timer-btn');
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (isTimerRunning) {
+          timerSeconds++;
+          const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+          const secs = String(timerSeconds % 60).padStart(2, '0');
+          timerDisplay.textContent = `${mins}:${secs}`;
+
+          // Color indication for presentation pacing
+          if (timerSeconds > 180) { // > 3 min
+            timerDisplay.style.color = 'var(--accent-rose)';
+          } else if (timerSeconds > 120) { // > 2 min
+            timerDisplay.style.color = 'var(--accent-amber)';
+          } else {
+            timerDisplay.style.color = 'var(--accent-mint)';
+          }
+        }
+      }, 1000);
+    }
+    startTimer();
+
+    timerBtn.addEventListener('click', () => {
+      isTimerRunning = !isTimerRunning;
+      timerBtn.classList.toggle('pulse', isTimerRunning);
+    });
+
+    // --------------------------------------------------------------------------
+    // 3. ScrollSpy, Progress Bar & Active Act Tracking
+    // --------------------------------------------------------------------------
+    const acts = document.querySelectorAll('.story-act');
+    const railDots = document.querySelectorAll('.rail-dot');
+    const hudActName = document.getElementById('hud-act-name');
+    const progressBar = document.getElementById('progress-bar');
+    const notesTextTarget = document.getElementById('notes-text-target');
+
+    function onScroll() {
+      const scrollPos = window.scrollY + window.innerHeight / 2;
+      const totalScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressPercent = (window.scrollY / totalScrollHeight) * 100;
+      progressBar.style.width = `${progressPercent}%`;
+
+      acts.forEach((act, index) => {
+        const actTop = act.offsetTop;
+        const actHeight = act.offsetHeight;
+
+        if (scrollPos >= actTop && scrollPos < actTop + actHeight) {
+          const actTitle = act.getAttribute('data-act-title');
+          const actNotes = act.getAttribute('data-speaker-notes');
+          hudActName.innerHTML = actTitle;
+
+          if (actNotes && notesTextTarget) {
+            notesTextTarget.innerHTML = actNotes;
+          }
+
+          railDots.forEach(dot => dot.classList.remove('active'));
+          if (railDots[index]) {
+            railDots[index].classList.add('active');
+          }
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // --------------------------------------------------------------------------
+    // 4. Live Metric Counter Animation
+    // --------------------------------------------------------------------------
+    const counterElements = document.querySelectorAll('.counter');
+    let hasAnimatedCounters = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const targetVal = parseFloat(target.getAttribute('data-target'));
+          const suffix = target.getAttribute('data-suffix') || '';
+          const prefix = target.getAttribute('data-prefix') || '';
+          const decimals = parseInt(target.getAttribute('data-decimals') || '0', 10);
+          
+          let currentVal = 0;
+          const duration = 1200;
+          const stepTime = 20;
+          const steps = duration / stepTime;
+          const increment = targetVal / steps;
+
+          const timer = setInterval(() => {
+            currentVal += increment;
+            if (currentVal >= targetVal) {
+              currentVal = targetVal;
+              clearInterval(timer);
+            }
+            target.textContent = `${prefix}${currentVal.toFixed(decimals)}${suffix}`;
+          }, stepTime);
+
+          observer.unobserve(target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    counterElements.forEach(el => observer.observe(el));
+
+    // --------------------------------------------------------------------------
+    // 5. Presenter Notes Drawer Toggle
+    // --------------------------------------------------------------------------
+    const notesBar = document.getElementById('presenter-notes-bar');
+    const toggleNotesBtn = document.getElementById('toggle-notes-btn');
+    const notesCloseBtn = document.getElementById('notes-close-btn');
+
+    function toggleNotes() {
+      notesBar.classList.toggle('visible');
+      toggleNotesBtn.classList.toggle('active');
+    }
+
+    toggleNotesBtn.addEventListener('click', toggleNotes);
+    notesCloseBtn.addEventListener('click', toggleNotes);
+
+    // --------------------------------------------------------------------------
+    // 6. Fullscreen Toggle
+    // --------------------------------------------------------------------------
+    const toggleFsBtn = document.getElementById('toggle-fs-btn');
+    toggleFsBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => console.log(err));
+      } else {
+        document.exitFullscreen().catch(err => console.log(err));
+      }
+    });
+
+    // --------------------------------------------------------------------------
+    // 7. Interactive Deep Dive Modals
+    // --------------------------------------------------------------------------
+    const deepDiveModal = document.getElementById('deepdive-modal');
+    const modalTag = document.getElementById('modal-tag');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+
+    window.openDeepDive = function(key) {
+      const data = DEEP_DIVE_CONTENT[key];
+      if (!data) return;
+
+      modalTag.textContent = data.tag;
+      modalTitle.textContent = data.title;
+      modalBody.innerHTML = data.body;
+
+      deepDiveModal.style.display = 'flex';
+      setTimeout(() => deepDiveModal.classList.add('active'), 10);
+    };
+
+    window.closeDeepDive = function() {
+      deepDiveModal.classList.remove('active');
+      setTimeout(() => deepDiveModal.style.display = 'none', 250);
+    };
+
+    deepDiveModal.addEventListener('click', (e) => {
+      if (e.target === deepDiveModal) closeDeepDive();
+    });
+
+    // --------------------------------------------------------------------------
+    // 8. Keyboard Navigation for Smooth Virtual Interview Presentation
+    // --------------------------------------------------------------------------
+    window.addEventListener('keydown', (e) => {
+      if (deepDiveModal.classList.contains('active')) {
+        if (e.key === 'Escape') closeDeepDive();
+        return;
+      }
+
+      if (e.key === 'n' || e.key === 'N') {
+        toggleNotes();
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFsBtn.click();
+      } else if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        navigateToNextAct(1);
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
+        navigateToNextAct(-1);
+      } else if (e.key >= '1' && e.key <= '7') {
+        const actIndex = parseInt(e.key, 10);
+        const targetAct = document.getElementById(`act-${actIndex}`);
+        if (targetAct) {
+          targetAct.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+
+    function navigateToNextAct(direction) {
+      const currentScroll = window.scrollY;
+      let targetIndex = 0;
+
+      acts.forEach((act, idx) => {
+        if (act.offsetTop <= currentScroll + 120) {
+          targetIndex = idx;
+        }
+      });
+
+      const nextIndex = Math.max(0, Math.min(acts.length - 1, targetIndex + direction));
+      acts[nextIndex].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // --------------------------------------------------------------------------
+    // 9. Ambient Particle Background Flow (Lightweight Canvas)
+    // --------------------------------------------------------------------------
+    const canvas = document.getElementById('ambient-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4 - 0.2;
+        this.radius = Math.random() * 1.5 + 0.5;
+        this.color = Math.random() > 0.5 ? 'rgba(56, 189, 248, 0.4)' : 'rgba(75, 255, 165, 0.3)';
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 45; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
+</body>
+</html>
