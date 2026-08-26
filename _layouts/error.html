@@ -4,6 +4,16 @@ layout: default
 
 {% assign ui_text = site.data.ui-text['ui_text'] %}
 
+<script>
+  (function() {
+    var path = window.location.pathname;
+    if (path.endsWith('.html')) {
+      var clean = path.replace(/\.html$/, '/');
+      window.location.replace(clean);
+    }
+  })();
+</script>
+
 <!-- Section Started / 404 Error -->
 <div class="section started section-title" id="section-error" style="height: auto; min-height: 100vh;">
 
