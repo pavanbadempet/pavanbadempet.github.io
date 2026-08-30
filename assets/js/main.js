@@ -572,25 +572,27 @@
 	/*
 		Resize
 	*/
+	var resizeTimer;
 	$(window).resize(function () {
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout(function() {
+			/* Set full height in blocks */
+			var width = $(window).width();
+			var height = $(window).height();
 
-		/* Set full height in blocks */
-		var width = $(window).width();
-		var height = $(window).height();
-
-		/* Set full height in started blocks */
-		$('.section.started').not('.section-title').css({ 'height': height });
-		if (width < 783) {
+			/* Set full height in started blocks */
 			$('.section.started').not('.section-title').css({ 'height': height });
-		}
+			if (width < 783) {
+				$('.section.started').not('.section-title').css({ 'height': height });
+			}
 
-		/* Dotted skills line on resize */
-		var skills_dotted = $('.skills-list.dotted .progress');
-		var skills_dotted_w = skills_dotted.width();
-		if (skills_dotted.length) {
-			skills_dotted.find('.percentage .da').css({ 'width': skills_dotted_w + 1 });
-		}
-
+			/* Dotted skills line on resize */
+			var skills_dotted = $('.skills-list.dotted .progress');
+			var skills_dotted_w = skills_dotted.width();
+			if (skills_dotted.length) {
+				skills_dotted.find('.percentage .da').css({ 'width': skills_dotted_w + 1 });
+			}
+		}, 250);
 	});
 
 	/*
