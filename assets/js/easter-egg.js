@@ -29,7 +29,9 @@
         overlay.style.zIndex = '99999';
         overlay.style.boxSizing = 'border-box';
         overlay.style.overflow = 'hidden';
-        overlay.innerHTML = '<div id="terminal-text"></div>';
+        const terminalText = document.createElement('div');
+        terminalText.id = 'terminal-text';
+        overlay.appendChild(terminalText);
         document.body.appendChild(overlay);
 
         const messages = [
@@ -53,12 +55,41 @@
                 setTimeout(typeWriter, 800);
             } else {
                 setTimeout(() => {
-                    overlay.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100%;flex-direction:column;">' +
-                        '<h1 style="font-size:3em;text-shadow:0 0 10px #0f0;">YOU FOUND THE SECRET!</h1>' +
-                        '<p>You are clearly the engineer we are looking for.</p>' +
-                        '<p>Let\'s build something improved together.</p>' +
-                        '<button onclick="location.reload()" style="margin-top:20px;padding:10px 20px;background:#0f0;color:black;border:none;font-weight:bold;cursor:pointer;">RETURN TO SITE</button>' +
-                        '</div>';
+                    overlay.textContent = '';
+                    const container = document.createElement('div');
+                    container.style.display = 'flex';
+                    container.style.justifyContent = 'center';
+                    container.style.alignItems = 'center';
+                    container.style.height = '100%';
+                    container.style.flexDirection = 'column';
+
+                    const h1 = document.createElement('h1');
+                    h1.style.fontSize = '3em';
+                    h1.style.textShadow = '0 0 10px #0f0';
+                    h1.textContent = 'YOU FOUND THE SECRET!';
+                    container.appendChild(h1);
+
+                    const p1 = document.createElement('p');
+                    p1.textContent = 'You are clearly the engineer we are looking for.';
+                    container.appendChild(p1);
+
+                    const p2 = document.createElement('p');
+                    p2.textContent = 'Let\'s build something improved together.';
+                    container.appendChild(p2);
+
+                    const button = document.createElement('button');
+                    button.style.marginTop = '20px';
+                    button.style.padding = '10px 20px';
+                    button.style.background = '#0f0';
+                    button.style.color = 'black';
+                    button.style.border = 'none';
+                    button.style.fontWeight = 'bold';
+                    button.style.cursor = 'pointer';
+                    button.textContent = 'RETURN TO SITE';
+                    button.addEventListener('click', () => location.reload());
+                    container.appendChild(button);
+
+                    overlay.appendChild(container);
                 }, 1500);
             }
         }
