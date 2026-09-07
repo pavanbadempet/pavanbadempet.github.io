@@ -90,8 +90,12 @@
   </script>
 
   <!-- Favicons -->
-  <link rel="icon" type="image/png" href="{{ 'assets/images/favicons/favicon.png' | relative_url }}">
-  <link rel="shortcut icon" href="{{ 'assets/images/favicons/favicon.png' | relative_url }}">
+  <link rel="icon" type="image/x-icon" href="{{ 'favicon.ico' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ 'assets/images/favicons/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ 'assets/images/favicons/favicon-16x16.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/images/favicons/apple-touch-icon.png' | relative_url }}">
+  <link rel="shortcut icon" href="{{ 'favicon.ico' | relative_url }}">
+  <link rel="manifest" href="{{ 'site.webmanifest' | relative_url }}">
 
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
