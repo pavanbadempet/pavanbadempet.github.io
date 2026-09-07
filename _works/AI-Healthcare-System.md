@@ -4,7 +4,7 @@ category: Content
 category_slug: f-content
 type: content
 image: assets/img/works/hs.png
-description: "ETL workflows handling 500K+ healthcare records using Delta Lake Medallion Architecture and SCD Type 2 modeling, with FastAPI, PostgreSQL, Airflow, Docker, and RAG."
+description: "Designed Batch and Streaming ETL workflows handling 1M+ records using Delta Lake Medallion Architecture and SCD Type 2 modeling, with FastAPI, PostgreSQL, Airflow, Docker, and RAG."
 button_url: https://github.com/pavanbadempet/AI-Healthcare-System
 demo_url: https://ai-healthcare-system.streamlit.app
 tags: [python, pyspark, databricks, delta-lake, airflow, postgresql, docker, rag]
@@ -21,7 +21,7 @@ A production-grade healthcare data platform designed for scalable ETL processing
 *   **GenAI / Search:** RAG pipeline, Cloudflare AI embeddings, Local Vector Cache
 
 ### Key Highlights & Results
-*   **Lakehouse ETL & Modeling:** Designed ETL workflows handling 500K+ healthcare records using Delta Lake Medallion Architecture and SCD Type 2 modeling, optimizing partitioned storage and MERGE operations to reduce runtime by 40%.
+*   **Lakehouse ETL & Modeling:** Designed Batch and Streaming ETL workflows handling 1M+ records using Delta Lake Medallion Architecture and SCD Type 2 modeling, optimizing partitioned storage and MERGE operations to reduce runtime by 40%.
 *   **High-Performance Serving:** Delivered FastAPI endpoints and PostgreSQL indexing to lower analytical query latency by 35%, containerized workloads with Docker, and scheduled jobs using Airflow DAGs.
 *   **Optimized RAG Architecture:** Implemented a Retrieval Augmented Generation pipeline integrating Cloudflare AI embeddings with a local vector cache, compressing context payload size by 80% and achieving sub-100ms response times.
 

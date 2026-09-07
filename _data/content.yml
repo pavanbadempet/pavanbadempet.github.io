@@ -27,7 +27,7 @@ about:
 
   download:
     text: "Download Resume"
-    link: "https://drive.google.com/file/d/1gppjKAn5s9W06uH4ajoj7Ha2H13zEPkq/view?usp=sharing"
+    link: "https://drive.google.com/file/d/10e4xg7S9CZ1dnurE5tTgCUKsrc51hstX/view?usp=sharing"
 
 ### Resume [ resume ]
 resume:
@@ -97,13 +97,13 @@ team:
   items:
     - name: "AI Healthcare System"
       role: "Python, PySpark, Databricks, Delta Lake, Airflow, PostgreSQL, Docker, RAG"
-      text1: "Designed ETL workflows handling 500K+ healthcare records using Delta Lake Medallion Architecture and SCD Type 2 modeling, optimizing partitioned storage and MERGE operations to reduce runtime by 40%."
+      text1: "Designed Batch and Streaming ETL workflows handling 1M+ records using Delta Lake Medallion Architecture and SCD Type 2 modeling, optimizing partitioned storage and MERGE operations to reduce runtime by 40%."
       text2: "Delivered FastAPI endpoints and PostgreSQL indexing to lower analytical query latency by 35%, containerized workloads with Docker and scheduled jobs using Airflow DAGs."
       text3: "Implemented a Retrieval Augmented Generation pipeline integrating Cloudflare AI embeddings with a local vector cache, compressing context payload size by 80% and achieving sub-100ms response times."
       architecture_diagram: |
         graph TB
           subgraph Ingestion["INGESTION & LAKEHOUSE"]
-            SRC["500K+ Healthcare Records"] --> SPARK["PySpark ETL Jobs"]
+            SRC["1M+ Healthcare Records (Batch & Streaming)"] --> SPARK["PySpark ETL Jobs"]
             SPARK --> DELTA["Delta Lake (Medallion Architecture)"]
             DELTA --> SCD["SCD Type 2 Dimensions"]
           end
