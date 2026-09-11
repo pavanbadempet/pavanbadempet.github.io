@@ -437,6 +437,74 @@
         width: 40px;
         height: 40px;
       }
+
+      .classic-floating-bubble {
+        bottom: max(75px, calc(env(safe-area-inset-bottom) + 70px)) !important;
+        right: 16px !important;
+        width: 52px !important;
+        height: 52px !important;
+        border-radius: 26px !important;
+      }
+      .classic-floating-bubble:hover {
+        width: 155px !important;
+        padding-left: 14px !important;
+      }
+    }
+
+    /* Classic View Floating Bubble Trigger (Mirrors Agent View Bubble) */
+    .classic-floating-bubble {
+      position: fixed;
+      bottom: 28px !important;
+      right: 32px !important;
+      background: #4bffa5;
+      color: #101010;
+      width: 60px;
+      height: 60px;
+      border-radius: 30px;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(75, 255, 165, 0.4), 0 0 0 1px rgba(75, 255, 165, 0.2);
+      z-index: 9999;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+      overflow: hidden;
+      text-decoration: none;
+      box-sizing: border-box;
+      white-space: nowrap;
+    }
+    .classic-bubble-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: opacity 0.15s ease;
+      color: #101010;
+    }
+    .classic-bubble-label {
+      max-width: 0;
+      opacity: 0;
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-left: 0;
+      transition: max-width 0.4s ease, opacity 0.3s ease, margin-left 0.4s ease;
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      flex-shrink: 0;
+      color: #101010;
+    }
+    .classic-floating-bubble:hover {
+      width: 175px;
+      justify-content: flex-start;
+      padding-left: 18px;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(75, 255, 165, 0.6);
+      color: #101010;
+    }
+    .classic-floating-bubble:hover .classic-bubble-label {
+      max-width: 115px;
+      opacity: 1;
+      margin-left: 8px;
     }
   </style>
 </head>
@@ -457,6 +525,18 @@
     <div class="ambient-orb"></div>
     {{ content }}
   </main>
+
+  <!-- Classic View Floating Bubble Trigger (Mirroring Agent View in Classic layout) -->
+  <a href="{{ '/classic/' | relative_url }}" class="classic-floating-bubble"
+    title="Switch to Classic View" aria-label="Switch to Classic View">
+    <span class="classic-bubble-icon">
+      <svg viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 14px; display: block;">
+        <path d="M25 8C22 5 15 5 10 9.5C5.5 13.5 5.5 16.5 10 20.5C15 25 22 25 25 22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <path d="M35 6L43 24L51 6" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span class="classic-bubble-label">Classic View</span>
+  </a>
 
   {%- include scripts.html -%}
 
