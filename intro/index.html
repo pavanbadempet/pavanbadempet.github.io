@@ -175,10 +175,80 @@ permalink: /intro/
       color: #fff;
     }
 
+    .hud-exit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .hud-exit-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-cyan);
+      color: #fff;
+    }
+
     .hud-center {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.85rem;
+    }
+
+    .hud-deck-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(16, 22, 34, 0.85);
+      border: 1px solid var(--border-color);
+      padding: 0.2rem 0.4rem;
+      border-radius: 8px;
+    }
+    .hud-nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.75rem;
+      transition: all 0.2s ease;
+    }
+    .hud-nav-btn:hover:not(:disabled) {
+      background: rgba(56, 189, 248, 0.2);
+      color: #fff;
+    }
+    .hud-nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    .hud-act-counter {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      padding: 0 0.35rem;
+      user-select: none;
+    }
+    .hud-act-counter span#hud-counter-cur {
+      color: var(--accent-mint);
+      font-weight: 600;
+    }
+
+    .hud-timer-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
     }
 
     .hud-timer {
@@ -186,9 +256,9 @@ permalink: /intro/
       align-items: center;
       gap: 0.5rem;
       font-family: var(--font-mono);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       background: rgba(255, 255, 255, 0.04);
-      padding: 0.35rem 0.85rem;
+      padding: 0.35rem 0.75rem;
       border-radius: 8px;
       border: 1px solid var(--border-color);
       cursor: pointer;
@@ -213,6 +283,179 @@ permalink: /intro/
     @keyframes pulseDot {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .timer-status-badge {
+      font-size: 0.65rem;
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      background: rgba(75, 255, 165, 0.15);
+      color: var(--accent-mint);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-left: 0.2rem;
+      transition: all 0.2s ease;
+    }
+    .timer-status-badge.paused {
+      background: rgba(244, 63, 94, 0.2);
+      color: var(--accent-rose);
+    }
+    .timer-reset-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.78rem;
+      transition: all 0.2s ease;
+    }
+    .timer-reset-btn:hover {
+      border-color: var(--accent-cyan);
+      color: #fff;
+      background: rgba(56, 189, 248, 0.15);
+    }
+
+    /* Floating Presentation Deck Controls (Bottom Center) */
+    .floating-deck-controls {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 990;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(16, 22, 34, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(75, 255, 165, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(75, 255, 165, 0.15);
+      border-radius: 50px;
+      padding: 0.45rem 0.85rem;
+      transition: all 0.3s ease;
+    }
+    .floating-deck-controls:hover {
+      border-color: rgba(75, 255, 165, 0.5);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(75, 255, 165, 0.25);
+    }
+    .deck-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #f8fafc;
+      font-family: var(--font-heading);
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 0.5rem 1.15rem;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .deck-btn:hover:not(:disabled) {
+      background: rgba(75, 255, 165, 0.18);
+      border-color: var(--accent-mint);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .deck-btn:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+    .deck-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .deck-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.85rem;
+      min-width: 150px;
+      user-select: none;
+    }
+    .deck-step {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent-mint);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .deck-title {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      max-width: 240px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+    }
+
+    /* In-Page Act Advance Callouts */
+    .act-advance-bar {
+      margin-top: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .act-advance-bar.final-act-bar {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .act-advance-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 0.7rem 1.4rem;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .act-advance-btn:hover {
+      background: rgba(56, 189, 248, 0.22);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25);
+      transform: translateY(-2px);
+      color: #fff;
+    }
+    .act-advance-btn.secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: var(--text-muted);
+    }
+    .act-advance-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+    .act-advance-btn.primary {
+      background: linear-gradient(135deg, rgba(75, 255, 165, 0.25), rgba(56, 189, 248, 0.25));
+      border-color: rgba(75, 255, 165, 0.4);
+      color: #fff;
+    }
+    .act-advance-btn.primary:hover {
+      border-color: var(--accent-mint);
+      box-shadow: 0 4px 20px rgba(75, 255, 165, 0.3);
     }
 
     .hud-right {
@@ -349,6 +592,7 @@ permalink: /intro/
       justify-content: center;
       position: relative;
       border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      scroll-margin-top: calc(var(--hud-height) + 24px);
     }
 
     /* Act Badge */
@@ -1247,6 +1491,7 @@ permalink: /intro/
       .step-arrow { display: none; }
       .education-card { grid-template-columns: 1fr; }
       .scholarship-box { text-align: left; }
+      .hud-act-indicator { display: none; }
     }
 
     @media (max-width: 768px) {
@@ -1260,6 +1505,22 @@ permalink: /intro/
       .chapter-rail { display: none; }
       .act-title { font-size: 2.25rem; }
       .hero-name { font-size: 2.75rem; }
+      .presenter-hud { padding: 0 0.85rem; }
+      .hud-tag { display: none; }
+      .hud-btn span, .hud-exit-btn span { display: none; }
+      .hud-right .hud-btn { padding: 0.35rem 0.55rem; }
+      .floating-deck-controls {
+        bottom: 16px;
+        padding: 0.4rem 0.6rem;
+        gap: 0.5rem;
+        width: calc(100% - 1.5rem);
+        max-width: 360px;
+        justify-content: space-between;
+      }
+      .deck-title { display: none; }
+      .deck-btn { padding: 0.45rem 0.85rem; font-size: 0.78rem; }
+      .act-advance-bar { justify-content: center; }
+      .act-advance-btn { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -1273,7 +1534,11 @@ permalink: /intro/
        ========================================================================== -->
   <header class="presenter-hud">
     <div class="hud-left">
-      <a href="index.html" class="hud-logo">
+      <a href="/classic/" class="hud-exit-btn" title="Exit Presentation to Portfolio">
+        <i class="fas fa-arrow-left"></i>
+        <span>Portfolio</span>
+      </a>
+      <a href="/classic/" class="hud-logo" title="Portfolio Home">
         <i class="fas fa-terminal"></i>
         <span>Pavan Badempet</span>
       </a>
@@ -1284,9 +1549,27 @@ permalink: /intro/
     </div>
 
     <div class="hud-center">
-      <div class="hud-timer" id="timer-btn" title="Click to Pause / Reset Speaking Timer">
-        <span class="timer-dot"></span>
-        <span id="timer-display">00:00</span>
+      <div class="hud-deck-nav">
+        <button type="button" class="hud-nav-btn" id="hud-prev-btn" title="Previous Act (Left Arrow / Up Arrow)" aria-label="Previous Act" disabled>
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="hud-act-counter" id="hud-act-counter">
+          <span id="hud-counter-cur">01</span> / <span>07</span>
+        </div>
+        <button type="button" class="hud-nav-btn" id="hud-next-btn" title="Next Act (Right Arrow / Down Arrow / Space)" aria-label="Next Act">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="hud-timer-group">
+        <div class="hud-timer" id="timer-btn" title="Click to Pause / Resume Speaking Timer (P)">
+          <span class="timer-dot" id="timer-dot"></span>
+          <span id="timer-display">00:00</span>
+          <span class="timer-status-badge" id="timer-status">LIVE</span>
+        </div>
+        <button type="button" class="timer-reset-btn" id="timer-reset-btn" title="Reset Timer to 00:00 (R)" aria-label="Reset Timer">
+          <i class="fas fa-rotate-left"></i>
+        </button>
       </div>
     </div>
 
@@ -1404,6 +1687,13 @@ permalink: /intro/
           </div>
         </div>
       </div>
+
+      <div class="act-advance-bar">
+        <button type="button" class="act-advance-btn" onclick="navigateToAct(2)">
+          <span>Continue to Act 02: Nomura Capital</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
     </section>
 
     <!-- ======================================================================
@@ -1479,6 +1769,13 @@ permalink: /intro/
           </div>
         </div>
       </div>
+
+      <div class="act-advance-bar">
+        <button type="button" class="act-advance-btn" onclick="navigateToAct(3)">
+          <span>Continue to Act 03: Spark Tuning & Infra</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
     </section>
 
     <!-- ======================================================================
@@ -1541,6 +1838,13 @@ permalink: /intro/
             <li><i class="fas fa-check-circle"></i> <strong>Operational Runbooks:</strong> Standardized executor log debugging guides, cutting incident resolution time by 30%.</li>
           </ul>
         </div>
+      </div>
+
+      <div class="act-advance-bar">
+        <button type="button" class="act-advance-btn" onclick="navigateToAct(4)">
+          <span>Continue to Act 04: Nissan Cloud Capture</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
       </div>
     </section>
 
@@ -1608,6 +1912,13 @@ permalink: /intro/
             <div class="step-details">Interactive validation dashboard for operational monitoring and downstream consumer delivery.</div>
           </div>
         </div>
+      </div>
+
+      <div class="act-advance-bar">
+        <button type="button" class="act-advance-btn" onclick="navigateToAct(5)">
+          <span>Continue to Act 05: Production AI Lakehouses</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
       </div>
     </section>
 
@@ -1686,6 +1997,13 @@ permalink: /intro/
             </a>
           </div>
         </div>
+      </div>
+
+      <div class="act-advance-bar">
+        <button type="button" class="act-advance-btn" onclick="navigateToAct(6)">
+          <span>Continue to Act 06: Skills & Education</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
       </div>
     </section>
 
@@ -1773,6 +2091,13 @@ permalink: /intro/
           <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.25rem;">Awarded for academic excellence throughout B.Tech</div>
         </div>
       </div>
+
+      <div class="act-advance-bar">
+        <button type="button" class="act-advance-btn" onclick="navigateToAct(7)">
+          <span>Continue to Act 07: Interactive Q&A Hub</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
     </section>
 
     <!-- ======================================================================
@@ -1828,9 +2153,38 @@ permalink: /intro/
           <div class="qa-click-prompt"><i class="fas fa-arrow-right"></i> Open Reliability Blueprint</div>
         </div>
       </div>
+
+      <div class="act-advance-bar final-act-bar">
+        <button type="button" class="act-advance-btn secondary" onclick="navigateToAct(1)">
+          <i class="fas fa-redo"></i>
+          <span>Restart Presentation (Act 01)</span>
+        </button>
+        <a href="/classic/" class="act-advance-btn primary">
+          <i class="fas fa-arrow-left"></i>
+          <span>Exit to Main Portfolio</span>
+        </a>
+      </div>
     </section>
 
   </main>
+
+  <!-- ==========================================================================
+       FLOATING PRESENTATION DECK CONTROLS (BOTTOM CENTER)
+       ========================================================================== -->
+  <div class="floating-deck-controls" id="floating-deck-controls" aria-label="Presentation Deck Controls">
+    <button type="button" class="deck-btn deck-nav-btn" id="deck-prev-btn" title="Previous Act (Left Arrow / Up Arrow)" aria-label="Previous Act" disabled>
+      <i class="fas fa-chevron-left"></i>
+      <span class="deck-btn-label">Back</span>
+    </button>
+    <div class="deck-indicator" id="deck-indicator">
+      <span class="deck-step" id="deck-act-num">Act 01 / 07</span>
+      <span class="deck-title" id="deck-act-title">IDENTITY & ELEVATOR PITCH</span>
+    </div>
+    <button type="button" class="deck-btn deck-nav-btn" id="deck-next-btn" title="Next Act (Right Arrow / Space / Down Arrow)" aria-label="Next Act">
+      <span class="deck-btn-label">Forward</span>
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
 
   <!-- ==========================================================================
        PRESENTER NOTES BOTTOM BAR
@@ -1989,77 +2343,171 @@ spark.conf.set("spark.sql.autoBroadcastJoinThreshold", 104857600) // 100MB
     };
 
     // --------------------------------------------------------------------------
-    // 2. Presenter Timer Logic
+    // --------------------------------------------------------------------------
+    // 2. Presenter Timer Logic (Pause, Resume, Reset)
     // --------------------------------------------------------------------------
     let timerSeconds = 0;
     let timerInterval = null;
     let isTimerRunning = true;
     const timerDisplay = document.getElementById('timer-display');
     const timerBtn = document.getElementById('timer-btn');
+    const timerStatus = document.getElementById('timer-status');
+    const timerDot = document.getElementById('timer-dot');
+    const timerResetBtn = document.getElementById('timer-reset-btn');
+
+    function updateTimerUI() {
+      const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+      const secs = String(timerSeconds % 60).padStart(2, '0');
+      if (timerDisplay) {
+        timerDisplay.textContent = `${mins}:${secs}`;
+        if (timerSeconds > 180) {
+          timerDisplay.style.color = 'var(--accent-rose)';
+        } else if (timerSeconds > 120) {
+          timerDisplay.style.color = 'var(--accent-amber)';
+        } else {
+          timerDisplay.style.color = 'var(--accent-mint)';
+        }
+      }
+
+      if (timerStatus) {
+        timerStatus.textContent = isTimerRunning ? 'LIVE' : 'PAUSED';
+        timerStatus.classList.toggle('paused', !isTimerRunning);
+      }
+      if (timerDot) {
+        timerDot.style.animationPlayState = isTimerRunning ? 'running' : 'paused';
+        timerDot.style.opacity = isTimerRunning ? '1' : '0.4';
+      }
+      if (timerBtn) {
+        timerBtn.classList.toggle('pulse', isTimerRunning);
+      }
+    }
+
+    function toggleTimer() {
+      isTimerRunning = !isTimerRunning;
+      updateTimerUI();
+    }
+
+    function resetTimer() {
+      timerSeconds = 0;
+      updateTimerUI();
+    }
 
     function startTimer() {
       if (timerInterval) clearInterval(timerInterval);
       timerInterval = setInterval(() => {
         if (isTimerRunning) {
           timerSeconds++;
-          const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
-          const secs = String(timerSeconds % 60).padStart(2, '0');
-          timerDisplay.textContent = `${mins}:${secs}`;
-
-          // Color indication for presentation pacing
-          if (timerSeconds > 180) { // > 3 min
-            timerDisplay.style.color = 'var(--accent-rose)';
-          } else if (timerSeconds > 120) { // > 2 min
-            timerDisplay.style.color = 'var(--accent-amber)';
-          } else {
-            timerDisplay.style.color = 'var(--accent-mint)';
-          }
+          updateTimerUI();
         }
       }, 1000);
     }
     startTimer();
+    updateTimerUI();
 
-    timerBtn.addEventListener('click', () => {
-      isTimerRunning = !isTimerRunning;
-      timerBtn.classList.toggle('pulse', isTimerRunning);
-    });
+    if (timerBtn) timerBtn.addEventListener('click', toggleTimer);
+    if (timerResetBtn) timerResetBtn.addEventListener('click', resetTimer);
 
     // --------------------------------------------------------------------------
-    // 3. ScrollSpy, Progress Bar & Active Act Tracking
+    // 3. Presentation Acts Navigation & ScrollSpy
     // --------------------------------------------------------------------------
-    const acts = document.querySelectorAll('.story-act');
+    const acts = Array.from(document.querySelectorAll('.story-act'));
+    const totalActs = acts.length;
+    let currentActIndex = 0;
+
     const railDots = document.querySelectorAll('.rail-dot');
     const hudActName = document.getElementById('hud-act-name');
+    const hudCounterCur = document.getElementById('hud-counter-cur');
     const progressBar = document.getElementById('progress-bar');
     const notesTextTarget = document.getElementById('notes-text-target');
 
-    function onScroll() {
-      const scrollPos = window.scrollY + window.innerHeight / 2;
-      const totalScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progressPercent = (window.scrollY / totalScrollHeight) * 100;
-      progressBar.style.width = `${progressPercent}%`;
+    const hudPrevBtn = document.getElementById('hud-prev-btn');
+    const hudNextBtn = document.getElementById('hud-next-btn');
+    const deckPrevBtn = document.getElementById('deck-prev-btn');
+    const deckNextBtn = document.getElementById('deck-next-btn');
+    const deckActNum = document.getElementById('deck-act-num');
+    const deckActTitle = document.getElementById('deck-act-title');
 
-      acts.forEach((act, index) => {
-        const actTop = act.offsetTop;
-        const actHeight = act.offsetHeight;
+    function updateActDisplays(index) {
+      currentActIndex = Math.max(0, Math.min(totalActs - 1, index));
+      const act = acts[currentActIndex];
+      if (!act) return;
 
-        if (scrollPos >= actTop && scrollPos < actTop + actHeight) {
-          const actTitle = act.getAttribute('data-act-title');
-          const actNotes = act.getAttribute('data-speaker-notes');
-          hudActName.innerHTML = actTitle;
+      const actNumStr = String(currentActIndex + 1).padStart(2, '0');
+      const totalStr = String(totalActs).padStart(2, '0');
+      const actTitle = act.getAttribute('data-act-title') || '';
 
-          if (actNotes && notesTextTarget) {
-            notesTextTarget.innerHTML = actNotes;
-          }
+      // Update HUD counter and title
+      if (hudCounterCur) hudCounterCur.textContent = actNumStr;
+      if (hudActName) hudActName.innerHTML = actTitle;
 
-          railDots.forEach(dot => dot.classList.remove('active'));
-          if (railDots[index]) {
-            railDots[index].classList.add('active');
-          }
-        }
+      // Update Floating Deck Controls
+      if (deckActNum) deckActNum.textContent = `Act ${actNumStr} / ${totalStr}`;
+      if (deckActTitle) {
+        const cleanTitle = actTitle.replace(/ACT\s*\d+\s*\/\/\s*/i, '').replace(/<[^>]*>/g, '').trim();
+        deckActTitle.textContent = cleanTitle;
+      }
+
+      // Update Prev / Next button states
+      const isFirst = (currentActIndex === 0);
+      const isLast = (currentActIndex === totalActs - 1);
+      if (hudPrevBtn) hudPrevBtn.disabled = isFirst;
+      if (deckPrevBtn) deckPrevBtn.disabled = isFirst;
+      if (hudNextBtn) hudNextBtn.disabled = isLast;
+      if (deckNextBtn) deckNextBtn.disabled = isLast;
+
+      // Update Speaker Notes target
+      const actNotes = act.getAttribute('data-speaker-notes');
+      if (actNotes && notesTextTarget) {
+        notesTextTarget.innerHTML = actNotes;
+      }
+
+      // Update Side Chapter Rail Dots
+      railDots.forEach((dot, dIdx) => {
+        dot.classList.toggle('active', dIdx === currentActIndex);
       });
     }
+
+    window.navigateToAct = function(actNumber) {
+      const targetIndex = Math.max(0, Math.min(totalActs - 1, actNumber - 1));
+      const targetAct = acts[targetIndex];
+      if (targetAct) {
+        targetAct.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        updateActDisplays(targetIndex);
+      }
+    };
+
+    window.navigateToNextAct = function(direction) {
+      const nextIndex = Math.max(0, Math.min(totalActs - 1, currentActIndex + direction));
+      window.navigateToAct(nextIndex + 1);
+    };
+
+    if (hudPrevBtn) hudPrevBtn.addEventListener('click', () => window.navigateToNextAct(-1));
+    if (hudNextBtn) hudNextBtn.addEventListener('click', () => window.navigateToNextAct(1));
+    if (deckPrevBtn) deckPrevBtn.addEventListener('click', () => window.navigateToNextAct(-1));
+    if (deckNextBtn) deckNextBtn.addEventListener('click', () => window.navigateToNextAct(1));
+
+    function onScroll() {
+      const totalScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScrollHeight > 0 && progressBar) {
+        const progressPercent = Math.min(100, Math.max(0, (window.scrollY / totalScrollHeight) * 100));
+        progressBar.style.width = `${progressPercent}%`;
+      }
+
+      // Determine active act based on viewport visibility
+      let activeIndex = 0;
+      acts.forEach((act, index) => {
+        const rect = act.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.45) {
+          activeIndex = index;
+        }
+      });
+
+      if (activeIndex !== currentActIndex) {
+        updateActDisplays(activeIndex);
+      }
+    }
     window.addEventListener('scroll', onScroll, { passive: true });
+    updateActDisplays(0);
 
     // --------------------------------------------------------------------------
     // 4. Live Metric Counter Animation
@@ -2155,10 +2603,12 @@ spark.conf.set("spark.sql.autoBroadcastJoinThreshold", 104857600) // 100MB
     });
 
     // --------------------------------------------------------------------------
-    // 8. Keyboard Navigation for Smooth Virtual Interview Presentation
+    // 8. Keyboard Navigation for Presentation Controls
     // --------------------------------------------------------------------------
     window.addEventListener('keydown', (e) => {
-      if (deepDiveModal.classList.contains('active')) {
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+
+      if (deepDiveModal && deepDiveModal.classList.contains('active')) {
         if (e.key === 'Escape') closeDeepDive();
         return;
       }
@@ -2166,35 +2616,28 @@ spark.conf.set("spark.sql.autoBroadcastJoinThreshold", 104857600) // 100MB
       if (e.key === 'n' || e.key === 'N') {
         toggleNotes();
       } else if (e.key === 'f' || e.key === 'F') {
-        toggleFsBtn.click();
-      } else if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+        if (toggleFsBtn) toggleFsBtn.click();
+      } else if (e.key === 'p' || e.key === 'P') {
+        toggleTimer();
+      } else if (e.key === 'r' || e.key === 'R') {
+        resetTimer();
+      } else if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key)) {
         e.preventDefault();
-        navigateToNextAct(1);
-      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        window.navigateToNextAct(1);
+      } else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) {
         e.preventDefault();
-        navigateToNextAct(-1);
+        window.navigateToNextAct(-1);
       } else if (e.key >= '1' && e.key <= '7') {
-        const actIndex = parseInt(e.key, 10);
-        const targetAct = document.getElementById(`act-${actIndex}`);
-        if (targetAct) {
-          targetAct.scrollIntoView({ behavior: 'smooth' });
-        }
+        e.preventDefault();
+        window.navigateToAct(parseInt(e.key, 10));
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        window.navigateToAct(1);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        window.navigateToAct(totalActs);
       }
     });
-
-    function navigateToNextAct(direction) {
-      const currentScroll = window.scrollY;
-      let targetIndex = 0;
-
-      acts.forEach((act, idx) => {
-        if (act.offsetTop <= currentScroll + 120) {
-          targetIndex = idx;
-        }
-      });
-
-      const nextIndex = Math.max(0, Math.min(acts.length - 1, targetIndex + direction));
-      acts[nextIndex].scrollIntoView({ behavior: 'smooth' });
-    }
 
     // --------------------------------------------------------------------------
     // 9. Ambient Particle Background Flow (Lightweight Canvas)

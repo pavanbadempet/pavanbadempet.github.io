@@ -58,3 +58,40 @@ test("Bun post-build optimizer compresses HTML and ensures async decoding", asyn
 
   rmSync(tempDir, { recursive: true, force: true });
 });
+
+test("Interview Pitch presentation deck controls and timer verification", () => {
+  const introHtml = readFileSync("intro/index.html", "utf8");
+  
+  // Navigation & Floating controls
+  expect(introHtml.includes('id="floating-deck-controls"')).toBeTrue();
+  expect(introHtml.includes('id="deck-prev-btn"')).toBeTrue();
+  expect(introHtml.includes('id="deck-next-btn"')).toBeTrue();
+  expect(introHtml.includes('id="deck-act-num"')).toBeTrue();
+  expect(introHtml.includes('id="deck-act-title"')).toBeTrue();
+
+  // Top HUD controls
+  expect(introHtml.includes('class="hud-deck-nav"')).toBeTrue();
+  expect(introHtml.includes('id="hud-prev-btn"')).toBeTrue();
+  expect(introHtml.includes('id="hud-next-btn"')).toBeTrue();
+  expect(introHtml.includes('class="hud-exit-btn"')).toBeTrue();
+  expect(introHtml.includes('href="/classic/"')).toBeTrue();
+
+  // Timer controls
+  expect(introHtml.includes('id="timer-reset-btn"')).toBeTrue();
+  expect(introHtml.includes('id="timer-status"')).toBeTrue();
+
+  // Act advance buttons
+  expect(introHtml.includes('class="act-advance-bar"')).toBeTrue();
+  expect(introHtml.includes('navigateToAct(2)')).toBeTrue();
+  expect(introHtml.includes('navigateToAct(7)')).toBeTrue();
+
+  // Scroll offset styling
+  expect(introHtml.includes('scroll-margin-top: calc(var(--hud-height) + 24px);')).toBeTrue();
+
+  // Keyboard navigation & functions
+  expect(introHtml.includes('window.navigateToAct = function')).toBeTrue();
+  expect(introHtml.includes('window.navigateToNextAct = function')).toBeTrue();
+  expect(introHtml.includes('resetTimer')).toBeTrue();
+  expect(introHtml.includes('ArrowRight')).toBeTrue();
+  expect(introHtml.includes('ArrowLeft')).toBeTrue();
+});
