@@ -11,23 +11,26 @@
 		}
 	});
 
-	$(window).on("load", function () {
-
-		/*
-			Preloader
-		*/
+	function hidePreloader() {
 		var preload = $('.preloader');
-		preload.find('.spinner').fadeOut(function () {
-			preload.fadeOut();
-		});
+		if (preload.length) {
+			preload.addClass('loaded');
+			setTimeout(function () {
+				preload.hide();
+			}, 200);
+		}
+		$('.lines').addClass('finish ready');
+	}
 
-		/*
-			Lines Animations
-		*/
-		$('.lines').addClass('finish');
-		setTimeout(function () {
-			$('.lines').addClass('ready');
-		}, 800);
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', hidePreloader);
+	} else {
+		hidePreloader();
+	}
+	$(window).on("load", hidePreloader);
+	setTimeout(hidePreloader, 350);
+
+	$(window).on("load", function () {
 
 		/*
 			Typed Subtitle
@@ -272,8 +275,10 @@
 	/*
 		Animation Between Pages
 	*/
-	$('header .top-menu, .typed-bread, .popup-box .bts, .animate-to-page').on('click', 'a', function () {
+	$('header .top-menu, .typed-bread, .popup-box .bts, .animate-to-page').on('click', 'a', function (e) {
 		var link = $(this).attr('href');
+		if (!link || link === '#' || link.startsWith('javascript:')) return;
+
 		if (link.indexOf('#section-') == 0) {
 			if (!$('body').hasClass('home')) {
 				location.href = '/' + link;
@@ -283,15 +288,15 @@
 			if ($('header').hasClass('active')) {
 				$('.menu-btn').trigger('click');
 			}
-		} else {
-			$('.lines').removeClass('finish');
-			$('.lines').removeClass('ready');
-			$('.lines').addClass('no-lines');
-			setTimeout(function () {
-				location.href = "" + link;
-			}, 800);
+			return false;
 		}
-		return false;
+
+		// Don't intercept external links, mailto, tel, or downloads
+		if (link.startsWith('http') || link.startsWith('mailto:') || link.startsWith('tel:') || $(this).attr('target') === '_blank' || $(this).attr('download')) {
+			return true;
+		}
+
+		// Allow immediate native navigation; instant-prefetch and View Transitions provide butter-smooth 60fps transitions
 	});
 
 	/*

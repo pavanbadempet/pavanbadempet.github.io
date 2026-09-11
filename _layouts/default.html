@@ -121,14 +121,14 @@
       .ai-chat-bubble.expanding {
           transform: scale(80) !important;
           background: #050505 !important;
-          transition: transform 0.65s cubic-bezier(0.65, 0, 0.35, 1) !important;
+          transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
           z-index: 9999999 !important;
           box-shadow: none !important;
       }
       .ai-chat-bubble.expanding .ai-bubble-icon,
       .ai-chat-bubble.expanding .ai-bubble-label {
           opacity: 0 !important;
-          transition: opacity 0.1s ease !important;
+          transition: opacity 0.08s ease !important;
       }
   </style>
 
@@ -145,13 +145,13 @@
                   e.preventDefault();
                   const href = this.getAttribute('href');
                   
-                  // Expand the button itself
+                  // Expand the button swiftly
                   this.classList.add('expanding');
                   
-                  // Navigate to the next page when full screen is covered
+                  // Navigate to the next page smoothly
                   setTimeout(() => {
                       window.location.href = href;
-                  }, 580);
+                  }, 180);
               });
           }
       });

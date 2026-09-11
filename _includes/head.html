@@ -95,6 +95,33 @@
 
   {%- include custom-head.html -%}
 
+  <!-- Native Cross-Document View Transitions & Instant Preloader Fade -->
+  <style>
+    @view-transition {
+      navigation: auto;
+    }
+    ::view-transition-old(root) {
+      animation: 100ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+    }
+    ::view-transition-new(root) {
+      animation: 160ms cubic-bezier(0, 0, 0.2, 1) both fade-in;
+    }
+    @keyframes fade-out {
+      to { opacity: 0; }
+    }
+    @keyframes fade-in {
+      from { opacity: 0; }
+    }
+    .preloader {
+      transition: opacity 0.2s ease, visibility 0.2s ease !important;
+    }
+    .preloader.loaded {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+  </style>
+
   <!-- Instant Prefetch: Speculative hover loading -->
   <script src="{{ 'assets/js/instant-prefetch.js' | relative_url }}" defer></script>
 </head>
