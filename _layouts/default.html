@@ -130,7 +130,34 @@
           opacity: 0 !important;
           transition: opacity 0.08s ease !important;
       }
+
+      /* Transition Entry Ripple Overlay (when returning from Agent View) */
+      #transition-overlay-classic {
+          position: fixed;
+          bottom: 30px;
+          right: 32px;
+          left: auto;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: #101010;
+          z-index: 9999999;
+          transform: scale(80);
+          transform-origin: center;
+          transition: transform 0.65s cubic-bezier(0.1, 0.9, 0.2, 1);
+          pointer-events: none;
+          display: none;
+      }
+      @media (max-width: 768px) {
+          #transition-overlay-classic {
+              bottom: max(75px, calc(env(safe-area-inset-bottom) + 70px));
+              right: 16px;
+          }
+      }
   </style>
+
+  <!-- Transition Entry Ripple Overlay (when returning from Agent View) -->
+  <div id="transition-overlay-classic"></div>
 
   <!-- Back to Top -->
   <a href="#" id="back-to-top" aria-label="Back to top">↑</a>
@@ -139,6 +166,20 @@
 
   <script>
       document.addEventListener('DOMContentLoaded', function() {
+          // Seamless Transition Entry Animation when returning from Agent View
+          if (window.location.search.includes('from=agent')) {
+              const transOverlay = document.getElementById('transition-overlay-classic');
+              if (transOverlay) {
+                  transOverlay.style.display = 'block';
+                  // Force repaint
+                  transOverlay.offsetHeight;
+                  transOverlay.style.transform = 'scale(0)';
+                  setTimeout(() => {
+                      transOverlay.remove();
+                  }, 700);
+              }
+          }
+
           const bubble = document.querySelector('.ai-chat-bubble');
           if (bubble) {
               bubble.addEventListener('click', function(e) {

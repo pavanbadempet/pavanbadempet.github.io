@@ -428,8 +428,9 @@
     /* Classic View Floating Bubble Trigger (Mirrors Agent View Bubble) */
     .classic-floating-bubble {
       position: fixed;
-      bottom: 28px !important;
+      bottom: 30px !important;
       right: 32px !important;
+      left: auto !important;
       background: #4bffa5;
       color: #101010;
       width: 60px;
@@ -470,15 +471,29 @@
     .classic-floating-bubble:hover {
       width: 175px;
       justify-content: flex-start;
-      padding-left: 18px;
-      transform: translateY(-4px);
+      padding-left: 20px;
+      transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(75, 255, 165, 0.6);
       color: #101010;
     }
     .classic-floating-bubble:hover .classic-bubble-label {
       max-width: 115px;
       opacity: 1;
-      margin-left: 8px;
+      margin-left: 10px;
+    }
+
+    /* Seamless Expanding State for the Button itself (Exact mirror of AI chat bubble transition) */
+    .classic-floating-bubble.expanding {
+      transform: scale(80) !important;
+      background: #101010 !important;
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      z-index: 9999999 !important;
+      box-shadow: none !important;
+    }
+    .classic-floating-bubble.expanding .classic-bubble-icon,
+    .classic-floating-bubble.expanding .classic-bubble-label {
+      opacity: 0 !important;
+      transition: opacity 0.08s ease !important;
     }
   </style>
 </head>
@@ -498,12 +513,12 @@
   </main>
 
   <!-- Classic View Floating Bubble Trigger (Mirroring Agent View in Classic layout) -->
-  <a href="{{ '/classic/' | relative_url }}" class="classic-floating-bubble"
+  <a href="{{ '/classic/' | relative_url }}?from=agent" class="classic-floating-bubble"
     title="Switch to Classic View" aria-label="Switch to Classic View">
     <span class="classic-bubble-icon">
       <svg viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 14px; display: block;">
-        <path d="M25 8C22 5 15 5 10 9.5C5.5 13.5 5.5 16.5 10 20.5C15 25 22 25 25 22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-        <path d="M35 6L43 24L51 6" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M25 8C22 5 15 5 10 9.5C5.5 13.5 5.5 16.5 10 20.5C15 25 22 25 25 22" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M35 6L43 24L51 6" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </span>
     <span class="classic-bubble-label">Classic View</span>
@@ -609,6 +624,23 @@
         setTimeout(() => {
           transOverlay.remove();
         }, 700);
+      }
+
+      // Seamless Expanding Transition for the Classic View Button
+      const classicBubble = document.querySelector('.classic-floating-bubble');
+      if (classicBubble) {
+        classicBubble.addEventListener('click', function(e) {
+          e.preventDefault();
+          const href = this.getAttribute('href');
+          
+          // Expand the button swiftly
+          this.classList.add('expanding');
+          
+          // Navigate to Classic page smoothly
+          setTimeout(() => {
+            window.location.href = href;
+          }, 180);
+        });
       }
 
       setTimeout(function() {
