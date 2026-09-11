@@ -31,12 +31,15 @@
         var needMermaid = !!document.querySelector('.mermaid');
         var needSocialShare = !!document.querySelector('.social-share');
 
-        // Load jQuery first, then all jQuery-dependent scripts in parallel
-        loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
+        // Load jQuery first, then all jQuery-dependent scripts in parallel (local-first for instant loading)
+        loadScript("{{ 'assets/js/jquery.min.js' | relative_url }}")
+            .catch(function () {
+                return loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js");
+            })
             .then(function () {
                 // All scripts here run AFTER jQuery is ready
                 var coreAfterJquery = [
-                    loadScript("https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"),
+                    loadScript("{{ 'assets/js/jquery.magnific-popup.js' | relative_url }}"),
                     loadScript("{{ 'assets/js/typed.js' | relative_url }}"),
                     loadScript("{{ 'assets/js/grained.js' | relative_url }}"),
                     loadScript("{{ 'assets/js/data-particles.js' | relative_url }}")
@@ -52,12 +55,12 @@
                 if (needPortfolio) {
                     coreAfterJquery.push(
                         loadScript("{{ 'assets/js/imagesloaded.pkgd.js' | relative_url }}"),
-                        loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"),
+                        loadScript("{{ 'assets/js/isotope.pkgd.js' | relative_url }}"),
                         loadScript("{{ 'assets/js/simpleParallax.js' | relative_url }}")
                     );
                 }
                 if (needSwiper) {
-                    coreAfterJquery.push(loadScript("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"));
+                    coreAfterJquery.push(loadScript("{{ 'assets/js/swiper.js' | relative_url }}"));
                 }
                 if (needSocialShare) {
                     coreAfterJquery.push(loadScript("{{ 'assets/js/rrssb.js' | relative_url }}"));

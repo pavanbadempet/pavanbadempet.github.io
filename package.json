@@ -12,6 +12,7 @@
         "worker:deploy": "bunx wrangler deploy --config cloudflare-worker/portfolio-ai/wrangler.toml",
         "worker:ingest": "bun run scripts/ingest-vectorize.ts",
         "worker:test": "bun test tests/worker.test.ts",
+        "validate": "bun run scripts/validate-site.ts .",
         "test": "bun test"
     },
     "repository": {
