@@ -13,7 +13,9 @@ const requiredFiles = [
   'assets/wasm/rust_wasm_engine.wasm',
   'assets/js/wasm-bridge.js',
   'assets/js/ai-engine.js',
+  'assets/js/marked.min.js',
   'assets/Pavan_Badempet_Resume.pdf',
+  'assets/img/pavan_badempet.webp',
 ];
 
 let errors = 0;

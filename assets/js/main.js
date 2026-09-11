@@ -5,7 +5,11 @@
 (function ($) {
 	'use strict';
 
-	window.onpageshow = function (event) { if (event.persisted) { window.location.reload() } };
+	window.addEventListener('pageshow', function (event) {
+		if (event.persisted) {
+			$('.preloader').hide();
+		}
+	});
 
 	$(window).on("load", function () {
 

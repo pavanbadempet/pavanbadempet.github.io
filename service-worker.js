@@ -1,10 +1,20 @@
-const CACHE_NAME = 'pavan-portfolio-v4';
+const CACHE_NAME = 'pavan-portfolio-v5';
 
-// Precache only URLs that exist on the built site; failed entries no longer break install.
+// Core assets to pre-cache on install for instant loading
 const PRECACHE_URLS = [
     '/',
+    '/classic/',
+    '/agent/',
     '/assets/css/style.css',
-    '/assets/js/main.js'
+    '/assets/css/premium-os.css',
+    '/assets/css/magnific-popup.css',
+    '/assets/js/main.js',
+    '/assets/js/jquery.min.js',
+    '/assets/js/wasm-bridge.js',
+    '/assets/js/marked.min.js',
+    '/assets/wasm/rust_wasm_engine.wasm',
+    '/assets/img/pavan_badempet.webp',
+    '/site.webmanifest'
 ];
 
 self.addEventListener('install', event => {
@@ -20,40 +30,84 @@ self.addEventListener('install', event => {
     self.skipWaiting();
 });
 
-self.addEventListener('fetch', event => {
-    // Only handle GET requests; skip non-HTTP(S) schemes
-    if (event.request.method !== 'GET') return;
-    const url = event.request.url;
-    if (!url.startsWith('http')) return;
-
-    event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                if (response) return response;
-                return fetch(event.request).catch(() => {
-                    // Network failed (offline, blocked, etc.) — return a no-body
-                    // response so the browser doesn't log an unhandled rejection.
-                    // Use 200 with empty body to avoid "503" noise in DevTools.
-                    return new Response('', {
-                        status: 200,
-                        headers: { 'Content-Type': 'text/plain' }
-                    });
-                });
-            })
-    );
-});
-
 self.addEventListener('activate', event => {
-    const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
                 cacheNames.map(cacheName => {
-                    if (cacheWhitelist.indexOf(cacheName) === -1) {
+                    if (cacheName !== CACHE_NAME) {
                         return caches.delete(cacheName);
                     }
                 })
             );
         }).then(() => self.clients.claim())
+    );
+});
+
+self.addEventListener('fetch', event => {
+    const request = event.request;
+    if (request.method !== 'GET') return;
+
+    const url = new URL(request.url);
+    if (!url.protocol.startsWith('http')) return;
+
+    // Skip caching external API / worker endpoints
+    if (url.hostname.includes('workers.dev') || url.hostname.includes('google-analytics.com')) {
+        return;
+    }
+
+    // Navigation requests (HTML pages): Network-First, fall back to cache
+    if (request.mode === 'navigate') {
+        event.respondWith(
+            fetch(request)
+                .then(networkResponse => {
+                    if (networkResponse && networkResponse.status === 200) {
+                        const copy = networkResponse.clone();
+                        caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+                    }
+                    return networkResponse;
+                })
+                .catch(async () => {
+                    const cachedResponse = await caches.match(request);
+                    if (cachedResponse) return cachedResponse;
+                    return caches.match('/');
+                })
+        );
+        return;
+    }
+
+    // Static assets (CSS, JS, WASM, Images, Fonts): Stale-While-Revalidate
+    const isStaticAsset = /\.(css|js|wasm|webp|png|jpg|jpeg|svg|ico|woff|woff2|ttf|eot)$/i.test(url.pathname);
+
+    if (isStaticAsset) {
+        event.respondWith(
+            caches.open(CACHE_NAME).then(cache => {
+                return cache.match(request).then(cachedResponse => {
+                    const fetchPromise = fetch(request).then(networkResponse => {
+                        if (networkResponse && networkResponse.status === 200) {
+                            cache.put(request, networkResponse.clone());
+                        }
+                        return networkResponse;
+                    }).catch(() => null);
+
+                    // Return cached response immediately if available, otherwise wait for network
+                    return cachedResponse || fetchPromise.then(res => res || new Response('', { status: 404 }));
+                });
+            })
+        );
+        return;
+    }
+
+    // Default Cache-First fallback
+    event.respondWith(
+        caches.match(request).then(cached => {
+            return cached || fetch(request).then(response => {
+                if (response && response.status === 200) {
+                    const copy = response.clone();
+                    caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+                }
+                return response;
+            }).catch(() => new Response('', { status: 404 }));
+        })
     );
 });

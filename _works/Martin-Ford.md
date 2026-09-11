@@ -3,7 +3,7 @@ title: Martin Ford
 category: Books
 category_slug: f-books
 type: image
-image: assets/img/works/martinford.png
+image: assets/img/works/martinford.webp
 ---
 
 Books:

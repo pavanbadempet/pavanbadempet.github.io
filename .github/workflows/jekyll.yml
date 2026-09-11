@@ -46,6 +46,9 @@ jobs:
       - name: Enrich AI Chunks via Bun (Native Zero-Copy I/O)
         run: bun run scripts/enrich-ai-chunks.mjs _site/ai_chunks.json
 
+      - name: Optimize Built Site with Bun (Minify HTML & Async Images)
+        run: bun run scripts/optimize-site.ts _site
+
       - name: Validate Site Integrity with Bun (< 50ms)
         run: bun run scripts/validate-site.ts _site
 

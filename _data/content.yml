@@ -4,7 +4,7 @@
 
 ### About [ about ]
 about:
-  image: "assets/img/pavan_badempet.png"
+  image: "assets/img/pavan_badempet.webp"
   image_alt: "Pavan Badempet - Data Engineer"
   text: "<p>Data Engineer with 3 years of experience building high-throughput distributed ETL data pipelines, Medallion Lakehouse platforms, and on-prem/cloud infrastructure across BFSI (Nomura Capital) and Automotive (Nissan) domains. Proficient in Python, SQL and PySpark performance tuning, dimensional modeling, workflow orchestration using Airflow and AutoSys, and data platform modernization with Databricks, AWS and Gen AI Integrated Development.</p>"
 
