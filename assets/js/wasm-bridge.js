@@ -39,6 +39,17 @@
         const wasmModule = await WebAssembly.instantiate(bytes, {});
         this.wasm = wasmModule.instance.exports;
         this.isReady = true;
+
+        // Pre-allocate persistent zero-copy scratch buffers in Wasm heap to eliminate allocations in tight loops
+        this.scratchQueryCap = 512;
+        this.scratchTextCap = 4096;
+        this.scratchQueryPtr = this.wasm.wasm_alloc(this.scratchQueryCap);
+        this.scratchTextPtr = this.wasm.wasm_alloc(this.scratchTextCap);
+
+        this.scratchVecCap = 1024;
+        this.scratchVecAPtr = this.wasm.wasm_alloc(this.scratchVecCap * 4);
+        this.scratchVecBPtr = this.wasm.wasm_alloc(this.scratchVecCap * 4);
+
         return true;
       } catch (err) {
         console.warn('[Rust Wasm Engine] Failed to initialize Wasm engine, using fallback:', err);
@@ -63,22 +74,25 @@
 
       try {
         const len = Math.min(vecA.length, vecB.length);
-        const byteSize = len * 4;
 
+        if (len <= this.scratchVecCap && this.scratchVecAPtr && this.scratchVecBPtr) {
+          const memA = new Float32Array(this.wasm.memory.buffer, this.scratchVecAPtr, len);
+          const memB = new Float32Array(this.wasm.memory.buffer, this.scratchVecBPtr, len);
+          memA.set(vecA.subarray(0, len));
+          memB.set(vecB.subarray(0, len));
+          return this.wasm.cosine_similarity(this.scratchVecAPtr, this.scratchVecBPtr, len);
+        }
+
+        const byteSize = len * 4;
         const ptrA = this.wasm.wasm_alloc(byteSize);
         const ptrB = this.wasm.wasm_alloc(byteSize);
-
         const memA = new Float32Array(this.wasm.memory.buffer, ptrA, len);
         const memB = new Float32Array(this.wasm.memory.buffer, ptrB, len);
-
         memA.set(vecA.subarray(0, len));
         memB.set(vecB.subarray(0, len));
-
         const score = this.wasm.cosine_similarity(ptrA, ptrB, len);
-
         this.wasm.wasm_dealloc(ptrA, byteSize);
         this.wasm.wasm_dealloc(ptrB, byteSize);
-
         return score;
       } catch (e) {
         return 0;
@@ -100,24 +114,25 @@
       }
 
       try {
-        // Limit string size to prevent large allocations in tight loops
-        const safeQuery = query.slice(0, 128);
-        const safeText = text.slice(0, 512);
+        const safeQuery = query.length > 128 ? query.slice(0, 128) : query;
+        const safeText = text.length > 1024 ? text.slice(0, 1024) : text;
 
         const queryBytes = this.encoder.encode(safeQuery);
         const textBytes = this.encoder.encode(safeText);
 
+        if (queryBytes.length <= this.scratchQueryCap && textBytes.length <= this.scratchTextCap && this.scratchQueryPtr && this.scratchTextPtr) {
+          new Uint8Array(this.wasm.memory.buffer, this.scratchQueryPtr, queryBytes.length).set(queryBytes);
+          new Uint8Array(this.wasm.memory.buffer, this.scratchTextPtr, textBytes.length).set(textBytes);
+          return this.wasm.fast_text_score(this.scratchQueryPtr, queryBytes.length, this.scratchTextPtr, textBytes.length);
+        }
+
         const queryPtr = this.wasm.wasm_alloc(queryBytes.length);
         const textPtr = this.wasm.wasm_alloc(textBytes.length);
-
         new Uint8Array(this.wasm.memory.buffer, queryPtr, queryBytes.length).set(queryBytes);
         new Uint8Array(this.wasm.memory.buffer, textPtr, textBytes.length).set(textBytes);
-
         const score = this.wasm.fast_text_score(queryPtr, queryBytes.length, textPtr, textBytes.length);
-
         this.wasm.wasm_dealloc(queryPtr, queryBytes.length);
         this.wasm.wasm_dealloc(textPtr, textBytes.length);
-
         return score;
       } catch (e) {
         return 0;
@@ -135,12 +150,15 @@
 
       try {
         const textBytes = this.encoder.encode(text);
-        const textPtr = this.wasm.wasm_alloc(textBytes.length);
+        if (textBytes.length <= this.scratchTextCap && this.scratchTextPtr) {
+          new Uint8Array(this.wasm.memory.buffer, this.scratchTextPtr, textBytes.length).set(textBytes);
+          return this.wasm.estimate_tokens(this.scratchTextPtr, textBytes.length);
+        }
 
+        const textPtr = this.wasm.wasm_alloc(textBytes.length);
         new Uint8Array(this.wasm.memory.buffer, textPtr, textBytes.length).set(textBytes);
         const count = this.wasm.estimate_tokens(textPtr, textBytes.length);
         this.wasm.wasm_dealloc(textPtr, textBytes.length);
-
         return count;
       } catch (e) {
         return Math.ceil(text.length / 4);

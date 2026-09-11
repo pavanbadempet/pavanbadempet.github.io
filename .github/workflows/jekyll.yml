@@ -32,13 +32,19 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Bun (Ultra-Fast JS/TS Runtime)
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: '22'
+          bun-version: latest
 
-      - name: Enrich AI chunks (overlapping splits for BM25)
-        run: node scripts/enrich-ai-chunks.mjs _site/ai_chunks.json
+      - name: Verify Rust WebAssembly Engine
+        run: cargo test --manifest-path rust-wasm-engine/Cargo.toml
+
+      - name: Run Fast Bun Tests (Wasm Benchmark)
+        run: bun test tests/wasm_benchmark.test.ts
+
+      - name: Enrich AI Chunks via Bun (Native Zero-Copy I/O)
+        run: bun run scripts/enrich-ai-chunks.mjs _site/ai_chunks.json
 
       - name: Test Site (HTML Proofer)
         run: |
