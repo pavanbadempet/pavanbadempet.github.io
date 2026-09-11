@@ -47,28 +47,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .agent-header a.classic-btn {
-      color: rgba(255, 255, 255, 0.75);
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 6px 14px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      transition: all 0.25s ease;
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(10px);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .agent-header a.classic-btn:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(75, 255, 165, 0.4);
-    }
-
     .agent-main {
       flex: 1;
       min-height: 0;
@@ -378,10 +356,6 @@
       .agent-header .logo {
         font-size: 1.15rem !important;
       }
-      .agent-header a.classic-btn {
-        font-size: 0.76rem !important;
-        padding: 5px 10px !important;
-      }
       body.agent-layout .command-palette-modal {
         padding: 0 12px !important;
       }
@@ -515,9 +489,6 @@
 
   <header class="agent-header">
     <div class="logo">PAVAN<span>.AI</span></div>
-    <a href="{{ '/classic/' | relative_url }}" class="classic-btn">
-      <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Classic View
-    </a>
   </header>
 
   <main class="agent-main">
