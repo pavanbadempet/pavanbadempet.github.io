@@ -12,6 +12,7 @@ const PRECACHE_URLS = [
     '/assets/js/jquery.min.js',
     '/assets/js/wasm-bridge.js',
     '/assets/js/marked.min.js',
+    '/assets/js/instant-prefetch.js',
     '/assets/wasm/rust_wasm_engine.wasm',
     '/assets/img/pavan_badempet.webp',
     '/site.webmanifest'

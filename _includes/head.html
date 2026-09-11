@@ -69,8 +69,6 @@
   </noscript>
 
   <!-- Other non-critical CSS: deferred -->
-  <link rel="stylesheet" href="{{ 'assets/css/animate.css' | relative_url }}"
-    media="print" onload="this.media='all'">
   <link rel="stylesheet" href="{{ 'assets/css/magnific-popup.css' | relative_url }}"
     media="print" onload="this.media='all'">
   <link rel="stylesheet" href="{{ 'assets/css/jarallax.css' | relative_url }}"
@@ -97,4 +95,6 @@
 
   {%- include custom-head.html -%}
 
+  <!-- Instant Prefetch: Speculative hover loading -->
+  <script src="{{ 'assets/js/instant-prefetch.js' | relative_url }}" defer></script>
 </head>
