@@ -319,88 +319,6 @@ permalink: /intro/
       background: rgba(56, 189, 248, 0.15);
     }
 
-    /* Floating Presentation Deck Controls (Bottom Center) */
-    .floating-deck-controls {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 990;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: rgba(16, 22, 34, 0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(75, 255, 165, 0.3);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(75, 255, 165, 0.15);
-      border-radius: 50px;
-      padding: 0.45rem 0.85rem;
-      transition: all 0.3s ease;
-    }
-    .floating-deck-controls:hover {
-      border-color: rgba(75, 255, 165, 0.5);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(75, 255, 165, 0.25);
-    }
-    .deck-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #f8fafc;
-      font-family: var(--font-heading);
-      font-size: 0.84rem;
-      font-weight: 600;
-      padding: 0.5rem 1.15rem;
-      border-radius: 100px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      user-select: none;
-    }
-    .deck-btn:hover:not(:disabled) {
-      background: rgba(75, 255, 165, 0.18);
-      border-color: var(--accent-mint);
-      color: #fff;
-      transform: translateY(-1px);
-    }
-    .deck-btn:active:not(:disabled) {
-      transform: translateY(1px);
-    }
-    .deck-btn:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-    .deck-indicator {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0 0.85rem;
-      min-width: 150px;
-      user-select: none;
-    }
-    .deck-step {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--accent-mint);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .deck-title {
-      font-family: var(--font-heading);
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      max-width: 240px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: center;
-    }
-
     /* In-Page Act Advance Callouts */
     .act-advance-bar {
       margin-top: 3.5rem;
@@ -1509,16 +1427,6 @@ permalink: /intro/
       .hud-tag { display: none; }
       .hud-btn span, .hud-exit-btn span { display: none; }
       .hud-right .hud-btn { padding: 0.35rem 0.55rem; }
-      .floating-deck-controls {
-        bottom: 16px;
-        padding: 0.4rem 0.6rem;
-        gap: 0.5rem;
-        width: calc(100% - 1.5rem);
-        max-width: 360px;
-        justify-content: space-between;
-      }
-      .deck-title { display: none; }
-      .deck-btn { padding: 0.45rem 0.85rem; font-size: 0.78rem; }
       .act-advance-bar { justify-content: center; }
       .act-advance-btn { width: 100%; justify-content: center; }
     }
@@ -2169,24 +2077,6 @@ permalink: /intro/
   </main>
 
   <!-- ==========================================================================
-       FLOATING PRESENTATION DECK CONTROLS (BOTTOM CENTER)
-       ========================================================================== -->
-  <div class="floating-deck-controls" id="floating-deck-controls" aria-label="Presentation Deck Controls">
-    <button type="button" class="deck-btn deck-nav-btn" id="deck-prev-btn" title="Previous Act (Left Arrow / Up Arrow)" aria-label="Previous Act" disabled>
-      <i class="fas fa-chevron-left"></i>
-      <span class="deck-btn-label">Back</span>
-    </button>
-    <div class="deck-indicator" id="deck-indicator">
-      <span class="deck-step" id="deck-act-num">Act 01 / 07</span>
-      <span class="deck-title" id="deck-act-title">IDENTITY & ELEVATOR PITCH</span>
-    </div>
-    <button type="button" class="deck-btn deck-nav-btn" id="deck-next-btn" title="Next Act (Right Arrow / Space / Down Arrow)" aria-label="Next Act">
-      <span class="deck-btn-label">Forward</span>
-      <i class="fas fa-chevron-right"></i>
-    </button>
-  </div>
-
-  <!-- ==========================================================================
        PRESENTER NOTES BOTTOM BAR
        ========================================================================== -->
   <div class="presenter-notes-bar" id="presenter-notes-bar">
@@ -2422,10 +2312,6 @@ spark.conf.set("spark.sql.autoBroadcastJoinThreshold", 104857600) // 100MB
 
     const hudPrevBtn = document.getElementById('hud-prev-btn');
     const hudNextBtn = document.getElementById('hud-next-btn');
-    const deckPrevBtn = document.getElementById('deck-prev-btn');
-    const deckNextBtn = document.getElementById('deck-next-btn');
-    const deckActNum = document.getElementById('deck-act-num');
-    const deckActTitle = document.getElementById('deck-act-title');
 
     function updateActDisplays(index) {
       currentActIndex = Math.max(0, Math.min(totalActs - 1, index));
@@ -2433,27 +2319,17 @@ spark.conf.set("spark.sql.autoBroadcastJoinThreshold", 104857600) // 100MB
       if (!act) return;
 
       const actNumStr = String(currentActIndex + 1).padStart(2, '0');
-      const totalStr = String(totalActs).padStart(2, '0');
       const actTitle = act.getAttribute('data-act-title') || '';
 
       // Update HUD counter and title
       if (hudCounterCur) hudCounterCur.textContent = actNumStr;
       if (hudActName) hudActName.innerHTML = actTitle;
 
-      // Update Floating Deck Controls
-      if (deckActNum) deckActNum.textContent = `Act ${actNumStr} / ${totalStr}`;
-      if (deckActTitle) {
-        const cleanTitle = actTitle.replace(/ACT\s*\d+\s*\/\/\s*/i, '').replace(/<[^>]*>/g, '').trim();
-        deckActTitle.textContent = cleanTitle;
-      }
-
-      // Update Prev / Next button states
+      // Update Prev / Next button states in HUD
       const isFirst = (currentActIndex === 0);
       const isLast = (currentActIndex === totalActs - 1);
       if (hudPrevBtn) hudPrevBtn.disabled = isFirst;
-      if (deckPrevBtn) deckPrevBtn.disabled = isFirst;
       if (hudNextBtn) hudNextBtn.disabled = isLast;
-      if (deckNextBtn) deckNextBtn.disabled = isLast;
 
       // Update Speaker Notes target
       const actNotes = act.getAttribute('data-speaker-notes');
@@ -2483,8 +2359,6 @@ spark.conf.set("spark.sql.autoBroadcastJoinThreshold", 104857600) // 100MB
 
     if (hudPrevBtn) hudPrevBtn.addEventListener('click', () => window.navigateToNextAct(-1));
     if (hudNextBtn) hudNextBtn.addEventListener('click', () => window.navigateToNextAct(1));
-    if (deckPrevBtn) deckPrevBtn.addEventListener('click', () => window.navigateToNextAct(-1));
-    if (deckNextBtn) deckNextBtn.addEventListener('click', () => window.navigateToNextAct(1));
 
     function onScroll() {
       const totalScrollHeight = document.documentElement.scrollHeight - window.innerHeight;

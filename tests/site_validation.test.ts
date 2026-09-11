@@ -62,12 +62,10 @@ test("Bun post-build optimizer compresses HTML and ensures async decoding", asyn
 test("Interview Pitch presentation deck controls and timer verification", () => {
   const introHtml = readFileSync("intro/index.html", "utf8");
   
-  // Navigation & Floating controls
-  expect(introHtml.includes('id="floating-deck-controls"')).toBeTrue();
-  expect(introHtml.includes('id="deck-prev-btn"')).toBeTrue();
-  expect(introHtml.includes('id="deck-next-btn"')).toBeTrue();
-  expect(introHtml.includes('id="deck-act-num"')).toBeTrue();
-  expect(introHtml.includes('id="deck-act-title"')).toBeTrue();
+  // Floating controls removed to prevent covering bottom content
+  expect(introHtml.includes('id="floating-deck-controls"')).toBeFalse();
+  expect(introHtml.includes('id="deck-prev-btn"')).toBeFalse();
+  expect(introHtml.includes('id="deck-next-btn"')).toBeFalse();
 
   // Top HUD controls
   expect(introHtml.includes('class="hud-deck-nav"')).toBeTrue();
