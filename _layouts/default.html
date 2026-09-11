@@ -52,15 +52,18 @@
           bottom: 30px !important;
           right: 100px !important; /* Uniform across ALL pages on desktop to clear vertical socials */
           left: auto !important; /* Force override left position from cmd-trigger */
-          background: #4bffa5;
-          color: #101010;
+          background: rgba(16, 16, 16, 0.75) !important;
+          backdrop-filter: blur(12px) !important;
+          -webkit-backdrop-filter: blur(12px) !important;
+          border: 1px solid rgba(75, 255, 165, 0.35) !important;
+          color: #4bffa5 !important;
           width: 60px;
           height: 60px;
           border-radius: 30px;
-          display: flex;
+          display: flex !important;
           align-items: center;
           justify-content: center; /* Centered by default */
-          box-shadow: 0 4px 20px rgba(75, 255, 165, 0.4), 0 0 0 1px rgba(75, 255, 165, 0.2);
+          box-shadow: 0 0 20px rgba(75, 255, 165, 0.25), 0 4px 15px rgba(0, 0, 0, 0.5) !important;
           z-index: 9999;
           transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2);
           overflow: hidden;
@@ -74,6 +77,7 @@
           justify-content: center;
           flex-shrink: 0;
           transition: opacity 0.15s ease;
+          color: #4bffa5 !important;
       }
       .ai-bubble-label {
           max-width: 0;
@@ -86,18 +90,23 @@
           transition: max-width 0.4s ease, opacity 0.3s ease, margin-left 0.4s ease;
           font-family: 'Space Grotesk', 'Inter', sans-serif;
           flex-shrink: 0;
+          color: #4bffa5 !important;
       }
       .ai-chat-bubble:hover {
           width: 165px;
           justify-content: flex-start; /* Left-align content when expanded */
           padding-left: 20px; /* Indent content when expanded */
           transform: translateY(-5px);
-          box-shadow: 0 8px 25px rgba(75, 255, 165, 0.6);
+          background: rgba(75, 255, 165, 0.12) !important;
+          border-color: #4bffa5 !important;
+          color: #4bffa5 !important;
+          box-shadow: 0 0 30px rgba(75, 255, 165, 0.5), 0 6px 20px rgba(0, 0, 0, 0.6) !important;
       }
       .ai-chat-bubble:hover .ai-bubble-label {
           max-width: 100px;
           opacity: 1;
           margin-left: 10px;
+          color: #4bffa5 !important;
       }
 
       /* Uniform Back-to-Top Button across ALL pages (sits cleanly to the left of the AI bubble) */
@@ -135,7 +144,7 @@
       #transition-overlay-classic {
           position: fixed;
           bottom: 30px;
-          right: 32px;
+          right: 100px;
           left: auto;
           width: 60px;
           height: 60px;
