@@ -2,6 +2,7 @@
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
+[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-ea4aaa.svg?logo=github)](https://github.com/sponsors/pavanbadempet)
 ![Jekyll](https://img.shields.io/badge/built%20with-Jekyll-red)
 
 A professional, responsive personal portfolio website of Pavan Badempet showcasing Data Engineering projects, technical skills, and architecture diagrams.
