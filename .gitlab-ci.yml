@@ -1,0 +1,28 @@
+image: ruby:3.1
+
+variables:
+  JEKYLL_ENV: production
+  LC_ALL: C.UTF-8
+
+cache:
+  key: jekyll-bundle
+  paths:
+    - vendor/bundle
+
+pages:
+  stage: deploy
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq unzip
+    - bundle config set --local path 'vendor/bundle'
+    - bundle install --jobs $(nproc)
+    - (curl -fsSL https://bun.sh/install | bash) || true
+    - export PATH="$HOME/.bun/bin:$PATH"
+  script:
+    - bundle exec jekyll build --config _config.yml,_config.gitlab.yml -d public
+    - if command -v bun >/dev/null 2>&1 && [ -f scripts/enrich-ai-chunks.mjs ]; then bun run scripts/enrich-ai-chunks.mjs public/ai_chunks.json; fi
+    - if command -v bun >/dev/null 2>&1 && [ -f scripts/optimize-site.ts ]; then bun run scripts/optimize-site.ts public; fi
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
