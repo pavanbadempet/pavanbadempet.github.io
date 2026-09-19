@@ -19,9 +19,11 @@ github:
 social:
   name: "Pavan Badempet"
   links:
+    - "https://gitlab.com/pavanbadempet"
+    - "https://huggingface.co/pavan9b"
+    - "https://linkedin.com/in/pavanbadempet"
     - "https://twitter.com/pavanbadempet"
     - "https://github.com/pavanbadempet"
-    - "https://linkedin.com/in/pavanbadempet"
 date_format: "%d %B %Y"
 
 # paginations & permalinks
