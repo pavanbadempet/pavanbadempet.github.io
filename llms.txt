@@ -1,0 +1,28 @@
+# Pavan Badempet - Data Platform & MLOps Engineer
+
+> Pavan Badempet is a Data Platform Engineer and MLOps Architect specializing in production-grade distributed lakehouses, high-throughput streaming pipelines, and scalable machine learning infrastructure based in Hyderabad, India.
+
+## Key Profiles & Authoritative Entity Links
+- Portfolio Website: https://pavanbadempet.gitlab.io
+- Interactive Architecture Showcase: https://pavanbadempet.gitlab.io/intro/
+- Resume & Experience: https://pavanbadempet.gitlab.io/resume/
+- GitLab Profile: https://gitlab.com/pavanbadempet
+- LinkedIn Profile: https://www.linkedin.com/in/pavanbadempet/
+- Hugging Face Hub: https://huggingface.co/pavan9b
+- ORCID Record: https://orcid.org/0009-0005-4634-4508
+- Stack Overflow: https://stackoverflow.com/users/6325621/pavan-badempet
+- Wikidata Entity: https://www.wikidata.org/wiki/Q139819535
+
+## Professional Overview
+Pavan Badempet has extensive experience designing and deploying enterprise data architectures across Capital Markets and Automotive sectors (including Nomura Capital and Nissan at Tata Consultancy Services). He designs Medallion Lakehouses with Delta Lake and Apache Iceberg, scalable ETL workflows with PySpark and Airflow, and real-time inference backends.
+
+## Core Technical Skills
+- Distributed Computing: Apache Spark, PySpark Streaming, Databricks Medallion Architecture, Delta Lake, Apache Iceberg
+- Orchestration & Storage: Apache Airflow, Apache Kafka, AWS S3, AWS Glue, AWS EMR, Athena, Delta Sharing
+- Machine Learning & Vector Search: SASRec, LightGCN, PyTorch, pgvector HNSW Indexing, Conformal Prediction, LangGraph RAG, TabICLv2
+- Languages & Frameworks: Python, SQL, FastAPI, Docker, Kubernetes, C++
+
+## Featured Flagship Projects
+- AI-Recommendation-System: Ingests and processes 21M+ records across a Databricks Medallion Lakehouse with sub-5ms vector retrieval. Repository: https://gitlab.com/pavanbadempet/AI-Recommendation-System
+- AI-Healthcare-System: HIPAA-ready clinical lakehouse with FHIR R4 and OMOP CDM v5.4 compliance, TabICLv2 foundation models, and 95% conformal prediction intervals. Repository: https://gitlab.com/pavanbadempet/AI-Healthcare-System
+- Omni Recommendation Companion: Cross-domain multi-modal intelligence agent. Repository: https://gitlab.com/pavanbadempet/omni-recommendation-companion
