@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pavanbadempet.github.io/sitemap.xml
+Sitemap: https://pavanbadempet.gitlab.io/sitemap.xml
