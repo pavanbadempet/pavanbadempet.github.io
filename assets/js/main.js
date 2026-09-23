@@ -5,30 +5,7 @@
 (function ($) {
 	'use strict';
 
-	window.addEventListener('pageshow', function (event) {
-		if (event.persisted) {
-			$('.preloader').hide();
-		}
-	});
-
-	function hidePreloader() {
-		var preload = $('.preloader');
-		if (preload.length) {
-			preload.addClass('loaded');
-			setTimeout(function () {
-				preload.hide();
-			}, 200);
-		}
-		$('.lines').addClass('finish ready');
-	}
-
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', hidePreloader);
-	} else {
-		hidePreloader();
-	}
-	$(window).on("load", hidePreloader);
-	setTimeout(hidePreloader, 350);
+	$('.lines').addClass('finish ready');
 
 	$(window).on("load", function () {
 

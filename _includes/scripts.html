@@ -40,10 +40,19 @@
                 // All scripts here run AFTER jQuery is ready
                 var coreAfterJquery = [
                     loadScript("{{ 'assets/js/jquery.magnific-popup.js' | relative_url }}"),
-                    loadScript("{{ 'assets/js/typed.js' | relative_url }}"),
-                    loadScript("{{ 'assets/js/grained.js' | relative_url }}"),
-                    loadScript("{{ 'assets/js/data-particles.js' | relative_url }}")
+                    loadScript("{{ 'assets/js/typed.js' | relative_url }}")
                 ];
+
+                // Defer background canvas particles to idle time so page loads with zero lag
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(function () {
+                        loadScript("{{ 'assets/js/data-particles.js' | relative_url }}");
+                    });
+                } else {
+                    setTimeout(function () {
+                        loadScript("{{ 'assets/js/data-particles.js' | relative_url }}");
+                    }, 300);
+                }
 
                 if (needJarallax) {
                     coreAfterJquery.push(

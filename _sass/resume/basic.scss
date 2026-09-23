@@ -65,35 +65,9 @@ body.scroll_hidden {
 	}
 }
 
-/* - Preloader */
+/* - Preloader (Disabled for Instant Zero-Latency Rendering) */
 .preloader {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	text-align: center;
-	z-index: 11111;
-	.spinner {
-		position: absolute;
-		left: 50%;
-		top: 0;
-		width: 1px;
-		height: 100%;
-		.double-bounce1, .double-bounce2 {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-		.double-bounce2 {
-			background: rgba(255,255,255,0.5);
-			height: 0;
-			-webkit-animation: loading 2.0s infinite ease-in-out;
-			animation: loading 2.0s infinite ease-in-out;
-		}
-	}
+	display: none !important;
 }
 
 /* - Container */
