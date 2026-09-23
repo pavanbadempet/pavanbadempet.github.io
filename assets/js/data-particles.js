@@ -39,15 +39,15 @@
     // Configuration
     const isMobile = window.innerWidth < 768;
     const config = {
-        particleCount: isMobile ? 18 : 32,
-        connectionDistance: 110,
-        connectionDistanceSq: 110 * 110,
-        mouseDistance: 140,
-        mouseDistanceSq: 140 * 140,
-        particleColor: 'rgba(75, 255, 165, 0.6)',
-        lineColorPrefix: 'rgba(75, 255, 165, ',
-        particleSpeed: isMobile ? 0.25 : 0.35,
-        mouseRepelForce: 2.0
+        particleCount: isMobile ? 12 : 20,
+        connectionDistance: 95,
+        connectionDistanceSq: 95 * 95,
+        mouseDistance: 120,
+        mouseDistanceSq: 120 * 120,
+        particleColor: 'rgba(75, 255, 165, 0.55)',
+        lineColor: 'rgba(75, 255, 165, 0.16)',
+        particleSpeed: isMobile ? 0.22 : 0.3,
+        mouseRepelForce: 1.8
     };
 
     // Cached Mouse Coordinates & Canvas Offset
@@ -63,7 +63,7 @@
         canvasRect.top = rect.top + window.scrollY;
     }
 
-    window.addEventListener('scroll', updateCanvasRect, { passive: true });
+    // Container document offset only changes on resize
     window.addEventListener('resize', () => {
         resize();
         updateCanvasRect();
@@ -146,7 +146,7 @@
 
     function createParticles() {
         particles = [];
-        const count = isMobile ? 35 : 65;
+        const count = config.particleCount;
         for (let i = 0; i < count; i++) {
             particles.push(new Particle());
         }
@@ -168,7 +168,10 @@
 
         const len = particles.length;
 
-        // Draw connections with squared distance checks
+        // Batch draw connections in a single draw call for 60/120fps
+        ctx.beginPath();
+        ctx.strokeStyle = config.lineColor;
+        ctx.lineWidth = 0.75;
         for (let i = 0; i < len; i++) {
             const p1 = particles[i];
             for (let j = i + 1; j < len; j++) {
@@ -178,16 +181,12 @@
                 const distSq = dx * dx + dy * dy;
 
                 if (distSq < config.connectionDistanceSq) {
-                    const alpha = (1 - (distSq / config.connectionDistanceSq)) * 0.25;
-                    ctx.beginPath();
-                    ctx.strokeStyle = config.lineColorPrefix + alpha.toFixed(3) + ')';
-                    ctx.lineWidth = 0.8;
                     ctx.moveTo(p1.x, p1.y);
                     ctx.lineTo(p2.x, p2.y);
-                    ctx.stroke();
                 }
             }
         }
+        ctx.stroke();
 
         // Update and draw particles
         for (let i = 0; i < len; i++) {

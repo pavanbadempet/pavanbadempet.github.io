@@ -166,19 +166,6 @@
 
   <script>
       document.addEventListener('DOMContentLoaded', function() {
-          // Smooth 60fps GPU Fade when transitioning
-          if (window.location.search.includes('from=agent')) {
-              const transOverlay = document.getElementById('transition-overlay-classic');
-              if (transOverlay) {
-                  transOverlay.style.display = 'block';
-                  requestAnimationFrame(() => {
-                      requestAnimationFrame(() => {
-                          transOverlay.style.opacity = '0';
-                          setTimeout(() => transOverlay.remove(), 400);
-                      });
-                  });
-              }
-          }
 
           const bubble = document.querySelector('.ai-chat-bubble');
           if (bubble) {

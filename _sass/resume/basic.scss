@@ -23,6 +23,7 @@
 /* - Basic */
 html {
 	margin-right: 0!important;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -128,105 +129,22 @@ body.scroll_hidden {
 	width: 1000%;
 }
 
-.lines .line-col:nth-child(1):before {
-	-o-transition-delay: 2.9s;
-	-webkit-transition-delay: 2.9s;
-	transition-delay: 2.9s;
-}
-
-.lines .line-col:nth-child(1):after {
-	top: 0;
-	bottom: auto;
-	-webkit-transition-delay: 0.9s;
-	-o-transition-delay: 0.9s;
-	transition-delay: 0.9s;
-}
-
-.lines .line-col:nth-child(2):before {
-	-o-transition-delay: 2.7s;
-	-webkit-transition-delay: 2.7s;
-	transition-delay: 2.7s;
-}
-
-.lines .line-col:nth-child(2):after {
-	top: auto;
-	bottom: 0;
-	-webkit-transition-delay: 0.7s;
-	-o-transition-delay: 0.7s;
-	transition-delay: 0.7s;
-}
-
-.lines .line-col:nth-child(3):before {
-	-o-transition-delay: 2.2s;
-	-webkit-transition-delay: 2.2s;
-	transition-delay: 2.2s;
-}
-
-.lines .line-col:nth-child(3):after {
-	top: 0;
-	bottom: auto;
-	-webkit-transition-delay: 0.2s;
-	-o-transition-delay: 0.2s;
-	transition-delay: 0.2s;
-}
-
-.lines .line-col:nth-child(4):before {
-	-o-transition-delay: 2.5s;
-	-webkit-transition-delay: 2.5s;
-	transition-delay: 2.5s;
-}
-
-.lines .line-col:nth-child(4):after {
-	top: auto;
-	bottom: 0;
-	-webkit-transition-delay: 0.5s;
-	-o-transition-delay: 0.5s;
-	transition-delay: 0.5s;
-}
-
-.lines .line-col:nth-child(5):before {
-	-o-transition-delay: 3s;
-	-webkit-transition-delay: 3s;
-	transition-delay: 3s;
-}
-
-.lines .line-col:nth-child(5):after {
-	top: 0;
-	bottom: auto;
-	-webkit-transition-delay: 1s;
-	-o-transition-delay: 1s;
-	transition-delay: 1s;
-}
-
 .lines .line-col:before {
 	content: '';
 	position: absolute;
 	left: 0;
 	top: 0;
 	width: 1px;
-	height: 0%;
+	height: 100%;
 	background: $lines_color;
-	@include transition(height 1s cubic-bezier(0.165, 0.85, 0.45, 1) 0s);
 }
 
 .lines .line-col:after {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background: $extra_bg;
-	z-index: 12;
-	@include transition(height 1s cubic-bezier(0.165, 0.85, 0.45, 1) 0s);
+	display: none !important;
 }
 
 .lines.finish .line-col:before {
 	height: 100%;
-}
-
-.lines.finish .line-col:after {
-	height: 0%;
 }
 
 .lines.ready {
