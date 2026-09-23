@@ -11,9 +11,9 @@ settings:
 ### Portfolio Filters Settings
 portfolio:
   filters:
-    - name: "Projects"
-      slug: "f-content"
+    - name: "Data Engineering"
+      slug: "f-data-eng"
 
-    - name: "Books"
-      slug: "f-books"
+    - name: "AI & Analytics"
+      slug: "f-ai-ml"
 

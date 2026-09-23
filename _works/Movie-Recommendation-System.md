@@ -1,7 +1,7 @@
 ---
 title: AI Recommendation Engine
-category: Content
-category_slug: f-content
+category: Data Engineering
+category_slug: f-data-eng
 type: content
 image: assets/img/works/mrsbup.png
 description: "Batch and real-time ingestion flows with PySpark & Structured Streaming on Databricks for 20M+ records, Delta Lake checkpointing, and FastAPI vector retrieval."

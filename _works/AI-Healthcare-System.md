@@ -1,7 +1,7 @@
 ---
 title: AI Healthcare System
-category: Content
-category_slug: f-content
+category: Data Engineering
+category_slug: f-data-eng
 type: content
 image: assets/img/works/hs.png
 description: "Designed Batch and Streaming ETL workflows handling 1M+ records using Delta Lake Medallion Architecture and SCD Type 2 modeling, with FastAPI, PostgreSQL, Airflow, Docker, and RAG."
