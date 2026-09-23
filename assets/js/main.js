@@ -5,7 +5,16 @@
 (function ($) {
 	'use strict';
 
-	$('.lines').addClass('finish ready');
+	function initLines() {
+		requestAnimationFrame(function () {
+			$('.lines').addClass('finish ready');
+		});
+	}
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initLines);
+	} else {
+		initLines();
+	}
 
 	$(window).on("load", function () {
 

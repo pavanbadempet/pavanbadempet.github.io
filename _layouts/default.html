@@ -140,23 +140,36 @@
           transition: opacity 0.08s ease !important;
       }
 
-      /* Clean 60fps GPU-Accelerated Transition Overlay */
+      /* Seamless Circular Ripple Transition Overlay (GPU Accelerated) */
       #transition-overlay-classic {
           position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background: #050505;
+          bottom: 30px;
+          right: 100px;
+          left: auto;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: #101010;
           z-index: 9999999;
-          opacity: 1;
+          transform: scale(80) translateZ(0);
+          transform-origin: center;
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
           pointer-events: none;
-          transition: opacity 0.35s ease-out;
           display: none;
+          will-change: transform;
+          backface-visibility: hidden;
+      }
+      @media (max-width: 768px) {
+          #transition-overlay-classic {
+              bottom: 20px;
+              right: 20px;
+              width: 50px;
+              height: 50px;
+          }
       }
   </style>
 
-  <!-- Transition Overlay -->
+  <!-- Transition Entry Ripple Overlay -->
   <div id="transition-overlay-classic"></div>
 
   <!-- Back to Top -->
@@ -166,6 +179,21 @@
 
   <script>
       document.addEventListener('DOMContentLoaded', function() {
+          // Seamless Circular Ripple Transition when returning from Agent View
+          if (window.location.search.includes('from=agent')) {
+              const transOverlay = document.getElementById('transition-overlay-classic');
+              if (transOverlay) {
+                  transOverlay.style.display = 'block';
+                  requestAnimationFrame(() => {
+                      requestAnimationFrame(() => {
+                          transOverlay.style.transform = 'scale(0) translateZ(0)';
+                          setTimeout(() => {
+                              transOverlay.remove();
+                          }, 650);
+                      });
+                  });
+              }
+          }
 
           const bubble = document.querySelector('.ai-chat-bubble');
           if (bubble) {
@@ -179,7 +207,7 @@
                   // Navigate to the next page smoothly
                   setTimeout(() => {
                       window.location.href = href;
-                  }, 180);
+                  }, 200);
               });
           }
       });
