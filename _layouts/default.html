@@ -140,32 +140,23 @@
           transition: opacity 0.08s ease !important;
       }
 
-      /* Transition Entry Ripple Overlay (when returning from Agent View) */
+      /* Clean 60fps GPU-Accelerated Transition Overlay */
       #transition-overlay-classic {
           position: fixed;
-          bottom: 30px;
-          right: 100px;
-          left: auto;
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-          background: #101010;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: #050505;
           z-index: 9999999;
-          transform: scale(80);
-          transform-origin: center;
-          transition: transform 0.65s cubic-bezier(0.1, 0.9, 0.2, 1);
+          opacity: 1;
           pointer-events: none;
+          transition: opacity 0.35s ease-out;
           display: none;
-      }
-      @media (max-width: 768px) {
-          #transition-overlay-classic {
-              bottom: max(75px, calc(env(safe-area-inset-bottom) + 70px));
-              right: 16px;
-          }
       }
   </style>
 
-  <!-- Transition Entry Ripple Overlay (when returning from Agent View) -->
+  <!-- Transition Overlay -->
   <div id="transition-overlay-classic"></div>
 
   <!-- Back to Top -->
@@ -175,17 +166,17 @@
 
   <script>
       document.addEventListener('DOMContentLoaded', function() {
-          // Seamless Transition Entry Animation when returning from Agent View
+          // Smooth 60fps GPU Fade when transitioning
           if (window.location.search.includes('from=agent')) {
               const transOverlay = document.getElementById('transition-overlay-classic');
               if (transOverlay) {
                   transOverlay.style.display = 'block';
-                  // Force repaint
-                  transOverlay.offsetHeight;
-                  transOverlay.style.transform = 'scale(0)';
-                  setTimeout(() => {
-                      transOverlay.remove();
-                  }, 700);
+                  requestAnimationFrame(() => {
+                      requestAnimationFrame(() => {
+                          transOverlay.style.opacity = '0';
+                          setTimeout(() => transOverlay.remove(), 400);
+                      });
+                  });
               }
           }
 

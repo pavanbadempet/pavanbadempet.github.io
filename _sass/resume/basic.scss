@@ -56,21 +56,7 @@ body.scroll_hidden {
 }
 
 .cursor-follower {
-	margin: -13px 0 0 -13px;
-	position: absolute;
-	background: $active_color;
-	width: 26px;
-	height: 26px;
-	-webkit-transition: transform 1s cubic-bezier(0.02, 1.2, 0.8, 1), opacity 0.25s ease;
-	transition: transform 1s cubic-bezier(0.02, 1.2, 0.8, 1), opacity 0.25s ease;
-	opacity: 0.4;
-	z-index: 1111;
-	pointer-events: none;
-	@include border-radius(50%);
-}
-
-.cursor-follower.hide {
-	opacity: 0!important;
+	display: none !important;
 }
 
 @media (max-width: 1199px) {

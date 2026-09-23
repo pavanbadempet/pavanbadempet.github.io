@@ -39,15 +39,15 @@
     // Configuration
     const isMobile = window.innerWidth < 768;
     const config = {
-        particleCount: isMobile ? 35 : 65,
-        connectionDistance: 130,
-        connectionDistanceSq: 130 * 130,
-        mouseDistance: 160,
-        mouseDistanceSq: 160 * 160,
-        particleColor: 'rgba(75, 255, 165, 0.65)',
+        particleCount: isMobile ? 18 : 32,
+        connectionDistance: 110,
+        connectionDistanceSq: 110 * 110,
+        mouseDistance: 140,
+        mouseDistanceSq: 140 * 140,
+        particleColor: 'rgba(75, 255, 165, 0.6)',
         lineColorPrefix: 'rgba(75, 255, 165, ',
-        particleSpeed: isMobile ? 0.3 : 0.45,
-        mouseRepelForce: 2.5
+        particleSpeed: isMobile ? 0.25 : 0.35,
+        mouseRepelForce: 2.0
     };
 
     // Cached Mouse Coordinates & Canvas Offset

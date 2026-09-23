@@ -329,21 +329,18 @@
       display: none !important;
     }
 
-    /* Seamless Transition Overlay Style */
+    /* Seamless GPU-Accelerated Transition Overlay */
     #transition-overlay {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      left: auto;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       background: #050505;
       z-index: 9999999;
-      transform: scale(80);
-      transform-origin: center;
-      transition: transform 0.65s cubic-bezier(0.1, 0.9, 0.2, 1);
+      opacity: 1;
       pointer-events: none;
+      transition: opacity 0.35s ease-out;
     }
 
     /* ========================================================
@@ -404,12 +401,6 @@
         width: 36px !important;
         height: 36px !important;
         min-width: 36px !important;
-      }
-      #transition-overlay {
-        bottom: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
       }
 
       .classic-floating-bubble {
@@ -617,19 +608,17 @@
     })();
 
     document.addEventListener('DOMContentLoaded', function() {
-      // Seamless Transition Entry Animation
+      // Smooth 60fps GPU Transition Entry Animation
       const transOverlay = document.getElementById('transition-overlay');
       if (transOverlay) {
-        // Adjust collapse origin if coming from home layout (button was shifted left to clear socials)
-        if (window.location.search.includes('from=home') && window.innerWidth > 720) {
-          transOverlay.style.right = '100px';
-        }
-        // Force repaint
-        transOverlay.offsetHeight;
-        transOverlay.style.transform = 'scale(0)';
-        setTimeout(() => {
-          transOverlay.remove();
-        }, 700);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            transOverlay.style.opacity = '0';
+            setTimeout(() => {
+              transOverlay.remove();
+            }, 350);
+          });
+        });
       }
 
       // Seamless Expanding Transition for the Classic View Button

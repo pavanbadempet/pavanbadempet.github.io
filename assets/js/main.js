@@ -141,13 +141,7 @@
 			});
 		}
 
-		/*
-			Refresh Scroll
-		*/
-		function scroll_refresh() {
-			$(window).scrollTop($(window).scrollTop() + 1);
-		}
-		setTimeout(scroll_refresh, 100);
+
 
 	});
 
@@ -195,32 +189,7 @@
 		}, 1000);
 	}
 
-	/*
-		Cursor Effects
-	*/
-	if (width > 1199) {
-		$(document).on('mousemove', function (e) {
-			var x = e.pageX;
-			var y = e.pageY;
-			var newposX = x;
-			var newposY = y;
-			$('.cursor-follower').css('transform', 'translate3d(' + newposX + 'px,' + newposY + 'px,0px)');
-		});
-		$('a, .btn-group').on({
-			mouseenter: function (e) {
-				cursor_over();
-			},
-			mouseleave: function (e) {
-				cursor_out();
-			}
-		});
-	}
-	function cursor_over() {
-		$(".cursor-follower").stop().animate({ width: 86, height: 86, opacity: 0.1, margin: '-43px 0 0 -43px' }, 500);
-	}
-	function cursor_out() {
-		$(".cursor-follower").stop().animate({ width: 26, height: 26, opacity: 0.4, margin: '-13px 0 0 -13px' }, 500);
-	}
+
 
 	/*
 		Hover Masks
