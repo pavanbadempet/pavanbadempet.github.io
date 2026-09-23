@@ -22,8 +22,8 @@ about:
     - label: "LinkedIn"
       value: "<a href='https://linkedin.com/in/pavanbadempet'>pavanbadempet</a>"
 
-    - label: "GitHub"
-      value: "<a href='https://github.com/pavanbadempet'>pavanbadempet</a>"
+    - label: "GitLab"
+      value: "<a href='https://gitlab.com/pavanbadempet' target='_blank'>pavanbadempet</a>"
 
   download:
     text: "Download Resume"

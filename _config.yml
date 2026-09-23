@@ -14,7 +14,7 @@ image: "https://pavanbadempet.github.io/assets/img/pavan.png"
 twitter:
   card: summary_large_image
   username: "pavanbadempet"
-github:
+gitlab:
   username: "pavanbadempet"
 social:
   name: "Pavan Badempet"
@@ -23,7 +23,6 @@ social:
     - "https://huggingface.co/pavan9b"
     - "https://linkedin.com/in/pavanbadempet"
     - "https://twitter.com/pavanbadempet"
-    - "https://github.com/pavanbadempet"
 date_format: "%d %B %Y"
 
 # paginations & permalinks

@@ -10,4 +10,5 @@ His technical toolkit spans **Python, Apache Spark, PySpark, Spark SQL, Databric
 
 ### Connect
 - **LinkedIn:** [linkedin.com/in/pavanbadempet](https://linkedin.com/in/pavanbadempet)
-- **GitHub:** [github.com/pavanbadempet](https://github.com/pavanbadempet)
+- **GitLab:** [gitlab.com/pavanbadempet](https://gitlab.com/pavanbadempet)
+- **Hugging Face:** [huggingface.co/pavan9b](https://huggingface.co/pavan9b)

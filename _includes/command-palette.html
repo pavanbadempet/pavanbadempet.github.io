@@ -109,8 +109,8 @@
         "contractVersion": {{ site.ai_contract_version | default: 'portfolio-ai-v2' | jsonify }},
         "email": {{ site.email | jsonify }},
         "phone": {{ site.phone | jsonify }},
-        "calendlyLink": {{ site.calendly_link | jsonify }},
-        "githubLink": "https://github.com/{{ site.github.username }}",
+        "githubLink": "https://gitlab.com/{{ site.gitlab.username | default: 'pavanbadempet' }}",
+        "gitlabLink": "https://gitlab.com/{{ site.gitlab.username | default: 'pavanbadempet' }}",
         "linkedinLink": "https://linkedin.com/in/pavanbadempet",
         "aiFacts": {% if site.data.ai_facts %}{{ site.data.ai_facts | jsonify }}{% else %}null{% endif %}
     }

@@ -18,7 +18,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/pavanbadempet/pavanbadempet.github.io.git"
+        "url": "git+https://gitlab.com/pavanbadempet/pavanbadempet.gitlab.io.git"
     },
     "keywords": [
         "data-engineering",
@@ -29,8 +29,8 @@
     "author": "Pavan Badempet <pavan9b@gmail.com>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/pavanbadempet/pavanbadempet.github.io/issues"
+        "url": "https://gitlab.com/pavanbadempet/pavanbadempet.gitlab.io/-/issues"
     },
-    "homepage": "https://pavanbadempet.github.io",
+    "homepage": "https://pavanbadempet.gitlab.io",
     "private": true
 }

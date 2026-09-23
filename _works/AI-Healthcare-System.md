@@ -5,7 +5,7 @@ category_slug: f-content
 type: content
 image: assets/img/works/hs.png
 description: "Designed Batch and Streaming ETL workflows handling 1M+ records using Delta Lake Medallion Architecture and SCD Type 2 modeling, with FastAPI, PostgreSQL, Airflow, Docker, and RAG."
-button_url: https://github.com/pavanbadempet/AI-Healthcare-System
+button_url: https://gitlab.com/pavanbadempet/AI-Healthcare-System
 demo_url: https://ai-healthcare-system.streamlit.app
 tags: [python, pyspark, databricks, delta-lake, airflow, postgresql, docker, rag]
 ---

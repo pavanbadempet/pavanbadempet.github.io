@@ -4,16 +4,17 @@
   Location: Hyderabad, Telangana, India
   Email: pavan9b@gmail.com
   LinkedIn: https://linkedin.com/in/pavanbadempet
-  GitHub: https://github.com/pavanbadempet
-  Site: https://pavanbadempet.github.io
+  GitLab: https://gitlab.com/pavanbadempet
+  Hugging Face: https://huggingface.co/pavan9b
+  Site: https://pavanbadempet.gitlab.io
 
 /* SITE */
-  Last Updated: 2026/05/16
+  Last Updated: 2026/09/23
   Language: English
   Standards: HTML5, CSS3, ES6, JSON-LD, Schema.org
   Components: Jekyll, SCSS, jQuery, Particles.js, typed.js
-  Hosted: GitHub Pages
+  Hosted: GitLab Pages
 
 /* THANKS */
   Jekyll — https://jekyllrb.com
-  GitHub Pages — https://pages.github.com
+  GitLab Pages — https://pages.gitlab.io
