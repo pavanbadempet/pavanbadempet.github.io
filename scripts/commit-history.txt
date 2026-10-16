@@ -134,7 +134,7 @@ c75a943a4e4c5d339f6141836ed4420fd3102705|2024-03-25|Update Martin Ford.md
 6a92f840cab8aaae0add53fea1ac41ab00c4f8be|2024-03-26|Update Martin Ford.md
 b62e0de149c3e0ba6d0eac7fc406b1b330350242|2024-03-26|Merge pull request #4 from pavanbadempet/imgbot
 04a4544678d6c88f543c8ede592a66619b6086ef|2024-03-26|Update Martin Ford.md
-ad169da4090b99e0a92c007d220087db1a4f41a7|2024-03-26|Merge branch 'main' of https://github.com/pavanbadempet/pavanbadempet.github.io
+ad169da4090b99e0a92c007d220087db1a4f41a7|2024-03-26|Merge branch 'main' of https://gitlab.com/pavan9b/pavanbadempet.github.io
 e6f5e08eea26daf96e82cfd640f1e0a99e593fe5|2024-03-26|Update Martin Ford.md
 1ebdc4278a3ae54260c2f3f20e94aaae9cf796c8|2024-03-26|Update Martin Ford.md
 f71e6c925f688962709a78497589875643ee3c52|2024-03-26|Update Martin Ford.md
@@ -426,7 +426,7 @@ de150a9cc068bdaa2bf8e82a7772c8accd1ef1bf|2024-04-22|Update 2024-04-13-551-Studen
 ec216b2a2e757ca65b4e88058bc02737d5cb3c87|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
 ed5dbfc028928185b40a99eac1368dda5f66ef63|2024-04-22|Merge pull request #50 from pavanbadempet/Test
 520480f5c53ced9fd4c4f61e0d35724c68747c0d|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
-1d2692bda9a48347446138b888985e2411309397|2024-04-22|Merge branch 'main' of https://github.com/pavanbadempet/pavanbadempet.github.io
+1d2692bda9a48347446138b888985e2411309397|2024-04-22|Merge branch 'main' of https://gitlab.com/pavan9b/pavanbadempet.github.io
 c7b002ae120d8c107523392544894f348b9c0596|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
 aa02738afd816ceb68103bfc1b0cac12505f304c|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
 b2d871d0887551628f33bf9266936f07b6384cfb|2024-04-22|Update 2024-04-13-551-Student-Attendance-Record-I.md
