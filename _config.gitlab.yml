@@ -1,4 +1,4 @@
 # GitLab Pages specific configuration override
-url: "https://pavanbadempet.gitlab.io"
+url: "https://pavanbadempet.github.io"
 baseurl: ""
-image: "https://pavanbadempet.gitlab.io/assets/img/pavan_badempet.png"
+image: "https://pavanbadempet.github.io/assets/img/pavan_badempet.png"
