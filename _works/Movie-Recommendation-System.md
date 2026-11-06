@@ -1,11 +1,11 @@
----
+﻿---
 title: AI Recommendation Engine
 category: Data Engineering
 category_slug: f-data-eng
 type: content
 image: assets/img/works/mrsbup.png
 description: "Batch and real-time ingestion flows with PySpark & Structured Streaming on Databricks for 20M+ records, Delta Lake checkpointing, and FastAPI vector retrieval."
-button_url: https://gitlab.com/pavanbadempet/Movie-Recommendation-System
+button_url: https://github.com/pavanbadempet/AI-Recommendation-System
 demo_url: https://movie-recommendation-system.streamlit.app
 tags: [python, pyspark, databricks, structured-streaming, delta-lake, airflow, fastapi]
 ---

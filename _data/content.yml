@@ -1,4 +1,4 @@
-# Sections content configuration file
+﻿# Sections content configuration file
 ### use navigation.yml file to re-order, delete or add section of each card
 ### here you can find all content in all pre-build sections
 
@@ -22,6 +22,8 @@ about:
     - label: "LinkedIn"
       value: "<a href='https://linkedin.com/in/pavanbadempet'>pavanbadempet</a>"
 
+    - label: "GitHub"
+      value: "<a href='https://github.com/pavanbadempet' target='_blank'>pavanbadempet</a>"
     - label: "GitLab"
       value: "<a href='https://gitlab.com/pavanbadempet' target='_blank'>pavanbadempet</a>"
 
@@ -34,7 +36,7 @@ resume:
   experience:
     title: "Experience"
     items:
-      - year: "Nov 2023 – Present"
+      - year: "Nov 2023 â€“ Present"
         name: "Data Engineer - Tata Consultancy Services"
         text1: "<b>Nomura Capital:</b> Architected scalable batch extraction and transformation jobs using Spark and Spark SQL inside an Apache Iceberg Medallion Lakehouse at Nomura Capital, handling 1B+ records per month and serving 200K+ analytical queries daily."
         text2: "Optimized distributed computation via Adaptive Query Execution, broadcast joins, dynamic partition pruning, caching, and shuffle tuning, reducing SLA-bound runtime by 30%."
@@ -47,12 +49,12 @@ resume:
   education:
     title: "Education"
     items:
-      - year: "Aug 2019 – Sep 2023"
+      - year: "Aug 2019 â€“ Sep 2023"
         college: "<b>Institution:</b> Guru Nanak Institutions Technical Campus"
         degree: "<b>Degree:</b> Bachelor of Technology in Computer Science and Engineering"
         major: "<b>Minor:</b> AI/ML | <b>Grade:</b> CGPA 8.2/10 (First Class with Distinction)"
         macgpa: "<b>Minor Grade:</b> CGPA 8.6/10"
-        macoursework: "<b>Scholarship:</b> Prime Minister’s Scholarship (PMSS)"
+        macoursework: "<b>Scholarship:</b> Prime Ministerâ€™s Scholarship (PMSS)"
 
 ### Skills [ skills ]
 skills:
@@ -142,7 +144,7 @@ clients:
   items:
     - image: ""
       name: "Prime Minister's Scholarship Scheme (PMSS)"
-      role: "Awarded scholarship for academic excellence throughout Bachelor of Technology studies (2019 – 2023)."
+      role: "Awarded scholarship for academic excellence throughout Bachelor of Technology studies (2019 â€“ 2023)."
 
 ### Contact Info [ contacts-info ]
 contacts_info:

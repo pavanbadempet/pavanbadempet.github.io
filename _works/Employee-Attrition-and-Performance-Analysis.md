@@ -1,11 +1,11 @@
----
+﻿---
 title: Employee Attrition and Performance Analysis
 category: AI & Analytics
 category_slug: f-ai-ml
 type: content
 image: assets/img/works/eaapa.png
 description: "Data-driven employee attrition analysis using Power BI dashboards to identify turnover factors, visualize workforce trends, and generate actionable retention insights."
-button_url: https://gitlab.com/pavanbadempet
+button_url: https://github.com/pavanbadempet
 ---
 
 **Employee Attrition and Performance Analysis**

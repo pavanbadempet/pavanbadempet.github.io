@@ -1,11 +1,12 @@
-# Pavan Badempet - Data Platform & MLOps Engineer
+﻿# Pavan Badempet - Data Platform & MLOps Engineer
 
 > Pavan Badempet is a Data Platform Engineer and MLOps Architect specializing in production-grade distributed lakehouses, high-throughput streaming pipelines, and scalable machine learning infrastructure based in Hyderabad, India.
 
 ## Key Profiles & Authoritative Entity Links
-- Portfolio Website: https://pavanbadempet.gitlab.io
-- Interactive Architecture Showcase: https://pavanbadempet.gitlab.io/intro/
-- Resume & Experience: https://pavanbadempet.gitlab.io/resume/
+- Portfolio Website: https://pavanbadempet.github.io
+- Interactive Architecture Showcase: https://pavanbadempet.github.io/intro/
+- Resume & Experience: https://pavanbadempet.github.io/resume/
+- GitHub Profile: https://github.com/pavanbadempet
 - GitLab Profile: https://gitlab.com/pavanbadempet
 - LinkedIn Profile: https://www.linkedin.com/in/pavanbadempet/
 - Hugging Face Hub: https://huggingface.co/pavan9b
@@ -23,6 +24,7 @@ Pavan Badempet has extensive experience designing and deploying enterprise data 
 - Languages & Frameworks: Python, SQL, FastAPI, Docker, Kubernetes, C++
 
 ## Featured Flagship Projects
-- AI-Recommendation-System: Ingests and processes 21M+ records across a Databricks Medallion Lakehouse with sub-5ms vector retrieval. Repository: https://gitlab.com/pavanbadempet/AI-Recommendation-System
-- AI-Healthcare-System: HIPAA-ready clinical lakehouse with FHIR R4 and OMOP CDM v5.4 compliance, TabICLv2 foundation models, and 95% conformal prediction intervals. Repository: https://gitlab.com/pavanbadempet/AI-Healthcare-System
-- Omni Recommendation Companion: Cross-domain multi-modal intelligence agent. Repository: https://gitlab.com/pavanbadempet/omni-recommendation-companion
+- AI-Recommendation-System: Ingests and processes 21M+ records across a Databricks Medallion Lakehouse with sub-5ms vector retrieval. Repository: https://github.com/pavanbadempet/AI-Recommendation-System
+- AI-Healthcare-System: HIPAA-ready clinical lakehouse with FHIR R4 and OMOP CDM v5.4 compliance, TabICLv2 foundation models, and 95% conformal prediction intervals. Repository: https://github.com/pavanbadempet/AI-Healthcare-System
+- Omni Recommendation Companion: Cross-domain multi-modal intelligence agent. Repository: https://github.com/pavanbadempet/omni-recommendation-companion
+

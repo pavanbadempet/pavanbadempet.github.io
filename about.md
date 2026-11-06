@@ -1,4 +1,4 @@
----
+﻿---
 layout: page
 title: About
 description: "Pavan Badempet is a Data Engineer with 3 years of experience at Tata Consultancy Services, building high-throughput distributed ETL pipelines, Medallion Lakehouse platforms, and event-driven cloud systems."
@@ -10,5 +10,6 @@ His technical toolkit spans **Python, Apache Spark, PySpark, Spark SQL, Databric
 
 ### Connect
 - **LinkedIn:** [linkedin.com/in/pavanbadempet](https://linkedin.com/in/pavanbadempet)
+- **GitHub:** [github.com/pavanbadempet](https://github.com/pavanbadempet)
 - **GitLab:** [gitlab.com/pavanbadempet](https://gitlab.com/pavanbadempet)
 - **Hugging Face:** [huggingface.co/pavan9b](https://huggingface.co/pavan9b)
