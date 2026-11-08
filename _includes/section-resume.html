@@ -43,17 +43,20 @@
                     {% for item in content.education.items %}
                     <div class="resume-item content-box">
                         <div class="date">{{ item.year }}</div>
-                        <div class="college">{{ item.college }}</div>
-                        <div class="university">{{ item.university }}</div>
-                        <br>
-                        <div class="degree">{{ item.degree }}</div>
-                        <div class="major">{{ item.major }}</div>
-                        <div class="macgpa">{{ item.macgpa }}</div>
-                        <div class="macoursework">{{ item.macoursework }}</div>
-                        <br>
-                        <div class="minor">{{ item.minor }}</div>
-                        <div class="micgpa">{{ item.micgpa }}</div>
-                        <div class="micoursework">{{ item.micoursework }}</div>
+                        <div class="name">{{ item.name | default: item.degree }}</div>
+                        <ul>
+                            {% for key in item %}
+                            {% if key[0] contains 'text' %}
+                            <li>{{key[1] | markdownify}}</li>
+                            {% endif %}
+                            {% endfor %}
+                            {% unless item.text1 %}
+                            {% if item.college %}<li>{{ item.college }}</li>{% endif %}
+                            {% if item.major %}<li>{{ item.major }}</li>{% endif %}
+                            {% if item.macgpa %}<li>{{ item.macgpa }}</li>{% endif %}
+                            {% if item.macoursework %}<li>{{ item.macoursework }}</li>{% endif %}
+                            {% endunless %}
+                        </ul>
                     </div>
                     {% endfor %}
                 </div>

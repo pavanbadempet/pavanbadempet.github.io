@@ -36,7 +36,7 @@ resume:
   experience:
     title: "Experience"
     items:
-      - year: "Nov 2023 â€“ Present"
+      - year: "Nov 2023 – Present"
         name: "Data Engineer - Tata Consultancy Services"
         text1: "<b>Nomura Capital:</b> Architected scalable batch extraction and transformation jobs using Spark and Spark SQL inside an Apache Iceberg Medallion Lakehouse at Nomura Capital, handling 1B+ records per month and serving 200K+ analytical queries daily."
         text2: "Optimized distributed computation via Adaptive Query Execution, broadcast joins, dynamic partition pruning, caching, and shuffle tuning, reducing SLA-bound runtime by 30%."
@@ -49,12 +49,17 @@ resume:
   education:
     title: "Education"
     items:
-      - year: "Aug 2019 â€“ Sep 2023"
-        college: "<b>Institution:</b> Guru Nanak Institutions Technical Campus"
-        degree: "<b>Degree:</b> Bachelor of Technology in Computer Science and Engineering"
-        major: "<b>Minor:</b> AI/ML | <b>Grade:</b> CGPA 8.2/10 (First Class with Distinction)"
-        macgpa: "<b>Minor Grade:</b> CGPA 8.6/10"
-        macoursework: "<b>Scholarship:</b> Prime Ministerâ€™s Scholarship (PMSS)"
+      - year: "Aug 2019 – Sep 2023"
+        name: "Bachelor of Technology in Computer Science & Engineering"
+        college: "Guru Nanak Institutions Technical Campus"
+        degree: "Bachelor of Technology in Computer Science & Engineering"
+        major: "Minor in AI/ML"
+        macgpa: "CGPA 8.2/10 (First Class with Distinction)"
+        macoursework: "Prime Minister's Scholarship Scheme (PMSS)"
+        text1: "<b>Institution:</b> Guru Nanak Institutions Technical Campus"
+        text2: "<b>Grade:</b> CGPA 8.2/10 (First Class with Distinction)"
+        text3: "<b>Minor:</b> AI/ML (CGPA 8.6/10)"
+        text4: "<b>Scholarship:</b> Prime Minister's Scholarship Scheme (PMSS) for Academic Excellence"
 
 ### Skills [ skills ]
 skills:
@@ -144,7 +149,7 @@ clients:
   items:
     - image: ""
       name: "Prime Minister's Scholarship Scheme (PMSS)"
-      role: "Awarded scholarship for academic excellence throughout Bachelor of Technology studies (2019 â€“ 2023)."
+      role: "Awarded scholarship for academic excellence throughout Bachelor of Technology studies (2019 – 2023)."
 
 ### Contact Info [ contacts-info ]
 contacts_info:
@@ -184,4 +189,5 @@ services:
 
     - name: "GenAI & Vector Lakehouse Integration"
       text: "Deploying RAG pipelines, vector retrieval engines (FAISS, pgvector), and low-latency serving APIs using FastAPI, Docker, and Apache Airflow orchestration."
-      icon: "fas fa-brain"
+      icon: "fas fa-brain"
+
