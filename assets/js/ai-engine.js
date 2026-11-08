@@ -273,7 +273,8 @@
             '- Strictly limit responses to 2 short paragraphs unless a deep technical explanation is requested.\n' +
             '- Do NOT generate inline citations like [1] or [2] and do NOT write a "Sources" list at the bottom.\n' +
             '- ALWAYS end your response with exactly 2 or 3 highly strategic follow-up questions for the recruiter.\n' +
-            '- Format EACH follow-up question exactly like this on its own new line at the very end of your response: [SUGGESTION: the question here?].';
+            '- Format EACH follow-up question exactly like this on its own new line at the very end of your response: [SUGGESTION: the question here?].\n' +
+            '- SUGGESTION RULE: Focus follow-ups on Spark performance tuning, 1B+ Medallion Lakehouses, and AWS cloud pipelines. NEVER use specific enterprise client names in [SUGGESTION:...]; refer to them strictly by industry domain (e.g. Capital Markets Lakehouse, Automotive Cloud Platform).';
 
         return (
             '# ROLE\n' +

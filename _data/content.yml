@@ -102,6 +102,20 @@ skills:
 team:
   title: "Projects"
   items:
+    - name: "Enterprise Lakehouse & Spark DAG Tuning"
+      role: "PySpark, Apache Iceberg, Databricks, AWS, Kubernetes, MinIO, AQE"
+      text1: "Architected high-throughput batch extraction and transformation jobs processing 1B+ records per month across an Apache Iceberg Medallion Lakehouse, serving 200K+ analytical queries daily."
+      text2: "Optimized distributed computation via Adaptive Query Execution (AQE), broadcast hash joins, dynamic partition pruning, and skew salting, reducing SLA runtime by 30% and eliminating shuffle disk spill."
+      text3: "Migrated workloads from legacy YARN/HDFS to containerized Kubernetes with S3-compatible MinIO storage, cutting infrastructure spend by 25% with 99.9% pipeline on-time completion."
+      architecture_diagram: |
+        graph LR
+          subgraph Tuning["SPARK SHUFFLE & DAG OPTIMIZATION"]
+            RAW["Skewed Input (1B+ Rows)"] --> SMJ["BEFORE: SortMergeJoin<br/>(450GB Shuffle Spill / 75 min SLA)"]
+            RAW --> AQE["AFTER: AQE Dynamic Coalesce + Salting<br/>+ Broadcast Hash Join"]
+            AQE --> PERF["RESULT: 0GB Disk Spill<br/>(24 min SLA / 30% Latency Drop)"]
+          end
+          classDef modern fill:#1e1e1e,stroke:#4bffa5,stroke-width:2px;
+          class RAW,SMJ,AQE,PERF modern;
     - name: "AI Healthcare System"
       role: "Python, PySpark, Databricks, Delta Lake, Airflow, PostgreSQL, Docker, RAG"
       text1: "Designed Batch and Streaming ETL workflows handling 1M+ records using Delta Lake Medallion Architecture and SCD Type 2 modeling, optimizing partitioned storage and MERGE operations to reduce runtime by 40%."
