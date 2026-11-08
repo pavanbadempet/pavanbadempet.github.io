@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pavan-portfolio-v10';
+const CACHE_NAME = 'pavan-portfolio-v11';
 
 // Core assets to pre-cache on install for instant loading
 const PRECACHE_URLS = [
