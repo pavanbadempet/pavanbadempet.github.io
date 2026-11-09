@@ -27,7 +27,7 @@ sitemap: false
     "url": {{ '/resume/' | relative_url | jsonify }},
     "title": {{ exp.name | jsonify }},
     "category": "Experience",
-    "tags": "experience, job, work, tcs, nomura, nissan, data engineer",
+    "tags": "experience, job, work, tcs, capital markets, automotive, data engineer",
     "body": {{ exp.text1 | append: ' ' | append: exp.text2 | append: ' ' | append: exp.text3 | append: ' ' | append: exp.text4 | append: ' ' | append: exp.text5 | append: ' ' | append: exp.text6 | append: ' ' | append: exp.text7 | strip_html | jsonify }}
   }
 {% endfor %}

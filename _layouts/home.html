@@ -2,6 +2,14 @@
 layout: default
 ---
 
-{% assign type = page.type %}
-
-{% include section-home-{{ type }}.html %}
+{% if page.type == 'personal' %}
+{% include section-home-personal.html %}
+{% elsif page.type == 'image' %}
+{% include section-home-image.html %}
+{% elsif page.type == 'video' %}
+{% include section-home-video.html %}
+{% elsif page.type == 'slider' %}
+{% include section-home-slider.html %}
+{% else %}
+{% include section-home-default.html %}
+{% endif %}

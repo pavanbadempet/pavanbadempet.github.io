@@ -9,13 +9,13 @@ facts:
   contact_phone: "+917989256101"
   overview: >
     Data Engineer with 3 years of experience building high-throughput distributed ETL data pipelines,
-    Medallion Lakehouse platforms, and on-prem/cloud infrastructure across BFSI (Nomura Capital) and
-    Automotive (Nissan) domains. Proficient in Python, SQL and PySpark performance tuning, dimensional
+    Medallion Lakehouse platforms, and on-prem/cloud infrastructure across BFSI (Tier-1 Capital Markets) and
+    Automotive (Global OEM) domains. Proficient in Python, SQL and PySpark performance tuning, dimensional
     modeling, workflow orchestration using Airflow and AutoSys, and data platform modernization with
     Databricks, AWS and Gen AI Integrated Development.
   domains:
-    - "BFSI (Nomura Capital: 1B+ records/month, 200K+ queries/day, Apache Iceberg Medallion Lakehouse)"
-    - "Automotive (Nissan: 100K+ events daily, AWS Lambda, Step Functions, EventBridge, Streamlit)"
+    - "BFSI (Global Capital Markets: 1B+ records/month, 200K+ queries/day, Apache Iceberg Medallion Lakehouse)"
+    - "Automotive (Connected Vehicles OEM: 100K+ events daily, AWS Lambda, Step Functions, EventBridge, Streamlit)"
   stack_highlights:
     - "Languages: Python, Java, Scala, SQL"
     - "Big Data: Apache Spark, PySpark, Spark SQL, Databricks, Unity Catalog, Structured Streaming, Apache Iceberg, Delta Lake, Medallion Architecture, Dremio, MinIO, HDFS"
@@ -29,7 +29,7 @@ facts:
   education: "Bachelor of Technology in Computer Science & Engineering (CGPA 8.2/10, Minor in AI/ML CGPA 8.6/10), Guru Nanak Institutions Technical Campus. Prime Minister’s Scholarship (PMSS)."
   how_this_site_is_built: >
     This portfolio website and AI Copilot (Pavan.AI) were built entirely by Pavan Badempet using:
-    - Jekyll (Ruby static site generator) for framework and templating.
+    - Pure Bun + Rust WebAssembly static site generator for ultra-fast, zero-dependency sub-second builds.
     - Custom Vanilla CSS, HTML5, and JS for the responsive, glassmorphic layout and command palette.
     - In-Browser Rust WebAssembly (Wasm) Engine (rust_wasm_engine.wasm) for sub-millisecond vector math, Okapi BM25 scoring, and BPE token budgeting.
     - Client-side RAG (Retrieval-Augmented Generation) in pure JavaScript & Wasm (ai-engine.js) querying pre-computed JSON search index (ai_chunks.json) for sub-10ms context retrieval.

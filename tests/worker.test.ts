@@ -26,7 +26,7 @@ test("Cloudflare Worker generates grounded completion without AWS Glue hallucina
       messages: [
         {
           role: "system",
-          content: "You are Pavan's AI Copilot. Pavan's AWS stack is specifically S3, Lambda, Step Functions, EventBridge, and SNS at Nissan. Do not invent AWS Glue."
+          content: "You are Pavan's AI Copilot. Pavan's AWS stack is specifically S3, Lambda, Step Functions, EventBridge, and SNS for Automotive IoT & telemetry. Do not invent AWS Glue."
         },
         {
           role: "user",

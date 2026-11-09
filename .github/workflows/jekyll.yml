@@ -1,4 +1,4 @@
-name: Deploy Jekyll site to Pages
+name: Deploy Pure Bun + Rust site to Pages
 
 on:
   push:
@@ -20,34 +20,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1' # Not needed with bundler cache but good for safety
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: production
 
       - name: Setup Bun (Ultra-Fast JS/TS Runtime)
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
+      - name: Install Dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build Site with Pure Bun SSG
+        run: bun run build
+        env:
+          NODE_ENV: production
+
       - name: Verify Rust WebAssembly Engine
         run: cargo test --manifest-path rust-wasm-engine/Cargo.toml
 
       - name: Run Fast Bun Tests (Wasm Benchmark)
         run: bun test tests/wasm_benchmark.test.ts
-
-      - name: Enrich AI Chunks via Bun (Native Zero-Copy I/O)
-        run: bun run scripts/enrich-ai-chunks.mjs _site/ai_chunks.json
-
-      - name: Optimize Built Site with Bun (Minify HTML & Async Images)
-        run: bun run scripts/optimize-site.ts _site
 
       - name: Validate Site Integrity with Bun (< 50ms)
         run: bun run scripts/validate-site.ts _site

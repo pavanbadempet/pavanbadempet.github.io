@@ -6,7 +6,7 @@
 about:
   image: "assets/img/pavan_badempet.webp"
   image_alt: "Pavan Badempet - Data Engineer"
-  text: "<p>Data Engineer with 3 years of experience building high-throughput distributed ETL data pipelines, Medallion Lakehouse platforms, and on-prem/cloud infrastructure across BFSI (Nomura Capital) and Automotive (Nissan) domains. Proficient in Python, SQL and PySpark performance tuning, dimensional modeling, workflow orchestration using Airflow and AutoSys, and data platform modernization with Databricks, AWS and Gen AI Integrated Development.</p>"
+  text: "<p>Data Engineer with 3 years of experience building high-throughput distributed ETL data pipelines, Medallion Lakehouse platforms, and on-prem/cloud infrastructure across BFSI (Tier-1 Capital Markets) and Automotive (Global OEM) domains. Proficient in Python, SQL and PySpark performance tuning, dimensional modeling, workflow orchestration using Airflow and AutoSys, and data platform modernization with Databricks, AWS and Gen AI Integrated Development.</p>"
 
   list:
 
@@ -38,12 +38,12 @@ resume:
     items:
       - year: "Nov 2023 – Present"
         name: "Data Engineer - Tata Consultancy Services"
-        text1: "<b>Nomura Capital:</b> Architected scalable batch extraction and transformation jobs using Spark and Spark SQL inside an Apache Iceberg Medallion Lakehouse at Nomura Capital, handling 1B+ records per month and serving 200K+ analytical queries daily."
+        text1: "<b>Global Investment Banking Lakehouse:</b> Architected scalable batch extraction and transformation jobs using Spark and Spark SQL inside an Apache Iceberg Medallion Lakehouse, handling 1B+ records per month and serving 200K+ analytical queries daily."
         text2: "Optimized distributed computation via Adaptive Query Execution, broadcast joins, dynamic partition pruning, caching, and shuffle tuning, reducing SLA-bound runtime by 30%."
         text3: "Migrated workloads from legacy YARN and HDFS to Kubernetes with MinIO object storage, resolving dependency isolation challenges and lowering infrastructure spend by 25%."
         text4: "Spearheaded automation of orchestration schedules and deployment configurations, maintaining 99.9% on-time completion rate across 50+ recurring batch runs."
         text5: "Diagnosed failures via executor logs and DAG execution plans, constructed automated retries, fallback recovery handlers, and operational runbooks, cutting Mean Time to Recovery (MTTR) by 30%."
-        text6: "<b>Nissan:</b> Developed event-driven cloud capture solutions leveraging AWS Lambda, Step Functions, and EventBridge at Nissan, handling 100K+ events daily with idempotent delivery and schema validation via a Streamlit dashboard."
+        text6: "<b>Global Automotive Cloud Platform:</b> Developed event-driven cloud capture solutions leveraging AWS Lambda, Step Functions, and EventBridge, handling 100K+ events daily with idempotent delivery and schema validation via a Streamlit dashboard."
         text7: "Established programmatic quality validation rules and version-controlled table evolution handlers across 20+ source systems, improving output reliability to 99.5% for downstream consumers."
 
   education:

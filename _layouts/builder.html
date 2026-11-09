@@ -40,5 +40,16 @@ layout: default
 {% assign sections = page.sections | split: "," %}
 
 {% for section in sections %}
-{% include section-{{ section }}.html %}
+{% if section == 'about' %}{% include section-about.html %}
+{% elsif section == 'services' %}{% include section-services.html %}
+{% elsif section == 'resume' %}{% include section-resume.html %}
+{% elsif section == 'team' %}{% include section-team.html %}
+{% elsif section == 'skills' %}{% include section-skills.html %}
+{% elsif section == 'text' %}{% include section-text.html %}
+{% elsif section == 'contacts-info' %}{% include section-contacts-info.html %}
+{% elsif section == 'contacts-form' %}{% include section-contacts-form.html %}
+{% elsif section == 'architecture' %}{% include section-architecture.html %}
+{% elsif section == 'clients' %}{% include section-clients.html %}
+{% elsif section == 'facts' %}{% include section-facts.html %}
+{% endif %}
 {% endfor %}
