@@ -27,6 +27,24 @@
 
     "use strict";
 
+    function safelyCloseHtmlTags(htmlStr) {
+        if (!htmlStr || typeof htmlStr !== 'string') return htmlStr;
+        var openTags = [];
+        htmlStr.replace(/<([a-zA-Z0-9]+)(?:\s+[^>]*)?>/g, function(match, tagName) {
+            if (!/^(?:img|br|hr|input|meta|link)$/i.test(tagName)) {
+                openTags.push(tagName);
+            }
+        });
+        htmlStr.replace(/<\/([a-zA-Z0-9]+)>/g, function(match, tagName) {
+            var idx = openTags.lastIndexOf(tagName);
+            if (idx !== -1) openTags.splice(idx, 1);
+        });
+        for (var i = openTags.length - 1; i >= 0; i--) {
+            htmlStr += '</' + openTags[i] + '>';
+        }
+        return htmlStr;
+    }
+
     var Typed = function(el, options) {
 
         // chosen element to manipulate text
@@ -232,7 +250,7 @@
                             if (self.isInput) {
                                 self.el.val(nextString);
                             } else if (self.contentType === 'html') {
-                                self.el.html(nextString);
+                                self.el.html(safelyCloseHtmlTags(nextString));
                             } else {
                                 self.el.text(nextString);
                             }
@@ -283,7 +301,7 @@
                     if (curString.substr(curStrPos).charAt(0) === '>') {
                         var tag = '';
                         while (curString.substr(curStrPos).charAt(0) !== '<') {
-                            tag -= curString.substr(curStrPos).charAt(0);
+                            tag += curString.substr(curStrPos).charAt(0);
                             curStrPos--;
                         }
                         curStrPos--;
@@ -300,7 +318,7 @@
                     if (self.isInput) {
                         self.el.val(nextString);
                     } else if (self.contentType === 'html') {
-                        self.el.html(nextString);
+                        self.el.html(safelyCloseHtmlTags(nextString));
                     } else {
                         self.el.text(nextString);
                     }
