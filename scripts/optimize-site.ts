@@ -51,7 +51,8 @@ function minifyHtml(html: string): string {
     if (!/decoding=/i.test(updatedAttrs)) {
       updatedAttrs += ' decoding="async"';
     }
-    return `<img ${updatedAttrs.trim()}>`;
+    let clean = updatedAttrs.trim().replace(/\/$/, '').trim();
+    return `<img ${clean}>`;
   });
 
   // Restore preserved blocks
