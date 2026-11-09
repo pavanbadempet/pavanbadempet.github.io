@@ -37,6 +37,11 @@ function minifyHtml(html: string): string {
     preservedBlocks.push(match);
     return `___PRESERVED_BLOCK_${preservedBlocks.length - 1}___`;
   });
+  // Also preserve mermaid diagrams so whitespace and line breaks remain intact
+  processed = processed.replace(/<div class="mermaid"[^>]*>[\s\S]*?<\/div>/gi, (match) => {
+    preservedBlocks.push(match);
+    return `___PRESERVED_BLOCK_${preservedBlocks.length - 1}___`;
+  });
 
   // Remove standard HTML comments (exclude conditional comments)
   processed = processed.replace(/<!--(?!\[if)[\s\S]*?-->/g, "");

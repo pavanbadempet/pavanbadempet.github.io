@@ -28,17 +28,17 @@ A production-grade healthcare data platform designed for scalable ETL processing
 ### System Architecture
 <div class="mermaid" style="background: transparent; padding: 10px; border-radius: 8px;">
 graph TD
-    User([User / Patient]) -->|Vitals & Queries| App[Streamlit App]
-    App -->|API Request| Backend[FastAPI Backend]
-    
-    subgraph Engine [AI & Analytics Engine]
-        Backend -->|Extract Lab Reports| GeminiVision[Gemini Vision API]
-        Backend -->|Run Symptoms Classifier| XGBoost[XGBoost ML Models]
-        Backend -->|Semantic Search| FAISS[(FAISS Vector DB)]
-        FAISS -->|Retrieve Context| GeminiPro[Gemini Pro RAG]
-    end
+  User([User / Patient]) -->|Vitals & Queries| App[Streamlit App]
+  App -->|API Request| Backend[FastAPI Backend]
+  
+  subgraph Engine [AI & Analytics Engine]
+      Backend -->|Extract Lab Reports| GeminiVision[Gemini Vision API]
+      Backend -->|Run Symptoms Classifier| XGBoost[XGBoost ML Models]
+      Backend -->|Semantic Search| FAISS[(FAISS Vector DB)]
+      FAISS -->|Retrieve Context| GeminiPro[Gemini Pro RAG]
+  end
 
-    XGBoost -->|Diagnostic Prediction| Backend
-    GeminiPro -->|Grounded Medical Assist| Backend
-    Backend -->|Response Payload| App
+  XGBoost -->|Diagnostic Prediction| Backend
+  GeminiPro -->|Grounded Medical Assist| Backend
+  Backend -->|Response Payload| App
 </div>

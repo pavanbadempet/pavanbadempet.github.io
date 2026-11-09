@@ -47,9 +47,17 @@ if (fs.existsSync(WORKS_DIR)) {
     for (const file of fs.readdirSync(WORKS_DIR)) {
         if (file.endsWith('.md')) {
             const parsed = matter(fs.readFileSync(path.join(WORKS_DIR, file), 'utf8'));
+            const mermaidBlocks: string[] = [];
+            const safeContent = parsed.content.replace(/<div class="mermaid"[\s\S]*?<\/div>/gi, (match) => {
+                mermaidBlocks.push(match);
+                return `<!--MERMAID_BLOCK_${mermaidBlocks.length - 1}-->`;
+            });
+            let renderedHtml = marked.parse(safeContent) as string;
+            renderedHtml = renderedHtml.replace(/<!--MERMAID_BLOCK_(\d+)-->/g, (_, idx) => mermaidBlocks[Number(idx)]);
+
             const workItem = {
                 ...parsed.data,
-                content: marked.parse(parsed.content),
+                content: renderedHtml,
                 id: path.basename(file, '.md'),
                 url: `/works/${path.basename(file, '.md')}/`
             };
