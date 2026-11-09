@@ -27,7 +27,7 @@ jobs:
       - name: Setup Bun (Ultra-Fast JS/TS Runtime)
         uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version: "1.3.14"
 
       - name: Install Dependencies
         run: bun install --frozen-lockfile

@@ -283,7 +283,7 @@ copyDir(path.join(ROOT_DIR, 'assets'), path.join(SITE_DIR, 'assets'), (name) => 
 copyDir(path.join(ROOT_DIR, 'intro'), path.join(SITE_DIR, 'intro'));
 
 // Copy root metadata and manifests
-const rootFiles = ['favicon.ico', 'site.webmanifest', 'robots.txt', 'humans.txt', 'llms.txt', 'service-worker.js'];
+const rootFiles = ['favicon.ico', 'site.webmanifest', 'robots.txt', 'humans.txt', 'llms.txt', 'service-worker.js', '.nojekyll'];
 for (const f of rootFiles) {
     const srcF = path.join(ROOT_DIR, f);
     if (fs.existsSync(srcF)) {
