@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pavan-portfolio-v12';
+const CACHE_NAME = 'pavan-portfolio-v13';
 
 // Core assets to pre-cache on install for instant loading
 const PRECACHE_URLS = [
@@ -14,6 +14,7 @@ const PRECACHE_URLS = [
     '/assets/js/marked.min.js',
     '/assets/js/instant-prefetch.js',
     '/assets/wasm/rust_wasm_engine.wasm',
+    '/assets/img/pavan.webp',
     '/assets/img/pavan_badempet.webp',
     '/site.webmanifest'
 ];
